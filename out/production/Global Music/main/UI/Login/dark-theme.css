@@ -1,0 +1,20 @@
+* {
+    -fx-primary: #2A2E37;
+    -fx-secondary: #FFFF8D;
+    -fx-primarytext: #B2B2B2;
+    -fx-text-fill: #808080;
+}
+
+.login-bg {
+    -fx-background-color: -fx-primary;
+}
+
+.btn_login {
+
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-background-color: -fx-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
