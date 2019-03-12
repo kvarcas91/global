@@ -18,9 +18,8 @@ public class Main extends Application {
     private enum accountType {PUBLIC, GENERAL, ORGANISATION}
 
 
-
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UI/Login/login_ui.fxml"));
         primaryStage.setTitle("Global music");
         primaryStage.setScene(new Scene(root, 400, 300));
@@ -56,7 +55,6 @@ public class Main extends Application {
    */
 
 
-
         Scanner input = new Scanner(System.in);
 
         Price pricePlace = new Price();
@@ -68,50 +66,59 @@ public class Main extends Application {
         double rate = pricePlace.getRate();
         String name = pricePlace.getName();
 
-
-        System.out.println("Please Enter Concert Name: ");
-        while (input.hasNextLine()) {
-            name = input.nextLine();
+        while (name == null) {
+            System.out.print("Please enter concert name:");
+            name = (input.next());
+            name = (name.replace(" ", "").isEmpty() || name.length() < 4 ? null : name);
             break;
+
+        }
+        do {
+            System.out.print("Please enter concert price:");
+            while (!input.hasNextDouble()) {
+                double checker = input.nextDouble();
+                System.out.printf("\"%s\" is not a valid number.\n", checker);
+            }
+            price = input.nextInt();
+        } while (price <= 0);
+
+
+        while (seat == null) {
+            System.out.print("Please enter your seat place:");
+            seat = (input.next());
+            seat = (seat.replace(" ", "").isEmpty() || seat.length() < 4 ? null : seat);
+            break;
+
         }
 
-        System.out.println("Please Enter Concert Price: ");
-        while (input.hasNextDouble()) {
-            price = input.nextDouble();
+        while (concertID == null) {
+            System.out.print("Please enter concert id:");
+            concertID = (input.next());
+            concertID = (concertID.replace(" ", "").isEmpty() || concertID.length() < 4 ? null : concertID);
             break;
+
         }
 
-
-
-        System.out.println("Please Enter your Seat Number: ");
-        while (input.hasNext()) {
-            seat = input.next();
-            break;
-        }
-
-
-        System.out.println("Please Enter Concert ID: ");
-        while (input.hasNext()) {
-            concertID =input.next();
-            break;
-        }
-
-        System.out.println("Please Enter Price ID: ");
-        while (input.hasNext()) {
+        do {
+            System.out.print("Please enter price id:");
+            while (!input.hasNextInt()) {
+                int checker = input.nextInt();
+                System.out.printf("\"%s\" is not a valid number.\n", checker);
+            }
             priceID = input.nextInt();
-            break;
-        }
+        } while (priceID <= 0);
 
-        System.out.println("Did you got discount? ");
-        while (input.hasNextDouble()) {
+        do {
+            System.out.print("Please enter amount of discount:");
+            while (!input.hasNextDouble()) {
+                double checker = input.nextDouble();
+                System.out.printf("\"%s\" is not a valid number.\n", checker);
+            }
             rate = input.nextDouble();
-            break;
-        }
+        } while (rate <= 0);
 
-        if (!name.isEmpty() && price != -1 && !concertID.isEmpty() && rate != -1 && !seat.isEmpty() && priceID !=-1) {
-            //System.out.println("Error");
-        }
         pricePlace.finalPrice(name, rate, priceID, seat, concertID, price);
+
 
         System.out.println("Concert name is:  " + name);
         System.out.println("Concert price is:  " + price + " £ ");
@@ -120,6 +127,6 @@ public class Main extends Application {
         System.out.println("Price ID is: " + priceID);
         System.out.println("Discount is: " + rate + " %");
         System.out.println("Final price is : " + price / rate + " £ ");
-    }
-
+        }
 }
+

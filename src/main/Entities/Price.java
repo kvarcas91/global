@@ -1,18 +1,14 @@
 package main.Entities;
 
 public class Price {
-    private String concertName;
-    private double concertPrice;
-    private String concertID;
-    private String rowGroup;
-    private int priceID;
-    private double corporatePriceRate;
+    private String concertName = null;
+    private double concertPrice = -1;
+    private String concertID = null;
+    private String rowGroup = null;
+    private int priceID = -1;
+    private double corporatePriceRate = -1;
 
-    public void setPrice(double price) {
-
-        this.concertPrice = price;
-    }
-
+    public void setPrice(double price) {this.concertPrice = price;}
     public void setConcert(String concertID) { this.concertID = concertID; }
     public void setRow(String row) { this.rowGroup = row; }
     public void setPriceid(int priceID) {  this.priceID = priceID; }
@@ -34,4 +30,21 @@ public class Price {
     public int getPriceID() {  return this.priceID;  }
     public double getRate() {return this.corporatePriceRate;  }
     public String getName() { return this.concertName; }
+
+
+
+
+
+
+// WHERE to put this?
+    public String toString () {
+        return String.format(super.toString() + "Concert Name: %s\n" +
+                "Concert Price: %s\n" +
+                "Seat: %s\n" +
+                "Discount: %s\n" +
+                "ConcertID: %s\n" +
+                "PriceID: %s\n", getName(), getPrice(), getSeatRow(),
+                getRate(),getConcertID(),getPriceID());
+    }
 }
+
