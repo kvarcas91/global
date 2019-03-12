@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import main.Entities.Customer;
 import main.Entities.Organization;
 import main.Entities.User;
-
 import java.util.Scanner;
 
 
