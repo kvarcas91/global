@@ -19,12 +19,48 @@
 }
 
 .btn_login {
-
     -fx-text-fill: #FFFFFF;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-background-color: -fx-primary;
     -fx-font-size: 15px;
     -fx-font-weight: 700;
+    -fx-border-size: 10px;
+    -fx-border-color: white;
+    -fx-width: 100%;
+}
 
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #3c3c3c;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
 }

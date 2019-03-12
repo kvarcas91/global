@@ -23,7 +23,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("UI/Login/login_ui.fxml"));
         primaryStage.setTitle("Global music");
         primaryStage.setScene(new Scene(root, 400, 300));
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 

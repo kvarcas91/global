@@ -19,12 +19,14 @@
 }
 
 .btn_login {
-
     -fx-text-fill: #FFFFFF;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-background-color: -fx-primary;
     -fx-font-size: 15px;
     -fx-font-weight: 700;
-
+    -fx-border-size: 10px;
+    -fx-border-color: white;
+    -fx-width: 100%;
 }
+

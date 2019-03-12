@@ -7,17 +7,32 @@
 <?import javafx.geometry.Insets?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXPasswordField?>
-<GridPane fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="CENTER"
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<GridPane fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER"
           vgap="20" hgap="10" stylesheets="@dark-theme.css" styleClass="login-bg">
 
-      <padding><Insets top="25" bottom="25" left="25" right="25"/> </padding>
+      <padding><Insets top="25" bottom="40" left="25" right="25"/> </padding>
 
-   <JFXTextField fx:id="userTextField"
-                 GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
-                 promptText="Username" styleClass="textField"/>
-   <JFXPasswordField GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
-                     promptText="Password" styleClass="passwordField"/>
-   <JFXButton GridPane.rowIndex="2" GridPane.columnIndex="0" text="Login"  styleClass="btn_login"
-              onAction="#pressMe"/>
+
+    <TabPane GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="3" tabClosingPolicy="UNAVAILABLE"
+             styleClass="tab-pane">
+        <Tab text="Login" styleClass="tab">
+            <GridPane alignment="CENTER" vgap="30" hgap="10">
+            <JFXTextField fx:id="userTextField"
+                          GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
+                          promptText="Username" styleClass="textField"/>
+            <JFXPasswordField GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
+                              promptText="Password" styleClass="passwordField"/>
+            <JFXButton GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" text="Login"  styleClass="btn_login"
+                       onAction="#pressMe"/>
+            </GridPane>
+        </Tab>
+        <Tab text="Register" styleClass="tab">
+            <Label text="Register stuff"/>
+        </Tab>
+    </TabPane>
 
 </GridPane>
