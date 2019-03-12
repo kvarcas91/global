@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 
-<StackPane stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="login-bg">
-         <children>
-            <AnchorPane layoutX="92.0" layoutY="80.0" prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px;">
-               <effect>
-                  <DropShadow color="WHITE" radius="14" width="40" />
-               </effect>
-               <children>
-                  <TabPane layoutX="23.0" layoutY="86.0" prefHeight="342.0" prefWidth="557.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="Login">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <JFXTextField labelFloat="true" layoutX="172.0" layoutY="74.0" prefHeight="26.0" prefWidth="200.0" promptText="Username" />
-                                    <JFXButton layoutX="326.0" layoutY="235.0" text="Login" styleClass="btn_login"/>
-                                    <JFXPasswordField labelFloat="true" layoutX="172.0" layoutY="156.0" prefHeight="26.0" prefWidth="200.0" promptText="Password" />
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
-                      <Tab text="Register">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-               </children>
-            </AnchorPane>
-         </children></AnchorPane>
-   </children>
-</StackPane>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<GridPane fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="CENTER"
+          vgap="20" hgap="10" stylesheets="@dark-theme.css" styleClass="login-bg">
+
+      <padding><Insets top="25" bottom="25" left="25" right="25"/> </padding>
+
+   <JFXTextField fx:id="userTextField"
+                 GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
+                 promptText="Username" styleClass="textField"/>
+   <JFXPasswordField GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
+                     promptText="Password" styleClass="passwordField"/>
+   <JFXButton GridPane.rowIndex="2" GridPane.columnIndex="0" text="Login"  styleClass="btn_login"
+              onAction="#pressMe"/>
+
+</GridPane>

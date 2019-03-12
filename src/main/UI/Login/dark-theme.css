@@ -2,11 +2,20 @@
     -fx-primary: #2A2E37;
     -fx-secondary: #FFFF8D;
     -fx-primarytext: #B2B2B2;
-    -fx-text-fill: #808080;
+    color_grey: #808080;
+    focus_color: #FFFFFF;
 }
 
 .login-bg {
     -fx-background-color: -fx-primary;
+}
+
+.textField, .passwordField{
+    -fx-prompt-text-fill: color_grey;
+    -fx-text-fill: -fx-secondary;
+    -jfx-focus-color: focus_color;
+
+
 }
 
 .btn_login {
@@ -17,4 +26,5 @@
     -fx-background-color: -fx-primary;
     -fx-font-size: 15px;
     -fx-font-weight: 700;
+
 }

@@ -3,6 +3,61 @@ package main.Entities;
 
 public class User {
 
+    /**
+     * @Create user without optional parameters (returns User):
+     *      @User user = new User.Builder(userID, accountType, userName, userPassword).build();
+     *
+     *      OR
+     *
+     * @Create user with optional parameters (returns User):
+     *      @User user = new User.Builder(userID, accountType, userName, userPassword)
+     *                              .email(String)
+     *                              .address1(String)
+     *                              .address2(String)
+     *                              .town(String)
+     *                              .postCode(String)
+     *                              .phoneNumber(String)
+     *                              .build();
+     *
+     * @Create user.builder (returns User.Builder):
+     *      @User.Builder builder = new User.Builder(userID, accountType, userName, userPassword);
+     *      DO NOT call build() method as it will convert it to USER object
+     *
+     * @Create customer (returns Customer):
+     *      REQUIREMENTS:
+     *      @Customer (User.Builder(), title, firstName, lastName)
+     *
+     *      @Customer customer = new Customer (new User.Builder(userID, accountType, userName, userPassword), title, firstName, lastName);
+     *
+     *      OR
+     *
+     *      @CREATE User with builder
+     *      @Customer customer = new Customer(new User.Builder(user), title, firstName, lastName);
+     *
+     *      OR
+     *
+     *      @CREATE user builder
+     *      @Customer customer = new Customer(builder, title, firstName, lastName);
+     *
+     * Create organiser (returns organiser):
+     *      REQUIREMENTS:
+     *      @Organiser (User.Builder(), title, firstName, lastName, webAddress)
+     *
+     *      @Organiser organiser = new Organization (new User.Builder(params), title, firstName, lastName, webAddress);
+     *
+     *      OR
+     *
+     *      @CREATE User with builder
+     *      @Organiser organiser = new Organization(new User.Builder(user), title, firstName, lastName, webAddress);
+     *
+     *      OR
+     *
+     *      @CREATE user builder
+     *      @Organiser organiser = new Organization(builder, title, firstName, lastName, webAddress);
+     *
+     */
+
+
     // Mandatory
     private int userID = -1;
     private String accountType = null;
