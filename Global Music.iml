@@ -9,6 +9,7 @@
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jfoenix-9.0.8" level="application" />
-    <orderEntry type="library" exported="" name="lib" level="application" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.81" level="project" />
   </component>
 </module>
