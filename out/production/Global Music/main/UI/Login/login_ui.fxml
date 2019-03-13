@@ -7,7 +7,8 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 
 
-<GridPane fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER"
+<GridPane fx:id="root"
+          fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER"
           vgap="20" hgap="10" stylesheets="@dark-theme.css" styleClass="login-bg">
 
       <padding><Insets top="25" bottom="40" left="25" right="25"/> </padding>
@@ -16,7 +17,8 @@
         <JFXTextField fx:id="userTextField"
                       GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
                       promptText="Username" styleClass="textField"/>
-        <JFXPasswordField GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
+        <JFXPasswordField fx:id="passwordField"
+                          GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
                           promptText="Password" styleClass="passwordField"/>
         <JFXButton GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" text="Login"  styleClass="btn_login"
                    onAction="#pressMe"/>

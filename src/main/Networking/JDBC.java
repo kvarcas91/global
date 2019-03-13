@@ -29,7 +29,7 @@ public class JDBC {
             //disconnect from db
         }
         catch(SQLException exc) {
-            exc.printStackTrace();
+            System.err.println(exc.getMessage());
         }
     }
     static void printFromDB(ResultSet rs,int numberOfColumn){
@@ -39,7 +39,7 @@ public class JDBC {
             fromDB = rs.getString(i);
             System.out.println(fromDB);
         }catch(SQLException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }

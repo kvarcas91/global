@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import main.Entities.Customer;
 import main.Entities.Event;
@@ -11,6 +13,11 @@ import main.Entities.Organization;
 import main.Entities.User;
 import main.Networking.JDBC;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 
@@ -33,7 +40,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-        Event aevent;
+        /*Event aevent;
         aevent = new Event("Event Name","6 6 666","Luton","Super Event","Leo");
 
         aevent.ShowEvent();
@@ -46,6 +53,9 @@ public class Main extends Application {
         JDBC conec;
         String query = "Select * FROM ITEM WHERE wiek = 21";
         conec = new JDBC(query, 4);
+*/
+
+
     }
 
     private static String getInput (String question) {
