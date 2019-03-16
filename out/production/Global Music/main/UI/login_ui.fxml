@@ -9,7 +9,7 @@
 
 <GridPane fx:id="root"
           fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER"
-          vgap="20" hgap="10" stylesheets="@dark-theme.css" styleClass="login-bg">
+          vgap="20" hgap="10" stylesheets="@../Resources/Styles/login.css" styleClass="login-bg">
 
       <padding><Insets top="25" bottom="40" left="25" right="25"/> </padding>
 

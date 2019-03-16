@@ -4,20 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import main.Entities.Customer;
-import main.Entities.Event;
-import main.Entities.Organization;
-import main.Entities.User;
-import main.Networking.JDBC;
+import javafx.stage.StageStyle;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 
@@ -29,10 +18,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("UI/Login/login_ui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("UI/login_ui.fxml"));
         primaryStage.setTitle("Global music");
         primaryStage.setScene(new Scene(root, 400, 300));
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
 

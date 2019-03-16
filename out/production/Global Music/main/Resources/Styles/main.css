@@ -1,0 +1,23 @@
+* {
+    -fx-primary: #2A2E37;
+    -fx-secondary: #FFFF8D;
+    -fx-primarytext: #B2B2B2;
+    color_grey: #808080;
+    focus_color: #FFFFFF;
+}
+
+.bg-color {
+    -fx-background-color: -fx-primary;
+}
+
+.vbox {
+    -fx-background-color: -fx-primary;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 40, 0, 0, 0);
+}
+
+.test-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: -fx-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}

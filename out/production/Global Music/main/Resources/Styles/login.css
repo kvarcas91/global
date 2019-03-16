@@ -14,8 +14,6 @@
     -fx-prompt-text-fill: color_grey;
     -fx-text-fill: -fx-secondary;
     -jfx-focus-color: focus_color;
-
-
 }
 
 .btn_login {
