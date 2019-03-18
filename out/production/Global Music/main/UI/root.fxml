@@ -7,6 +7,7 @@
 <AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.Controllers.RootController" stylesheets="@../Resources/Styles/main.css">
       <fx:include source="menu.fxml"/>
+
       <GridPane layoutX="200.0" prefHeight="600.0" prefWidth="600.0" alignment="CENTER"
                 AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0">
 
