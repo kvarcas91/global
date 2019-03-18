@@ -32,8 +32,8 @@ public class JDBC {
             System.err.println(exc.getMessage());
         }
     }
-    static void printFromDB(ResultSet rs,int numberOfColumn){
-        System.out.println("");//Just to separate rows in console
+    private static void printFromDB(ResultSet rs,int numberOfColumn){
+        System.out.println(""); //Just to separate rows in console
         for (int i = 1; i <= numberOfColumn; i++)
         try{
             fromDB = rs.getString(i);

@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Label?>
-<?import com.jfoenix.controls.JFXButton?>
+
 <AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.Controllers.RootController" stylesheets="@../Resources/Styles/main.css">
-      <VBox prefWidth="200.0" spacing="20" styleClass="vbox"
-            AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
-          <JFXButton text="first item" styleClass="test-label" maxWidth="Infinity"/>
-          <JFXButton text="second item" styleClass="test-label"  maxWidth="Infinity"/>
-          <JFXButton text="third item" styleClass="test-label" maxWidth="Infinity"/>
-          <JFXButton text="fourth item" styleClass="test-label" maxWidth="Infinity"/>
-          <JFXButton text="fifth item" styleClass="test-label" maxWidth="Infinity"/>
-          <JFXButton text="seventh item" styleClass="test-label" maxWidth="Infinity"/>
-          <JFXButton text="eighth item" styleClass="test-label" maxWidth="Infinity"/>
-      </VBox>
-      <GridPane layoutX="200.0" prefHeight="600.0" prefWidth="600.0"
+      <fx:include source="menu.fxml"/>
+      <GridPane layoutX="200.0" prefHeight="600.0" prefWidth="600.0" alignment="CENTER"
                 AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="200" AnchorPane.rightAnchor="0">
 
           <Label text="test" GridPane.rowIndex="0" GridPane.columnIndex="0" />

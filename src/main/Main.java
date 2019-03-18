@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import main.Entities.Event;
+import main.Networking.JDBC;
 
 import java.util.Scanner;
 
@@ -29,8 +31,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-        /*Event aevent;
+/*
+        Event aevent;
         aevent = new Event("Event Name","6 6 666","Luton","Super Event","Leo");
 
         aevent.ShowEvent();
