@@ -3,10 +3,9 @@
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 
-<?import javafx.scene.control.ToolBar?>
-<AnchorPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
             stylesheets="@../Resources/Styles/main.css" fx:controller="main.Controllers.MenuController">
-    <ToolBar prefWidth="200.0" orientation="VERTICAL" styleClass="vbox"
+    <VBox prefWidth="200.0" styleClass="vbox"
           AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
         <JFXButton fx:id="bookingButton" text="Bookings" styleClass="test-label" maxWidth="Infinity" onAction="#bookingEvent"/>
         <JFXButton fx:id="accountButton" text="My Account" styleClass="test-label"  maxWidth="Infinity" onAction="#accountEvent"/>
@@ -15,5 +14,8 @@
         <JFXButton text="fifth item" styleClass="test-label" maxWidth="Infinity"/>
         <JFXButton text="seventh item" styleClass="test-label" maxWidth="Infinity"/>
         <JFXButton text="eighth item" styleClass="test-label" maxWidth="Infinity"/>
-    </ToolBar>
+    </VBox>
+
+    <JFXButton fx:id="logOutButton" text="Log out" styleClass="test-label" prefWidth="200.0" AnchorPane.bottomAnchor="20"
+            onAction="#logOut"/>
 </AnchorPane>

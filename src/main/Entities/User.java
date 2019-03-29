@@ -141,6 +141,8 @@ public class User {
     }
 
 
+    public User () {}
+
     public User (Builder builder) {
         this.userID = builder.userID;
         this.accountType = builder.accountType;

@@ -3,15 +3,19 @@ package main.Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.Background;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MenuController {
+public class MenuController extends Loader{
 
     @FXML
-    JFXButton bookingButton, accountButton, festivalsButton;
+    AnchorPane root;
+
+    @FXML
+    JFXButton bookingButton, accountButton, festivalsButton, logOutButton;
+
 
     private ArrayList<JFXButton> buttons = new ArrayList<>();
 
@@ -28,6 +32,10 @@ public class MenuController {
     public void festivalEvent (ActionEvent event) {
         System.out.println("Festivals");
         setButtonColors(festivalsButton);
+    }
+
+    public void logOut (ActionEvent event) {
+        super.loadLogin(root);
     }
 
     private void setButtonColors (JFXButton button) {

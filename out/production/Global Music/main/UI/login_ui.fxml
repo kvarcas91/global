@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.geometry.Insets?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="root" alignment="TOP_CENTER" hgap="10" prefHeight="241.0" prefWidth="418.0" styleClass="login-bg"
+          stylesheets="@../Resources/Styles/login.css" vgap="20" xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/10.0.1" fx:controller="main.Controllers.LoginController">
+
+      <padding><Insets bottom="40" left="25" right="25" top="25" /> </padding>
+
+        <GridPane alignment="CENTER" hgap="10" vgap="30">
+        <JFXTextField fx:id="userTextField" labelFloat="true" prefHeight="26.0" prefWidth="235.0" promptText="Username"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+        <JFXPasswordField fx:id="passwordField" labelFloat="true" promptText="Password"
+                          styleClass="passwordField" GridPane.columnIndex="0" GridPane.columnSpan="4"
+                          GridPane.rowIndex="2" />
+
+          <HBox GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="3" alignment="BOTTOM_RIGHT" spacing="20">
+
+            <JFXButton onAction="#register" styleClass="btn_register" text="Register"/>
+
+            <JFXButton onAction="#login" styleClass="btn_login" text="Login" textAlignment="CENTER"/>
 
 
-<GridPane fx:id="root"
-          fx:controller="main.Controllers.LoginController" xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER"
-          vgap="20" hgap="10" stylesheets="@../Resources/Styles/login.css" styleClass="login-bg">
+          </HBox>
 
-      <padding><Insets top="25" bottom="40" left="25" right="25"/> </padding>
 
-        <GridPane alignment="CENTER" vgap="30" hgap="10">
-        <JFXTextField fx:id="userTextField"
-                      GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
-                      promptText="Username" styleClass="textField"/>
-        <JFXPasswordField fx:id="passwordField"
-                          GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" labelFloat="true"
-                          promptText="Password" styleClass="passwordField"/>
-        <JFXButton GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" text="Login"  styleClass="btn_login"
-                   onAction="#pressMe"/>
         </GridPane>
+
 
 </GridPane>

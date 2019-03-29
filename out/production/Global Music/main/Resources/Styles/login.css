@@ -21,10 +21,26 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-background-color: -fx-primary;
-    -fx-font-size: 15px;
+    -fx-font-size: 14px;
     -fx-font-weight: 700;
     -fx-border-size: 10px;
     -fx-border-color: white;
     -fx-width: 100%;
+}
+
+.btn_register, .text {
+    -fx-text-fill: #FFFFFF;
+        -fx-background-color: -fx-primary;
+        -fx-font-size: 14px;
+        -fx-font-weight: 700;
+        -fx-width: 100%;
+}
+
+.radio_button {
+    -fx-font-size: 14px;
+    -fx-stroke-width: 1px;
+    -fx-fill: transparent;
+    -fx-text-fill: #FFFFFF;
+    -jfx-selected-color: -fx-secondary;
 }
 

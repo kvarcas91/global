@@ -14,15 +14,12 @@ import java.util.Scanner;
 
 public class Main extends Application {
 
-    private enum accountType {PUBLIC, GENERAL, ORGANISATION}
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UI/login_ui.fxml"));
         primaryStage.setTitle("Global music");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setScene(new Scene(root, 500, 300));
         primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();

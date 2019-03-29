@@ -5,7 +5,6 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,11 +19,10 @@ import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends Loader implements Initializable {
 
     private final String username = "root";
     private final String password = "root";
@@ -38,66 +36,22 @@ public class LoginController implements Initializable {
     @FXML
     JFXPasswordField passwordField;
 
-    @FXML
-    void pressMe (ActionEvent event) {
+    public void register (ActionEvent event) {
+        loadRegister(root);
+    }
+
+    public void login (ActionEvent event) {
         checkUser();
     }
 
     private void checkUser () {
 
-        String message;
-
         if (userTextField.getText().equals(username) && passwordField.getText().equals(password))
-            loadMain();
-        else message = "Incorrect";
-    }
-
-    private void loadMain () {
-
-
-        try {
-            /*GridPane pane = FXMLLoader.load(getClass().getResource("../UI/root.fxml"));
-            root.getChildren().setAll(pane);
-
-            RootController rootController = new RootController();
-            rootController.setUser("test bla bla bla"); */
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../UI/root.fxml"));
-            Parent parent = loader.load();
-            RootController rootController = loader.getController();
-            rootController.setUser("test user from login");
-            Stage stage = new Stage();
-            stage.setWidth(1000);
-            stage.setHeight(600);
-            stage.setResizable(true);
-            stage.setMinWidth(800);
-            stage.setMinHeight(600);
-            Rectangle2D primScreenBound = Screen.getPrimary().getVisualBounds();
-            stage.setX((primScreenBound.getWidth() - stage.getWidth()) / 2);
-            stage.setY((primScreenBound.getHeight() - stage.getHeight()) / 4);
-            stage.setScene(new Scene(parent));
-            stage.show();
-            Stage loginStage = (Stage) root.getScene().getWindow();
-            loginStage.close();
-
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-
-
-        /*Stage stage = (Stage) root.getScene().getWindow();
-        stage.setWidth(800);
-        stage.setHeight(600);
-        stage.setResizable(true);
-        stage.setMinWidth(800);
-        stage.setMinHeight(600);
-        Rectangle2D primScreenBound = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBound.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBound.getHeight() - stage.getHeight()) / 4); */
+            loadMain(root, null);
 
     }
+
+
 
     public void initialize (URL url, ResourceBundle bundle) {
         RequiredFieldValidator validator = new RequiredFieldValidator();
