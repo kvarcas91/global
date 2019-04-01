@@ -8,7 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="jfoenix-9.0.8" level="application" />
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0.1511" level="project" />
+    <orderEntry type="library" exported="" name="jfoenix-9.0.81" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

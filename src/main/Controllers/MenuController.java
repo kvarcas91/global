@@ -3,10 +3,16 @@ package main.Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Background;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javafx.scene.layout.AnchorPane;
 
 public class MenuController {
 
@@ -20,9 +26,19 @@ public class MenuController {
         setButtonColors(bookingButton);
     }
 
-    public void accountEvent (ActionEvent event) {
-        System.out.println("Account");
+    public void accountEvent (ActionEvent event) throws IOException {
+       Stage home = new Stage();
+       Parent root = FXMLLoader.load(getClass().getResource("../UI/AccountProfile.fxml"));
+       Scene scene = new Scene(root);
+       home.setScene(scene);
+       home.show();
+
+        System.out.println("Welcome");
+
         setButtonColors(accountButton);
+
+        //AnchorPane pane = FXMLLoader.load(getClass().getResource("../UI/AccountProfile.fxml"));
+        //pane.getChildren().setAll(pane);
     }
 
     public void festivalEvent (ActionEvent event) {

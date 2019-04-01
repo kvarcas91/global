@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -28,6 +29,19 @@ public class LoginController implements Initializable {
 
     private final String username = "root";
     private final String password = "root";
+    private static LoginController instance;
+
+    public LoginController () {
+        instance = this;
+    }
+
+    public static LoginController getInstance()
+    {
+        return instance;
+    }
+    public String userName() {
+        return username;
+    }
 
     @FXML
     GridPane root;
@@ -37,6 +51,9 @@ public class LoginController implements Initializable {
 
     @FXML
     JFXPasswordField passwordField;
+
+    @FXML
+    Label userName;
 
     @FXML
     void pressMe (ActionEvent event) {
