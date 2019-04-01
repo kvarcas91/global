@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.MyAccountController">
+    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="197.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="0.0" prefWidth="197.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="225.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="180.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="85.0" minHeight="-Infinity" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="118.0" minHeight="0.0" prefHeight="79.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="246.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="183.0" minHeight="8.0" prefHeight="81.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="130.0" minHeight="-Infinity" prefHeight="1.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="130.0" minHeight="-Infinity" prefHeight="61.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label fx:id="userType" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="131.0" GridPane.columnIndex="3">
+                <font>
+                    <Font name="System Bold" size="13.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="195.0" text="                    First Name" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="42.0" prefHeight="33.0" prefWidth="195.0" text="                    Last Name" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="78.0" prefHeight="33.0" prefWidth="195.0" text="                    Address 1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="114.0" prefHeight="33.0" prefWidth="195.0" text="                    Address 2" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="148.0" prefHeight="33.0" prefWidth="195.0" text="                      Town" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="185.0" prefHeight="33.0" prefWidth="195.0" text="                   Post Code" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="217.0" prefHeight="33.0" prefWidth="195.0" text="                  Email Address" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="249.0" prefHeight="33.0" prefWidth="195.0" text="                 Phone Number" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="282.0" prefHeight="33.0" prefWidth="195.0" text="                    User Name" GridPane.columnIndex="1">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="195.0" text="                    Password" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font>
+            </Label>
+            <Button fx:id="apply" mnemonicParsing="false" onAction="#createApply" prefHeight="25.0" prefWidth="108.0" text="Apply" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                <font>
+                    <Font name="System Bold" size="12.0" />
+                </font></Button>
+            <TextField id="user name" fx:id="userName" prefHeight="25.0" prefWidth="329.0" promptText="User Name" GridPane.columnIndex="2" />
+            <TextField id="first name" fx:id="firstName" prefHeight="25.0" prefWidth="329.0" promptText="First Name" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField id="last name" fx:id="lastName" prefHeight="25.0" prefWidth="329.0" promptText="Last Name" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField id="address 1" fx:id="address1" prefHeight="25.0" prefWidth="329.0" promptText="Address 1" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField id="address 2" fx:id="address2" prefHeight="25.0" prefWidth="329.0" promptText="Address 2" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="town" prefHeight="25.0" prefWidth="329.0" promptText="Town" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="postCode" prefHeight="25.0" prefWidth="329.0" promptText="Post Code" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextField fx:id="email" prefHeight="25.0" prefWidth="329.0" promptText="example@example.com" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="329.0" promptText="07111111111" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+         <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        </children>
+    </GridPane>
+</AnchorPane>
