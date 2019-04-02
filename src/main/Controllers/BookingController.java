@@ -15,6 +15,15 @@ import java.util.ResourceBundle;
 
 public class BookingController implements Initializable {
 
+    /**
+     *          ########################################################
+     *          #############   How to create more pages   #############
+     *          ########################################################
+     *  Loader loader = new Loader(RootController.getInstance().getContent());
+     *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
+     *          ########################################################
+     */
+
     @FXML
     public TableView<Booking> Bookings;
 
