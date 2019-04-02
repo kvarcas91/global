@@ -3,39 +3,60 @@ package main.Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.ResourceBundle;
 
-public class MenuController extends Loader{
+public class MenuController implements Initializable{
 
     @FXML
-    AnchorPane root;
+    private AnchorPane root;
 
     @FXML
-    JFXButton bookingButton, accountButton, festivalsButton, logOutButton;
+    private JFXButton bookingButton, accountButton, festivalsButton, logOutButton;
 
 
+    private HashMap <String, String> fxml = new HashMap<>();
     private ArrayList<JFXButton> buttons = new ArrayList<>();
+    private Loader loader;
 
-    public void bookingEvent (ActionEvent event) {
-        System.out.println("Bookings");
+
+    public MenuController () {
+        loader = new Loader(RootController.getInstance().getContent());
+    }
+
+    @FXML
+    private void bookingEvent (ActionEvent event) {
+        loader.loadPage(fxml.get("bookings"));
         setButtonColors(bookingButton);
     }
 
-    public void accountEvent (ActionEvent event) {
-        System.out.println("Account");
+    @FXML
+    private void accountEvent (ActionEvent event) {
+        loader.loadPage(fxml.get("account"));
         setButtonColors(accountButton);
     }
 
-    public void festivalEvent (ActionEvent event) {
-        System.out.println("Festivals");
+    @FXML
+    private void festivalEvent (ActionEvent event) {
+        loader.loadPage(fxml.get("festivals"));
         setButtonColors(festivalsButton);
     }
 
-    public void logOut (ActionEvent event) {
-        super.loadLogin(root);
+    @FXML
+    private void logOut (ActionEvent event) {
+        loader.loadLogin(root);
     }
 
     private void setButtonColors (JFXButton button) {
@@ -44,5 +65,11 @@ public class MenuController extends Loader{
             if (btn.equals(button)) btn.setStyle("-fx-background-color: grey;");
             else btn.setStyle("-fx-background-color: #2A2E37;");
         }
+    }
+
+    public void initialize (URL url, ResourceBundle bundle) {
+        fxml.put("festivals", "../UI/festivals.fxml");
+        fxml.put("account", "../UI/account.fxml");
+        fxml.put("bookings", "../UI/bookings.fxml");
     }
 }

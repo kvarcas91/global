@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -11,23 +12,42 @@ import main.Entities.User;
 
 import java.io.IOException;
 
-public class Loader {
+class Loader{
 
-    public void loadMain (Pane root, User user) {
+    private BorderPane borderPane;
+
+    Loader () {}
+
+    Loader (BorderPane pane) {
+        this.borderPane = pane;
+    }
+
+    void loadMain (Pane root, User user) {
         loader(root, "../UI/root.fxml", true, user, 1000, 600, 800, 600);
     }
 
-    public void loadLogin (Pane root){
+    void loadLogin (Pane root){
         loader(root, "../UI/login_ui.fxml", false, null, 500, 300, 500, 300);
     }
 
-    public void loadRegister (Pane root) {
-        loader(root, "../UI/register.fxml", false, null, 600, 500, 600, 500);
+    void loadRegister (Pane root) {
+        loader(root, "../UI/register.fxml", false, null, 600, 600, 600, 600);
+    }
+
+    void loadPage (String path) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        try {
+            Pane pane = loader.load();
+            borderPane.setCenter(pane);
+        }
+        catch (IOException e) {
+            return;
+        }
     }
 
     /**
      *
-     * @param root pane
+     * @param root borderPane
      * @param path .fxml path
      * @param resizable boolean
      * @param user obj
@@ -47,9 +67,9 @@ public class Loader {
             rootController.setUser(user);
         }
         Stage stage = new Stage();
+        stage.setResizable(resizable);
         stage.setWidth(geometry[0]);
         stage.setHeight(geometry[1]);
-        stage.setResizable(resizable);
         stage.setMinWidth(geometry[2]);
         stage.setMinHeight(geometry[3]);
         Rectangle2D primScreenBound = Screen.getPrimary().getVisualBounds();

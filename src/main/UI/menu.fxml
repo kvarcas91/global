@@ -5,7 +5,7 @@
 
 <AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
             stylesheets="@../Resources/Styles/main.css" fx:controller="main.Controllers.MenuController">
-    <VBox prefWidth="200.0" styleClass="vbox"
+    <VBox prefWidth="200.0" styleClass="vbox" spacing="10"
           AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
         <JFXButton fx:id="bookingButton" text="Bookings" styleClass="test-label" maxWidth="Infinity" onAction="#bookingEvent"/>
         <JFXButton fx:id="accountButton" text="My Account" styleClass="test-label"  maxWidth="Infinity" onAction="#accountEvent"/>
