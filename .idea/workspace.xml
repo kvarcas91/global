@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/RootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Organization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Entities/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/bookings.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,30 +64,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+            <state relative-caret-position="-68">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#881#882#0" expanded="true" />
-                <element signature="e#959#960#0" expanded="true" />
-                <element signature="method#festivalEvent#0;class#MenuController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Controllers/AccountController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/UI/bookings.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="391">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setAccountTypeVisibility#0;class#AccountController#0" />
-                <element signature="method#initialize#0;class#AccountController#0" />
               </folding>
             </state>
           </provider>
@@ -138,7 +137,6 @@
         <option value="$PROJECT_DIR$/src/main/UI/test.fxml" />
         <option value="$PROJECT_DIR$/src/main/UI/Login/dark-theme.css" />
         <option value="$PROJECT_DIR$/src/main/Entities/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/Entities/Booking.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Seat.java" />
         <option value="$PROJECT_DIR$/src/main/EventStart.java" />
         <option value="$PROJECT_DIR$/src/main/UI/Login/login_ui.fxml" />
@@ -154,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" />
         <option value="$PROJECT_DIR$/src/main/UI/festivals.fxml" />
-        <option value="$PROJECT_DIR$/src/main/UI/bookings.fxml" />
         <option value="$PROJECT_DIR$/src/main/UI/root.fxml" />
         <option value="$PROJECT_DIR$/src/main/Resources/Styles/main.css" />
         <option value="$PROJECT_DIR$/src/main/UI/menu.fxml" />
@@ -166,9 +163,13 @@
         <option value="$PROJECT_DIR$/src/main/Entities/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/User.java" />
-        <option value="$PROJECT_DIR$/src/main/UI/account.fxml" />
         <option value="$PROJECT_DIR$/src/main/Controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/UI/account.fxml" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/BookingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Entities/Booking.java" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/list.java" />
+        <option value="$PROJECT_DIR$/src/main/UI/bookings.fxml" />
       </list>
     </option>
   </component>
@@ -180,10 +181,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1615" />
-    <option name="height" value="880" />
+    <option name="x" value="277" />
+    <option name="width" value="975" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -290,9 +290,9 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554241520839" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554242837568" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SAIVA" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/bookingUIclass" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3229885" />
@@ -415,7 +415,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.34966442" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.34966442" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -451,7 +451,7 @@
       <window_info anchor="right" id="Coverage" order="11" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.34496644" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.34966442" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -496,9 +496,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -535,32 +532,6 @@
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="method#mainSeatBuilder#0;class#Seat#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1854#1855#0" expanded="true" />
-            <element signature="e#1886#1887#0" expanded="true" />
-            <element signature="e#1916#1917#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-            <element signature="e#2010#2011#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2175#2176#0" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2299#2300#0" expanded="true" />
-            <element signature="e#2341#2342#0" expanded="true" />
-            <element signature="e#2397#2398#0" expanded="true" />
-            <element signature="e#2445#2446#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/UI/festivals.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -741,14 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/UI/bookings.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -839,14 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/UI/account.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -856,6 +804,19 @@
             <element signature="e#1025#1026#0" expanded="true" />
             <element signature="e#1059#1060#0" expanded="true" />
             <element signature="method#initialize#0;class#LoginController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="method#festivalEvent#0;class#MenuController#0" />
           </folding>
         </state>
       </provider>
@@ -872,16 +833,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#959#960#0" expanded="true" />
-            <element signature="method#festivalEvent#0;class#MenuController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/list.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/account.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/bookings.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

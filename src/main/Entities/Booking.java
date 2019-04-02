@@ -1,30 +1,40 @@
 package main.Entities;
-import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
-import java.util.HashMap;
+
 
 public class Booking {
 
     //Mandatory
-    private int bookingID;
-    private int userID;
-    private int concertID;
-    private double bookingPrice;
+    private String bookingID;
+    private String userID;
+    private String concertID;
+    private String bookingPrice;
+    private String bookingDate;
 
+    public Booking(String b) {
+        StringTokenizer st = new StringTokenizer(b,"|");
 
-    public Booking() {
+        this.setBookingID(st.nextToken());
+        this.setUserID(st.nextToken());
+        this.setConcertID(st.nextToken());
+        this.setBookingPrice(st.nextToken());
+        this.setBookingDate(st.nextToken());
+
     }
 
-    public void createBooking() {
-        Scanner input = new Scanner(System.in);
+    /*    public Booking() {
+            this.setBookingID(validateIDInput("Please enter booking ID"));
+            this.setUserID(validateIDInput("Please enter user ID"));
+            this.setConcertID(validateIDInput("Please enter concert ID"));
+            this.setBookingPrice(validatePriceInput("Please enter booking Price"));
+
+        }
+    */
+    public void viewPreviousBookings() {
 
 
-
-
-        bookingID = validateIDInput("Please enter bookingID");
-        userID = validateIDInput("Please enter userID");
-        concertID = validateIDInput("Please enter concertID");
-        bookingPrice = validatePriceInput("Please enter the concert price");
 
     }
 
@@ -59,47 +69,53 @@ public class Booking {
     }
 
     public String toString () {
-        return String.format("bookingID: %d\n" +
+        return String.format("bookingID: %s\n" +
                         "userID: %s\n" +
                         "concertID: %s\n" +
-                        "bookingPrice: %s\n",
-                bookingID, userID, concertID, bookingPrice);
+                        "bookingPrice: %s\n" +
+                        "bookingDate: %s\n",
+                this.bookingID, this.userID, this.concertID, this.bookingPrice, this.bookingDate);
     }
 
 
-    public int getBookingID() {
+    public String getBookingID() {
         return bookingID;
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public int getConcertID() {
+    public String getConcertID() {
         return concertID;
     }
 
-    public double getBookingPrice() {
+    public String getBookingPrice() {
         return bookingPrice;
     }
 
+    public String getBookingDate() {
+        return bookingDate;
+    }
 
-
-    public void setBookingID(int bookingID) {
+    public void setBookingID(String bookingID) {
         this.bookingID = bookingID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
-    public void setConcertID(int concertID) {
+    public void setConcertID(String concertID) {
         this.concertID = concertID;
     }
 
-    public void setBookingPrice(double bookingPrice) {
+    public void setBookingPrice(String bookingPrice) {
         this.bookingPrice = bookingPrice;
     }
 
-
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
 }
+

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="main.Controllers.BookingController">
-
-    <Label text="Bookings"/>
+    <AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        <TableView fx:id="Bookings" layoutX="132.0" minWidth="-Infinity" prefHeight="280.0" prefWidth="468.0">
+            <columns>
+                <TableColumn fx:id="BookingID" prefWidth="75.0" text="BookingID" />
+                <TableColumn fx:id="ConcertID" prefWidth="75.0" text="ConcertID" />
+                <TableColumn fx:id="bookingPrice" prefWidth="75.0" text="Price" />
+                <TableColumn fx:id="BookingDate" prefWidth="75.0" text="BookingDate" />
+            </columns>
+        </TableView>
+        <JFXButton layoutX="46.0" layoutY="14.0" onAction="#handleButtonAction" text="Working" />
+        <JFXButton layoutX="59.0" layoutY="53.0" onAction="#handleButtonAction2" text="123" />
+    </AnchorPane>
 
 </AnchorPane>
