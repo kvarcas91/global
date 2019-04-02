@@ -33,6 +33,7 @@ public class MenuController {
        home.setScene(scene);
        home.show();
 
+
         System.out.println("Welcome");
 
         setButtonColors(accountButton);

@@ -1,11 +1,19 @@
 package main.Controllers;
-import javafx.animation.PauseTransition;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.RequiredFieldValidator;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.util.Duration;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,40 +25,132 @@ public class MyAccountController implements Initializable {
     private Label userType;
 
     @FXML
-    private Button apply;
+    private JFXTextField userName;
 
     @FXML
-    private TextField userName;
+    private JFXPasswordField password;
 
     @FXML
-    private TextField password;
+    private JFXTextField firstName;
 
     @FXML
-    private TextField firstName;
+    private JFXTextField lastName;
 
     @FXML
-    private TextField lastName;
+    private JFXTextField address1;
 
     @FXML
-    private TextField address1;
+    private JFXTextField address2;
 
     @FXML
-    private TextField address2;
+    private JFXTextField postCode;
 
     @FXML
-    private TextField town;
+    private JFXTextField town;
 
     @FXML
-    private TextField postCode;
+    private JFXTextField email;
 
     @FXML
-    private TextField email;
+    private JFXTextField phoneNumber;
 
     @FXML
-    private TextField phoneNumber;
+    private JFXButton applyButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        RequiredFieldValidator validator = new RequiredFieldValidator();
+        userName.getValidators().add(validator);
+        password.getValidators().add(validator);
+        lastName.getValidators().add(validator);
+        address1.getValidators().add(validator);
+        address2.getValidators().add(validator);
+        town.getValidators().add(validator);
+        postCode.getValidators().add(validator);
+        email.getValidators().add(validator);
+        phoneNumber.getValidators().add(validator);
+
+        userName.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    userName.validate();
+                }
+            }
+        });
+
+        password.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) password.validate();
+            }
+        });
+
+        firstName.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) firstName.validate();
+            }
+        });
+
+        lastName.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) lastName.validate();
+            }
+        });
+
+        address1.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) address1.validate();
+            }
+        });
+
+        address2.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) address2.validate();
+            }
+        });
+
+        town.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) town.validate();
+            }
+        });
+
+
+        postCode.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) postCode.validate();
+            }
+        });
+
+        email.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) email.validate();
+            }
+        });
+
+        phoneNumber.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
+                if (!newValue) phoneNumber.validate();
+            }
+        });
+        try {
+            Image errorIcon = new Image(new FileInputStream("src/main/Resources/Drawable/error.png"));
+            validator.setIcon(new ImageView(errorIcon));
+        }
+        catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
         setUserType(LoginController.getInstance().userName());
     }
 
@@ -59,98 +159,20 @@ public class MyAccountController implements Initializable {
     }
 
 
-/*
-    public boolean updateMyAccount(user user) {
-        String update "UPDATE MYACCOUNT SET USERNAME=?,PASSWORD=?,WHERE USERTYPE=? ";
-        PreparedStatement statement = connection.prepareStatement(update);
-        statement.setString(1, user.getUserName());
-        statement.setString(2, user.getPassword());
-        statement.setString(3, user.getFirstName());
-        statement.setString(4, user.getLastName());
-        statement.setString(5, user.getAddress1());
-        statement.setString(6, user.getAddress2());
-        statement.setString(7, user.getTown());
-        statement.setString(8, user.getPostCode());
-        statement.setString(9, user.getEmail());
-        statement.setString(10, user.getPhoneNumber());
-        statement.execute();
-        int result = statement.executeUpdate();
-        return(result>0);
-
-    }catch (SQLException exception)
-
-    {
-        Logger.getLogger(DatabaseHandler.class.getName().log(Level.SEVERE, null, exception));
-    }
-    return false;
-
-      private void updateProfile(){
-        MyAccountController.Update user = new MyAccountController.Update(userName.getText(), password.getText(),
-                firstName.getText(),lastName.getText(),address1.getText(),address2.getText(),
-                town.getText(),postCode.getText(),email.getText(),phoneNumber.getText(), true);
-                }
-    */
-
-
     @FXML
-    public void createApply (ActionEvent event){
+    public void setApplyButton (ActionEvent event){
 
-        PauseTransition pt = new PauseTransition();
-        pt.setDuration(Duration.seconds(1));
-        pt.setOnFinished(event1 ->
-                System.out.println("User Name is: " + userName.getText()));
-                System.out.println("User Password is: " + password.getText());
-                System.out.println("User First Name is: " + firstName.getText());
-                System.out.println("User Last Name is: " + lastName.getText());
-                System.out.println("User Address 1 is: " + address1.getText());
-                System.out.println("User Address 2 is: " + address2.getText());
-                System.out.println("User Town is: " + town.getText());
-                System.out.println("User Post Code is: " + postCode.getText());
-                System.out.println("User Email Address is: " + email.getText());
-                System.out.println("User Phone Number is: " + phoneNumber.getText());
-                System.out.println("INFORMATION BEEN UPDATED");
-
-        if(userName.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR USER NAME");
-            return;
-        }
-        if(password.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR PASSWORD");
-            return;
-        }
-        if(firstName.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR FIRST NAME");
-            return;
-        }
-        if(lastName.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR LAST NAME");
-            return;
-        }
-        if(address1.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR ADDRESS1");
-            return;
-        }
-        if(address2.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR ADDRESS2");
-            return;
-        }
-        if(town.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR TOWN");
-            return;
-        }
-        if(postCode.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR POST CODE");
-            return;
-        }
-        if(email.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR EMAIL ADDRESS");
-            return;
-        }
-        if(phoneNumber.getText().isEmpty()) {
-            System.out.println("ERROR, PLEASE ENTER YOUR PHONE NUMBER");
-            return;
-        }
-        pt.play();
+            System.out.println("User Name is: " + userName.getText());
+            System.out.println("User Password is: " + password.getText());
+            System.out.println("User First Name is: " + firstName.getText());
+            System.out.println("User Last Name is: " + lastName.getText());
+            System.out.println("User Address 1 is: " + address1.getText());
+            System.out.println("User Address 2 is: " + address2.getText());
+            System.out.println("User Town is: " + town.getText());
+            System.out.println("User Post Code is: " + postCode.getText());
+            System.out.println("User Email Address is: " + email.getText());
+            System.out.println("User Phone Number is: " + phoneNumber.getText());
+            System.out.println("INFORMATION BEEN UPDATED");
     }
 }
 
