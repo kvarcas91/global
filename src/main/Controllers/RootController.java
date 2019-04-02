@@ -62,6 +62,8 @@ public class RootController implements Initializable {
         }
     }
 
+    public User getUser () {return this.user;}
+
     public BorderPane getContent () {
         return this.content;
     }

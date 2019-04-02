@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import main.Entities.Customer;
+import main.Entities.User;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,8 +26,7 @@ import java.util.ResourceBundle;
 
 public class LoginController extends Loader implements Initializable {
 
-    private final String username = "root";
-    private final String password = "root";
+    private User user = null;
 
     @FXML
     GridPane root;
@@ -45,13 +46,23 @@ public class LoginController extends Loader implements Initializable {
     }
 
     private void checkUser () {
-
-        if (userTextField.getText().equals(username) && passwordField.getText().equals(password))
-            loadMain(root, null);
+        rootUser();
+        if (userTextField.getText().equals(user.getUserName()) && passwordField.getText().equals(user.getUserPassword())) {
+            loadMain(root, user);
+        }
 
     }
 
-
+    private void rootUser () {
+        User.Builder builder = new User.Builder(0, "PUBLIC", "root", "root")
+                .email("root@root.co.uk")
+                .address1("Hogwarts")
+                .address2("DumbleDoor Office")
+                .town("not Luton")
+                .postCode("GL HF")
+                .phoneNumber("123456789");
+        user = new Customer(builder, "Harry", "Potter");
+    }
 
     public void initialize (URL url, ResourceBundle bundle) {
         RequiredFieldValidator validator = new RequiredFieldValidator();

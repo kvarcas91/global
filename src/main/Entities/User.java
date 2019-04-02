@@ -197,6 +197,14 @@ public class User {
         return phoneNumber;
     }
 
+    public String getFirstName() {return null;}
+
+    public String getLastName () {return null;}
+
+    public String getWebAddress () {return null;}
+
+    public String getOrganisationName () {return null;}
+
     @Override
     public String toString () {
         return String.format("id: %d\n" +

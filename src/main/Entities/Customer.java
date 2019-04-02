@@ -1,5 +1,6 @@
 package main.Entities;
 
+
 public class Customer extends User {
 
     private String firstName = null;
@@ -24,6 +25,7 @@ public class Customer extends User {
     public String getLastName() {
         return lastName;
     }
+
 
     @Override
     public String toString () {

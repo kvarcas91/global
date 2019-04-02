@@ -3,15 +3,8 @@ package main.Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-
-import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,8 +55,8 @@ public class MenuController implements Initializable{
     private void setButtonColors (JFXButton button) {
         buttons.addAll(Arrays.asList(bookingButton, accountButton, festivalsButton));
         for (JFXButton btn : buttons) {
-            if (btn.equals(button)) btn.setStyle("-fx-background-color: grey;");
-            else btn.setStyle("-fx-background-color: #2A2E37;");
+            if (btn.equals(button)) btn.setStyle("-fx-background-color: white; -fx-text-fill: #2A2E37; -fx-font-weight: 700;");
+            else btn.setStyle("-fx-background-color: #2A2E37; -fx-font-weight: 600;");
         }
     }
 

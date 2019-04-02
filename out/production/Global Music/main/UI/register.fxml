@@ -14,13 +14,10 @@
           spacing="100">
 
         <Label fx:id="registerLabel" alignment="CENTER" styleClass="text"/>
-
         <HBox fx:id="accTypeLayout" alignment="CENTER" spacing="20">
-
             <fx:define>
                 <ToggleGroup fx:id="toggleGroup"/>
             </fx:define>
-
             <JFXRadioButton fx:id="first" text="Public" styleClass="radio_button" toggleGroup="$toggleGroup" userData="PUBLIC"/>
             <JFXRadioButton fx:id="second" text="Organisation" toggleGroup="$toggleGroup" styleClass="radio_button"
                             userData="ORGANISATION"/>

@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="main.Controllers.AccountController"
-            >
+<?import javafx.scene.layout.HBox?>
+<AnchorPane fx:controller="main.Controllers.AccountController" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" prefWidth="800" prefHeight="600">
+    <GridPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100"
+              alignment="TOP_CENTER" hgap="10" vgap="30">
+        <JFXTextField fx:id="userName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="User name"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <JFXPasswordField fx:id="password" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Password"
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <JFXTextField fx:id="firstName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="First name"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <JFXTextField fx:id="lastName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Last name"
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <JFXTextField fx:id="organisationName" labelFloat="true" prefHeight="26.0" prefWidth="300.0" promptText="Organisation name"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1"/>
+        <JFXTextField fx:id="address1Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 1"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <JFXTextField fx:id="address2Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 2"
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <JFXTextField fx:id="townField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Town"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <JFXTextField fx:id="postCodeField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Post code"
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <JFXTextField fx:id="emailField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Email"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+        <JFXTextField fx:id="phoneNumberField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Phone number"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5"/>
+        <JFXTextField fx:id="webAddressField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Web address"
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6"/>
 
-    <Label text="Account"/>
-
+        <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="2">
+            <JFXButton text="Save" onAction="#commitChanges"/>
+        </HBox>
+    </GridPane>
 </AnchorPane>
+
