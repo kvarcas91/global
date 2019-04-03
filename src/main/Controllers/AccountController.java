@@ -1,5 +1,6 @@
 package main.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ public class AccountController implements Initializable {
      */
 
     private User user = null;
+    private String path = null;
 
     @FXML
     private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field, address2Field,
@@ -30,25 +32,24 @@ public class AccountController implements Initializable {
     @FXML
     private JFXPasswordField password;
 
+    @FXML
+    private JFXButton btnBack;
+
+
 
     @FXML
     private void commitChanges (ActionEvent event) {
 
     }
 
-    private void setAccountTypeVisibility () {
-        if (user.getAccountType().equals("PUBLIC")) {
-            organisationName.setVisible(false);
-            webAddressField.setVisible(false);
-        }
-        else {
-            firstName.setVisible(false);
-            lastName.setVisible(false);
-        }
-    }
 
-    public void initialize (URL url, ResourceBundle bundle) {
-        user = RootController.getInstance().getUser();
+    public void setAccount (User user, String path) {
+        if (path != null) {
+            this.user = user;
+            btnBack.setVisible(true);
+            this.path = path;
+        }
+
         setAccountTypeVisibility();
 
         userName.setText(user.getUserName());
@@ -68,5 +69,27 @@ public class AccountController implements Initializable {
             organisationName.setText(user.getOrganisationName());
             webAddressField.setText(user.getWebAddress());
         }
+    }
+
+    private void setAccountTypeVisibility () {
+        if (user.getAccountType().equals("PUBLIC")) {
+            organisationName.setVisible(false);
+            webAddressField.setVisible(false);
+        }
+        else {
+            firstName.setVisible(false);
+            lastName.setVisible(false);
+        }
+    }
+
+    @FXML
+    private void back (ActionEvent e) {
+        Loader loader = new Loader(RootController.getInstance().getContent());
+        loader.loadPage(String.valueOf(path));
+    }
+
+    public void initialize (URL url, ResourceBundle bundle) {
+        user = RootController.getInstance().getUser();
+        setAccount(user, null);
     }
 }

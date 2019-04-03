@@ -17,7 +17,7 @@ public class MenuController implements Initializable{
     private AnchorPane root;
 
     @FXML
-    private JFXButton bookingButton, accountButton, festivalsButton, logOutButton;
+    private JFXButton bookingButton, accountButton, festivalsButton, logOutButton, adminAcc;
 
 
     private HashMap <String, String> fxml = new HashMap<>();
@@ -48,12 +48,18 @@ public class MenuController implements Initializable{
     }
 
     @FXML
+    private void adminAccEvent (ActionEvent event) {
+        loader.loadPage(fxml.get("adminAcc"));
+        setButtonColors(adminAcc);
+    }
+
+    @FXML
     private void logOut (ActionEvent event) {
         loader.loadLogin(root);
     }
 
     private void setButtonColors (JFXButton button) {
-        buttons.addAll(Arrays.asList(bookingButton, accountButton, festivalsButton));
+        buttons.addAll(Arrays.asList(bookingButton, accountButton, festivalsButton, adminAcc));
         for (JFXButton btn : buttons) {
             if (btn.equals(button)) btn.setStyle("-fx-background-color: white; -fx-text-fill: #2A2E37; -fx-font-weight: 700;");
             else btn.setStyle("-fx-background-color: #2A2E37; -fx-font-weight: 600;");
@@ -64,5 +70,6 @@ public class MenuController implements Initializable{
         fxml.put("festivals", "../UI/festivals.fxml");
         fxml.put("account", "../UI/account.fxml");
         fxml.put("bookings", "../UI/bookings.fxml");
+        fxml.put("adminAcc", "../UI/adminAccount.fxml");
     }
 }

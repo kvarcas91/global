@@ -10,7 +10,7 @@
         <JFXButton fx:id="bookingButton" text="Bookings" styleClass="test-label" maxWidth="Infinity" onAction="#bookingEvent"/>
         <JFXButton fx:id="accountButton" text="My Account" styleClass="test-label"  maxWidth="Infinity" onAction="#accountEvent"/>
         <JFXButton fx:id="festivalsButton" text="Festivals" styleClass="test-label" maxWidth="Infinity" onAction="#festivalEvent"/>
-        <JFXButton text="fourth item" styleClass="test-label" maxWidth="Infinity"/>
+        <JFXButton fx:id="adminAcc" text="Admin acc" styleClass="test-label" maxWidth="Infinity" onAction="#adminAccEvent"/>
         <JFXButton text="fifth item" styleClass="test-label" maxWidth="Infinity"/>
         <JFXButton text="seventh item" styleClass="test-label" maxWidth="Infinity"/>
         <JFXButton text="eighth item" styleClass="test-label" maxWidth="Infinity"/>
