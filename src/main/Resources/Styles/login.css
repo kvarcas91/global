@@ -36,11 +36,5 @@
         -fx-width: 100%;
 }
 
-.radio_button {
-    -fx-font-size: 14px;
-    -fx-stroke-width: 1px;
-    -fx-fill: transparent;
-    -fx-text-fill: #FFFFFF;
-    -jfx-selected-color: -fx-secondary;
-}
+
 

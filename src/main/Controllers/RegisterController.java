@@ -69,7 +69,6 @@ public class RegisterController extends Loader implements Initializable, ChangeL
     private String[] labelText = new String[3];
     private String accType = null;
 
-
     private void drawCircle () {
         int size;
         Color color;
@@ -92,6 +91,7 @@ public class RegisterController extends Loader implements Initializable, ChangeL
             progress.setStroke(Color.WHITE);
 
             progressLayout.getChildren().add(progress);
+            System.out.println("Adding circle");
         }
     }
 
@@ -164,6 +164,8 @@ public class RegisterController extends Loader implements Initializable, ChangeL
     }
 
 
+
+
     public void btnNext (ActionEvent event) {
         if (this.position < 2 && accType != null) {
             if (this.position == 1) {
@@ -227,6 +229,12 @@ public class RegisterController extends Loader implements Initializable, ChangeL
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        drawCircle();
+
+
+
         this.scenes.put("accTypeLayout", this.accTypeLayout);
         this.scenes.put("userNameLayout", this.userNameLayout);
         this.scenes.put("optionalLayout", this.optionalLayout);

@@ -3,19 +3,97 @@
 <?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXButton?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
 <AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="@../Resources/Styles/main.css" fx:controller="main.Controllers.MenuController">
-    <VBox prefWidth="200.0" styleClass="vbox" spacing="10"
-          AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
-        <JFXButton fx:id="bookingButton" text="Bookings" styleClass="test-label" maxWidth="Infinity" onAction="#bookingEvent"/>
-        <JFXButton fx:id="accountButton" text="My Account" styleClass="test-label"  maxWidth="Infinity" onAction="#accountEvent"/>
-        <JFXButton fx:id="festivalsButton" text="Festivals" styleClass="test-label" maxWidth="Infinity" onAction="#festivalEvent"/>
-        <JFXButton fx:id="adminAcc" text="Admin acc" styleClass="test-label" maxWidth="Infinity" onAction="#adminAccEvent"/>
-        <JFXButton text="fifth item" styleClass="test-label" maxWidth="Infinity"/>
-        <JFXButton text="seventh item" styleClass="test-label" maxWidth="Infinity"/>
-        <JFXButton text="eighth item" styleClass="test-label" maxWidth="Infinity"/>
-    </VBox>
+            fx:controller="main.Controllers.MenuController">
+    <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: white;">
+        <HBox alignment="CENTER_LEFT" styleClass="hover_border" onMouseClicked="#dashboardEvent">
+            <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+            <VBox.margin> <Insets top="40.0" /> </VBox.margin>
 
-    <JFXButton fx:id="logOutButton" text="Log out" styleClass="test-label" prefWidth="200.0" AnchorPane.bottomAnchor="20"
-            onAction="#logOut"/>
+            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
+                <Image url="@../Resources/Drawable/dashboard.png" />
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="Dashboard">
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </Text>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="hover_border" onMouseClicked="#festivalEvent">
+            <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+            <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                <Image url="@../Resources/Drawable/festivals.png" />
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="Festivals">
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </Text>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="hover_border" onMouseClicked="#bookingEvent">
+            <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+            <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                <Image url="@../Resources/Drawable/bookings.png" />
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="Bookings">
+                <HBox.margin> <Insets left="10.0" /> </HBox.margin>
+            </Text>
+        </HBox>
+
+        <HBox fx:id="adminAccPane" alignment="CENTER_LEFT" styleClass="hover_border" onMouseClicked="#adminAccEvent">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
+                <Image url="@../Resources/Drawable/info.png" />
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="adminAccount">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </Text>
+        </HBox>
+        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" styleClass="hover_border">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
+                    <Image url="@../Resources/Drawable/invoice.png" />
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </ImageView>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="Invoice">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Text>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" styleClass="hover_border" onMouseClicked="#logOut">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
+                    <Image url="@../Resources/Drawable/log_out.png" />
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </ImageView>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: #485460;" text="Log Out">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Text>
+            </HBox>
+        </VBox>
+    </VBox>
 </AnchorPane>

@@ -1,0 +1,16 @@
+* {
+    -fx-primary: #2A2E37;
+    -fx-secondary: #FFFF8D;
+    -fx-primarytext: #B2B2B2;
+    color_grey: #808080;
+    focus_color: #FFFFFF;
+}
+
+.radio_button {
+    -fx-font-size: 14px;
+    -fx-stroke-width: 1px;
+    -fx-fill: transparent;
+    -fx-text-fill: black;
+    -jfx-selected-color: #5375da;
+}
+

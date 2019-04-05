@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" stylesheets="@../Resources/Styles/register.css" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.RegisterControllerTemp">
+
+   <!-- LOGO -->
+   <left>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin> <Insets left="10.0" right="10.0" top="60.0" /> </VBox.margin>
+                  <Image url="@../Resources/Drawable/global_logo.PNG" />
+            </ImageView>
+          <VBox alignment="CENTER" VBox.vgrow="ALWAYS" spacing="20">
+              <Text text="Have an account?" style="-fx-font-size: 14px;"/>
+              <JFXButton text="login" style="-fx-font-weight: bold; -fx-font-size: 14px;" onAction="#login"/>
+          </VBox>
+      </VBox>
+   </left>
+
+   <!-- REGISTER STUFF -->
+   <center>
+
+      <!-- ACCOUNT TYPE LAYOUT -->
+      <BorderPane BorderPane.alignment="CENTER">
+
+         <!-- INFO FOR USER -->
+         <top>
+            <HBox alignment="TOP_CENTER" style="-fx-background-color: white;">
+               <Text fx:id="registerText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                  <HBox.margin> <Insets bottom="40.0" top="40.0" /> </HBox.margin>
+               </Text>
+            </HBox>
+         </top>
+
+         <center>
+            <BorderPane BorderPane.alignment="CENTER">
+
+               <!-- BACK NAVIGATION ELEMENT -->
+               <left>
+                  <VBox alignment="CENTER" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                        <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true"
+                        onMouseClicked="#btnBack">
+                              <Image url="@../Resources/Drawable/back.png" />
+                        </ImageView>
+                  </VBox>
+               </left>
+
+               <!-- NEXT NAVIGATION ELEMENT -->
+               <right>
+                  <VBox alignment="CENTER" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                        <ImageView fx:id="btnNext" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true"
+                        onMouseClicked="#btnNext">
+                              <Image url="@../Resources/Drawable/next.png" />
+                        </ImageView>
+                  </VBox>
+               </right>
+
+               <!-- UI ELEMENTS -->
+               <center>
+                  <VBox alignment="TOP_CENTER" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" prefHeight="100.0" VBox.vgrow="ALWAYS">
+
+                           <AnchorPane VBox.vgrow="ALWAYS">
+
+                              <!-- USER TYPE LAYOUT -->
+                              <HBox fx:id="accTypeLayout" alignment="CENTER" layoutY="41.0" prefHeight="200.0" spacing="20.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <fx:define> <ToggleGroup fx:id="toggleGroup"/> </fx:define>
+                                    <JFXRadioButton fx:id="first" text="Public" styleClass="radio_button"
+                                                    toggleGroup="$toggleGroup" userData="PUBLIC"/>
+                                    <JFXRadioButton fx:id="second" text="Organisation" styleClass="radio_button"
+                                                    toggleGroup="$toggleGroup" userData="ORGANISATION"/>
+                                 </HBox>
+
+                              <!-- USER NAME LAYOUT -->
+                              <GridPane fx:id="userNameLayout" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100"
+                                        alignment="TOP_CENTER" hgap="10" vgap="30">
+                                 <JFXTextField fx:id="userName" labelFloat="true" prefHeight="26.0" prefWidth="300.0" promptText="Username*"
+                                              GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                 <JFXPasswordField fx:id="passwordField" labelFloat="true" promptText="Password*"
+                                                  GridPane.columnIndex="0"
+                                                   GridPane.rowIndex="1" />
+                                 <JFXPasswordField fx:id="verifyPasswordField" labelFloat="true" promptText="Verify password*"
+                                                  GridPane.columnIndex="0"
+                                                   GridPane.rowIndex="2" />
+                              </GridPane>
+
+                              <!-- OPTIONAL LAYOUT -->
+                              <GridPane fx:id="optionalLayout" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+                                        alignment="TOP_CENTER" hgap="10" vgap="30">
+                                 <JFXTextField fx:id="firstName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="First name"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                 <JFXTextField fx:id="lastName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Last name"
+                                               styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                 <JFXTextField fx:id="organisationName" labelFloat="true" prefHeight="26.0" prefWidth="300.0" promptText="Organisation name"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+                                 <JFXTextField fx:id="address1Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 1"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                 <JFXTextField fx:id="address2Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 2"
+                                               styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                 <JFXTextField fx:id="townField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Town"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                 <JFXTextField fx:id="postCodeField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Post code"
+                                               styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                 <JFXTextField fx:id="emailField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Email"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3"/>
+                                 <JFXTextField fx:id="phoneNumberField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Phone number"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+                                 <JFXTextField fx:id="webAddressField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Web address"
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5"/>
+                              </GridPane>
+
+                              <!-- REGISTER LAYOUT -->
+                              <HBox AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="40" AnchorPane.rightAnchor="0" alignment="BOTTOM_CENTER"
+                                    style="-fx-background-color: white;">
+                                 <JFXButton fx:id="register" text="Register" onAction="#register"
+                                            style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;"/>
+                              </HBox>
+
+                           </AnchorPane>
+                        </HBox>
+                  </VBox>
+               </center>
+
+               <!-- PROGRESS LAYOUT -->
+               <bottom>
+                  <HBox fx:id="progressLayout" prefHeight="20" BorderPane.alignment="CENTER" style="-fx-background-color: white;"
+                        spacing="10" alignment="CENTER">
+                     <padding> <Insets bottom="10.0" top="10.0" /> </padding>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+         </center>
+
+         <!-- ERROR LAYOUT -->
+         <bottom>
+            <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: black;" visible="false">
+               <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
+               <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>

@@ -6,7 +6,11 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import main.Entities.User;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +28,7 @@ public class AccountController implements Initializable {
 
     private User user = null;
     private String path = null;
+    private Loader loader = null;
 
     @FXML
     private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field, address2Field,
@@ -33,8 +38,11 @@ public class AccountController implements Initializable {
     private JFXPasswordField password;
 
     @FXML
-    private JFXButton btnBack;
+    private ImageView btnBack;
 
+    public AccountController () {
+        loader = new Loader(RootController.getInstance().getContent());
+    }
 
 
     @FXML
@@ -75,16 +83,19 @@ public class AccountController implements Initializable {
         if (user.getAccountType().equals("PUBLIC")) {
             organisationName.setVisible(false);
             webAddressField.setVisible(false);
+            firstName.setVisible(true);
+            lastName.setVisible(true);
         }
         else {
+            organisationName.setVisible(true);
+            webAddressField.setVisible(true);
             firstName.setVisible(false);
             lastName.setVisible(false);
         }
     }
 
     @FXML
-    private void back (ActionEvent e) {
-        Loader loader = new Loader(RootController.getInstance().getContent());
+    private void back (MouseEvent e) {
         loader.loadPage(String.valueOf(path));
     }
 

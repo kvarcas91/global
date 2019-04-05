@@ -3,51 +3,61 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane fx:controller="main.Controllers.AccountController" xmlns="http://javafx.com/javafx/8.0.172-ea"
-            xmlns:fx="http://javafx.com/fxml/1" prefWidth="800" prefHeight="600">
-    <top>
-
-        <JFXButton fx:id="btnBack" text="Back" visible="false" onAction="#back"/>
-
-    </top>
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@../Resources/Styles/root.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.AccountController">
     <center>
-    <GridPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100"
-              alignment="CENTER" hgap="10" vgap="30">
+    <GridPane alignment="CENTER" hgap="10" vgap="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100">
         <JFXTextField fx:id="userName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="User name"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <JFXPasswordField fx:id="password" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Password"
-                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                          styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <JFXTextField fx:id="firstName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="First name"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <JFXTextField fx:id="lastName" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Last name"
-                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <JFXTextField fx:id="organisationName" labelFloat="true" prefHeight="26.0" prefWidth="300.0" promptText="Organisation name"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
         <JFXTextField fx:id="address1Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 1"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="2" />
         <JFXTextField fx:id="address2Field" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Address line 2"
-                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <JFXTextField fx:id="townField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Town"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <JFXTextField fx:id="postCodeField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Post code"
-                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                      styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <JFXTextField fx:id="emailField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Email"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
         <JFXTextField fx:id="phoneNumberField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Phone number"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
         <JFXTextField fx:id="webAddressField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Web address"
-                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6"/>
+                      styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
 
-        <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="2">
-            <JFXButton text="Save" onAction="#commitChanges"/>
-        </HBox>
+        <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="7" />
     </GridPane>
     </center>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+            <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Image url="@../Resources/Drawable/back.png" />
+            </ImageView>
+         <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <JFXButton onAction="#commitChanges" text="Save" />
+            <HBox.margin>
+               <Insets right="100.0" />
+            </HBox.margin>
+         </HBox>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
 </BorderPane>
-

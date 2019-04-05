@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.LoginController">
+   <top>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../Resources/Drawable/global_logo.PNG" />
+            </ImageView>
+      </HBox>
+   </top>
+
+   <center>
+       <GridPane alignment="TOP_CENTER" hgap="10" prefHeight="241.0" prefWidth="418.0">
+           <padding> <Insets bottom="40" left="25" right="25" top="25" /> </padding>
+
+           <GridPane alignment="CENTER" hgap="10" vgap="30">
+               <JFXTextField fx:id="userTextField" focusColor="#5375da" labelFloat="true" prefHeight="26.0" prefWidth="235.0"
+                             promptText="Username" style="-fx-background-color: transparent; -fx-prompt-text-fill: #485460;"
+                             GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+               <JFXPasswordField fx:id="passwordField" focusColor="#5375da" labelFloat="true" promptText="Password"
+                                 style="-fx-background-color: transparent; -fx-prompt-text-fill: #485460;"
+                                 GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="2" />
+
+               <HBox alignment="BOTTOM_RIGHT" spacing="20" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="3">
+                   <JFXButton  text="Register" textAlignment="CENTER" onAction="#register"/>
+                   <JFXButton style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;" text="Login"
+                              textAlignment="CENTER" onAction="#login"/>
+               </HBox>
+
+           </GridPane>
+       </GridPane>
+   </center>
+
+    <bottom>
+        <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: black;" visible="false">
+            <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
+            <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

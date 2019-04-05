@@ -1,60 +1,88 @@
 package main.Controllers;
 
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXML;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import main.Entities.Customer;
 import main.Entities.User;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController extends Loader implements Initializable {
+public class LoginController implements Initializable{
+
+    @FXML
+    BorderPane root;
+
+    @FXML
+    private HBox errorPane;
+
+    @FXML
+    private Text errorMessage;
+
+    @FXML
+    private JFXTextField userTextField;
+
+    @FXML
+    private JFXPasswordField passwordField;
 
     private User user = null;
+    private Loader loader;
 
-    @FXML
-    GridPane root;
-
-    @FXML
-    JFXTextField userTextField;
-
-    @FXML
-    JFXPasswordField passwordField;
-
-    public void register (ActionEvent event) {
-        loadRegister(root);
+    public LoginController() {
+        loader = new Loader();
     }
 
-    public void login (ActionEvent event) {
-        checkUser();
+    @FXML
+    private void register (ActionEvent e) {
+        loader.loadRegister(root);
     }
 
-    private void checkUser () {
-        rootUser();
+    @FXML
+    private void login (ActionEvent e) {
         if (userTextField.getText().equals(user.getUserName()) && passwordField.getText().equals(user.getUserPassword())) {
-            loadMain(root, user);
+            loader.loadMain(root, user);
         }
+        else  {
+            setError("Incorrect username or password");
+            Task task = hideErrorPane();
+            new Thread(task).start();
+        }
+    }
+
+    public void setError (String message) {
+        if (message != null) {
+            errorPane.setVisible(true);
+            errorMessage.setText(message);
+        }
+    }
+
+    private Task hideErrorPane () {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                Thread.sleep(2000);
+                errorPane.setVisible(false);
+                return true;
+            }
+        };
 
     }
 
     private void rootUser () {
-        User.Builder builder = new User.Builder(0, "PUBLIC", "root", "root")
+        User.Builder builder = new User.Builder(0, "ADMIN", "root", "root")
                 .email("root@root.co.uk")
                 .address1("Hogwarts")
                 .address2("DumbleDoor Office")
@@ -64,7 +92,10 @@ public class LoginController extends Loader implements Initializable {
         user = new Customer(builder, "Harry", "Potter");
     }
 
+
+    @Override
     public void initialize (URL url, ResourceBundle bundle) {
+        rootUser();
         RequiredFieldValidator validator = new RequiredFieldValidator();
         userTextField.getValidators().add(validator);
         passwordField.getValidators().add(validator);
@@ -77,6 +108,7 @@ public class LoginController extends Loader implements Initializable {
                 }
             }
         });
+
 
         passwordField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -92,6 +124,6 @@ public class LoginController extends Loader implements Initializable {
         catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        }
+    }
 
 }

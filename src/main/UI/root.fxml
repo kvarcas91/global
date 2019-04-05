@@ -1,21 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import com.jfoenix.controls.JFXButton?>
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane fx:id="content" prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.RootController"
-            stylesheets="@../Resources/Styles/main.css">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 
-    <left>
-      <fx:include source="menu.fxml" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0"/>
-    </left>
+<BorderPane fx:id="content" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Resources/Styles/root.css"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.Controllers.RootController">
+   <top>
+      <HBox fx:id="topPane" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #0fbcf9;" HBox.hgrow="ALWAYS">
+                  <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand">
+                        <Image url="@../Resources/Drawable/info.png" />
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: white;"
+                        text="Global Music">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                  <HBox alignment="CENTER_LEFT">
+                        <TextField promptText="search" style="-fx-background-color: transparent; -fx-prompt-text-fill: #485460;">
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand">
+                              <Image url="@../Resources/Drawable/search.png" />
+                        </ImageView>
+                     </HBox>
+               <HBox fx:id="accountBox" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true"  styleClass="cursor_hand">
+                           <Image url="@../Resources/Drawable/account.jpg" />
+                     </ImageView>
+                     <Text fx:id="userNameField" style="-fx-font-family: Quicksand; -fx-font-weight: bolder;" text="username"
+                           styleClass="cursor_hand">
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Text>
+                     <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true"
+                                styleClass="cursor_hand">
+                           <Image url="@../Resources/Drawable/angle_down.png" />
+                        <HBox.margin>
+                           <Insets right="10.0" />
+                        </HBox.margin>
+                     </ImageView>
+               </HBox>
+            </HBox>
+      </HBox>
+   </top>
+   <left>
 
-    <center>
+       <fx:include source="menu.fxml" />
 
-        <JFXButton text="DO NOT PRESS ME!!!" onAction="#play"/>
-
-    </center>
+   </left>
 
 </BorderPane>

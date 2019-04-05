@@ -27,11 +27,12 @@ class Loader{
     }
 
     void loadLogin (Pane root){
-        loader(root, "../UI/login_ui.fxml", false, null, 500, 300, 500, 300);
+        loader(root, "../UI/login.fxml", false, null, 600, 450, 600, 450);
     }
 
     void loadRegister (Pane root) {
-        loader(root, "../UI/register.fxml", false, null, 600, 600, 600, 600);
+        System.out.println("loadRegister method");
+        loader(root, "../UI/registerTemp.fxml", true, null, 850, 650, 850, 650);
     }
 
     void loadPage (String path) {
@@ -60,6 +61,7 @@ class Loader{
             parent = mLoader.load();
         }
         catch (IOException e) {
+            e.printStackTrace();
             return;
         }
         if (user != null) {
@@ -67,6 +69,7 @@ class Loader{
             rootController.setUser(user);
         }
         Stage stage = new Stage();
+        stage.setTitle("Global Music");
         stage.setResizable(resizable);
         stage.setWidth(geometry[0]);
         stage.setHeight(geometry[1]);

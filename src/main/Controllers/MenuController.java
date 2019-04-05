@@ -4,7 +4,11 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,13 +17,15 @@ import java.util.ResourceBundle;
 
 public class MenuController implements Initializable{
 
+    private String accountType = null;
+
     @FXML
     private AnchorPane root;
 
     @FXML
-    private JFXButton bookingButton, accountButton, festivalsButton, logOutButton, adminAcc;
+    private HBox adminAccPane;
 
-
+    private static MenuController instance;
     private HashMap <String, String> fxml = new HashMap<>();
     private ArrayList<JFXButton> buttons = new ArrayList<>();
     private Loader loader;
@@ -27,43 +33,44 @@ public class MenuController implements Initializable{
 
     public MenuController () {
         loader = new Loader(RootController.getInstance().getContent());
+        instance = this;
+    }
+
+    public static MenuController getInstance() {
+        return instance;
     }
 
     @FXML
-    private void bookingEvent (ActionEvent event) {
+    private void dashboardEvent (MouseEvent event) {
+        loader.loadPage(fxml.get("dashboard"));
+    }
+
+    @FXML
+    private void bookingEvent (MouseEvent event) {
         loader.loadPage(fxml.get("bookings"));
-        setButtonColors(bookingButton);
     }
 
     @FXML
-    private void accountEvent (ActionEvent event) {
-        loader.loadPage(fxml.get("account"));
-        setButtonColors(accountButton);
-    }
-
-    @FXML
-    private void festivalEvent (ActionEvent event) {
+    private void festivalEvent (MouseEvent event) {
         loader.loadPage(fxml.get("festivals"));
-        setButtonColors(festivalsButton);
     }
 
     @FXML
-    private void adminAccEvent (ActionEvent event) {
-        loader.loadPage(fxml.get("adminAcc"));
-        setButtonColors(adminAcc);
+    private void adminAccEvent (MouseEvent e) {
+        System.out.println(accountType);
+        loader.loadPage("../UI/adminAccount.fxml");
     }
 
     @FXML
-    private void logOut (ActionEvent event) {
+    private void logOut (MouseEvent event) {
         loader.loadLogin(root);
     }
 
-    private void setButtonColors (JFXButton button) {
-        buttons.addAll(Arrays.asList(bookingButton, accountButton, festivalsButton, adminAcc));
-        for (JFXButton btn : buttons) {
-            if (btn.equals(button)) btn.setStyle("-fx-background-color: white; -fx-text-fill: #2A2E37; -fx-font-weight: 700;");
-            else btn.setStyle("-fx-background-color: #2A2E37; -fx-font-weight: 600;");
-        }
+
+    public void setAccountType (String accountType) {
+        this.accountType = accountType;
+        if (accountType.equals("ADMIN")) adminAccPane.setVisible(true);
+        else adminAccPane.setVisible(false);
     }
 
     public void initialize (URL url, ResourceBundle bundle) {
@@ -71,5 +78,6 @@ public class MenuController implements Initializable{
         fxml.put("account", "../UI/account.fxml");
         fxml.put("bookings", "../UI/bookings.fxml");
         fxml.put("adminAcc", "../UI/adminAccount.fxml");
+        fxml.put("dashboard", "../UI/dashboard.fxml");
     }
 }
