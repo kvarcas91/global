@@ -22,6 +22,15 @@ public class Organization extends User {
 
     public String getOrganisationName () {return this.organisationName;}
 
+    @Override
+    public void setWebAddress(String webAddress) {
+        this.webAddress = webAddress;
+    }
+
+    @Override
+    public void setOrganisationName(String organisationName) {
+        this.organisationName = organisationName;
+    }
 
     @Override
     public String toString () {

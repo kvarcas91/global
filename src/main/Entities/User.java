@@ -205,6 +205,47 @@ public class User {
 
     public String getOrganisationName () {return null;}
 
+    public void setFirstName (String firstName) {
+    }
+
+    public void setOrganisationName (String organisationName) {}
+
+    public void setLastName (String lastName) {}
+
+    public void setWebAddress (String webAddress) {}
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString () {
         return String.format("id: %d\n" +

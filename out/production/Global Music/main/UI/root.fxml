@@ -14,9 +14,6 @@
    <top>
       <HBox fx:id="topPane" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #0fbcf9;" HBox.hgrow="ALWAYS">
-                  <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand">
-                        <Image url="@../Resources/Drawable/info.png" />
-                  </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: white;"
                         text="Global Music">
                      <HBox.margin>

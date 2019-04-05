@@ -26,6 +26,14 @@ public class Customer extends User {
         return lastName;
     }
 
+    public void setFirstName (String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     @Override
     public String toString () {

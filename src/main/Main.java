@@ -30,7 +30,7 @@ public class Main extends Application {
     private Stage primaryStage = null;
     private boolean isConnected = true;
     private String errorMessage = null;
-    private final boolean loadAnimation = false;
+    private final boolean loadAnimation = true;
 
     @Override
     public void start(Stage primaryStage){

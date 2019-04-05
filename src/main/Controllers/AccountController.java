@@ -47,7 +47,7 @@ public class AccountController implements Initializable {
 
     @FXML
     private void commitChanges (ActionEvent event) {
-
+        user.setFirstName(firstName.getText());
     }
 
 
