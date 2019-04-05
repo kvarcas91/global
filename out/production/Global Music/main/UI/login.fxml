@@ -46,7 +46,7 @@
    </center>
 
     <bottom>
-        <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: black;" visible="false">
+        <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;" visible="false">
             <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
             <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
         </HBox>

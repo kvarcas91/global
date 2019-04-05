@@ -14,14 +14,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import main.Entities.Customer;
 import main.Entities.User;
+import main.Interfaces.NotificationPane;
+import main.Networking.JDBC;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable{
+public class LoginController implements Initializable, NotificationPane {
 
     @FXML
     BorderPane root;
@@ -40,9 +43,12 @@ public class LoginController implements Initializable{
 
     private User user = null;
     private Loader loader;
+    private JDBC database = null;
+    private Connection connection = null;
 
     public LoginController() {
         loader = new Loader();
+        database = new JDBC();
     }
 
     @FXML
@@ -52,24 +58,46 @@ public class LoginController implements Initializable{
 
     @FXML
     private void login (ActionEvent e) {
-        if (userTextField.getText().equals(user.getUserName()) && passwordField.getText().equals(user.getUserPassword())) {
-            loader.loadMain(root, user);
+        if (checkConnection()) {
+
+            if (userTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+                setNotificationPane("Some fields are empty", null);
+            }
+            else {
+                User user = database.verifyLogin(userTextField.getText(), passwordField.getText());
+                if (user != null) {
+                    loader.loadMain(root, user);
+                }
+                else {
+                    setNotificationPane("Incorrect username or password", null);
+                }
+            }
         }
-        else  {
-            setError("Incorrect username or password");
-            Task task = hideErrorPane();
+    }
+
+    private boolean checkConnection () {
+        connection = database.getConnection();
+        if (connection == null) {
+            setNotificationPane("No Network Connection", null);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    @Override
+    public void setNotificationPane(String message, String color) {
+        if (message != null) {
+            errorPane.setVisible(true);
+            errorMessage.setText(message);
+            Task task = hideNotificationPane();
             new Thread(task).start();
         }
     }
 
-    public void setError (String message) {
-        if (message != null) {
-            errorPane.setVisible(true);
-            errorMessage.setText(message);
-        }
-    }
-
-    private Task hideErrorPane () {
+    @Override
+    public Task hideNotificationPane() {
         return new Task() {
             @Override
             protected Object call() throws Exception {
@@ -81,21 +109,9 @@ public class LoginController implements Initializable{
 
     }
 
-    private void rootUser () {
-        User.Builder builder = new User.Builder(0, "ADMIN", "root", "root")
-                .email("root@root.co.uk")
-                .address1("Hogwarts")
-                .address2("DumbleDoor Office")
-                .town("not Luton")
-                .postCode("GL HF")
-                .phoneNumber("123456789");
-        user = new Customer(builder, "Harry", "Potter");
-    }
-
-
     @Override
     public void initialize (URL url, ResourceBundle bundle) {
-        rootUser();
+        checkConnection();
         RequiredFieldValidator validator = new RequiredFieldValidator();
         userTextField.getValidators().add(validator);
         passwordField.getValidators().add(validator);
@@ -125,5 +141,7 @@ public class LoginController implements Initializable{
             System.out.println(e.getMessage());
         }
     }
+
+
 
 }

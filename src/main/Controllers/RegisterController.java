@@ -164,8 +164,6 @@ public class RegisterController extends Loader implements Initializable, ChangeL
     }
 
 
-
-
     public void btnNext (ActionEvent event) {
         if (this.position < 2 && accType != null) {
             if (this.position == 1) {

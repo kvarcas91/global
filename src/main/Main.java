@@ -17,10 +17,15 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import main.Controllers.LoginController;
+import main.Entities.Customer;
+import main.Entities.User;
+import main.Networking.JDBC;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 
 public class Main extends Application {
@@ -28,8 +33,6 @@ public class Main extends Application {
     private BorderPane box = null;
     private Stage logoStage = null;
     private Stage primaryStage = null;
-    private boolean isConnected = true;
-    private String errorMessage = null;
     private final boolean loadAnimation = true;
 
     @Override
@@ -93,10 +96,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        if (!isConnected) {
-            LoginController loginController = mLoader.getController();
-            loginController.setError("No network connection");
-        }
         //Parent root = FXMLLoader.load(getClass().getResource("UI/root.fxml"));
         primaryStage.setTitle("Welcome");
         primaryStage.setScene(new Scene(root, 600, 400));
@@ -110,7 +109,9 @@ public class Main extends Application {
         progressBar.progressProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                if (t1.doubleValue() == 1) loadLogin();
+                if (t1.doubleValue() == 1) {
+                    loadLogin();
+                }
                 else if (t1.doubleValue() == 0.8) addTransition(1, 0, 800);
             }
         });
@@ -136,22 +137,24 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-/*
-        Event aevent;
-        aevent = new Event("Event Name","6 6 666","Luton","Super Event","Leo");
 
-        aevent.ShowEvent();
+        /*
+        if (connection != null) {
+            System.out.println("Connected");
+            Customer customer = new Customer();
+            customer.getUser(connection, 3);
+            if (customer == null) {
+                System.out.println("null");
+            }
+            else {
+                System.out.println(customer.toString());
+            }
 
-        aevent.AddBand("Mona Lisa","Da Wino Ci");
-        aevent.AddBand("Bolek i lolek","Reksio");
+            System.out.println("Rows in user table: " + database.getCount("SELECT COUNT(*) FROM USERS"));
 
-        aevent.ShowBands();
+        }
+        else System.out.println("null");
 
-        JDBC conec;
-        String query = "Select * FROM ITEM WHERE wiek = 21";
-        conec = new JDBC(query, 4);
-*/
-
-
+         */
     }
 }

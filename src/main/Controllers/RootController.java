@@ -70,7 +70,7 @@ public class RootController implements Initializable {
             HBox box = new HBox();
             box.setPadding(new Insets(5, 5, 5, 5));
             box.setAlignment(Pos.CENTER);
-            box.setStyle("-fx-background-color: black;");
+            box.setStyle("-fx-background-color: red;");
 
             Text errorMessage = new Text(message);
             errorMessage.setStyle("-fx-fill: white; -fx-font-weight: bolder;");

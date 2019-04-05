@@ -1,6 +1,8 @@
 package main.Entities;
 
 
+import java.sql.Connection;
+
 public class User {
 
     /**
@@ -205,6 +207,14 @@ public class User {
 
     public String getOrganisationName () {return null;}
 
+    public void setUserID (int userID) {
+        this.userID = userID;
+    }
+
+    public void setAccountType (String accountType) {
+        this.accountType = accountType;
+    }
+
     public void setFirstName (String firstName) {
     }
 
@@ -244,6 +254,14 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean insertUser (Connection connection) {
+        return false;
+    }
+
+    public User getUser(Connection connection, int id) {
+        return null;
     }
 
     @Override

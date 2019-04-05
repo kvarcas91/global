@@ -4,10 +4,18 @@
 
 <?import com.jfoenix.controls.JFXListView?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="main.Controllers.AdminAccountController" stylesheets="@../Resources/Styles/adminAcc.css">
     <center>
-        <JFXListView fx:id="listView" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"
-                     AnchorPane.topAnchor="0" styleClass="list-cell"/>
+        <JFXListView fx:id="listView" styleClass="list-cell"/>
     </center>
+
+    <bottom>
+        <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;" visible="false">
+            <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
+            <Text fx:id="errorMessage" text="test" style="-fx-fill: white; -fx-font-weight: bolder;" />
+        </HBox>
+    </bottom>
 </BorderPane>

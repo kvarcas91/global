@@ -24,14 +24,17 @@ import javafx.scene.text.Text;
 import main.Entities.Customer;
 import main.Entities.Organization;
 import main.Entities.User;
+import main.Interfaces.NotificationPane;
+import main.Networking.JDBC;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class RegisterControllerTemp implements Initializable, ChangeListener<Toggle> {
+public class RegisterControllerTemp implements Initializable, NotificationPane, ChangeListener<Toggle> {
 
 
     @FXML
@@ -73,8 +76,14 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
     private HashMap<String, Pane> scenes = new HashMap<>();
     private String[] labelText = new String[3];
     private String accType = null;
+    private JDBC database = null;
+    private Connection connection = null;
 
 
+    public RegisterControllerTemp () {
+        database = new JDBC();
+        connection = database.getConnection();
+    }
 
     private void drawCircle() {
         int size;
@@ -162,23 +171,6 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
         else return false;
     }
 
-    private void setErrorPane (String message) {
-        errorPane.setVisible(true);
-        errorMessage.setText(message);
-        Task task = hideErrorPane();
-        new Thread(task).start();
-    }
-
-    private Task hideErrorPane () {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-                Thread.sleep(2000);
-                errorPane.setVisible(false);
-                return true;
-            }
-        };
-    }
 
     @FXML
     private void btnBack (MouseEvent event) {
@@ -200,11 +192,11 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
         if (this.position < 2 && accType != null) {
             if (this.position == 1) {
                 if (!validate(userName, passwordField, verifyPasswordField)) {
-                    setErrorPane("Some fields are empty");
+                    setNotificationPane("Some fields are empty", null);
                     return;
                 }
                 else if (passwordField.getText().compareTo(verifyPasswordField.getText()) != 0) {
-                    setErrorPane("Password does not match");
+                    setNotificationPane("Password does not match", null);
                     return;
                 }
             }
@@ -235,7 +227,8 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
     }
 
     private void createUserObj() {
-        User.Builder builder = new User.Builder(0, accType, userName.getText(), passwordField.getText())
+        int id = database.getCount("SELECT COUNT(*) FROM USERS") + 1;
+        User.Builder builder = new User.Builder(id, accType, userName.getText(), passwordField.getText())
                 .email(emailField.getText())
                 .phoneNumber(phoneNumberField.getText())
                 .postCode(postCodeField.getText())
@@ -246,6 +239,45 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
 
         if (accType.equals(RegisterController.accountTypes.PUBLIC.toString())) user = new Customer(builder, firstName.getText(), lastName.getText());
         else user = new Organization(builder, organisationName.getText(), webAddressField.getText());
+
+        if (checkConnection()) {
+            user.insertUser(connection);
+        }
+        else {
+            setNotificationPane("No Network connection", null);
+        }
+
+    }
+
+    private boolean checkConnection () {
+        connection = database.getConnection();
+        if (connection == null) {
+            setNotificationPane("No Network Connection", null);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    @Override
+    public void setNotificationPane(String message, String color) {
+        errorPane.setVisible(true);
+        errorMessage.setText(message);
+        Task task = hideNotificationPane();
+        new Thread(task).start();
+    }
+
+    @Override
+    public Task hideNotificationPane() {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                Thread.sleep(2000);
+                errorPane.setVisible(false);
+                return true;
+            }
+        };
     }
 
     @Override
@@ -257,7 +289,7 @@ public class RegisterControllerTemp implements Initializable, ChangeListener<Tog
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        checkConnection();
         this.scenes.put("accTypeLayout", this.accTypeLayout);
         this.scenes.put("userNameLayout", this.userNameLayout);
         this.scenes.put("optionalLayout", this.optionalLayout);
