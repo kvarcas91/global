@@ -1,174 +1,188 @@
 package main.Controllers;
 
-import com.jfoenix.controls.JFXListView;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import main.Entities.Customer;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
 import main.Networking.JDBC;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class AdminAccountController implements Initializable {
+public class AdminAccountController implements Initializable, NotificationPane {
 
     @FXML
-    private JFXListView<User> listView;
-
-    @FXML
-    private HBox errorPane;
+    private HBox notificationPane;
 
     @FXML
     private Text errorMessage;
 
-    private JDBC database = null;
-    private Connection connection = null;
-    private ObservableList<User> observableList = FXCollections.observableArrayList();
+    @FXML
+    private TilePane tilePane;
+
+    private JDBC database;
+    private ArrayList<User> users = new ArrayList<>();
 
     public AdminAccountController () {
         database = new JDBC();
-        connection = database.getConnection();
+    }
+
+    private void editItem (User user) {
+
+        System.out.println(user.toString());
+        BorderPane borderPane = RootController.getInstance().getContent();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../UI/account.fxml"));
+        try {
+            Pane pane = loader.load();
+            AccountController controller = loader.getController();
+            controller.setAccount(user, "../UI/adminAccount.fxml");
+            borderPane.setCenter(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void removeItem (User user) {
+        int id = user.getUserID();
+        if (database.delete("USERS", "User_ID", id)) {
+            setNotificationPane("User has been removed", "green");
+            users.remove(user);
+            setTile();
+        }
+        else {
+            System.out.println("Error");
+        }
+
+    }
+
+    @Override
+    public void setNotificationPane(String message, String color) {
+        String style = String.format("-fx-background-color: %s;", color);
+        if (color != null) {
+            this.notificationPane.setStyle(style);
+        }
+        this.notificationPane.setVisible(true);
+        this.errorMessage.setText(message);
+        Task task = hideNotificationPane();
+        new Thread(task).start();
+    }
+
+    @Override
+    public Task hideNotificationPane() {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                Thread.sleep(2000);
+                notificationPane.setVisible(false);
+                return true;
+            }
+        };
     }
 
 
-    private User getFakeData (int id) {
-        User.Builder builder = new User.Builder(id, "PUBLIC", "test " + id, "test")
-                .email("test@test.test")
-                .address1("test1")
-                .address2("test2");
-        return new Customer(builder, "A girl has no name", "no one");
-    }
+    private void setTile () {
 
-    static class Cell extends ListCell<User> implements NotificationPane {
+        tilePane.getChildren().clear();
 
-        private HBox hBox = new HBox();
-        private Label userID = new Label();
-        private Label userNameLabel = new Label();
-        private Pane pane = new Pane();
-        private JDBC database = null;
-        private HBox notificationPane = null;
-        private Text messageText = null;
+        if (users.size() > 0) {
+
+            for (User user : users) {
+                if (user != null) {
+
+                    VBox tile = new VBox();
+                    tile.setAlignment(Pos.TOP_CENTER);
+
+                    VBox userInfo = new VBox();
+                    userInfo.setSpacing(10);
+                    userInfo.setAlignment(Pos.TOP_CENTER);
+
+                    HBox controls = new HBox();
+                    controls.setAlignment(Pos.CENTER);
+                    controls.setSpacing(5);
+
+                    Image delete = null;
+                    Image edit = null;
+                    ImageView accountType, btnEdit, btnDelete;
+                    Separator separator = new Separator();
+                    Text userNameText = new Text();
 
 
-        public Cell (JDBC database, HBox notificationPane, Text message) {
-            super();
-            this.database = database;
-            this.notificationPane = notificationPane;
-            this.messageText = message;
-            Image imgDelete = null, imgEdit = null;
+                    try {
+                        delete = new Image(new FileInputStream("src/main/Resources/Drawable/delete.png"));
 
-            try {
-                imgDelete = new Image(new FileInputStream("src/main/Resources/Drawable/delete.png"));
-                imgEdit = new Image(new FileInputStream("src/main/Resources/Drawable/edit.png"));
-            }
-            catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+                        edit = new Image(new FileInputStream("src/main/Resources/Drawable/edit.png"));
+                    }
+                    catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
 
-            ImageView img1 = new ImageView(imgEdit);
-            ImageView img2 = new ImageView(imgDelete);
+                    accountType = new ImageView();
 
-            hBox.getChildren().addAll(userID, userNameLabel, pane, img1, img2);
-            hBox.setHgrow(pane, Priority.ALWAYS);
-            img2.setOnMousePressed(e -> removeItem());
-            //img2.setOnMousePressed( e -> getListView().getItems().remove(getItem()));
-            img1.setOnMousePressed(e -> editItem());
-        }
+                    btnEdit = new ImageView(edit);
+                    btnDelete = new ImageView(delete);
 
-        private void editItem () {
-            User user = getListView().getItems().get(getIndex());
-            System.out.println(user.toString());
-            BorderPane borderPane = RootController.getInstance().getContent();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../UI/account.fxml"));
-            try {
-                Pane pane = loader.load();
-                AccountController controller = loader.getController();
-                controller.setAccount(user, "../UI/adminAccount.fxml");
-                borderPane.setCenter(pane);
-            } catch (IOException e) {
-                return;
-            }
-        }
+                    btnEdit.setFitHeight(20);
+                    btnEdit.setFitWidth(20);
 
-        private void removeItem () {
-            int id = Integer.parseInt(userID.getText());
-            if (database.delete("USERS", "User_ID", id)) {
-                getListView().getItems().remove(getItem());
-                setNotificationPane("User has been removed", "green");
-            }
-            else {
-                System.out.println("Error");
-            }
+                    btnDelete.setFitHeight(20);
+                    btnDelete.setFitWidth(20);
 
-        }
+                    controls.getChildren().addAll(btnEdit, btnDelete);
+                    userInfo.getChildren().addAll(accountType, userNameText);
+                    tile.getChildren().addAll(userInfo, separator, controls);
 
-        @Override
-        public void setNotificationPane(String message, String color) {
-            String style = String.format("-fx-background-color: %s;", color);
-            if (color != null) {
-                this.notificationPane.setStyle(style);
-            }
-            this.notificationPane.setVisible(true);
-            this.messageText.setText(message);
-            Task task = hideNotificationPane();
-            new Thread(task).start();
-        }
+                    tile.setMargin(accountType, new Insets(10, 10, 10, 10));
+                    tile.setMargin(separator, new Insets(0, 10, 10, 0));
 
-        @Override
-        public Task hideNotificationPane() {
-            return new Task() {
-                @Override
-                protected Object call() throws Exception {
-                    Thread.sleep(2000);
-                    notificationPane.setVisible(false);
-                    return true;
+                    try {
+                        if (user.getAccountType().equals("PUBLIC")) {
+                            accountType.setImage(new Image(new FileInputStream("src/main/Resources/Drawable/customer.png")));
+                        } else {
+                            accountType.setImage(new Image(new FileInputStream("src/main/Resources/Drawable/organization.png")));
+                        }
+                    }
+                    catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    userNameText.setText(user.getUserName());
+
+                    tilePane.getChildren().add(tile);
+
+                    userInfo.setOnMousePressed(event -> print(user));
+                    btnEdit.setOnMousePressed(event -> editItem(user));
+                    btnDelete.setOnMousePressed(event -> removeItem(user));
                 }
-            };
-        }
-
-        @Override
-        protected void updateItem(User user, boolean empty) {
-            super.updateItem(user, empty);
-            setText(null);
-            setGraphic(null);
-
-            if (user != null && !empty) {
-                userID.setText(String.valueOf(user.getUserID()));
-                userNameLabel.setText(user.getUserName());
-                setGraphic(hBox);
             }
         }
+    }
+
+    private void print(User user) {
+        System.out.println(user.toString());
     }
 
     @Override
     public void initialize (URL location, ResourceBundle resourceBundle) {
 
+        ArrayList<Object> objects = database.getAll("SELECT * FROM USERS", User.class.getName());
 
-        ArrayList<User> users = database.getAllUsers();
+        for (Object obj : objects) {
+            users.add((User) obj);
+        }
 
-        observableList.addAll(users);
-
-
-        listView.setItems(observableList);
-        listView.setCellFactory( param -> new Cell(database, errorPane, errorMessage));
+        setTile();
     }
-
 }

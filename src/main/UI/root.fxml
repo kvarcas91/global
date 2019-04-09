@@ -14,7 +14,7 @@
    <top>
       <HBox fx:id="topPane" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #0fbcf9;" HBox.hgrow="ALWAYS">
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: white;"
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-fill: white;"
                         text="Global Music">
                      <HBox.margin>
                         <Insets left="20.0" />

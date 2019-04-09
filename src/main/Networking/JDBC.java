@@ -1,14 +1,15 @@
 package main.Networking;
 
-import main.Entities.Customer;
-import main.Entities.Organization;
 import main.Entities.User;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class JDBC {
 
@@ -24,7 +25,9 @@ public class JDBC {
         if (connection == null) {
             try {
                 System.out.println("Creating connection");
+                DriverManager.setLoginTimeout(5);
                 connection = DriverManager.getConnection(connURL);
+
             }
             catch (SQLException e) {
                 return null;
@@ -62,6 +65,130 @@ public class JDBC {
                 return true;
             }
             catch (SQLException e) {
+                //e.printStackTrace();
+                System.out.println("Fuck OFF");
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean edit () {
+        return false;
+    }
+
+    public Object get (String query, String className) {
+        connection = getConnection();
+        Class<?> mClass;
+        Object newObject, mInstance;
+        Method objectMethod;
+
+        if (connection != null) {
+            HashMap<String, String> object = new HashMap<>();
+
+            try {
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
+
+                if (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++) {
+                        object.put(metaData.getColumnName(i), resultSet.getString(metaData.getColumnName(i)));
+                    }
+
+                    try {
+                        mClass = Class.forName(className);
+                        mInstance = mClass.getConstructor().newInstance();
+
+                        objectMethod = mClass.getMethod("setObject", HashMap.class);
+                        objectMethod.invoke(mInstance, object);
+                        objectMethod = mClass.getMethod("getObject");
+
+                        newObject =  objectMethod.invoke(mInstance);
+                        return newObject;
+                    }
+                    catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
+                            InstantiationException | InvocationTargetException e) {
+                        e.printStackTrace();
+                        return  null;
+                    }
+                }
+                else {
+                    System.out.println("No results for given query");
+                    return null;
+                }
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Object> getAll (String query, String className) {
+        connection = getConnection();
+
+        Class<?> mClass;
+        Method objectMethod;
+        Object newObject, mInstance;
+
+        if (connection != null) {
+            HashMap<String, String> object = new HashMap<>();
+            ArrayList<Object> objects = new ArrayList<>();
+
+            try {
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
+
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++) {
+                        object.put(metaData.getColumnName(i), resultSet.getString(metaData.getColumnName(i)));
+                    }
+
+                    try {
+                        mClass = Class.forName(className);
+                        mInstance = mClass.getConstructor().newInstance();
+
+                        objectMethod = mClass.getMethod("setObject", HashMap.class);
+                        objectMethod.invoke(mInstance, object);
+                        objectMethod = mClass.getMethod("getObject");
+
+                        newObject =  objectMethod.invoke(mInstance);
+                        objects.add(newObject);
+                    }
+                    catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
+                            InvocationTargetException | InstantiationException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+                resultSet.close();
+                statement.close();
+
+                return objects;
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public boolean insert (String query) {
+        connection = getConnection();
+
+        if (connection != null) {
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute(query);
+                return true;
+            }
+            catch (SQLException e) {
                 e.printStackTrace();
                 return false;
             }
@@ -69,77 +196,4 @@ public class JDBC {
         return false;
     }
 
-    public ArrayList<User> getAllUsers () {
-        System.out.println("GetAllUsers");
-        connection = getConnection();
-        ArrayList<User> users = new ArrayList<>();
-        User user = null;
-        String query = "SELECT * FROM USERS";
-        if (connection != null) {
-            try {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(query);
-                while (resultSet.next()) {
-                    System.out.println("Looping through resultSet");
-                    if (resultSet.getString("Account_Type").equals("PUBLIC")) {
-                        user = new Customer();
-                        System.out.println("Added Customer");
-                    }
-                    else {
-                        user = new Organization();
-                    }
-                    user = user.getUser(connection, resultSet.getInt("User_ID"));
-                    users.add(user);
-                    System.out.println("Added Organisation");
-                }
-                resultSet.close();
-                statement.close();
-                return users;
-            }
-            catch (SQLException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
-
-    
-
-    public User verifyLogin (String userName, String password) {
-        System.out.println("Verify login");
-        String query = String.format("SELECT User_ID, Account_Type FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
-                userName, password);
-        connection = getConnection();
-        if (connection != null) {
-            try {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(query);
-                if (resultSet.next()) {
-                    int id = resultSet.getInt("User_ID");
-                    String accType = resultSet.getString("Account_Type");
-                    User user = null;
-                    if (accType.equals("PUBLIC")) {
-                        user = new Customer();
-                        user = user.getUser(connection, id);
-                    }
-                    else {
-                        user = new Organization();
-                        user = user.getUser(connection, id);
-                    }
-                    resultSet.close();
-                    statement.close();
-                    return user;
-                }
-            }
-            catch (SQLException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        else {
-            return null;
-        }
-        return null;
-    }
 }

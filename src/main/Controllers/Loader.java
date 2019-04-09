@@ -32,7 +32,7 @@ class Loader{
 
     void loadRegister (Pane root) {
         System.out.println("loadRegister method");
-        loader(root, "../UI/registerTemp.fxml", true, null, 850, 650, 850, 650);
+        loader(root, "../UI/register.fxml", true, null, 850, 650, 850, 650);
     }
 
     void loadPage (String path) {
@@ -42,7 +42,8 @@ class Loader{
             borderPane.setCenter(pane);
         }
         catch (IOException e) {
-            return;
+            System.out.println("load page catch block");
+            e.printStackTrace();
         }
     }
 

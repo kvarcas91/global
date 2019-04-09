@@ -14,6 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import main.Entities.Bands;
+import main.Entities.Event;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
 import main.Networking.JDBC;
@@ -64,13 +66,15 @@ public class LoginController implements Initializable, NotificationPane {
                 setNotificationPane("Some fields are empty", null);
             }
             else {
-                User user = database.verifyLogin(userTextField.getText(), passwordField.getText());
-                if (user != null) {
-                    loader.loadMain(root, user);
-                }
-                else {
-                    setNotificationPane("Incorrect username or password", null);
-                }
+                String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
+                        userTextField.getText(), passwordField.getText());
+                user = (User) database.get(query, User.class.getName());
+
+
+                //User user = database.verifyLogin(userTextField.getText(), passwordField.getText());
+
+                if (user != null) loader.loadMain(root, user);
+                else setNotificationPane("Incorrect username or password", null);
             }
         }
     }

@@ -1,63 +1,10 @@
 package main.Entities;
 
 
-import java.sql.Connection;
+import main.Interfaces.Dao;
+import java.util.HashMap;
 
-public class User {
-
-    /**
-     * @Create user without optional parameters (returns User):
-     *      @User user = new User.Builder(userID, accountType, userName, userPassword).build();
-     *
-     *      OR
-     *
-     * @Create user with optional parameters (returns User):
-     *      @User user = new User.Builder(userID, accountType, userName, userPassword)
-     *                              .email(String)
-     *                              .address1(String)
-     *                              .address2(String)
-     *                              .town(String)
-     *                              .postCode(String)
-     *                              .phoneNumber(String)
-     *                              .build();
-     *
-     * @Create user.builder (returns User.Builder):
-     *      @User.Builder builder = new User.Builder(userID, accountType, userName, userPassword);
-     *      DO NOT call build() method as it will convert it to USER object
-     *
-     * @Create customer (returns Customer):
-     *      REQUIREMENTS:
-     *      @Customer (User.Builder(), title, firstName, lastName)
-     *
-     *      @Customer customer = new Customer (new User.Builder(userID, accountType, userName, userPassword), title, firstName, lastName);
-     *
-     *      OR
-     *
-     *      @CREATE User with builder
-     *      @Customer customer = new Customer(new User.Builder(user), title, firstName, lastName);
-     *
-     *      OR
-     *
-     *      @CREATE user builder
-     *      @Customer customer = new Customer(builder, title, firstName, lastName);
-     *
-     * Create organiser (returns organiser):
-     *      REQUIREMENTS:
-     *      @Organiser (User.Builder(), title, firstName, lastName, webAddress)
-     *
-     *      @Organiser organiser = new Organization (new User.Builder(params), title, firstName, lastName, webAddress);
-     *
-     *      OR
-     *
-     *      @CREATE User with builder
-     *      @Organiser organiser = new Organization(new User.Builder(user), title, firstName, lastName, webAddress);
-     *
-     *      OR
-     *
-     *      @CREATE user builder
-     *      @Organiser organiser = new Organization(builder, title, firstName, lastName, webAddress);
-     *
-     */
+public class User implements Dao<User> {
 
 
     // Mandatory
@@ -73,6 +20,10 @@ public class User {
     private String postCode = null;
     private String email = null;
     private String phoneNumber = null;
+    private String firstName = null;
+    private String lastName = null;
+    private String organisationName = null;
+    private String webAddress = null;
 
     public static class Builder {
 
@@ -86,25 +37,22 @@ public class User {
         private String postCode = null;
         private String email = null;
         private String phoneNumber = null;
+        private String firstName = null;
+        private String lastName = null;
+        private String organisationName = null;
+        private String webAddress = null;
 
         public Builder (int userID, String accountType, String userName, String userPassword) {
             this.userID = userID;
             this.accountType = accountType;
             this.userName = userName;
             this.userPassword = userPassword;
-        }
 
-        public Builder (User user) {
-            this.userID = user.getUserID();
-            this.accountType = user.getAccountType();
-            this.userName = user.getUserName();
-            this.userPassword = user.getUserPassword();
-            this.address1 = user.getAddress1();
-            this.address2 = user.getAddress2();
-            this.town = user.getTown();
-            this.postCode = user.getPostCode();
-            this.email = user.getEmail();
-            this.phoneNumber = user.getPhoneNumber();
+        } public Builder (String accountType, String userName, String userPassword) {
+
+            this.accountType = accountType;
+            this.userName = userName;
+            this.userPassword = userPassword;
         }
 
         public Builder address1 (String address1) {
@@ -137,6 +85,26 @@ public class User {
             return this;
         }
 
+        public Builder firstName (String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder lastName (String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder organisationName (String organisationName) {
+            this.organisationName = organisationName;
+            return this;
+        }
+
+        public Builder webAddress (String webAddress) {
+            this.webAddress = webAddress;
+            return this;
+        }
+
         public User build (){
             return new User (this);
         }
@@ -156,8 +124,12 @@ public class User {
         this.postCode = builder.postCode;
         this.email = builder.email;
         this.phoneNumber = builder.phoneNumber;
-
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.organisationName = builder.organisationName;
+        this.webAddress = builder.webAddress;
     }
+
 
     public int getUserID() {
         return userID;
@@ -199,13 +171,13 @@ public class User {
         return phoneNumber;
     }
 
-    public String getFirstName() {return null;}
+    public String getFirstName() {return firstName;}
 
-    public String getLastName () {return null;}
+    public String getLastName () {return lastName;}
 
-    public String getWebAddress () {return null;}
+    public String getWebAddress () {return webAddress;}
 
-    public String getOrganisationName () {return null;}
+    public String getOrganisationName () {return organisationName;}
 
     public void setUserID (int userID) {
         this.userID = userID;
@@ -216,13 +188,20 @@ public class User {
     }
 
     public void setFirstName (String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setOrganisationName (String organisationName) {}
+    public void setOrganisationName (String organisationName) {
+        this.organisationName = organisationName;
+    }
 
-    public void setLastName (String lastName) {}
+    public void setLastName (String lastName) {
+        this.lastName = lastName;
+    }
 
-    public void setWebAddress (String webAddress) {}
+    public void setWebAddress (String webAddress) {
+        this.webAddress = webAddress;
+    }
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -256,12 +235,36 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean insertUser (Connection connection) {
-        return false;
+
+    @Override
+    public String getQuery () {
+        return String.format("INSERT INTO USERS VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                 getAccountType(), getUserName(), getUserPassword(), getTown(), getPostCode(), getAddress1(),
+                getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(), getWebAddress());
     }
 
-    public User getUser(Connection connection, int id) {
-        return null;
+    @Override
+    public void setObject(HashMap<String, String> object) {
+        System.out.println("Invoked setObject method");
+        setUserID(Integer.parseInt(object.get("User_ID")));
+        setAccountType(object.get("Account_Type"));
+        setUserName(object.get("User_Name"));
+        setUserPassword(object.get("User_Password"));
+        setTown(object.get("User_City"));
+        setPostCode(object.get("Post_Code"));
+        setAddress1(object.get("User_Street"));
+        setAddress2("Where the fuck is address 2????");
+        setEmail(object.get("User_Email"));
+        setPhoneNumber(object.get("User_Phone_No"));
+        setFirstName(object.get("User_First_Name"));
+        setLastName(object.get("User_Last_Name"));
+        setOrganisationName(object.get("Org_Name"));
+        setWebAddress(object.get("Org_WebAdress"));
+    }
+
+    @Override
+    public User getObject() {
+        return this;
     }
 
     @Override
@@ -275,7 +278,13 @@ public class User {
                                     "town: %s\n" +
                                     "post code: %s\n" +
                                     "email: %s\n" +
-                                    "number: %s\n",
-                userID, accountType, userName, userPassword, address1, address2, town, postCode, email, phoneNumber);
+                                    "number: %s\n" +
+                                    "first name: %s\n" +
+                                    "last name: %s\n" +
+                                    "organisation name: %s\n" +
+                                    "web address: %s",
+                getUserID(), getAccountType(), getUserName(), getUserPassword(), getAddress1(), getAddress2(),
+                getTown(), getPostCode(), getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(),
+                getWebAddress());
     }
 }

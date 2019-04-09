@@ -16,16 +16,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import main.Controllers.LoginController;
-import main.Entities.Customer;
-import main.Entities.User;
-import main.Networking.JDBC;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 
 public class Main extends Application {
@@ -137,24 +131,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-        /*
-        if (connection != null) {
-            System.out.println("Connected");
-            Customer customer = new Customer();
-            customer.getUser(connection, 3);
-            if (customer == null) {
-                System.out.println("null");
-            }
-            else {
-                System.out.println(customer.toString());
-            }
-
-            System.out.println("Rows in user table: " + database.getCount("SELECT COUNT(*) FROM USERS"));
-
-        }
-        else System.out.println("null");
-
-         */
     }
 }

@@ -6,12 +6,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import main.Entities.User;
 
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -60,22 +62,28 @@ public class AccountController implements Initializable {
 
         setAccountTypeVisibility();
 
-        userName.setText(user.getUserName());
-        password.setText(user.getUserPassword());
-        address1Field.setText(user.getAddress1());
-        address2Field.setText(user.getAddress2());
-        townField.setText(user.getTown());
-        postCodeField.setText(user.getPostCode());
-        emailField.setText(user.getEmail());
-        phoneNumberField.setText(user.getPhoneNumber());
+        setText(userName, user.getUserName());
+        setText(password, user.getUserPassword());
+        setText(address1Field, user.getAddress1());
+        setText(address2Field, user.getAddress2());
+        setText(townField, user.getTown());
+        setText(postCodeField, user.getPostCode());
+        setText(emailField, user.getEmail());
+        setText(phoneNumberField, user.getPhoneNumber());
 
         if (user.getAccountType().equals("PUBLIC")) {
-            firstName.setText(user.getFirstName());
-            lastName.setText(user.getLastName());
+            setText(firstName, user.getFirstName());
+            setText(lastName, user.getLastName());
         }
         else {
-            organisationName.setText(user.getOrganisationName());
-            webAddressField.setText(user.getWebAddress());
+            setText(organisationName, user.getOrganisationName());
+            setText(webAddressField, user.getWebAddress());
+        }
+    }
+
+    private void setText(TextField textField, String text) {
+        if (text != null){
+            textField.setText(text);
         }
     }
 
@@ -101,6 +109,8 @@ public class AccountController implements Initializable {
 
     public void initialize (URL url, ResourceBundle bundle) {
         user = RootController.getInstance().getUser();
+        System.out.println("Account controller initialize. Printing user: ");
+        System.out.println(user.toString());
         setAccount(user, null);
     }
 }

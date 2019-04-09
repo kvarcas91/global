@@ -1,6 +1,10 @@
 package main.Entities;
 
-public class Price {
+import main.Interfaces.Dao;
+
+import java.util.HashMap;
+
+public class Price implements Dao<Price> {
     private String concertName = null;
     private double concertPrice = -1;
     private String concertID = null;
@@ -46,6 +50,21 @@ public class Price {
                         "ConcertID: %s\n" +
                         "PriceID: %s\n", getName(), getPrice(), getSeatRow(),
                 getRate(),getConcertID(),getPriceID());
+    }
+
+    @Override
+    public String getQuery() {
+        return String.format("SELECT * FROM BANDS ");
+    }
+
+    @Override
+    public void setObject(HashMap<String, String> object) {
+
+    }
+
+    @Override
+    public Price getObject() {
+        return this;
     }
 }
 
