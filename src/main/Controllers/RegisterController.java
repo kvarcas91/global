@@ -76,7 +76,7 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
 
     public RegisterController() {
-        database = new JDBC();
+        database = LoginController.getConnection();
         connection = database.getConnection();
     }
 
@@ -192,6 +192,11 @@ public class RegisterController implements Initializable, NotificationPane, Chan
                 }
                 else if (passwordField.getText().compareTo(verifyPasswordField.getText()) != 0) {
                     setNotificationPane("Password does not match", null);
+                    return;
+                }
+                String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s'", userName.getText());
+                if (database.get(query, User.class.getName()) != null) {
+                    setNotificationPane("username already exists", null);
                     return;
                 }
             }

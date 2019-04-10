@@ -1,20 +1,28 @@
 package main.Controllers;
 
 
+import com.mysql.cj.util.TestUtils;
 import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import main.Entities.User;
+import javafx.stage.Stage;
+import main.Entities.*;
+import main.Main;
+import main.Networking.JDBC;
+
 import java.net.URL;
+import java.time.format.TextStyle;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RootController implements Initializable {
@@ -54,9 +62,12 @@ public class RootController implements Initializable {
     public void setUser(User user) {
         System.out.println("setting user");
         if (user != null) {
-            this.user = user;
+            String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
+                    user.getUserName(), user.getUserPassword());
+            JDBC jdbc = LoginController.getConnection();
+            this.user = (User) jdbc.get(query, User.class.getName());
+            //this.user = user;
             userNameField.setText(user.getUserName());
-            System.out.println(this.user.toString());
             MenuController.getInstance().setAccountType(user.getAccountType());
         }
     }
@@ -91,6 +102,18 @@ public class RootController implements Initializable {
         return this.content;
     }
 
+    private void test (String table, String className) {
+        System.out.println("-----------------------------------");
+        System.out.println(String.format("ALL %s", table));
+        JDBC database = LoginController.getConnection();
+        String query = String.format("SELECT * FROM %s", table);
+        ArrayList<Object> obj = database.getAll(query, className);
+        for (Object object : obj) {
+            System.out.println(object.toString());
+        }
+        System.out.println("------------------------------------");
+
+    }
 
     public void initialize (URL url, ResourceBundle bundle) {
         System.out.println("root INIT");
@@ -108,5 +131,22 @@ public class RootController implements Initializable {
                 }
             }
         });
+
+        Booking booking = new Booking();
+        //TicketType type = new TicketType("A", 4, 45, false);
+        //JDBC database = LoginController.getConnection();
+        //database.insert(type.getQuery());
+
+
+        test("USERS", User.class.getName());
+
+        test("BANDS", Bands.class.getName());
+
+        test("EVENTS", Event.class.getName());
+
+        test("BOOKING", Booking.class.getName());
+
+        test("TICKET_TYPES", TicketType.class.getName());
+        
     }
 }

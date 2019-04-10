@@ -49,7 +49,6 @@ public class Bands implements Dao<Bands> {
 
     @Override
     public void setObject(HashMap<String, String> object) {
-        System.out.println("invoking setObject in Bands class");
         setID(Integer.parseInt(object.get("Band_ID")));
         setName(object.get("Band_Name"));
         setAgent(object.get("Band_Agent"));

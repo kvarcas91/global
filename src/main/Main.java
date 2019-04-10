@@ -26,15 +26,19 @@ public class Main extends Application {
 
     private BorderPane box = null;
     private Stage logoStage = null;
-    private Stage primaryStage = null;
+    private static Stage primaryStage = null;
     private final boolean loadAnimation = true;
 
     @Override
-    public void start(Stage primaryStage){
-        this.primaryStage = primaryStage;
+    public void start(Stage stage){
+        primaryStage = stage;
 
         if (loadAnimation) loadLogo();
         else loadLogin();
+    }
+
+    public static Stage getStage () {
+        return primaryStage;
     }
 
     private void loadLogo () {

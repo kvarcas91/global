@@ -1,16 +1,19 @@
 package main.Controllers;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
 import main.Networking.JDBC;
@@ -37,12 +40,11 @@ public class AdminAccountController implements Initializable, NotificationPane {
     private ArrayList<User> users = new ArrayList<>();
 
     public AdminAccountController () {
-        database = new JDBC();
+        database = LoginController.getConnection();
     }
 
     private void editItem (User user) {
 
-        System.out.println(user.toString());
         BorderPane borderPane = RootController.getInstance().getContent();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../UI/account.fxml"));
         try {
@@ -55,6 +57,7 @@ public class AdminAccountController implements Initializable, NotificationPane {
         }
     }
 
+
     private void removeItem (User user) {
         int id = user.getUserID();
         if (database.delete("USERS", "User_ID", id)) {
@@ -65,7 +68,6 @@ public class AdminAccountController implements Initializable, NotificationPane {
         else {
             System.out.println("Error");
         }
-
     }
 
     @Override
@@ -94,11 +96,9 @@ public class AdminAccountController implements Initializable, NotificationPane {
 
 
     private void setTile () {
-
         tilePane.getChildren().clear();
 
         if (users.size() > 0) {
-
             for (User user : users) {
                 if (user != null) {
 
@@ -170,6 +170,7 @@ public class AdminAccountController implements Initializable, NotificationPane {
         }
     }
 
+
     private void print(User user) {
         System.out.println(user.toString());
     }
@@ -179,9 +180,11 @@ public class AdminAccountController implements Initializable, NotificationPane {
 
         ArrayList<Object> objects = database.getAll("SELECT * FROM USERS", User.class.getName());
 
+
         for (Object obj : objects) {
             users.add((User) obj);
         }
+
 
         setTile();
     }

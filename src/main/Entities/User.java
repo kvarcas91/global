@@ -245,7 +245,6 @@ public class User implements Dao<User> {
 
     @Override
     public void setObject(HashMap<String, String> object) {
-        System.out.println("Invoked setObject method");
         setUserID(Integer.parseInt(object.get("User_ID")));
         setAccountType(object.get("Account_Type"));
         setUserName(object.get("User_Name"));

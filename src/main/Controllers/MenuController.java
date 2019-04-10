@@ -79,5 +79,7 @@ public class MenuController implements Initializable{
         fxml.put("bookings", "../UI/bookings.fxml");
         fxml.put("adminAcc", "../UI/adminAccount.fxml");
         fxml.put("dashboard", "../UI/dashboard.fxml");
+
+        dashboardEvent(null);
     }
 }

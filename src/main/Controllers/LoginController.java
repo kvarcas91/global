@@ -14,12 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import main.Entities.Bands;
-import main.Entities.Event;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
 import main.Networking.JDBC;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -45,12 +42,15 @@ public class LoginController implements Initializable, NotificationPane {
 
     private User user = null;
     private Loader loader;
-    private JDBC database = null;
-    private Connection connection = null;
+    private static JDBC database = null;
 
     public LoginController() {
         loader = new Loader();
         database = new JDBC();
+    }
+
+    public static JDBC getConnection () {
+        return database;
     }
 
     @FXML
@@ -80,7 +80,7 @@ public class LoginController implements Initializable, NotificationPane {
     }
 
     private boolean checkConnection () {
-        connection = database.getConnection();
+        Connection connection = database.getConnection();
         if (connection == null) {
             setNotificationPane("No Network Connection", null);
             return false;

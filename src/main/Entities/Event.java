@@ -1,84 +1,96 @@
 package main.Entities;
 
-import java.util.ArrayList;
 
-public class Event {
-    private String eventName,eventDate,eventLocation,eventDescription,eventOrganiser;
+import main.Interfaces.Dao;
 
-    private ArrayList<Band>   bands        = new ArrayList<>();
+import java.util.HashMap;
 
-    private ArrayList<Ticket>   tickets      = new ArrayList<>();
+public class Event implements Dao<Event> {
 
-    public Event(String eName, String eDate, String eLocation, String eDescription, String eOrganiser)
-    {
-        eventName           = eName;
-        eventDate           = eDate;
-        eventLocation       = eLocation;
-        eventDescription    = eDescription;
-        eventOrganiser      = eOrganiser;
+    private int eventID;
+    private String eventName;
+    private String eventDate;
+    private String eventLocation;
+    private String eventDescription;
+    private int eventOrganiser;
+
+    public Event () {}
+
+    public Event(int eventID, String eName, String eDate, String eLocation, String eDescription, int eOrganiser) {
+        this.eventID = eventID;
+        eventName = eName;
+        eventDate = eDate;
+        eventLocation = eLocation;
+        eventDescription = eDescription;
+        eventOrganiser = eOrganiser;
     }
 
+    public Event(String eName, String eDate, String eLocation, String eDescription, int eOrganiser) {
+        eventName = eName;
+        eventDate = eDate;
+        eventLocation = eLocation;
+        eventDescription = eDescription;
+        eventOrganiser = eOrganiser;
+    }
+
+    public int getEventID() {
+        return eventID;
+    }
     public String getEventName() {return eventName;}
     public String getEventDate() {return eventDate;}
     public String getEventLocation(){return eventLocation;}
     public String getEventDescription() {return eventDescription;}
-    public String getEventOrganiser() {return eventOrganiser;}
+    public int getEventOrganiser() {return eventOrganiser;}
 
-    public class Band{
-        private String bandName, bandAgent;
-
-        public Band(String bName, String bAgent){
-            bandName        = bName;
-            bandAgent       = bAgent;
-        }
-        public String getBandName(){return bandName;}
-        public String getBandAgent(){return bandAgent;}
-
-    }
-    public class Ticket{
-        private String   ticketName;
-        private Integer  ticketsNumber;
-        private Float    ticketPrice;
-        private Boolean  isTicketCorp;
-
-        public Ticket(String tName, int tNumber, float tPrice, boolean tIsCorp){
-            ticketName      = tName;
-            ticketsNumber   = tNumber;
-            ticketPrice     = tPrice;
-            isTicketCorp    = tIsCorp;
-        }
-
-        public String getTicketName() {return ticketName;}
-        public Integer getTicketsNumber() {return ticketsNumber;}
-        public Float getTicketPrice() {return ticketPrice;}
-        public Boolean getTicketCorp() {return isTicketCorp;}
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
-    public void AddBand(String bName, String bAgent){
-        bands.add(new Band(bName,bAgent));
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public void AddTicket(String tName, int tNumber, float tPrice, boolean tIsCorp){
-        tickets.add(new Ticket(tName,tNumber,tPrice,tIsCorp));
-    }
-    public void ShowEvent(){
-        System.out.println(getEventName());
-        System.out.println(getEventDate());
-        System.out.println(getEventLocation());
-        System.out.println(getEventDescription());
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
     }
 
-    public void ShowBands(){
-        for (int i = 0; i < bands.size(); i++) {
-            System.out.println(bands.get(i).getBandName());
-            System.out.println(bands.get(i).getBandAgent());
-        }
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
     }
-    public void ShowTickets(){
-        for (int i = 0; i < tickets.size(); i++) {
-            System.out.println(tickets.get(i).getTicketName());
-            System.out.println(tickets.get(i).getTicketsNumber());
-            System.out.println(tickets.get(i).getTicketPrice());
-        }
+
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+
+    public void setEventOrganiser(int eventOrganiser) {
+        this.eventOrganiser = eventOrganiser;
+    }
+
+    @Override
+    public String getQuery() {
+        return String.format("INSERT INTO EVENTS VALUES (null, '%s', '%s', '%s', '%s', '%d')",
+                getEventName(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
+    }
+
+    @Override
+    public void setObject(HashMap<String, String> object) {
+        setEventID(Integer.parseInt(object.get("Event_ID")));
+        setEventName(object.get("Event_Name"));
+        setEventDate(object.get("Event_Date"));
+        setEventLocation(object.get("Event_Location"));
+        setEventDescription(object.get("Event_Description"));
+        setEventOrganiser(Integer.parseInt(object.get("Event_Organiser")));
+    }
+
+    @Override
+    public Event getObject() {
+        return this;
+    }
+
+    @Override
+    public String toString () {
+        return String.format("ID: %d\nEvent date: %s\nEvent location: %s\nEvent description: %s\nEvent organiser: %d",
+                getEventID(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
     }
 }
+

@@ -15,25 +15,34 @@ public class JDBC {
 
     private java.sql.Connection connection;
 
-    private String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
 
     public JDBC () {
 
     }
 
     public java.sql.Connection getConnection () {
+        String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
         if (connection == null) {
+
             try {
                 System.out.println("Creating connection");
                 DriverManager.setLoginTimeout(5);
                 connection = DriverManager.getConnection(connURL);
-
             }
             catch (SQLException e) {
                 return null;
             }
         }
         return connection;
+    }
+
+    public Thread checkNetworkConnection () {
+        return new Thread() {
+            @Override
+            public void run () {
+                // check internet connection
+            }
+        };
     }
 
     public int getCount (String quesry) {
@@ -65,8 +74,7 @@ public class JDBC {
                 return true;
             }
             catch (SQLException e) {
-                //e.printStackTrace();
-                System.out.println("Fuck OFF");
+                e.printStackTrace();
                 return false;
             }
         }

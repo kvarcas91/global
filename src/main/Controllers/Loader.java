@@ -9,7 +9,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import main.Entities.User;
-
 import java.io.IOException;
 
 class Loader{

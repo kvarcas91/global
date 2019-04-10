@@ -2,18 +2,22 @@ package main.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import main.Entities.Booking;
+import main.Interfaces.NotificationPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BookingController implements Initializable {
+public class BookingController implements Initializable, NotificationPane {
 
     /**
      *          ########################################################
@@ -32,6 +36,12 @@ public class BookingController implements Initializable {
     @FXML public TableColumn<Booking, String> bookingPrice;
     @FXML public TableColumn<Booking, String> BookingDate;
 
+    @FXML
+    private HBox notificationPane;
+
+    @FXML
+    private Text notificationMessage;
+
     /*public ObservableList<Booking> list = FXCollections.observableArrayList(
             new Booking("1|33|256|25|20/3/2019"),
             new Booking("2|356|356|55|20/2/2019"),
@@ -44,10 +54,7 @@ public class BookingController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         ObservableList<Booking> list = FXCollections.observableArrayList(
-                new Booking("1|33|256|25|20/3/2019"),
-                new Booking("2|356|356|55|20/2/2019"),
-                new Booking("3|555|555|35|20/4/2019"),
-                new Booking("4|256|256|45|28/3/2019"));
+                new Booking(1, 4,6, 100, "Todauy"));
 
         System.out.println("Working");
         Bookings.setItems(list);
@@ -71,4 +78,27 @@ public class BookingController implements Initializable {
 
     }
 
+    @Override
+    public void setNotificationPane(String message, String color) {
+        String style = String.format("-fx-background-color: %s;", color);
+        if (color != null) {
+            this.notificationPane.setStyle(style);
+        }
+        this.notificationPane.setVisible(true);
+        this.notificationMessage.setText(message);
+        Task task = hideNotificationPane();
+        new Thread(task).start();
+    }
+
+    @Override
+    public Task hideNotificationPane() {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                Thread.sleep(2000);
+                notificationPane.setVisible(false);
+                return true;
+            }
+        };
+    }
 }
