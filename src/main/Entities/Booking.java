@@ -24,12 +24,11 @@ public class Booking implements Dao<Booking> {
        this.bookingDate = bookingDate;
    }
 
-    public Booking (int userID, int eventID, int ticketTypeID, int quantity, String bookingDate) {
+    public Booking (int userID, int eventID, int ticketTypeID, int quantity) {
         this.userID = userID;
         this.eventID = eventID;
         this.ticketTypeID = ticketTypeID;
         this.quantity = quantity;
-        this.bookingDate = bookingDate;
     }
 
 
@@ -83,7 +82,7 @@ public class Booking implements Dao<Booking> {
 
     @Override
     public String getQuery() {
-        return String.format("INSERT INTO BOOKINGS VALUES (null, '%d', '%d', '%d', '%d', null)",
+        return String.format("INSERT INTO BOOKING VALUES (null, '%d', '%d', '%d', '%d', now(), 0)",
                 getUserID(), getEventID(), getTicketTypeID(), getQuantity());
     }
 

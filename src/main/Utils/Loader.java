@@ -1,40 +1,49 @@
-package main.Controllers;
+package main.Utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import main.Controllers.RootController;
 import main.Entities.User;
 import java.io.IOException;
 
-class Loader{
+public class Loader{
 
-    private BorderPane borderPane;
+    private static BorderPane borderPane;
 
-    Loader () {}
-
-    Loader (BorderPane pane) {
-        this.borderPane = pane;
+    public Loader () {
+        System.out.println("init empty loader");
     }
 
-    void loadMain (Pane root, User user) {
+    public Loader (BorderPane pane) {
+        System.out.println("init loader with pane");
+        borderPane = pane;
+    }
+
+    public static void setContent (BorderPane pane) {
+        borderPane = pane;
+    }
+
+    public void loadMain (Pane root, User user) {
         loader(root, "../UI/root.fxml", true, user, 1000, 600, 800, 600);
     }
 
-    void loadLogin (Pane root){
+    public void loadLogin (Pane root){
         loader(root, "../UI/login.fxml", false, null, 600, 450, 600, 450);
     }
 
-    void loadRegister (Pane root) {
+    public void loadRegister (Pane root) {
         System.out.println("loadRegister method");
         loader(root, "../UI/register.fxml", true, null, 850, 650, 850, 650);
     }
 
-    void loadPage (String path) {
+    public void loadPage (String path) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         try {
             Pane pane = loader.load();

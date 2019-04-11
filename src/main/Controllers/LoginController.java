@@ -16,11 +16,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
+import main.Main;
 import main.Networking.JDBC;
+import main.Utils.Loader;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable, NotificationPane {
@@ -40,18 +42,14 @@ public class LoginController implements Initializable, NotificationPane {
     @FXML
     private JFXPasswordField passwordField;
 
-    private User user = null;
-    private Loader loader;
+    private Loader loader = null;
     private static JDBC database = null;
 
     public LoginController() {
-        loader = new Loader();
-        database = new JDBC();
+        loader = Main.getLoader();
+        database = Main.getDatabase();
     }
 
-    public static JDBC getConnection () {
-        return database;
-    }
 
     @FXML
     private void register (ActionEvent e) {
@@ -60,35 +58,20 @@ public class LoginController implements Initializable, NotificationPane {
 
     @FXML
     private void login (ActionEvent e) {
-        if (checkConnection()) {
 
             if (userTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
                 setNotificationPane("Some fields are empty", null);
             }
             else {
-                String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
-                        userTextField.getText(), passwordField.getText());
-                user = (User) database.get(query, User.class.getName());
-
-
-                //User user = database.verifyLogin(userTextField.getText(), passwordField.getText());
+                String query = String.format("SELECT * FROM USERS WHERE (User_Name = '%s' OR User_Email = '%s') AND User_Password = '%s'",
+                        userTextField.getText(), userTextField.getText(),  passwordField.getText());
+                User user = (User) database.get(query, User.class.getName());
 
                 if (user != null) loader.loadMain(root, user);
                 else setNotificationPane("Incorrect username or password", null);
             }
-        }
     }
 
-    private boolean checkConnection () {
-        Connection connection = database.getConnection();
-        if (connection == null) {
-            setNotificationPane("No Network Connection", null);
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
 
     @Override
     public void setNotificationPane(String message, String color) {
@@ -115,7 +98,9 @@ public class LoginController implements Initializable, NotificationPane {
 
     @Override
     public void initialize (URL url, ResourceBundle bundle) {
-        checkConnection();
+        if (database == null) {
+            setNotificationPane("No network connection", null);
+        }
         RequiredFieldValidator validator = new RequiredFieldValidator();
         userTextField.getValidators().add(validator);
         passwordField.getValidators().add(validator);

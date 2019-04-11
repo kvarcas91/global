@@ -23,13 +23,18 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
+import main.Main;
 import main.Networking.JDBC;
+import main.Utils.Loader;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterController implements Initializable, NotificationPane, ChangeListener<Toggle> {
 
@@ -44,7 +49,7 @@ public class RegisterController implements Initializable, NotificationPane, Chan
     private GridPane userNameLayout, optionalLayout;
 
     @FXML
-    private JFXRadioButton first, second;
+    private JFXRadioButton first;
 
     @FXML
     private JFXTextField firstName, lastName, organisationName, userName, address1Field, address2Field, townField, postCodeField,
@@ -65,19 +70,15 @@ public class RegisterController implements Initializable, NotificationPane, Chan
     @FXML
     private ImageView btnBack, btnNext;
 
-    private User user = null;
-
     private byte position = 0;
     private HashMap<String, Pane> scenes = new HashMap<>();
     private String[] labelText = new String[3];
     private String accType = null;
     private JDBC database = null;
-    private Connection connection = null;
 
 
     public RegisterController() {
-        database = LoginController.getConnection();
-        connection = database.getConnection();
+        database = Main.getDatabase();
     }
 
     private void drawCircle() {
@@ -159,7 +160,14 @@ public class RegisterController implements Initializable, NotificationPane, Chan
     private <T extends TextField> boolean validate (T... widget) {
         if (widget.length != 0) {
             for (T element : widget) {
-                if (element.getText().isEmpty()) return false;
+                if (element.getText().isEmpty()) {
+                    setNotificationPane("Some fields are empty", null);
+                    return false;
+                }
+                else if (element.getText().length() <4){
+                    setNotificationPane("Too short", null);
+                    return false;
+                }
             }
             return true;
         }
@@ -186,14 +194,21 @@ public class RegisterController implements Initializable, NotificationPane, Chan
     private void btnNext (MouseEvent event) {
         if (this.position < 2 && accType != null) {
             if (this.position == 1) {
-                if (!validate(userName, passwordField, verifyPasswordField)) {
-                    setNotificationPane("Some fields are empty", null);
+                if (!validate(userName, passwordField, verifyPasswordField, emailField)) {
                     return;
                 }
                 else if (passwordField.getText().compareTo(verifyPasswordField.getText()) != 0) {
                     setNotificationPane("Password does not match", null);
                     return;
                 }
+
+                Pattern pattern = Pattern.compile("^.+@.+\\..+$");
+                Matcher matcher = pattern.matcher(emailField.getText());
+                if (!matcher.matches()) {
+                    setNotificationPane("Invalid email", null);
+                    return;
+                }
+
                 String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s'", userName.getText());
                 if (database.get(query, User.class.getName()) != null) {
                     setNotificationPane("username already exists", null);
@@ -215,13 +230,13 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
     @FXML
     private void login (ActionEvent e) {
-        Loader loader = new Loader();
+        Loader loader = Main.getLoader();
         loader.loadLogin(root);
     }
 
     @FXML
     private void register (ActionEvent e) {
-        user = new User.Builder(accType, userName.getText(), passwordField.getText())
+        User user = new User.Builder(accType, userName.getText(), passwordField.getText())
                 .email(emailField.getText())
                 .phoneNumber(phoneNumberField.getText())
                 .postCode(postCodeField.getText())
@@ -238,24 +253,11 @@ public class RegisterController implements Initializable, NotificationPane, Chan
             setNotificationPane("Something went wrong", null);
         }
         else {
-            Loader loader = new Loader();
+            Loader loader = Main.getLoader();
             loader.loadMain(root, user);
         }
     }
 
-    private void createUserObj() {
-
-
-
-    }
-
-    private void checkConnection () {
-        connection = database.getConnection();
-        if (connection == null) {
-            setNotificationPane("No Network Connection", null);
-        }
-
-    }
 
     @Override
     public void setNotificationPane(String message, String color) {
@@ -286,7 +288,9 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        checkConnection();
+        if (database.getConnection() == null) {
+            setNotificationPane("No Network Connection", null);
+        }
         this.scenes.put("accTypeLayout", this.accTypeLayout);
         this.scenes.put("userNameLayout", this.userNameLayout);
         this.scenes.put("optionalLayout", this.optionalLayout);

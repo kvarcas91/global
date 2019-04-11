@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import main.Controllers.AccountController;
+import main.Utils.Loader;
+import main.Networking.JDBC;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,17 +31,24 @@ public class Main extends Application {
     private Stage logoStage = null;
     private static Stage primaryStage = null;
     private final boolean loadAnimation = true;
+    private static JDBC database = null;
+    private static Loader loader, pageLoader;
 
-    @Override
-    public void start(Stage stage){
-        primaryStage = stage;
 
-        if (loadAnimation) loadLogo();
-        else loadLogin();
+    public static JDBC getDatabase () {
+        return database;
     }
 
-    public static Stage getStage () {
-        return primaryStage;
+    public static Loader getLoader () {
+        return loader;
+    }
+
+    public static Loader getPageLoader () {
+        return pageLoader;
+    }
+
+    public static void setPageLoader(BorderPane pane) {
+        pageLoader = new Loader(pane);
     }
 
     private void loadLogo () {
@@ -104,6 +114,10 @@ public class Main extends Application {
     }
 
     private void checkNetworkConnection (ProgressBar progressBar) {
+        Thread connectionThread = connect();
+        connectionThread.start();
+
+
         progressBar.progressProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
@@ -113,27 +127,49 @@ public class Main extends Application {
                 else if (t1.doubleValue() == 0.8) addTransition(1, 0, 800);
             }
         });
+
         Task task = taskCreator (400);
         progressBar.progressProperty().unbind();
         progressBar.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
     }
 
+    private Thread connect () {
+        return new Thread() {
+            @Override
+            public void run () {
+                database = new JDBC();
+                System.out.println("Connected");
+                System.out.println("loading Loader");
+                loader = new Loader();
+            }
+        };
+    }
+
     private Task taskCreator (int seconds) {
         return new Task() {
             @Override
             protected Object call() throws Exception {
-                for (int i = 0; i < seconds; i++) {
-                    Thread.sleep(10);
-                    updateProgress(i+1, seconds);
-                }
+                    for (int i = 0; i < seconds; i++) {
+                        Thread.sleep(10);
+                        updateProgress(i + 1, seconds);
+                    }
                 return true;
             }
         };
     }
 
+    @Override
+    public void start(Stage stage){
+        primaryStage = stage;
+
+        if (loadAnimation) loadLogo();
+        else loadLogin();
+    }
 
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

@@ -266,6 +266,22 @@ public class User implements Dao<User> {
         return this;
     }
 
+    public boolean contains (String s) {
+        String searchValue = s.toLowerCase();
+        return  ((getUserName() != null && getUserName().toLowerCase().contains(searchValue))||
+                (getAccountType() != null && getAccountType().toLowerCase().contains(searchValue)) ||
+                (getAddress1() != null && getAddress1().toLowerCase().contains(searchValue)) ||
+                (getAddress2() != null && getAddress2().toLowerCase().contains(searchValue)) ||
+                (getTown() != null && getTown().toLowerCase().contains(searchValue)) ||
+                (getPostCode() != null && getPostCode().toLowerCase().contains(searchValue)) ||
+                (getEmail() != null && getEmail().toLowerCase().contains(searchValue)) ||
+                (getPhoneNumber() != null && getPhoneNumber().toLowerCase().contains(searchValue)) ||
+                (getFirstName() != null && getFirstName().toLowerCase().contains(searchValue)) ||
+                (getLastName() != null && getLastName().toLowerCase().contains(searchValue)) ||
+                (getOrganisationName() != null && getOrganisationName().toLowerCase().contains(searchValue)) ||
+                (getWebAddress() != null && getWebAddress().toLowerCase().contains(searchValue)));
+    }
+
     @Override
     public String toString () {
         return String.format("id: %d\n" +

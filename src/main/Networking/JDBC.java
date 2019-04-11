@@ -1,7 +1,5 @@
 package main.Networking;
 
-import main.Entities.User;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -14,14 +12,21 @@ import java.util.HashMap;
 public class JDBC {
 
     private java.sql.Connection connection;
-
+    private final String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
 
     public JDBC () {
-
+        try {
+            System.out.println("Creating connection");
+            DriverManager.setLoginTimeout(5);
+            connection = DriverManager.getConnection(connURL);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public java.sql.Connection getConnection () {
-        String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
+
         if (connection == null) {
 
             try {

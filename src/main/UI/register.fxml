@@ -93,11 +93,12 @@
                                  <JFXTextField fx:id="userName" labelFloat="true" prefHeight="26.0" prefWidth="300.0" promptText="Username*"
                                               GridPane.columnIndex="0" GridPane.rowIndex="0" />
                                  <JFXPasswordField fx:id="passwordField" labelFloat="true" promptText="Password*"
-                                                  GridPane.columnIndex="0"
-                                                   GridPane.rowIndex="1" />
+                                                  GridPane.columnIndex="0" GridPane.rowIndex="1" />
                                  <JFXPasswordField fx:id="verifyPasswordField" labelFloat="true" promptText="Verify password*"
-                                                  GridPane.columnIndex="0"
-                                                   GridPane.rowIndex="2" />
+                                                  GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                 <JFXTextField fx:id="emailField" labelFloat="true"  promptText="Email" styleClass="textField"
+                                               GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3"/>
+
                               </GridPane>
 
                               <!-- OPTIONAL LAYOUT -->
@@ -117,12 +118,10 @@
                                                styleClass="textField" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                                  <JFXTextField fx:id="postCodeField" labelFloat="true" prefHeight="26.0" prefWidth="150.0" promptText="Post code"
                                                styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                 <JFXTextField fx:id="emailField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Email"
-                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3"/>
                                  <JFXTextField fx:id="phoneNumberField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Phone number"
-                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3"/>
                                  <JFXTextField fx:id="webAddressField" labelFloat="true" prefHeight="26.0" prefWidth="300" promptText="Web address"
-                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5"/>
+                                               styleClass="textField" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
                               </GridPane>
 
                               <!-- REGISTER LAYOUT -->

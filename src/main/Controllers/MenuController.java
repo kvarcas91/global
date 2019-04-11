@@ -1,23 +1,21 @@
 package main.Controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import main.Main;
+import main.Utils.Loader;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MenuController implements Initializable{
 
     private String accountType = null;
+    private Stack<String> activeController = new Stack<>();
 
     @FXML
     private AnchorPane root;
@@ -32,33 +30,45 @@ public class MenuController implements Initializable{
 
 
     public MenuController () {
-        loader = new Loader(RootController.getInstance().getContent());
         instance = this;
+        loader = Main.getPageLoader();
+        Loader.setContent(RootController.getInstance().getContent());
     }
+
 
     public static MenuController getInstance() {
         return instance;
     }
 
+    public static String getActiveController () {
+        if (!getInstance().activeController.empty())
+            return getInstance().activeController.peek();
+        else return null;
+    }
+
     @FXML
     private void dashboardEvent (MouseEvent event) {
         loader.loadPage(fxml.get("dashboard"));
+        getInstance().activeController.push("dashboard");
     }
 
     @FXML
     private void bookingEvent (MouseEvent event) {
         loader.loadPage(fxml.get("bookings"));
+        getInstance().activeController.push("bookings");
     }
 
     @FXML
     private void festivalEvent (MouseEvent event) {
         loader.loadPage(fxml.get("festivals"));
+        getInstance().activeController.push("festivals");
     }
 
     @FXML
     private void adminAccEvent (MouseEvent e) {
         System.out.println(accountType);
-        loader.loadPage("../UI/adminAccount.fxml");
+        loader.loadPage(fxml.get("adminAcc"));
+        getInstance().activeController.push("adminAcc");
     }
 
     @FXML

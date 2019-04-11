@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
+import main.Main;
 import main.Networking.JDBC;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,8 +23,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class AdminAccountController implements Initializable, NotificationPane{
-
+public class AdminAccountController implements Initializable, NotificationPane {
     @FXML
     private HBox notificationPane;
 
@@ -35,11 +35,11 @@ public class AdminAccountController implements Initializable, NotificationPane{
 
     private JDBC database;
     private ArrayList<User> users = new ArrayList<>();
+    private ArrayList<User> clonedUsers = new ArrayList<>();
     private static AdminAccountController instance;
-    private static String query = null;
 
     public AdminAccountController () {
-        database = LoginController.getConnection();
+        database = Main.getDatabase();
         instance = this;
     }
 
@@ -66,8 +66,8 @@ public class AdminAccountController implements Initializable, NotificationPane{
         int id = user.getUserID();
         if (database.delete("USERS", "User_ID", id)) {
             setNotificationPane("User has been removed", "green");
-            users.remove(user);
-            setTile();
+            clonedUsers.remove(user);
+            setTile(clonedUsers);
         }
         else {
             System.out.println("Error");
@@ -99,18 +99,11 @@ public class AdminAccountController implements Initializable, NotificationPane{
     }
 
 
-    private void setTile () {
+    private void setTile (ArrayList<User> mUsers) {
         tilePane.getChildren().clear();
-        users = null;
-        users = new ArrayList<>();
 
-        ArrayList<Object> objects = database.getAll(query, User.class.getName());
-        for (Object obj : objects) {
-            users.add((User) obj);
-        }
-
-        if (users.size() > 0) {
-            for (User user : users) {
+        if (mUsers.size() > 0) {
+            for (User user : mUsers) {
                 if (user != null) {
 
                     VBox tile = new VBox();
@@ -179,20 +172,18 @@ public class AdminAccountController implements Initializable, NotificationPane{
                 }
             }
         }
-        objects = null;
-        Runtime runtime = Runtime.getRuntime();
-        runtime.gc();
     }
 
     public static void search (String s) {
         System.out.println(s);
-        StringBuilder builder = new StringBuilder();
-        builder.append("SELECT * FROM USERS WHERE ");
-        builder.append("User_Name like '%" + s + "%'");
-        query = builder.toString();
-        System.out.println(query);
+        AdminAccountController.getInstance().clonedUsers.clear();
+        for (User user : AdminAccountController.getInstance().users) {
+            if (user.contains(s))
+                AdminAccountController.getInstance().clonedUsers.add(user);
+        }
+
         try {
-            AdminAccountController.getInstance().setTile();
+            AdminAccountController.getInstance().setTile(AdminAccountController.getInstance().clonedUsers);
         }
         catch (NullPointerException e) {
         }
@@ -206,13 +197,13 @@ public class AdminAccountController implements Initializable, NotificationPane{
     @Override
     public void initialize (URL location, ResourceBundle resourceBundle) {
 
-
-        query = "SELECT * FROM USERS";
-
-
-
-
-        setTile();
+        String query = "SELECT * FROM USERS";
+        ArrayList<Object> objects = database.getAll(query, User.class.getName());
+        for (Object obj : objects) {
+            users.add((User) obj);
+        }
+        clonedUsers.addAll(users);
+        setTile(clonedUsers);
     }
 
 

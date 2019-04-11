@@ -13,20 +13,27 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.Booking;
 import main.Interfaces.NotificationPane;
+import main.Main;
+import main.Utils.Loader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BookingController implements Initializable, NotificationPane {
 
+    Loader loader = null;
     /**
      *          ########################################################
      *          #############   How to create more pages   #############
      *          ########################################################
-     *  Loader loader = new Loader(RootController.getInstance().getContent());
+     *
      *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
      *          ########################################################
      */
+
+    public BookingController () {
+        loader = Main.getPageLoader();
+    }
 
     @FXML
     public TableView<Booking> Bookings;
@@ -54,7 +61,7 @@ public class BookingController implements Initializable, NotificationPane {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         ObservableList<Booking> list = FXCollections.observableArrayList(
-                new Booking(1, 4,6, 100, "Todauy"));
+                new Booking(1, 4,6, 100));
 
         System.out.println("Working");
         Bookings.setItems(list);

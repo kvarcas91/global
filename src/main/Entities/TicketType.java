@@ -81,7 +81,8 @@ public class TicketType implements Dao<TicketType> {
 
     @Override
     public void setObject(HashMap<String, String> object) {
-        setID(Integer.parseInt(object.get("Type_ID ")));
+        setID(Integer.parseInt(object.get("Type_ID")));
+        //System.out.println("ID: " + object.get("Type_ID"));
         setName(object.get("Type_Name"));
         setSlot(Integer.parseInt(object.get("Type_Slots")));
         setPrice(Double.valueOf(object.get("Type_Price")));

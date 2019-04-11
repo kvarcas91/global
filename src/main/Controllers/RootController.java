@@ -3,8 +3,6 @@ package main.Controllers;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -13,11 +11,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.*;
+import main.Main;
 import main.Networking.JDBC;
+import main.Utils.Loader;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Queue;
 import java.util.ResourceBundle;
 
 public class RootController implements Initializable{
@@ -25,7 +24,6 @@ public class RootController implements Initializable{
 
     private User user;
     private static RootController instance;
-    ArrayList<Class<?>> queue = new ArrayList<>();
     private Loader loader = null;
 
     @FXML
@@ -42,7 +40,8 @@ public class RootController implements Initializable{
 
 
     public RootController () {
-        setLoader();
+        Main.setPageLoader(this.content);
+        loader = Main.getPageLoader();
         System.out.println("root constructor");
         instance = this;
     }
@@ -51,18 +50,13 @@ public class RootController implements Initializable{
         return instance;
     }
 
-    public void setLoader () {
-        loader = new Loader(this.getContent());
-    }
 
     public void setUser(User user) {
-        System.out.println("setting user");
         if (user != null) {
             String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
                     user.getUserName(), user.getUserPassword());
-            JDBC jdbc = LoginController.getConnection();
-            this.user = (User) jdbc.get(query, User.class.getName());
-            //this.user = user;
+            JDBC database = Main.getDatabase();
+            this.user = (User) database.get(query, User.class.getName());
             userNameField.setText(user.getUserName());
             MenuController.getInstance().setAccountType(user.getAccountType());
         }
@@ -74,7 +68,24 @@ public class RootController implements Initializable{
 
     @FXML
     private void searchEvent (MouseEvent e) {
-        AdminAccountController.search(searchField.getText());
+        String activeController = MenuController.getActiveController();
+        if (activeController != null) {
+            switch (activeController) {
+                case "adminAcc":
+                    System.out.println("adminAcc controller");
+                    AdminAccountController.search(searchField.getText());
+                    break;
+                case "dashboard":
+
+                    //break;
+                case "bookings":
+
+                    //break;
+                case "festivals":
+
+                    break;
+            }
+        }
     }
 
 
@@ -85,7 +96,7 @@ public class RootController implements Initializable{
     private void test (String table, String className) {
         System.out.println("-----------------------------------");
         System.out.println(String.format("ALL %s", table));
-        JDBC database = LoginController.getConnection();
+        JDBC database = Main.getDatabase();
         String query = String.format("SELECT * FROM %s", table);
         ArrayList<Object> obj = database.getAll(query, className);
         for (Object object : obj) {
@@ -97,8 +108,7 @@ public class RootController implements Initializable{
     }
 
     public void initialize (URL url, ResourceBundle bundle) {
-        System.out.println("root INIT");
-        setLoader();
+
         ContextMenu menu = new ContextMenu();
         MenuItem accountItem = new MenuItem("My Account");
         accountItem.setOnAction(e -> loader.loadPage("../UI/account.fxml"));
@@ -114,6 +124,14 @@ public class RootController implements Initializable{
         });
 
         searchField.setOnAction(e -> searchEvent(null));
+        searchField.textProperty().addListener((observable, oldVal, newVal) -> searchEvent(null));
+
+        /**
+         * FOR TESTING PURPOSE
+         */
+        Booking booking = new Booking(3, 4, 13, 2);
+        //JDBC database = Main.getDatabase();
+        //database.insert(booking.getQuery());
 
         /*
         test("USERS", User.class.getName());
@@ -126,13 +144,7 @@ public class RootController implements Initializable{
 
         test("TICKET_TYPES", TicketType.class.getName());
 
+
          */
-
-        TicketType type = new TicketType("first ticket", 100, 45.9, true);
-        TicketType type1 = new TicketType("second ticket", 80, 0.6789, false);
-        JDBC database = LoginController.getConnection();
-
     }
-
-
 }

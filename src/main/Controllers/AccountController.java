@@ -13,6 +13,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
+import main.Main;
+import main.Utils.Loader;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,7 +25,6 @@ public class AccountController implements Initializable, NotificationPane {
      *          ########################################################
      *          #############   How to create more pages   #############
      *          ########################################################
-     *  Loader loader = new Loader(RootController.getInstance().getContent());
      *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
      *          ########################################################
      */
@@ -48,7 +50,7 @@ public class AccountController implements Initializable, NotificationPane {
     private Text notificationMessage;
 
     public AccountController () {
-        loader = new Loader(RootController.getInstance().getContent());
+        loader = Main.getPageLoader();
     }
 
 
@@ -140,8 +142,8 @@ public class AccountController implements Initializable, NotificationPane {
 
     public void initialize (URL url, ResourceBundle bundle) {
         user = RootController.getInstance().getUser();
-        System.out.println("Account controller initialize. Printing user: ");
-        System.out.println(user.toString());
+        //System.out.println("Account controller initialize. Printing user: ");
+        //System.out.println(user.toString());
         setAccount(user, null);
     }
 

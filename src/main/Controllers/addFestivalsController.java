@@ -2,27 +2,29 @@ package main.Controllers;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import com.jfoenix.controls.JFXButton;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import java.io.IOException;
+
 import java.net.URL;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
+import main.Main;
+import main.Utils.Loader;
+
 import java.util.ResourceBundle;
 
 public class addFestivalsController implements Initializable {
 
+    /**
+     *          ########################################################
+     *          #############   How to create more pages   #############
+     *          ########################################################
+     *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
+     *          ########################################################
+     */
 
     private Loader loader = null;
 
     public addFestivalsController () {
-        loader = new Loader(RootController.getInstance().getContent());
+        loader = Main.getPageLoader();
     }
 
     @FXML
