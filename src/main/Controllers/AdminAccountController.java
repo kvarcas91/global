@@ -1,19 +1,16 @@
 package main.Controllers;
 
-import com.jfoenix.controls.JFXSnackbar;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import main.Entities.User;
 import main.Interfaces.NotificationPane;
 import main.Networking.JDBC;
@@ -25,7 +22,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class AdminAccountController implements Initializable, NotificationPane {
+public class AdminAccountController implements Initializable, NotificationPane{
 
     @FXML
     private HBox notificationPane;
@@ -38,9 +35,16 @@ public class AdminAccountController implements Initializable, NotificationPane {
 
     private JDBC database;
     private ArrayList<User> users = new ArrayList<>();
+    private static AdminAccountController instance;
+    private static String query = null;
 
     public AdminAccountController () {
         database = LoginController.getConnection();
+        instance = this;
+    }
+
+    public static AdminAccountController getInstance() {
+        return instance;
     }
 
     private void editItem (User user) {
@@ -97,6 +101,13 @@ public class AdminAccountController implements Initializable, NotificationPane {
 
     private void setTile () {
         tilePane.getChildren().clear();
+        users = null;
+        users = new ArrayList<>();
+
+        ArrayList<Object> objects = database.getAll(query, User.class.getName());
+        for (Object obj : objects) {
+            users.add((User) obj);
+        }
 
         if (users.size() > 0) {
             for (User user : users) {
@@ -168,8 +179,25 @@ public class AdminAccountController implements Initializable, NotificationPane {
                 }
             }
         }
+        objects = null;
+        Runtime runtime = Runtime.getRuntime();
+        runtime.gc();
     }
 
+    public static void search (String s) {
+        System.out.println(s);
+        StringBuilder builder = new StringBuilder();
+        builder.append("SELECT * FROM USERS WHERE ");
+        builder.append("User_Name like '%" + s + "%'");
+        query = builder.toString();
+        System.out.println(query);
+        try {
+            AdminAccountController.getInstance().setTile();
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
 
     private void print(User user) {
         System.out.println(user.toString());
@@ -178,14 +206,14 @@ public class AdminAccountController implements Initializable, NotificationPane {
     @Override
     public void initialize (URL location, ResourceBundle resourceBundle) {
 
-        ArrayList<Object> objects = database.getAll("SELECT * FROM USERS", User.class.getName());
+
+        query = "SELECT * FROM USERS";
 
 
-        for (Object obj : objects) {
-            users.add((User) obj);
-        }
 
 
         setTile();
     }
+
+
 }

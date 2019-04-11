@@ -3,13 +3,20 @@ package main.Entities;
 
 import main.Interfaces.Dao;
 
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Event implements Dao<Event> {
 
+    private final String timestampFormat = "yyyy-MM-dd";
     private int eventID;
     private String eventName;
-    private String eventDate;
+    private Timestamp eventDate;
     private String eventLocation;
     private String eventDescription;
     private int eventOrganiser;
@@ -19,7 +26,7 @@ public class Event implements Dao<Event> {
     public Event(int eventID, String eName, String eDate, String eLocation, String eDescription, int eOrganiser) {
         this.eventID = eventID;
         eventName = eName;
-        eventDate = eDate;
+        eventDate = setDate(eDate);
         eventLocation = eLocation;
         eventDescription = eDescription;
         eventOrganiser = eOrganiser;
@@ -27,7 +34,7 @@ public class Event implements Dao<Event> {
 
     public Event(String eName, String eDate, String eLocation, String eDescription, int eOrganiser) {
         eventName = eName;
-        eventDate = eDate;
+        eventDate = setDate(eDate);
         eventLocation = eLocation;
         eventDescription = eDescription;
         eventOrganiser = eOrganiser;
@@ -37,7 +44,9 @@ public class Event implements Dao<Event> {
         return eventID;
     }
     public String getEventName() {return eventName;}
-    public String getEventDate() {return eventDate;}
+    public String getEventDate() {
+        return getDate(this.eventDate);
+    }
     public String getEventLocation(){return eventLocation;}
     public String getEventDescription() {return eventDescription;}
     public int getEventOrganiser() {return eventOrganiser;}
@@ -51,7 +60,7 @@ public class Event implements Dao<Event> {
     }
 
     public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
+       this.eventDate = setDate(eventDate);
     }
 
     public void setEventLocation(String eventLocation) {
@@ -64,6 +73,25 @@ public class Event implements Dao<Event> {
 
     public void setEventOrganiser(int eventOrganiser) {
         this.eventOrganiser = eventOrganiser;
+    }
+
+    private String getDate (Timestamp timestamp) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(timestampFormat);
+        Date date = new Date();
+        date.setTime(timestamp.getTime());
+        return dateFormat.format(date);
+    }
+
+    private Timestamp setDate (String date) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat(timestampFormat);
+        try {
+            calendar.setTime(dateFormat.parse(date));
+            return new Timestamp(calendar.getTimeInMillis());
+        }
+        catch (ParseException e) {
+            return null;
+        }
     }
 
     @Override

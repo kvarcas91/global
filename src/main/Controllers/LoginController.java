@@ -129,7 +129,6 @@ public class LoginController implements Initializable, NotificationPane {
             }
         });
 
-
         passwordField.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
@@ -144,6 +143,9 @@ public class LoginController implements Initializable, NotificationPane {
         catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
+
+        userTextField.setOnAction(e -> login(null));
+        passwordField.setOnAction(e -> login(null));
     }
 
 

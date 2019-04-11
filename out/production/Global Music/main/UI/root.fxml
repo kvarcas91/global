@@ -26,12 +26,14 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                   <HBox alignment="CENTER_LEFT">
-                        <TextField promptText="search" style="-fx-background-color: transparent; -fx-prompt-text-fill: #485460;">
+                        <TextField fx:id="searchField" promptText="search"
+                                   style="-fx-background-color: transparent; -fx-prompt-text-fill: #485460;">
                            <HBox.margin>
                               <Insets left="5.0" right="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand">
+                        <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand"
+                                    onMouseClicked="#searchEvent">
                               <Image url="@../Resources/Drawable/search.png" />
                         </ImageView>
                      </HBox>

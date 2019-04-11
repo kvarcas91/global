@@ -1,5 +1,6 @@
 package main.Entities;
 import main.Interfaces.Dao;
+
 import java.util.HashMap;
 
 
@@ -9,7 +10,7 @@ public class TicketType implements Dao<TicketType> {
     private String name;
     private int slot;
     private double price;
-    private boolean isCorp = false;
+    private int isCorp = 0;
 
     public TicketType () { }
 
@@ -18,14 +19,14 @@ public class TicketType implements Dao<TicketType> {
         this.name = name;
         this.slot = slot;
         this.price = price;
-        this.isCorp = isCorp;
+        this.isCorp = setCorpBool(isCorp);
     }
 
     public TicketType (String name, int slot, double price, boolean isCorp) {
         this.name = name;
         this.slot = slot;
         this.price = price;
-        this.isCorp = isCorp;
+        this.isCorp = setCorpBool(isCorp);
     }
 
     public int getID() {
@@ -60,17 +61,21 @@ public class TicketType implements Dao<TicketType> {
         this.price = price;
     }
 
-    public boolean isCorp() {
-        return isCorp;
+    public int isCorp() {
+        return this.isCorp;
     }
 
-    public void setCorp(boolean corp) {
-        isCorp = corp;
+    public void setCorp(int corp) {
+        this.isCorp = corp;
+    }
+
+    private int setCorpBool (boolean value) {
+        return value ? 1 : 0;
     }
 
     @Override
     public String getQuery() {
-        return String.format("INSERT INTO TICKET_TYPES VALUES (null, '%s', '%d', '%f', '%b')",
+        return String.format("INSERT INTO TICKET_TYPES VALUES (null, '%s', %d, '%f', '%d')",
                 getName(), getSlot(), getPrice(), isCorp());
     }
 
@@ -80,7 +85,7 @@ public class TicketType implements Dao<TicketType> {
         setName(object.get("Type_Name"));
         setSlot(Integer.parseInt(object.get("Type_Slots")));
         setPrice(Double.valueOf(object.get("Type_Price")));
-        setCorp(Boolean.valueOf(object.get("Type_Is_Corp")));
+        setCorp(Integer.valueOf(object.get("Type_Is_Corp")));
     }
 
     @Override
@@ -91,6 +96,6 @@ public class TicketType implements Dao<TicketType> {
     @Override
     public String toString () {
         return String.format("ID: %d;\nName: %s;\nSlot: %s;\nPrice: %f;\nIs Corp: %b;",
-                getID(), getName(), getSlot(), getPrice(), isCorp);
+                getID(), getName(), getSlot(), getPrice(), isCorp());
     }
 }

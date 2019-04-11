@@ -221,13 +221,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
     @FXML
     private void register (ActionEvent e) {
-        createUserObj();
-        Loader loader = new Loader();
-        loader.loadMain(root, user);
-    }
-
-    private void createUserObj() {
-
         user = new User.Builder(accType, userName.getText(), passwordField.getText())
                 .email(emailField.getText())
                 .phoneNumber(phoneNumberField.getText())
@@ -242,8 +235,17 @@ public class RegisterController implements Initializable, NotificationPane, Chan
                 .webAddress(webAddressField.getText()).build();
 
         if (!database.insert(user.getQuery())) {
-            setNotificationPane("Cannot connect to database", null);
+            setNotificationPane("Something went wrong", null);
         }
+        else {
+            Loader loader = new Loader();
+            loader.loadMain(root, user);
+        }
+    }
+
+    private void createUserObj() {
+
+
 
     }
 

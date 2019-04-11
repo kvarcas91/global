@@ -238,8 +238,8 @@ public class User implements Dao<User> {
 
     @Override
     public String getQuery () {
-        return String.format("INSERT INTO USERS VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                 getAccountType(), getUserName(), getUserPassword(), getTown(), getPostCode(), getAddress1(),
+        return String.format("INSERT INTO USERS VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                 getAccountType(), getUserName(), getUserPassword(), getTown(), getPostCode(), getAddress1(), getAddress2(),
                 getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(), getWebAddress());
     }
 
@@ -252,7 +252,7 @@ public class User implements Dao<User> {
         setTown(object.get("User_City"));
         setPostCode(object.get("Post_Code"));
         setAddress1(object.get("User_Street"));
-        setAddress2("Where the fuck is address 2????");
+        setAddress2(object.get("User_Street2"));
         setEmail(object.get("User_Email"));
         setPhoneNumber(object.get("User_Phone_No"));
         setFirstName(object.get("User_First_Name"));

@@ -88,7 +88,8 @@ public class AccountController implements Initializable, NotificationPane {
 
     private void setText(TextField textField, String text) {
         if (text != null){
-            textField.setText(text);
+            if (!text.equals("null"))
+                textField.setText(text);
         }
     }
 

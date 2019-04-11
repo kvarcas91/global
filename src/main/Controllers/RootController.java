@@ -1,36 +1,31 @@
 package main.Controllers;
 
-
-import com.mysql.cj.util.TestUtils;
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import main.Entities.*;
-import main.Main;
 import main.Networking.JDBC;
 
 import java.net.URL;
-import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.ResourceBundle;
 
-public class RootController implements Initializable {
+public class RootController implements Initializable{
 
 
-    private String accountType = null;
     private User user;
     private static RootController instance;
+    ArrayList<Class<?>> queue = new ArrayList<>();
     private Loader loader = null;
 
     @FXML
@@ -40,10 +35,11 @@ public class RootController implements Initializable {
     private Text userNameField;
 
     @FXML
-    HBox accountBox;
+    private HBox accountBox, topPane;
 
     @FXML
-    private HBox topPane;
+    private TextField searchField;
+
 
     public RootController () {
         setLoader();
@@ -76,26 +72,10 @@ public class RootController implements Initializable {
         return this.user;
     }
 
-    public void setErrorPane (boolean visible, String message) {
-        if (visible) {
-            HBox box = new HBox();
-            box.setPadding(new Insets(5, 5, 5, 5));
-            box.setAlignment(Pos.CENTER);
-            box.setStyle("-fx-background-color: red;");
-
-            Text errorMessage = new Text(message);
-            errorMessage.setStyle("-fx-fill: white; -fx-font-weight: bolder;");
-
-            box.getChildren().add(errorMessage);
-            content.setBottom(box);
-
-        }
-        else {
-            content.setBottom(null);
-        }
-
+    @FXML
+    private void searchEvent (MouseEvent e) {
+        AdminAccountController.search(searchField.getText());
     }
-
 
 
     public BorderPane getContent() {
@@ -110,6 +90,7 @@ public class RootController implements Initializable {
         ArrayList<Object> obj = database.getAll(query, className);
         for (Object object : obj) {
             System.out.println(object.toString());
+            System.out.println("***");
         }
         System.out.println("------------------------------------");
 
@@ -132,12 +113,9 @@ public class RootController implements Initializable {
             }
         });
 
-        Booking booking = new Booking();
-        //TicketType type = new TicketType("A", 4, 45, false);
-        //JDBC database = LoginController.getConnection();
-        //database.insert(type.getQuery());
+        searchField.setOnAction(e -> searchEvent(null));
 
-
+        /*
         test("USERS", User.class.getName());
 
         test("BANDS", Bands.class.getName());
@@ -147,6 +125,14 @@ public class RootController implements Initializable {
         test("BOOKING", Booking.class.getName());
 
         test("TICKET_TYPES", TicketType.class.getName());
-        
+
+         */
+
+        TicketType type = new TicketType("first ticket", 100, 45.9, true);
+        TicketType type1 = new TicketType("second ticket", 80, 0.6789, false);
+        JDBC database = LoginController.getConnection();
+
     }
+
+
 }
