@@ -1,44 +1,66 @@
 package main.Networking;
 
+import main.Entities.Entity;
+import main.Utils.WriteLog;
+import main.View.NotificationPane;
+
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.*;
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JDBC {
 
-    private java.sql.Connection connection;
-    private final String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
+    private static final int CONNECTION_TIMEOUT = 5;
+    private static final Logger LOGGER = Logger.getLogger(JDBC.class.getName());
+    private static java.sql.Connection connection = null;
+    private static JDBC instance = null;
+    private static final String connURL = "jdbc:mysql://(host=remotemysql.com,port=3306)/QEvOAGN7uq?user=QEvOAGN7uq&password=RRDlZZcPcm";
 
-    public JDBC () {
-        try {
-            System.out.println("Creating connection");
-            DriverManager.setLoginTimeout(5);
-            connection = DriverManager.getConnection(connURL);
+    private JDBC () {
+        instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating JDBC instance from constructor at: {0}. Current instance is null: {1}; should be: true\n",
+                new Object[]{LocalTime.now(), (instance == null)});
+    }
+
+    public static JDBC getInstance() {
+        if (instance == null) {
+            synchronized (JDBC.class) {
+                if (instance == null) {
+                    return new JDBC();
+                }
+            }
         }
-        catch (SQLException e) {
-            e.printStackTrace();
+        return instance;
+    }
+
+    public static void createConnection() {
+        if (connection == null) {
+            new Thread(() -> {
+                LOGGER.log(Level.INFO, "Creating JDBC connection at: {0}\n", LocalTime.now());
+                DriverManager.setLoginTimeout(CONNECTION_TIMEOUT);
+                try {
+                    connection = DriverManager.getConnection(connURL);
+                    LOGGER.log(Level.INFO, "Connected at: {0}\n", LocalTime.now());
+                }
+                catch (SQLException e) {
+                    LOGGER.log(Level.SEVERE, "SQLException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
+                }
+            }).start();
         }
     }
 
-    public java.sql.Connection getConnection () {
-
-        if (connection == null) {
-
-            try {
-                System.out.println("Creating connection");
-                DriverManager.setLoginTimeout(5);
-                connection = DriverManager.getConnection(connURL);
-            }
-            catch (SQLException e) {
-                return null;
-            }
-        }
-        return connection;
+    public static boolean isConnected() {
+        LOGGER.log(Level.INFO, "Checking network connection at: {0}; result: {1}\n",
+                new Object[]{LocalTime.now(), (connection != null)});
+        if (connection == null) NotificationPane.show("No network connection");
+        return connection != null;
     }
 
     public Thread checkNetworkConnection () {
@@ -50,11 +72,10 @@ public class JDBC {
         };
     }
 
-    public int getCount (String quesry) {
+    public static int getCount (String query) {
         try {
-            Connection connection = getConnection();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(quesry);
+            ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 resultSet.close();
@@ -68,10 +89,10 @@ public class JDBC {
         return -1;
     }
 
-    public boolean delete (String table, String columnID, int id) {
-        connection = getConnection();
+    public static boolean delete (String table, String columnID, int id) {
+
         String query = String.format("DELETE FROM %s WHERE %s = '%d'", table, columnID, id);
-        if (connection != null) {
+        if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();
                 statement.execute(query);
@@ -86,103 +107,57 @@ public class JDBC {
         return false;
     }
 
-    public boolean edit () {
+    public static boolean edit () {
         return false;
     }
 
-    public Object get (String query, String className) {
-        connection = getConnection();
-        Class<?> mClass;
-        Object newObject, mInstance;
-        Method objectMethod;
 
-        if (connection != null) {
-            HashMap<String, String> object = new HashMap<>();
+    public static Entity get (String query, String className) {
+        LOGGER.log(Level.INFO, "Getting data from db at: {0}; query: {1}; calling class: {2}\n", new Object[]{
+                LocalTime.now(), query, className});
+
+
+        if (isConnected()) {
 
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 ResultSetMetaData metaData = resultSet.getMetaData();
-                int columnCount = metaData.getColumnCount();
 
                 if (resultSet.next()) {
-                    for (int i = 1; i <= columnCount; i++) {
-                        object.put(metaData.getColumnName(i), resultSet.getString(metaData.getColumnName(i)));
-                    }
+                    return getData(className, resultSet, metaData);
 
-                    try {
-                        mClass = Class.forName(className);
-                        mInstance = mClass.getConstructor().newInstance();
-
-                        objectMethod = mClass.getMethod("setObject", HashMap.class);
-                        objectMethod.invoke(mInstance, object);
-                        objectMethod = mClass.getMethod("getObject");
-
-                        newObject =  objectMethod.invoke(mInstance);
-                        return newObject;
-                    }
-                    catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
-                            InstantiationException | InvocationTargetException e) {
-                        e.printStackTrace();
-                        return  null;
-                    }
                 }
-                else {
-                    System.out.println("No results for given query");
-                    return null;
-                }
-            }
-            catch (SQLException e) {
-                e.printStackTrace();
+
+                resultSet.close();
+                statement.close();
+            } catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "SQLException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
                 return null;
             }
         }
         return null;
     }
 
-    public ArrayList<Object> getAll (String query, String className) {
-        connection = getConnection();
+    public static ArrayList<Entity> getAll (String query, String className) {
 
-        Class<?> mClass;
-        Method objectMethod;
-        Object newObject, mInstance;
+        if (isConnected()) {
 
-        if (connection != null) {
-            HashMap<String, String> object = new HashMap<>();
-            ArrayList<Object> objects = new ArrayList<>();
+            ArrayList<Entity> entities = new ArrayList<>();
 
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 ResultSetMetaData metaData = resultSet.getMetaData();
-                int columnCount = metaData.getColumnCount();
+
 
                 while (resultSet.next()) {
-                    for (int i = 1; i <= columnCount; i++) {
-                        object.put(metaData.getColumnName(i), resultSet.getString(metaData.getColumnName(i)));
-                    }
-
-                    try {
-                        mClass = Class.forName(className);
-                        mInstance = mClass.getConstructor().newInstance();
-
-                        objectMethod = mClass.getMethod("setObject", HashMap.class);
-                        objectMethod.invoke(mInstance, object);
-                        objectMethod = mClass.getMethod("getObject");
-
-                        newObject =  objectMethod.invoke(mInstance);
-                        objects.add(newObject);
-                    }
-                    catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
-                            InvocationTargetException | InstantiationException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
+                    entities.add(getData(className, resultSet, metaData));
                 }
                 resultSet.close();
                 statement.close();
 
-                return objects;
+                return entities;
             }
             catch (SQLException e) {
                 e.printStackTrace();
@@ -192,10 +167,10 @@ public class JDBC {
         return null;
     }
 
-    public boolean insert (String query) {
-        connection = getConnection();
 
-        if (connection != null) {
+    public static boolean insert (String query) {
+
+        if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();
                 statement.execute(query);
@@ -207,6 +182,53 @@ public class JDBC {
             }
         }
         return false;
+    }
+
+    private static Entity getData (String className, ResultSet resultSet, ResultSetMetaData metaData) {
+        HashMap<String, String> object = new HashMap<>();
+        Class<?> mClass;
+
+        try {
+            int columnCount = metaData.getColumnCount();
+
+            for (int i = 1; i <= columnCount; i++) {
+                object.put(metaData.getColumnName(i), resultSet.getString(metaData.getColumnName(i)));
+            }
+
+            try {
+                mClass = Class.forName(className);
+
+                Entity entity = (Entity) mClass.getConstructor().newInstance();
+                entity.setObject(object);
+                return entity;
+            } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
+                    InvocationTargetException | InstantiationException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void Destroy () {
+        LOGGER.log(Level.INFO, "Destroying JDBC instance at: {0}\n", LocalTime.now());
+        if (instance != null) {
+            instance = null;
+        }
+
+        try {
+        LOGGER.log(Level.INFO, "Closing SQL Connection instance at: {0}\n", LocalTime.now());
+            if (!connection.isClosed()) {
+                connection.close();
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "SQLException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
+        }
+
     }
 
 }

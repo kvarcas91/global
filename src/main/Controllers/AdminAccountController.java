@@ -1,8 +1,6 @@
 package main.Controllers;
 
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,61 +9,75 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import main.Entities.Entity;
 import main.Entities.User;
-import main.Interfaces.NotificationPane;
-import main.Main;
 import main.Networking.JDBC;
+import main.Utils.Loader;
+import main.Utils.WriteLog;
+import main.View.NotificationPane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class AdminAccountController implements Initializable, NotificationPane {
-    @FXML
-    private HBox notificationPane;
+public class AdminAccountController extends Controller implements Initializable{
 
-    @FXML
-    private Text errorMessage;
+    // TODO proper cloneable
 
-    @FXML
-    private TilePane tilePane;
+    private static final Logger LOGGER = Logger.getLogger(AdminAccountController.class.getName());
 
-    private JDBC database;
-    private ArrayList<User> users = new ArrayList<>();
-    private ArrayList<User> clonedUsers = new ArrayList<>();
+    @FXML private HBox notificationPane;
+    @FXML private Text errorMessage;
+    @FXML private TilePane tilePane;
+
+    private static ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<User> clonedUsers = new ArrayList<>();
     private static AdminAccountController instance;
 
-    public AdminAccountController () {
-        database = Main.getDatabase();
+    private AdminAccountController () {
         instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating AdminAccountController instance from constructor at: {0}\n", LocalTime.now());
     }
 
-    public static AdminAccountController getInstance() {
+    protected static AdminAccountController getInstance() {
+        if (instance == null) {
+            synchronized (AdminAccountController.class) {
+                if (instance == null) {
+                    return new AdminAccountController();
+                }
+            }
+        }
+        else LOGGER.log(Level.INFO, "Tried to create AdminAccountController instance at {0}\n", LocalTime.now());
         return instance;
+    }
+
+    protected static boolean hasInstance () {
+        LOGGER.log(Level.INFO, "Checking AdminAccountController instance: {0}\n", (instance != null));
+        return instance != null;
     }
 
     private void editItem (User user) {
 
-        BorderPane borderPane = RootController.getInstance().getContent();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../UI/account.fxml"));
-        try {
-            Pane pane = loader.load();
-            AccountController controller = loader.getController();
-            controller.setAccount(user, "../UI/adminAccount.fxml");
-            borderPane.setCenter(pane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        LOGGER.log(Level.INFO, "EditItem method with user: {0}\n", user);
+
+        AccountController.Destroy();
+        AccountController account = AccountController.getInstance();
+        Loader.getInstance().loadPage("../UI/account.fxml", account);
+        AccountController.getInstance().setAccount(user, "../UI/adminAccount.fxml", AdminAccountController.getInstance());
     }
 
 
     private void removeItem (User user) {
+        LOGGER.log(Level.INFO, "RemoveItem method with user: {0}\n", user);
         int id = user.getUserID();
-        if (database.delete("USERS", "User_ID", id)) {
-            setNotificationPane("User has been removed", "green");
+        if (JDBC.delete("USERS", "User_ID", id)) {
+            NotificationPane.show("User has been removed", "green");
             clonedUsers.remove(user);
             setTile(clonedUsers);
         }
@@ -74,33 +86,12 @@ public class AdminAccountController implements Initializable, NotificationPane {
         }
     }
 
-    @Override
-    public void setNotificationPane(String message, String color) {
-        String style = String.format("-fx-background-color: %s;", color);
-        if (color != null) {
-            this.notificationPane.setStyle(style);
-        }
-        this.notificationPane.setVisible(true);
-        this.errorMessage.setText(message);
-        Task task = hideNotificationPane();
-        new Thread(task).start();
-    }
-
-    @Override
-    public Task hideNotificationPane() {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-                Thread.sleep(2000);
-                notificationPane.setVisible(false);
-                return true;
-            }
-        };
-    }
-
 
     private void setTile (ArrayList<User> mUsers) {
         tilePane.getChildren().clear();
+
+        LOGGER.log(Level.INFO, "Setting tileView at: {0}\n", LocalTime.now());
+        LOGGER.log(Level.INFO, "mUsers: size: {0}; elements: {1}\n", new Object[]{mUsers.size(), mUsers});
 
         if (mUsers.size() > 0) {
             for (User user : mUsers) {
@@ -174,18 +165,19 @@ public class AdminAccountController implements Initializable, NotificationPane {
         }
     }
 
-    public static void search (String s) {
-        System.out.println(s);
-        AdminAccountController.getInstance().clonedUsers.clear();
-        for (User user : AdminAccountController.getInstance().users) {
+    protected static void search (String s) {
+        LOGGER.log(Level.INFO, "Searched value: {0} at: {1}", new Object[]{s, LocalTime.now()});
+        clonedUsers.clear();
+        for (User user : users) {
             if (user.contains(s))
-                AdminAccountController.getInstance().clonedUsers.add(user);
+                clonedUsers.add(user);
         }
 
         try {
-            AdminAccountController.getInstance().setTile(AdminAccountController.getInstance().clonedUsers);
+            AdminAccountController.getInstance().setTile(clonedUsers);
         }
         catch (NullPointerException e) {
+            LOGGER.log(Level.WARNING, "NullPointerException at: {0}; Message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
         }
 
     }
@@ -198,13 +190,28 @@ public class AdminAccountController implements Initializable, NotificationPane {
     public void initialize (URL location, ResourceBundle resourceBundle) {
 
         String query = "SELECT * FROM USERS";
-        ArrayList<Object> objects = database.getAll(query, User.class.getName());
-        for (Object obj : objects) {
-            users.add((User) obj);
+        if (!users.isEmpty()) users.clear();
+
+        User temp;
+        ArrayList<Entity> objects = JDBC.getAll(query, User.class.getName());
+        for (Entity obj : objects) {
+            temp = (User) obj;
+            users.add(temp);
         }
+
+
+
+        clonedUsers.clear();
         clonedUsers.addAll(users);
+        LOGGER.log(Level.INFO, "init method. Users size: {0}; clonedUsers size: {1}\n", new Object[]{users.size(), clonedUsers.size()});
         setTile(clonedUsers);
     }
 
+    public static void Destroy () {
+        if (instance != null) {
+            LOGGER.log(Level.INFO, "Destroying AdminAccountController instance at: {0}\n", LocalTime.now());
+            instance = null;
+        }
+    }
 
 }

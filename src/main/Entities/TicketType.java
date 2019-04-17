@@ -1,10 +1,8 @@
 package main.Entities;
-import main.Interfaces.Dao;
 
 import java.util.HashMap;
 
-
-public class TicketType implements Dao<TicketType> {
+public class TicketType extends Entity<TicketType>{
 
     private int ID = -1;
     private String name;
@@ -82,7 +80,6 @@ public class TicketType implements Dao<TicketType> {
     @Override
     public void setObject(HashMap<String, String> object) {
         setID(Integer.parseInt(object.get("Type_ID")));
-        //System.out.println("ID: " + object.get("Type_ID"));
         setName(object.get("Type_Name"));
         setSlot(Integer.parseInt(object.get("Type_Slots")));
         setPrice(Double.valueOf(object.get("Type_Price")));

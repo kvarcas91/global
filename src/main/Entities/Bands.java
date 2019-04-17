@@ -1,10 +1,8 @@
 package main.Entities;
 
-import main.Interfaces.Dao;
-
 import java.util.HashMap;
 
-public class Bands implements Dao<Bands> {
+public class Bands extends Entity<Bands>{
 
     private int ID = -1;
     private String name = null;

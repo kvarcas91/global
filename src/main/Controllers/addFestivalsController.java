@@ -1,60 +1,66 @@
 package main.Controllers;
+
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
-
+import javafx.scene.image.ImageView;
 import java.net.URL;
 import javafx.fxml.Initializable;
-import main.Main;
 import main.Utils.Loader;
+import main.Utils.WriteLog;
 
+import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class addFestivalsController implements Initializable {
+public class addFestivalsController extends Controller implements Initializable {
 
-    /**
-     *          ########################################################
-     *          #############   How to create more pages   #############
-     *          ########################################################
-     *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
-     *          ########################################################
-     */
+    private static final Logger LOGGER = Logger.getLogger(addFestivalsController.class.getName());
+    private static addFestivalsController instance = null;
 
-    private Loader loader = null;
+    @FXML private JFXTextField typeName, typeLocation;
+    @FXML private ImageView btnBack;
 
-    public addFestivalsController () {
-        loader = Main.getPageLoader();
+    private addFestivalsController () {
+        instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating addFestivalsController instance from constructor at: {0}\n", LocalTime.now());
     }
 
-    @FXML
-    private JFXTextField typeName;
 
-    @FXML
-    private JFXTextField typeLocation;
+    public static addFestivalsController getInstance() {
+        if (instance == null) {
+            synchronized (FestivalController.class) {
+                if (instance == null) {
+                    return new addFestivalsController();
+                }
+            }
+        }
+        else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}\n", LocalTime.now());
+        return instance;
+    }
+
 
    /** @FXML
     private DatePicker datePicker; **/
 
 
-    @FXML
     void newDatePicker(ActionEvent event) {
 
     }
 
-    @FXML
     void typeNewLocation(ActionEvent event) {
 
     }
 
-    @FXML
     void typeNewName(ActionEvent event) {
 
     }
 
     @FXML
-    private void back (MouseEvent event) {
-        loader.loadPage("../UI/festivals.fxml");
+    private void back () {
+        Loader.getInstance().loadPage("../UI/festivals.fxml");
     }
 
     @Override

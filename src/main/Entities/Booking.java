@@ -12,16 +12,18 @@ public class Booking implements Dao<Booking> {
     private int ticketTypeID;
     private int quantity;
     private String bookingDate;
+    private int isCOnfirmed = 0;
 
    public Booking () {}
 
-   public Booking (int bookingID, int userID, int eventID, int ticketTypeID, int quantity, String bookingDate) {
+   public Booking (int bookingID, int userID, int eventID, int ticketTypeID, int quantity, String bookingDate, boolean isCOnfirmed) {
        this.bookingID = bookingID;
        this.userID = userID;
        this.eventID = eventID;
        this.ticketTypeID = ticketTypeID;
        this.quantity = quantity;
        this.bookingDate = bookingDate;
+       this.isCOnfirmed = setConfirmedBool(isCOnfirmed);
    }
 
     public Booking (int userID, int eventID, int ticketTypeID, int quantity) {
@@ -80,10 +82,22 @@ public class Booking implements Dao<Booking> {
         this.bookingDate = bookingDate;
     }
 
+    public int getIsCOnfirmed() {
+        return isCOnfirmed;
+    }
+
+    public void setIsConfirmed(int isCOnfirmed) {
+        this.isCOnfirmed = isCOnfirmed;
+    }
+
+    private int setConfirmedBool (boolean value) {
+       return value ? 1 : 0;
+    }
+
     @Override
     public String getQuery() {
-        return String.format("INSERT INTO BOOKING VALUES (null, '%d', '%d', '%d', '%d', now(), 0)",
-                getUserID(), getEventID(), getTicketTypeID(), getQuantity());
+        return String.format("INSERT INTO BOOKING VALUES (null, '%d', '%d', '%d', '%d', now(), %d)",
+                getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getIsCOnfirmed());
     }
 
     @Override

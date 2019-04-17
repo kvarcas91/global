@@ -1,9 +1,5 @@
 package main.Entities;
 
-
-import main.Interfaces.Dao;
-
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Event implements Dao<Event> {
+public class Event extends Entity<Event> {
 
     private final String timestampFormat = "yyyy-MM-dd";
     private int eventID;

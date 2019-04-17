@@ -18,88 +18,71 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import main.Entities.User;
-import main.Interfaces.NotificationPane;
-import main.Main;
+import main.Interfaces.Notifications;
 import main.Networking.JDBC;
 import main.Utils.Loader;
+import main.Utils.Validators;
+import main.Utils.WriteLog;
+import main.View.Circles;
+import main.View.NotificationPane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.sql.Connection;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterController implements Initializable, NotificationPane, ChangeListener<Toggle> {
+public class RegisterController extends Controller implements Initializable, Notifications, ChangeListener<Toggle>{
 
+    private static final Logger LOGGER = Logger.getLogger(RegisterController.class.getName());
 
-    @FXML
-    private BorderPane root;
+    @FXML private BorderPane root;
+    @FXML private HBox progressLayout, accTypeLayout, errorPane;
+    @FXML private GridPane userNameLayout, optionalLayout;
+    @FXML private JFXRadioButton first;
+    @FXML private JFXTextField firstName, lastName, organisationName, userName, address1Field, address2Field, townField,
+            postCodeField, emailField, webAddressField, phoneNumberField;
 
-    @FXML
-    private HBox progressLayout, accTypeLayout, errorPane;
-
-    @FXML
-    private GridPane userNameLayout, optionalLayout;
-
-    @FXML
-    private JFXRadioButton first;
-
-    @FXML
-    private JFXTextField firstName, lastName, organisationName, userName, address1Field, address2Field, townField, postCodeField,
-            emailField, webAddressField, phoneNumberField;
-
-    @FXML
-    private JFXPasswordField passwordField, verifyPasswordField;
-
-    @FXML
-    private JFXButton register;
-
-    @FXML
-    private ToggleGroup toggleGroup;
-
-    @FXML
-    private Text registerText, errorMessage;
-
-    @FXML
-    private ImageView btnBack, btnNext;
+    @FXML private JFXPasswordField passwordField, verifyPasswordField;
+    @FXML private JFXButton register, btnLogin;
+    @FXML private ToggleGroup toggleGroup;
+    @FXML private Text registerText, errorMessage;
+    @FXML private ImageView btnBack, btnNext;
 
     private byte position = 0;
     private HashMap<String, Pane> scenes = new HashMap<>();
     private String[] labelText = new String[3];
-    private String accType = null;
-    private JDBC database = null;
+
+    private AccountTypes accType = AccountTypes.NONE;
+
+    private static RegisterController instance = null;
+    private Pattern pattern = Pattern.compile("^.+@.+\\..+$");
 
 
-    public RegisterController() {
-        database = Main.getDatabase();
+
+    private RegisterController() {
+        instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating RegisterController instance from constructor at: {0}\n", LocalTime.now());
     }
 
-    private void drawCircle() {
-        int size;
-        progressLayout.getChildren().clear();
-
-        // draw Progress
-        for (int i = 0; i < 3; i++) {
-            Circle progress;
-            if (i <= position) {
-                size = 7;
+    public static RegisterController getInstance() {
+        if (instance == null) {
+            synchronized (RegisterController.class) {
+                if (instance == null) {
+                    return new RegisterController();
+                }
             }
-            else {
-                size = 3;
-            }
-            progress = new Circle(0, 0, size);
-            progress.setFill(Color.web("#5375da"));
-            progress.setStroke(Color.web("#5375da"));
-
-            progressLayout.getChildren().add(progress);
         }
+        else LOGGER.log(Level.INFO, "Tried to get instance at: {0}\n", LocalTime.now());
+        return instance;
     }
 
 
@@ -108,7 +91,8 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
         if (scene != null) {
             setVisibility(scene);
-            drawCircle();
+
+            Circles.draw(position);
             registerText.setText(labelText);
         }
     }
@@ -123,23 +107,23 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
 
     private void setUserInfoVisibility () {
-        if (accType.equals("PUBLIC")) {
-            firstName.setVisible(true);
-            lastName.setVisible(true);
-            organisationName.setVisible(false);
-            webAddressField.setVisible(false);
-        }
-        else {
+        if (accType == AccountTypes.ORGANIZATION) {
             firstName.setVisible(false);
             lastName.setVisible(false);
             organisationName.setVisible(true);
             webAddressField.setVisible(true);
         }
+        else {
+            firstName.setVisible(true);
+            lastName.setVisible(true);
+            organisationName.setVisible(false);
+            webAddressField.setVisible(false);
+
+        }
     }
 
 
     private void controlLayout () {
-        System.out.println(position);
         String layout;
 
         switch (position) {
@@ -157,26 +141,7 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         setLayout(position, layout, this.labelText[position]);
     }
 
-    private <T extends TextField> boolean validate (T... widget) {
-        if (widget.length != 0) {
-            for (T element : widget) {
-                if (element.getText().isEmpty()) {
-                    setNotificationPane("Some fields are empty", null);
-                    return false;
-                }
-                else if (element.getText().length() <4){
-                    setNotificationPane("Too short", null);
-                    return false;
-                }
-            }
-            return true;
-        }
-        else return false;
-    }
-
-
-    @FXML
-    private void btnBack (MouseEvent event) {
+    private void btnBack () {
         register.setVisible(false);
         if (this.position > 0) {
             this.position--;
@@ -190,33 +155,30 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         }
     }
 
-    @FXML
-    private void btnNext (MouseEvent event) {
-        if (this.position < 2 && accType != null) {
+    private void btnNext () {
+        if (this.position < 2 && accType != AccountTypes.NONE) {
             if (this.position == 1) {
-                if (!validate(userName, passwordField, verifyPasswordField, emailField)) {
+                if (!Validators.validate(userName, passwordField, verifyPasswordField, emailField)) {
                     return;
                 }
                 else if (passwordField.getText().compareTo(verifyPasswordField.getText()) != 0) {
-                    setNotificationPane("Password does not match", null);
+                    NotificationPane.show("Password does not match");
                     return;
                 }
 
-                Pattern pattern = Pattern.compile("^.+@.+\\..+$");
                 Matcher matcher = pattern.matcher(emailField.getText());
                 if (!matcher.matches()) {
-                    setNotificationPane("Invalid email", null);
+                    NotificationPane.show("Invalid email address");
                     return;
                 }
 
                 String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s'", userName.getText());
-                if (database.get(query, User.class.getName()) != null) {
-                    setNotificationPane("username already exists", null);
+                if (JDBC.get(query, User.class.getName()) != null) {
+                   NotificationPane.show("Username already exist");
                     return;
                 }
             }
 
-            System.out.println("position: " + position);
             this.position++;
             controlLayout();
             btnBack.setVisible(true);
@@ -228,15 +190,8 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         }
     }
 
-    @FXML
-    private void login (ActionEvent e) {
-        Loader loader = Main.getLoader();
-        loader.loadLogin(root);
-    }
-
-    @FXML
-    private void register (ActionEvent e) {
-        User user = new User.Builder(accType, userName.getText(), passwordField.getText())
+    private void register () {
+        User user = new User.Builder(accType.toString(), userName.getText(), passwordField.getText())
                 .email(emailField.getText())
                 .phoneNumber(phoneNumberField.getText())
                 .postCode(postCodeField.getText())
@@ -249,48 +204,63 @@ public class RegisterController implements Initializable, NotificationPane, Chan
                 .organisationName(organisationName.getText())
                 .webAddress(webAddressField.getText()).build();
 
-        if (!database.insert(user.getQuery())) {
-            setNotificationPane("Something went wrong", null);
+        if (!JDBC.insert(user.getQuery())) {
+            NotificationPane.show("Something went wrong");
         }
         else {
-            Loader loader = Main.getLoader();
-            loader.loadMain(root, user);
+            Loader.getInstance().loadMain(root, user, RootController.getInstance());
         }
     }
 
 
     @Override
-    public void setNotificationPane(String message, String color) {
-        errorPane.setVisible(true);
-        errorMessage.setText(message);
-        Task task = hideNotificationPane();
-        new Thread(task).start();
-    }
-
-    @Override
-    public Task hideNotificationPane() {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-                Thread.sleep(2000);
-                errorPane.setVisible(false);
-                return true;
-            }
-        };
+    public void initializeNotificationPane() {
+        NotificationPane.createInstance(errorPane, errorMessage);
     }
 
     @Override
     public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
-        accType = (toggleGroup.getSelectedToggle() != null ? toggleGroup.getSelectedToggle().getUserData().toString() : null);
+        accType = getType((toggleGroup.getSelectedToggle() != null ?
+                toggleGroup.getSelectedToggle().getUserData().toString() : AccountTypes.NONE.toString()));
+
         setUserInfoVisibility();
     }
 
+    private void setActionListeners () {
+        toggleGroup.selectedToggleProperty().addListener(this::changed);
+        userName.focusedProperty().addListener(((observableValue, aBoolean, newValue) -> {
+            if (!newValue) userName.validate();
+        }));
+
+        passwordField.focusedProperty().addListener(((observableValue, aBoolean, newValue) -> {
+            if (!newValue) passwordField.validate();
+        }));
+
+        btnNext.setOnMousePressed(e -> btnNext());
+        btnBack.setOnMousePressed(e -> btnBack());
+        btnLogin.setOnAction(e -> {
+            Loader.getInstance().loadLogin(root, LoginController.getInstance());
+            Destroy();
+        });
+        register.setOnAction(e -> register());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (database.getConnection() == null) {
-            setNotificationPane("No Network Connection", null);
+        initializeNotificationPane();
+        Circles.createInstance(progressLayout);
+
+        RequiredFieldValidator validator = new RequiredFieldValidator();
+        userName.getValidators().add(validator);
+        passwordField.getValidators().add(validator);
+
+        setActionListeners();
+
+        if (!JDBC.isConnected()) {
+            NotificationPane.show("No network connection");
+            JDBC.createConnection();
         }
+
         this.scenes.put("accTypeLayout", this.accTypeLayout);
         this.scenes.put("userNameLayout", this.userNameLayout);
         this.scenes.put("optionalLayout", this.optionalLayout);
@@ -300,44 +270,25 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         this.labelText[2] = "Some fancy text about our lovely customer";
 
         setLayout((byte) 0, "accTypeLayout", this.labelText[0]);
-        //setLayout((byte) 1, "userNameLayout", this.labelText[1]);
 
         btnBack.setVisible(false);
         register.setVisible(false);
-        toggleGroup.selectedToggleProperty().addListener(this::changed);
+
         first.setSelected(true);
-
-        RequiredFieldValidator validator = new RequiredFieldValidator();
-        userName.getValidators().add(validator);
-        passwordField.getValidators().add(validator);
-
-        userName.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
-                if (!newValue) {
-                    userName.validate();
-                }
-            }
-        });
-
-        passwordField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean oldValue, Boolean newValue) {
-                if (!newValue) passwordField.validate();
-            }
-        });
 
         try {
             Image errorIcon = new Image(new FileInputStream("src/main/Resources/Drawable/error.png"));
             validator.setIcon(new ImageView(errorIcon));
         }
         catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+           LOGGER.log(Level.WARNING, "FileNotFoundException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
         }
-
-
-
     }
 
-
+    private void Destroy () {
+        if (instance != null) {
+            LOGGER.log(Level.INFO, "Destroying RegisterController instance at: {0}\n", LocalTime.now());
+            instance = null;
+        }
+    }
 }

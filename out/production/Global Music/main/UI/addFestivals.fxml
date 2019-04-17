@@ -9,20 +9,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.addFestivalsController">
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" >
    <center>
       <AnchorPane>
-            <JFXTextField fx:id="typeName" layoutX="48.0" layoutY="103.0" onAction="#typeNewName" text="Type name" />
-            <JFXTextField fx:id="typeLocation" layoutX="48.0" layoutY="164.0" onAction="#typeNewLocation" text="Type location" />
-            <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="269.0" onAction="#newDatePicker" />
+            <JFXTextField fx:id="typeName" layoutX="48.0" layoutY="103.0" text="Type name" />
+            <JFXTextField fx:id="typeLocation" layoutX="48.0" layoutY="164.0" text="Type location" />
+            <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="269.0" />
       </AnchorPane>
    </center>
    <top>
       <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#back">
+         <BorderPane.margin><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </BorderPane.margin>
+            <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../Resources/Drawable/back.png" />
             </ImageView>
       </HBox>

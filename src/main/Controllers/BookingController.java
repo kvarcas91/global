@@ -1,5 +1,6 @@
 package main.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -12,54 +13,44 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.Booking;
-import main.Interfaces.NotificationPane;
-import main.Main;
+import main.Interfaces.Notifications;
 import main.Utils.Loader;
+import main.Utils.WriteLog;
 
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class BookingController implements Initializable, NotificationPane {
+public class BookingController extends Controller implements Initializable{
 
-    Loader loader = null;
-    /**
-     *          ########################################################
-     *          #############   How to create more pages   #############
-     *          ########################################################
-     *
-     *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
-     *          ########################################################
-     */
+    private static final Logger LOGGER = Logger.getLogger(BookingController.class.getName());
+    private static BookingController instance = null;
 
-    public BookingController () {
-        loader = Main.getPageLoader();
+    @FXML private TableView<Booking> Bookings;
+    @FXML private TableColumn<Booking, Integer> bookingID, concertID, bookingPrice, bookingDate;
+    @FXML private JFXButton handle1, handle2;
+
+    private BookingController () {
+        instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating BookingController instance from constructor at: {0}\n", LocalTime.now());
     }
 
-    @FXML
-    public TableView<Booking> Bookings;
+    public static BookingController getInstance() {
+        if (instance == null) {
+            synchronized (FestivalController.class) {
+                if (instance == null) {
+                    return new BookingController();
+                }
+            }
+        }
+        else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}\n", LocalTime.now());
+        return instance;
+    }
 
-    @FXML public TableColumn<Booking, String> BookingID;
-    @FXML public TableColumn<Booking, String> ConcertID;
-    @FXML public TableColumn<Booking, String> bookingPrice;
-    @FXML public TableColumn<Booking, String> BookingDate;
-
-    @FXML
-    private HBox notificationPane;
-
-    @FXML
-    private Text notificationMessage;
-
-    /*public ObservableList<Booking> list = FXCollections.observableArrayList(
-            new Booking("1|33|256|25|20/3/2019"),
-            new Booking("2|356|356|55|20/2/2019"),
-            new Booking("3|555|555|35|20/4/2019"),
-            new Booking("4|256|256|45|28/3/2019")
-    );*/
-
-
-
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private void handleButtonAction() {
         ObservableList<Booking> list = FXCollections.observableArrayList(
                 new Booking(1, 4,6, 100));
 
@@ -67,8 +58,7 @@ public class BookingController implements Initializable, NotificationPane {
         Bookings.setItems(list);
     }
 
-    @FXML
-    private void handleButtonAction2(ActionEvent event) {
+    private void handleButtonAction2() {
         ObservableList<Booking> list1 = FXCollections.observableArrayList();
         list1 = list.init();
 
@@ -78,34 +68,15 @@ public class BookingController implements Initializable, NotificationPane {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        BookingID.setCellValueFactory(new PropertyValueFactory<Booking, String>("BookingID"));
-        ConcertID.setCellValueFactory(new PropertyValueFactory<Booking, String>("concertID"));
-        bookingPrice.setCellValueFactory(new PropertyValueFactory<Booking, String>("bookingPrice"));
-        BookingDate.setCellValueFactory(new PropertyValueFactory<Booking, String>("BookingDate"));
+        bookingID.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("bookingID"));
+        concertID.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("eventID"));
+        bookingPrice.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("ticketTypeID"));
+        bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("quantity"));
+
+        handle1.setOnAction(e -> handleButtonAction());
+        handle2.setOnAction(e -> handleButtonAction2());
 
     }
 
-    @Override
-    public void setNotificationPane(String message, String color) {
-        String style = String.format("-fx-background-color: %s;", color);
-        if (color != null) {
-            this.notificationPane.setStyle(style);
-        }
-        this.notificationPane.setVisible(true);
-        this.notificationMessage.setText(message);
-        Task task = hideNotificationPane();
-        new Thread(task).start();
-    }
-
-    @Override
-    public Task hideNotificationPane() {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-                Thread.sleep(2000);
-                notificationPane.setVisible(false);
-                return true;
-            }
-        };
-    }
+    public static void Destroy () {}
 }

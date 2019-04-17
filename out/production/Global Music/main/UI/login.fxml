@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.LoginController">
+            xmlns:fx="http://javafx.com/fxml/1" >
    <top>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
@@ -36,9 +36,9 @@
                                  GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="2" />
 
                <HBox alignment="BOTTOM_RIGHT" spacing="20" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="3">
-                   <JFXButton  text="Register" textAlignment="CENTER" onAction="#register"/>
-                   <JFXButton style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;" text="Login"
-                              textAlignment="CENTER" onAction="#login"/>
+                   <JFXButton fx:id="btnRegister" text="Register" textAlignment="CENTER"/>
+                   <JFXButton fx:id="btnLogin" style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;" text="Login"
+                              textAlignment="CENTER"/>
                </HBox>
 
            </GridPane>

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="root" stylesheets="@../Resources/Styles/register.css" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.RegisterController">
+            xmlns:fx="http://javafx.com/fxml/1">
 
    <!-- LOGO -->
    <left>
@@ -27,7 +27,7 @@
             </ImageView>
           <VBox alignment="CENTER" VBox.vgrow="ALWAYS" spacing="20">
               <Text text="Have an account?" style="-fx-font-size: 14px;"/>
-              <JFXButton text="login" style="-fx-font-weight: bold; -fx-font-size: 14px;" onAction="#login"/>
+              <JFXButton fx:id="btnLogin" text="login" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
           </VBox>
       </VBox>
    </left>
@@ -53,8 +53,7 @@
                <!-- BACK NAVIGATION ELEMENT -->
                <left>
                   <VBox alignment="CENTER" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-                        <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true"
-                        onMouseClicked="#btnBack">
+                        <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                               <Image url="@../Resources/Drawable/back.png" />
                         </ImageView>
                   </VBox>
@@ -63,8 +62,7 @@
                <!-- NEXT NAVIGATION ELEMENT -->
                <right>
                   <VBox alignment="CENTER" prefWidth="100.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-                        <ImageView fx:id="btnNext" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true"
-                        onMouseClicked="#btnNext">
+                        <ImageView fx:id="btnNext" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                               <Image url="@../Resources/Drawable/next.png" />
                         </ImageView>
                   </VBox>
@@ -127,7 +125,7 @@
                               <!-- REGISTER LAYOUT -->
                               <HBox AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="40" AnchorPane.rightAnchor="0" alignment="BOTTOM_CENTER"
                                     style="-fx-background-color: white;">
-                                 <JFXButton fx:id="register" text="Register" onAction="#register"
+                                 <JFXButton fx:id="register" text="Register"
                                             style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;"/>
                               </HBox>
 
@@ -146,13 +144,14 @@
             </BorderPane>
          </center>
 
-         <!-- ERROR LAYOUT -->
-         <bottom>
-            <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;" visible="false">
-               <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
-               <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
-            </HBox>
-         </bottom>
       </BorderPane>
    </center>
+
+   <!-- ERROR LAYOUT -->
+   <bottom>
+      <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;" visible="false">
+         <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
+         <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
+      </HBox>
+   </bottom>
 </BorderPane>

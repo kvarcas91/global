@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="content" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Resources/Styles/root.css"
-            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="main.Controllers.RootController">
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox fx:id="topPane" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #0fbcf9;" HBox.hgrow="ALWAYS">
@@ -32,8 +31,7 @@
                               <Insets left="5.0" right="10.0" />
                            </HBox.margin>
                         </TextField>
-                        <ImageView fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand"
-                                    onMouseClicked="#searchEvent">
+                        <ImageView fx:id="btnSearch" fitHeight="24" fitWidth="24" preserveRatio="true" styleClass="cursor_hand">
                               <Image url="@../Resources/Drawable/search.png" />
                         </ImageView>
                      </HBox>
@@ -63,5 +61,13 @@
        <fx:include source="menu.fxml" />
 
    </left>
+
+    <bottom>
+        <HBox fx:id="notificationPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;"
+              visible="false">
+            <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
+            <Text fx:id="notificationMessage" text="test" style="-fx-fill: white; -fx-font-weight: bolder;" />
+        </HBox>
+    </bottom>
 
 </BorderPane>

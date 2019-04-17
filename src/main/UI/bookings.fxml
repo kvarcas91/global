@@ -8,36 +8,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Text?>
-<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controllers.BookingController">
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane>
            <TableView fx:id="Bookings" minWidth="-Infinity" prefHeight="280.0" prefWidth="468.0">
                <columns>
-                   <TableColumn fx:id="BookingID" prefWidth="75.0" text="BookingID" />
-                   <TableColumn fx:id="ConcertID" prefWidth="75.0" text="ConcertID" />
+                   <TableColumn fx:id="bookingID" prefWidth="75.0" text="BookingID" />
+                   <TableColumn fx:id="concertID" prefWidth="75.0" text="ConcertID" />
                    <TableColumn fx:id="bookingPrice" prefWidth="75.0" text="Price" />
-                   <TableColumn fx:id="BookingDate" prefWidth="75.0" text="BookingDate" />
+                   <TableColumn fx:id="bookingDate" prefWidth="75.0" text="BookingDate" />
                </columns>
            </TableView>
       </AnchorPane>
    </center>
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-              <JFXButton onAction="#handleButtonAction" text="Working" />
-              <JFXButton onAction="#handleButtonAction2" text="123" />
+              <JFXButton fx:id="handle1" text="Working" />
+              <JFXButton fx:id="handle2" text="123" />
       </VBox>
    </left>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
-
-    <bottom>
-        <HBox fx:id="notificationPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;"
-              visible="false">
-            <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
-            <Text fx:id="notificationMessage" text="test" style="-fx-fill: white; -fx-font-weight: bolder;" />
-        </HBox>
-    </bottom>
 </BorderPane>

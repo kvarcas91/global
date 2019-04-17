@@ -1,0 +1,189 @@
+Apr 17, 2019 1:53:34 PM main.Main loadLogo
+INFO: Loading logo
+
+Apr 17, 2019 1:53:34 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 13:53:34.502817700
+
+Apr 17, 2019 1:53:34 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 13:53:34.890575700
+
+Apr 17, 2019 1:53:37 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 13:53:37.698727900
+
+Apr 17, 2019 1:53:38 PM main.Main loadLogin
+INFO: Loading Login page... at: 13:53:38.411245800
+
+Apr 17, 2019 1:53:38 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 13:53:38.421179100
+
+Apr 17, 2019 1:53:38 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:53:38.445116900
+
+Apr 17, 2019 1:53:38 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 13:53:38.445116900
+
+Apr 17, 2019 1:53:38 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 13:53:38.597739200
+
+Apr 17, 2019 1:53:41 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 13:53:41.167070300
+
+Apr 17, 2019 1:53:41 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:53:41.214933300
+
+Apr 17, 2019 1:53:41 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 13:53:41.215930600
+
+Apr 17, 2019 1:53:41 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 13:53:41.255827400. Skipping and adding just pane
+
+Apr 17, 2019 1:53:41 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:53:41.256824600
+
+Apr 17, 2019 1:53:41 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 13:53:41.257818500
+
+Apr 17, 2019 1:53:41 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:53:41.262804800
+
+Apr 17, 2019 1:53:41 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:53:41.289885100
+
+Apr 17, 2019 1:53:41 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:53:41.290732200
+
+Apr 17, 2019 1:53:42 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:53:42.492524700
+
+Apr 17, 2019 1:53:42 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 9; clonedUsers size: 9
+
+Apr 17, 2019 1:53:42 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:53:42.538406300
+
+Apr 17, 2019 1:53:42 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 9; elements: [id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null]
+
+Apr 17, 2019 1:53:43 PM main.Controllers.BookingController <init>
+INFO: Creating BookingController instance from constructor at: 13:53:43.339925200
+
+Apr 17, 2019 1:53:43 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:53:43.431680300
+

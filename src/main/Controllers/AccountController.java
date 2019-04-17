@@ -1,70 +1,73 @@
 package main.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.User;
-import main.Interfaces.NotificationPane;
-import main.Main;
 import main.Utils.Loader;
-
+import main.Utils.WriteLog;
+import main.View.NotificationPane;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class AccountController implements Initializable, NotificationPane {
+public class AccountController extends Controller implements Initializable {
 
-    /**
-     *          ########################################################
-     *          #############   How to create more pages   #############
-     *          ########################################################
-     *  loader.loadPage(fxml file);  // fxml file is a String of that file location. i.e.: ../UI/account.fxml
-     *          ########################################################
-     */
 
+    private static final Logger LOGGER = Logger.getLogger(AccountController.class.getName());
     private User user = null;
     private String path = null;
-    private Loader loader = null;
+    private static AccountController instance = null;
+    private Controller parentController = null;
 
-    @FXML
-    private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field, address2Field,
-                    emailField, phoneNumberField, webAddressField;
+    @FXML private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field,
+            address2Field, emailField, phoneNumberField, webAddressField;
 
-    @FXML
-    private JFXPasswordField password;
+    @FXML private JFXPasswordField password;
+    @FXML private JFXButton btnSave;
+    @FXML private ImageView btnBack;
+    @FXML private HBox notificationPane;
+    @FXML private Text notificationMessage;
 
-    @FXML
-    private ImageView btnBack;
-
-    @FXML
-    private HBox notificationPane;
-
-    @FXML
-    private Text notificationMessage;
-
-    public AccountController () {
-        loader = Main.getPageLoader();
+    private AccountController () {
+        instance = this;
+        WriteLog.addHandler(LOGGER);
+        LOGGER.log(Level.INFO, "Creating AccountController instance from constructor at: {0}\n", LocalTime.now());
     }
 
+    public static AccountController getInstance() {
+        if (instance == null) {
+            synchronized (AccountController.class) {
+                if (instance == null) {
+                    return new AccountController();
+                }
+            }
+        }
+        else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}. Skipping and adding just pane\n",
+                LocalTime.now());
+        return instance;
+    }
 
-    @FXML
-    private void commitChanges (ActionEvent event) {
+    private void commitChanges () {
         user.setFirstName(firstName.getText());
     }
 
 
-    public void setAccount (User user, String path) {
-        if (path != null) {
+    protected void setAccount (User user, String path, Controller parentController) {
+        if (path != null && parentController != null) {
             this.user = user;
             btnBack.setVisible(true);
             this.path = path;
+            this.parentController = parentController;
+            AdminAccountController.Destroy();
         }
 
         setAccountTypeVisibility();
@@ -96,7 +99,7 @@ public class AccountController implements Initializable, NotificationPane {
     }
 
     private void setAccountTypeVisibility () {
-        if (user.getAccountType().equals("PUBLIC")) {
+        if (user.getAccountType().equals(AccountTypes.PUBLIC.toString())) {
             organisationName.setVisible(false);
             webAddressField.setVisible(false);
             firstName.setVisible(true);
@@ -110,41 +113,25 @@ public class AccountController implements Initializable, NotificationPane {
         }
     }
 
-    @FXML
-    private void back (MouseEvent e) {
-        loader.loadPage(String.valueOf(path));
-    }
-
-
-    @Override
-    public void setNotificationPane(String message, String color) {
-        String style = String.format("-fx-background-color: %s;", color);
-        if (color != null) {
-            this.notificationPane.setStyle(style);
-        }
-        this.notificationPane.setVisible(true);
-        this.notificationMessage.setText(message);
-        Task task = hideNotificationPane();
-        new Thread(task).start();
-    }
-
-    @Override
-    public Task hideNotificationPane() {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-                Thread.sleep(2000);
-                notificationPane.setVisible(false);
-                return true;
-            }
-        };
+    private void setActionListeners () {
+        btnBack.setOnMousePressed(e -> Loader.getInstance().loadPage(path, parentController));
+        btnSave.setOnAction(e -> commitChanges());
     }
 
     public void initialize (URL url, ResourceBundle bundle) {
         user = RootController.getInstance().getUser();
-        //System.out.println("Account controller initialize. Printing user: ");
-        //System.out.println(user.toString());
-        setAccount(user, null);
+
+        System.out.println("AdminController has instance: " + AdminAccountController.hasInstance());
+
+        setAccount(user, null, null);
+
+        setActionListeners();
     }
 
+    public static void Destroy () {
+        if (instance != null) {
+            LOGGER.log(Level.INFO, "Destroying AccountController instance at: {0}\n", LocalTime.now());
+            instance = null;
+        }
+    }
 }

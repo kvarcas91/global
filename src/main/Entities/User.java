@@ -4,7 +4,7 @@ package main.Entities;
 import main.Interfaces.Dao;
 import java.util.HashMap;
 
-public class User implements Dao<User> {
+public class User extends Entity<User>{
 
 
     // Mandatory
@@ -266,6 +266,8 @@ public class User implements Dao<User> {
         return this;
     }
 
+
+    @Override
     public boolean contains (String s) {
         String searchValue = s.toLowerCase();
         return  ((getUserName() != null && getUserName().toLowerCase().contains(searchValue))||

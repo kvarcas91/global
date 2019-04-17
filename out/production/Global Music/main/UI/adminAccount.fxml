@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="main.Controllers.AdminAccountController" stylesheets="@../Resources/Styles/adminAcc.css">
+            stylesheets="@../Resources/Styles/adminAcc.css">
     <center>
        <TilePane fx:id="tilePane" vgap="3" hgap="3" prefColumns="4"/>
-    </center>
 
-    <bottom>
-        <HBox fx:id="notificationPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;"
-              visible="false">
-            <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
-            <Text fx:id="errorMessage" text="test" style="-fx-fill: white; -fx-font-weight: bolder;" />
-        </HBox>
-    </bottom>
+    </center>
 </BorderPane>

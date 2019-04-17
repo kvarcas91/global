@@ -1,10 +1,8 @@
 package main.Entities;
 
-import main.Interfaces.Dao;
-
 import java.util.HashMap;
 
-public class Price implements Dao<Price> {
+public class Price extends Entity<Price> {
     private String concertName = null;
     private double concertPrice = -1;
     private String concertID = null;
