@@ -199,8 +199,6 @@ public class AdminAccountController extends Controller implements Initializable{
             users.add(temp);
         }
 
-
-
         clonedUsers.clear();
         clonedUsers.addAll(users);
         LOGGER.log(Level.INFO, "init method. Users size: {0}; clonedUsers size: {1}\n", new Object[]{users.size(), clonedUsers.size()});
@@ -213,5 +211,4 @@ public class AdminAccountController extends Controller implements Initializable{
             instance = null;
         }
     }
-
 }

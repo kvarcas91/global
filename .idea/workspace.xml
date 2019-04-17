@@ -3,74 +3,37 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AccountController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AdminAccountController$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AdminAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/AdminAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/BookingController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/BookingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/DashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/FestivalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/FestivalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/LoginController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/LoginController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/LoginController$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RootController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/addFestivalsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/addFestivalsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Interfaces/NotificationPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Main$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Bands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Bands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Price.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Price.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/TicketType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/TicketType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-42-05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-42-05.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-44-17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-44-17.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-47-52.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-50-30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-50-30.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-51-32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-53-26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-53-26.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 13-53-34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 14-07-59.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 14-07-59.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 14-29-28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-04-17 14-41-59.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/addFestivals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/addFestivals.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/adminAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/adminAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/festivals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/festivals.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/root.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/root.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/View/TileView.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/RootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/addFestivalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/addFestivalsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Bands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Bands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Entities/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/TicketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Interfaces/NotificationPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Interfaces/Notifications.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Networking/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Networking/JDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/addFestivals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/addFestivals.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/adminAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/adminAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/festivals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/festivals.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/register.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI/root.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/root.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Utils/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Utils/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/View/TileView.java" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,28 +95,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Controllers/RootController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="488">
+              <caret line="144" column="73" selection-start-line="144" selection-start-column="64" selection-end-line="144" selection-end-column="73" />
+              <folding>
+                <element signature="e#4837#4838#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="503">
-                <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="126" column="127" selection-start-line="126" selection-start-column="127" selection-end-line="126" selection-end-column="127" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/Utils/Loader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="82" column="9" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="82" selection-end-column="9" />
+            <state relative-caret-position="48">
+              <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
               <folding>
-                <element signature="method#AdminAccountController#0;class#AdminAccountController#0" />
-                <element signature="method#getInstance#0;class#AdminAccountController#0" />
-                <element signature="method#hasInstance#0;class#AdminAccountController#0" />
-                <element signature="method#editItem#0;class#AdminAccountController#0" />
+                <element signature="method#getInstance#0;class#Loader#0" />
+                <element signature="docComment;method#loader#0;class#Loader#0" />
               </folding>
             </state>
           </provider>
@@ -162,13 +135,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Networking/JDBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
+            <state relative-caret-position="848">
+              <caret line="200" selection-start-line="200" selection-end-line="200" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getInstance#0;class#JDBC#0" />
                 <element signature="method#createConnection#0;class#JDBC#0" />
-                <element signature="method#getData#0;class#JDBC#0" />
                 <element signature="method#Destroy#0;class#JDBC#0" />
               </folding>
             </state>
@@ -176,19 +148,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Entities/Bands.java">
+        <entry file="file://$PROJECT_DIR$/src/main/UI/root.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="62" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Interfaces/Dao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="192">
+              <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -199,9 +163,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="XSLT Stylesheet" />
-        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -231,7 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Interfaces/Searchable.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/list.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/Utils.java" />
@@ -244,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/Interfaces/AccountTypes.java" />
         <option value="$PROJECT_DIR$/src/main/UI/register.fxml" />
         <option value="$PROJECT_DIR$/src/main/UI/dashboard.fxml" />
-        <option value="$PROJECT_DIR$/src/main/UI/root.fxml" />
         <option value="$PROJECT_DIR$/src/main/Utils/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/MLogger.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/WriteLog.java" />
@@ -254,9 +216,6 @@
         <option value="$PROJECT_DIR$/src/main/UI/account.fxml" />
         <option value="$PROJECT_DIR$/src/main/View/NotificationPane.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/Validators.java" />
-        <option value="$PROJECT_DIR$/src/main/View/TileView.java" />
-        <option value="$PROJECT_DIR$/src/main/UI/adminAccount.fxml" />
-        <option value="$PROJECT_DIR$/src/main/Utils/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/LoginController.java" />
@@ -268,20 +227,25 @@
         <option value="$PROJECT_DIR$/src/main/UI/addFestivals.fxml" />
         <option value="$PROJECT_DIR$/src/main/UI/menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/Controllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/Entities/Booking.java" />
         <option value="$PROJECT_DIR$/src/main/UI/bookings.fxml" />
         <option value="$PROJECT_DIR$/src/main/Controllers/BookingController.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/User.java" />
-        <option value="$PROJECT_DIR$/src/main/Controllers/RootController.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Event.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Price.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Seat.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/TicketType.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Bands.java" />
         <option value="$PROJECT_DIR$/src/main/Networking/JDBC.java" />
-        <option value="$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/UI/adminAccount.fxml" />
+        <option value="$PROJECT_DIR$/src/main/View/TileView.java" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/UI/test.fxml" />
+        <option value="$PROJECT_DIR$/src/main/UI/root.fxml" />
+        <option value="$PROJECT_DIR$/src/main/Utils/Loader.java" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/RootController.java" />
+        <option value="$PROJECT_DIR$/src/main/Entities/Booking.java" />
       </list>
     </option>
   </component>
@@ -620,36 +584,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/UI/root.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 17-55-55.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 17-55-55.txt.lck" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.logging/java/util/logging/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="689" column="34" selection-start-line="689" selection-start-column="25" selection-end-line="689" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Utils/MLogger.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/Utils/WriteLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1646#1647#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 18-27-18.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 18-26-55.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 18-28-28.txt" />
@@ -716,21 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/View/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/UI/adminAccount.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Logs/2019-04-16 20-37-42.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/UI/account.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -744,30 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getInstance#0;class#LoginController#0" />
-            <element signature="method#setActionListeners#0;class#LoginController#0" />
-            <element signature="method#Destroy#0;class#LoginController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Utils/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="86" column="73" selection-start-line="86" selection-start-column="73" selection-end-line="86" selection-end-column="73" />
-          <folding>
-            <element signature="method#getInstance#0;class#Loader#0" />
-            <element signature="docComment;method#loader#0;class#Loader#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,20 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="89" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1971#1972#0" expanded="true" />
-            <element signature="e#2022#2023#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -922,17 +803,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Entities/TicketType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="503">
+            <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Entities/Price.java">
+    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/layout/VBox.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="102">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/image/Image.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/Node.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/image/ImageView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/View/TileView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
+          <folding>
+            <element signature="method#AdminAccountController#0;class#AdminAccountController#0" />
+            <element signature="method#hasInstance#0;class#AdminAccountController#0" />
+            <element signature="method#editItem#0;class#AdminAccountController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/adminAccount.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Interfaces/Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/test.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/root.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1194">
+          <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getInstance#0;class#LoginController#0" />
+            <element signature="method#setActionListeners#0;class#LoginController#0" />
+            <element signature="method#Destroy#0;class#LoginController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Utils/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+          <folding>
+            <element signature="method#getInstance#0;class#Loader#0" />
+            <element signature="docComment;method#loader#0;class#Loader#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Entities/Bands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
@@ -950,65 +944,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Interfaces/Dao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Entities/Price.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/RootController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Entities/TicketType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="method#test#0;class#RootController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Entities/Bands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="62" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/AdminAccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="82" column="9" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="82" selection-end-column="9" />
-          <folding>
-            <element signature="method#AdminAccountController#0;class#AdminAccountController#0" />
-            <element signature="method#getInstance#0;class#AdminAccountController#0" />
-            <element signature="method#hasInstance#0;class#AdminAccountController#0" />
-            <element signature="method#editItem#0;class#AdminAccountController#0" />
-          </folding>
+        <state relative-caret-position="1003">
+          <caret line="81" column="55" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Networking/JDBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
+        <state relative-caret-position="848">
+          <caret line="200" selection-start-line="200" selection-end-line="200" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getInstance#0;class#JDBC#0" />
             <element signature="method#createConnection#0;class#JDBC#0" />
-            <element signature="method#getData#0;class#JDBC#0" />
             <element signature="method#Destroy#0;class#JDBC#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="503">
-            <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/RootController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="144" column="73" selection-start-line="144" selection-start-column="64" selection-end-line="144" selection-end-column="73" />
+          <folding>
+            <element signature="e#4837#4838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="126" column="127" selection-start-line="126" selection-start-column="127" selection-end-line="126" selection-end-column="127" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             stylesheets="@../Resources/Styles/adminAcc.css">
     <center>
-       <TilePane fx:id="tilePane" vgap="3" hgap="3" prefColumns="4"/>
-
+        <ScrollPane fitToWidth="true">
+       <TilePane fx:id="tilePane" vgap="3" hgap="3" />
+        </ScrollPane>
     </center>
 </BorderPane>

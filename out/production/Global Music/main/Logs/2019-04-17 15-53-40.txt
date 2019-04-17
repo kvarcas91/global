@@ -1,0 +1,183 @@
+Apr 17, 2019 3:53:40 PM main.Main loadLogo
+INFO: Loading logo
+
+Apr 17, 2019 3:53:40 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 15:53:40.262858800
+
+Apr 17, 2019 3:53:40 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 15:53:40.640906500
+
+Apr 17, 2019 3:53:43 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 15:53:43.434057100
+
+Apr 17, 2019 3:53:44 PM main.Main loadLogin
+INFO: Loading Login page... at: 15:53:44.147432800
+
+Apr 17, 2019 3:53:44 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 15:53:44.177722800
+
+Apr 17, 2019 3:53:44 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:53:44.229593
+
+Apr 17, 2019 3:53:44 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 15:53:44.231587600
+
+Apr 17, 2019 3:53:44 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 15:53:44.551273400
+
+Apr 17, 2019 3:53:46 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 15:53:46.971191400
+
+Apr 17, 2019 3:53:47 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:53:47.010780400
+
+Apr 17, 2019 3:53:47 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 15:53:47.011071700
+
+Apr 17, 2019 3:53:47 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 15:53:47.048130900. Skipping and adding just pane
+
+Apr 17, 2019 3:53:47 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:53:47.049128700
+
+Apr 17, 2019 3:53:47 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 15:53:47.049128700
+
+Apr 17, 2019 3:53:47 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:53:47.054115600
+
+Apr 17, 2019 3:53:47 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:53:47.078158600
+
+Apr 17, 2019 3:53:47 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:53:47.079245700
+
+Apr 17, 2019 3:53:48 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 15:53:48.227727600
+
+Apr 17, 2019 3:53:48 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 9; clonedUsers size: 9
+
+Apr 17, 2019 3:53:48 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:53:48.303529300
+
+Apr 17, 2019 3:53:48 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 9; elements: [id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null]
+

@@ -134,6 +134,7 @@ public class Loader{
         }
         catch (IOException e) {
             LOGGER.log(Level.SEVERE, "IOException at : {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
+            e.printStackTrace();
             return;
         }
         if (user != null) RootController.getInstance().setUser(user);

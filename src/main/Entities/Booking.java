@@ -4,7 +4,7 @@ import main.Interfaces.Dao;
 
 import java.util.HashMap;
 
-public class Booking implements Dao<Booking> {
+public class Booking extends Entity<Booking>{
 
     private int bookingID;
     private int userID;
@@ -122,8 +122,9 @@ public class Booking implements Dao<Booking> {
                         "eventID: %d\n" +
                         "ticket type ID: %d\n" +
                         "quantity: %d\n" +
-                        "bookingDate: %s\n",
-                getBookingID(), getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getBookingDate());
+                        "bookingDate: %s\n" +
+                        "confirmed: %d\n",
+                getBookingID(), getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getBookingDate(), getIsCOnfirmed());
     }
 }
 

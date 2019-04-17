@@ -1,0 +1,1067 @@
+Apr 17, 2019 3:54:35 PM main.Main loadLogo
+INFO: Loading logo
+
+Apr 17, 2019 3:54:35 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 15:54:35.274210500
+
+Apr 17, 2019 3:54:35 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 15:54:35.688973700
+
+Apr 17, 2019 3:54:39 PM main.Main loadLogin
+INFO: Loading Login page... at: 15:54:39.189497100
+
+Apr 17, 2019 3:54:39 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 15:54:39.224203900
+
+Apr 17, 2019 3:54:39 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:54:39.270067200
+
+Apr 17, 2019 3:54:39 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 15:54:39.273943100
+
+Apr 17, 2019 3:54:39 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 15:54:39.558186600
+
+Apr 17, 2019 3:54:41 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 15:54:41.881925800
+
+Apr 17, 2019 3:54:41 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:54:41.927800500
+
+Apr 17, 2019 3:54:41 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 15:54:41.928797700
+
+Apr 17, 2019 3:54:41 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 15:54:41.965700500. Skipping and adding just pane
+
+Apr 17, 2019 3:54:41 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:54:41.966698900
+
+Apr 17, 2019 3:54:41 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 15:54:41.967695500
+
+Apr 17, 2019 3:54:41 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:54:41.972681900
+
+Apr 17, 2019 3:54:41 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:41.994622200
+
+Apr 17, 2019 3:54:41 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:41.995618900
+
+Apr 17, 2019 3:54:43 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 15:54:43.195704300
+
+Apr 17, 2019 3:54:43 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 27; clonedUsers size: 27
+
+Apr 17, 2019 3:54:43 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:54:43.242461900
+
+Apr 17, 2019 3:54:43 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 27; elements: [id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null]
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.233571800
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.236338900
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController search
+INFO: Searched value: r at: 15:54:58.237560900
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 15:54:58.238557600
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:54:58.249526900
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 24; elements: [id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 1
+type: PUBLIC
+username: publicTest1
+password: TestPassword
+address1: address1
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: testCustomerName
+last name: testCustomerLastName
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 2
+type: PUBLIC
+username: publicTest2
+password: TestPassword
+address1: address2
+address2: 0
+town: Luton
+post code: null
+email: email1
+number: 123456
+first name: CustomerName2
+last name: CustomerLastName2
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 8
+type: ORG
+username: Council
+password: aaa
+address1: Aaaa 1
+address2: 0
+town: Luton
+post code: null
+email: council@luton.uk
+number: 123456789
+first name: null
+last name: null
+organisation name: Council Luton
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 10
+type: ORGANISATION
+username: test333
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 11
+type: ORGANISATION
+username: autoinc
+password: test
+address1: 
+address2: 0
+town: 
+post code: null
+email: 
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null]
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.418736300
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.420073200
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController search
+INFO: Searched value: ro at: 15:54:58.420686500
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 15:54:58.421060200
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:54:58.425082900
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 9; elements: [id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null, id: 15
+type: PUBLIC
+username: newUser
+password: test
+address1: Luton road
+address2: bedfordshire
+town: London
+post code: null
+email: newUser@gmail.com
+number: 
+first name: newUser
+last name: userm
+organisation name: 
+web address: null]
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.481898400
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.482895100
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController search
+INFO: Searched value: roo at: 15:54:58.482895100
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 15:54:58.484062500
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:54:58.485887500
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 6; elements: [id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null]
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.607835300
+
+Apr 17, 2019 3:54:58 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:54:58.608800700
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController search
+INFO: Searched value: root at: 15:54:58.610808900
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 15:54:58.612076300
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 15:54:58.613797200
+
+Apr 17, 2019 3:54:58 PM main.Controllers.AdminAccountController setTile
+INFO: mUsers: size: 6; elements: [id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 3
+type: ADMIN
+username: root
+password: root
+address1: Hogwarts
+address2: 0
+town: not Luton
+post code: null
+email: root@root.co.uk
+number: 123456789
+first name: Harry
+last name: Potter
+organisation name: null
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null, id: 13
+type: PUBLIC
+username: root1
+password: root
+address1: 
+address2: 
+town: 
+post code: null
+email: root@root.root
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null]
+
