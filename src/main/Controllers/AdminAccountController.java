@@ -61,7 +61,6 @@ public class AdminAccountController implements Initializable, NotificationPane{
         }
     }
 
-
     private void removeItem (User user) {
         int id = user.getUserID();
         if (database.delete("USERS", "User_ID", id)) {
@@ -98,7 +97,6 @@ public class AdminAccountController implements Initializable, NotificationPane{
         };
     }
 
-
     private void setTile () {
         tilePane.getChildren().clear();
         users = null;
@@ -129,7 +127,6 @@ public class AdminAccountController implements Initializable, NotificationPane{
                     ImageView accountType, btnEdit, btnDelete;
                     Separator separator = new Separator();
                     Text userNameText = new Text();
-
 
                     try {
                         delete = new Image(new FileInputStream("src/main/Resources/Drawable/delete.png"));
@@ -206,14 +203,8 @@ public class AdminAccountController implements Initializable, NotificationPane{
     @Override
     public void initialize (URL location, ResourceBundle resourceBundle) {
 
-
         query = "SELECT * FROM USERS";
-
-
-
 
         setTile();
     }
-
-
 }

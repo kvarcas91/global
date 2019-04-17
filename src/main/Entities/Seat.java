@@ -8,12 +8,11 @@ public class Seat {
     private String section;
 
     public Seat() {
-
     }
 
     public void seatBuilderSeats() {
         seatnumber = checkSeat("input seat Number:", 150);
-        seatrow = checkSeat("input row number", 15);
+        seatrow = checkSeat("input row Number", 15);
     }
 
     public void seatBuilderSections() {
@@ -22,7 +21,7 @@ public class Seat {
 
     public void seatBuilderSectionSeats() {
         seatnumber = checkSeat("input seat Number:", 150);
-        seatrow = checkSeat("input row number", 15);
+        seatrow = checkSeat("input row Number", 15);
         section = checkSection("Enter the section you are in");
     }
 
@@ -48,11 +47,6 @@ public class Seat {
                     seatBuilderSectionSeats();
             }
     }
-
-
-
-
-
     private int checkSeat(String text, int highest) {
 
         Scanner input = new Scanner(System.in);
@@ -65,7 +59,6 @@ public class Seat {
             }
             seatN = input.nextInt();
         } while (seatN <= 0 || seatN >= highest);
-
 
         return seatN;
     }

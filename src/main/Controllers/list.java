@@ -4,11 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.Entities.Booking;
 
-import java.awt.print.Book;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class list {
 
     public static ObservableList<Booking> init() {
@@ -21,5 +16,4 @@ public class list {
 
         return bookinglist;
     }
-
 }

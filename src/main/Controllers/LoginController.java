@@ -110,7 +110,6 @@ public class LoginController implements Initializable, NotificationPane {
                 return true;
             }
         };
-
     }
 
     @Override
@@ -147,7 +146,4 @@ public class LoginController implements Initializable, NotificationPane {
         userTextField.setOnAction(e -> login(null));
         passwordField.setOnAction(e -> login(null));
     }
-
-
-
 }

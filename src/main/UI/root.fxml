@@ -59,9 +59,6 @@
       </HBox>
    </top>
    <left>
-
        <fx:include source="menu.fxml" />
-
    </left>
-
 </BorderPane>

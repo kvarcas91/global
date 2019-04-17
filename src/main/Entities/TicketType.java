@@ -1,8 +1,6 @@
 package main.Entities;
 import main.Interfaces.Dao;
-
 import java.util.HashMap;
-
 
 public class TicketType implements Dao<TicketType> {
 

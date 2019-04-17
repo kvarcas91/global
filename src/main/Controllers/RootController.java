@@ -3,8 +3,6 @@ package main.Controllers;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -14,14 +12,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.*;
 import main.Networking.JDBC;
-
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Queue;
 import java.util.ResourceBundle;
 
 public class RootController implements Initializable{
-
 
     private User user;
     private static RootController instance;
@@ -39,7 +34,6 @@ public class RootController implements Initializable{
 
     @FXML
     private TextField searchField;
-
 
     public RootController () {
         setLoader();
@@ -77,7 +71,6 @@ public class RootController implements Initializable{
         AdminAccountController.search(searchField.getText());
     }
 
-
     public BorderPane getContent() {
         return this.content;
     }
@@ -93,7 +86,6 @@ public class RootController implements Initializable{
             System.out.println("***");
         }
         System.out.println("------------------------------------");
-
     }
 
     public void initialize (URL url, ResourceBundle bundle) {
@@ -133,6 +125,4 @@ public class RootController implements Initializable{
         JDBC database = LoginController.getConnection();
 
     }
-
-
 }

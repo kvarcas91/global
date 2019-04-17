@@ -1,7 +1,6 @@
 package main.Entities;
 
 import main.Interfaces.Dao;
-
 import java.util.HashMap;
 
 public class Booking implements Dao<Booking> {
@@ -31,7 +30,6 @@ public class Booking implements Dao<Booking> {
         this.quantity = quantity;
         this.bookingDate = bookingDate;
     }
-
 
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
@@ -113,4 +111,3 @@ public class Booking implements Dao<Booking> {
                 getBookingID(), getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getBookingDate());
     }
 }
-

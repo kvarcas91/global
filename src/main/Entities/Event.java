@@ -1,9 +1,6 @@
 package main.Entities;
 
-
 import main.Interfaces.Dao;
-
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -121,4 +118,3 @@ public class Event implements Dao<Event> {
                 getEventID(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
     }
 }
-

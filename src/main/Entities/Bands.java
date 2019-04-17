@@ -1,7 +1,6 @@
 package main.Entities;
 
 import main.Interfaces.Dao;
-
 import java.util.HashMap;
 
 public class Bands implements Dao<Bands> {

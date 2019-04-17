@@ -1,11 +1,9 @@
 package main.Entities;
 
-
 import main.Interfaces.Dao;
 import java.util.HashMap;
 
 public class User implements Dao<User> {
-
 
     // Mandatory
     private int userID = -1;
@@ -110,7 +108,6 @@ public class User implements Dao<User> {
         }
     }
 
-
     public User () {}
 
     public User (Builder builder) {
@@ -129,7 +126,6 @@ public class User implements Dao<User> {
         this.organisationName = builder.organisationName;
         this.webAddress = builder.webAddress;
     }
-
 
     public int getUserID() {
         return userID;
@@ -269,19 +265,10 @@ public class User implements Dao<User> {
     @Override
     public String toString () {
         return String.format("id: %d\n" +
-                                    "type: %s\n" +
-                                    "username: %s\n" +
-                                    "password: %s\n" +
-                                    "address1: %s\n" +
-                                    "address2: %s\n" +
-                                    "town: %s\n" +
-                                    "post code: %s\n" +
-                                    "email: %s\n" +
-                                    "number: %s\n" +
-                                    "first name: %s\n" +
-                                    "last name: %s\n" +
-                                    "organisation name: %s\n" +
-                                    "web address: %s",
+                                    "type: %s\n" + "username: %s\n" + "password: %s\n" + "address1: %s\n" +
+                                    "address2: %s\n" + "town: %s\n" + "post code: %s\n" + "email: %s\n" +
+                                    "number: %s\n" + "first name: %s\n" + "last name: %s\n" +
+                                    "organisation name: %s\n" + "web address: %s",
                 getUserID(), getAccountType(), getUserName(), getUserPassword(), getAddress1(), getAddress2(),
                 getTown(), getPostCode(), getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(),
                 getWebAddress());

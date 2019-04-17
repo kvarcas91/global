@@ -81,7 +81,59 @@ public class JDBC {
         return false;
     }
 
-    public boolean edit () {
+    public boolean edit (String querry, String className) {
+        /**
+         *          ########################################################
+         *          #############   DOCUMENTATION   #############
+         *          ########################################################
+         * I do not know If I should put instead of querry, only User user?
+         * I think it cannot be User user because of updating everything
+         * I create different String query's which will be executed if any update
+         * I am not sure if that's the correct way of writing code, so please do not judge me, mercy, help
+         * P.S I included things which I think some of cannot be changed! So please pay attention of each.
+         * Also, check if in sql table names of columns matches.
+         * And It needs to check also if the information is been changed or no?
+         *          ########################################################
+         */
+        connection = getConnection();
+        String user = String.format("UPDATE USER SET userName=?, password=?, firstName=?, lastName=?," +
+                "address1=?, address2=?, town=?, postCode=?, email=?, phoneNumber=?, organisationName=?," +
+                "webAddress=?", querry, className);
+
+        String bands = String.format("UPDATE BANDS SET bandID=?, bandName=?, bandAgent=?", querry, className);
+
+        String bookings = String.format("UPDATE BOOKINGS SET bookingID=?, userID=?, eventID=?, ticketType=?" +
+                "quantity=?, bookDate=?", querry, className);
+
+        String events = String.format("UPDATE EVENTS SET eventName=?, eventID=?, eventLocation=?, eventDescription=?," +
+                "eventOrganiser=?", querry, className);
+
+        String price = String.format("UPDATE PRICE SET concertName=?, concertPrice=?, seatRow=?, rate=?, concertID=?," +
+                "priceID=?", querry, className);
+
+        String seat = String.format("UPDATE SEAT SET seatNumber=?, seatRow=?, seatSection=?", querry, className);
+
+        String ticket = String.format("UPDATE TICKET SET typeID=?, typeName=?, typeSlots=?, typePrice=?," +
+                "typeIsCorp=?", querry, className);
+
+        if(connection!= null){
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute(user);
+                statement.execute(bands);
+                statement.execute(bookings);
+                statement.execute(events);
+                statement.execute(price);
+                statement.execute(seat);
+                statement.execute(ticket);
+                statement.close();
+                return true;
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+                return false;
+            }
+        }
         return false;
     }
 

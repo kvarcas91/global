@@ -16,11 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 
 public class Main extends Application {
 
@@ -131,7 +129,6 @@ public class Main extends Application {
             }
         };
     }
-
 
     public static void main(String[] args) {
         launch(args);

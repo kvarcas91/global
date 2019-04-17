@@ -1,7 +1,6 @@
 package main.Entities;
 
 import main.Interfaces.Dao;
-
 import java.util.HashMap;
 
 public class Price implements Dao<Price> {
@@ -35,13 +34,6 @@ public class Price implements Dao<Price> {
     public double getRate() {return this.corporatePriceRate;  }
     public String getName() { return this.concertName; }
 
-
-
-
-
-
-    // WHERE to put this?
-    // HERE ->
     public String toString () {
         return String.format(super.toString() + "Concert Name: %s\n" +
                         "Concert Price: %s\n" +
@@ -59,7 +51,6 @@ public class Price implements Dao<Price> {
 
     @Override
     public void setObject(HashMap<String, String> object) {
-
     }
 
     @Override
@@ -67,4 +58,3 @@ public class Price implements Dao<Price> {
         return this;
     }
 }
-

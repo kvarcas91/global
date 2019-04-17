@@ -144,5 +144,4 @@ public class AccountController implements Initializable, NotificationPane {
         System.out.println(user.toString());
         setAccount(user, null);
     }
-
 }

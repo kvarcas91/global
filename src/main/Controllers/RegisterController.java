@@ -101,7 +101,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         }
     }
 
-
     private void setLayout (byte position, String scene, String labelText) {
         this.position = position;
 
@@ -112,14 +111,12 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         }
     }
 
-
     private void setVisibility (String scene) {
         this.scenes.forEach((k, v) -> {
             if (scene.equals(k)) v.setVisible(true);
             else v.setVisible(false);
         });
     }
-
 
     private void setUserInfoVisibility () {
         if (accType.equals("PUBLIC")) {
@@ -135,7 +132,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
             webAddressField.setVisible(true);
         }
     }
-
 
     private void controlLayout () {
         System.out.println(position);
@@ -165,7 +161,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         }
         else return false;
     }
-
 
     @FXML
     private void btnBack (MouseEvent event) {
@@ -245,8 +240,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
 
     private void createUserObj() {
 
-
-
     }
 
     private void checkConnection () {
@@ -254,7 +247,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         if (connection == null) {
             setNotificationPane("No Network Connection", null);
         }
-
     }
 
     @Override
@@ -282,7 +274,6 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         accType = (toggleGroup.getSelectedToggle() != null ? toggleGroup.getSelectedToggle().getUserData().toString() : null);
         setUserInfoVisibility();
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -330,10 +321,5 @@ public class RegisterController implements Initializable, NotificationPane, Chan
         catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-
-
     }
-
-
 }

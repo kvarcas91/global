@@ -22,7 +22,6 @@
             </ImageView>
       </HBox>
    </top>
-
    <center>
        <GridPane alignment="TOP_CENTER" hgap="10" prefHeight="241.0" prefWidth="418.0">
            <padding> <Insets bottom="40" left="25" right="25" top="25" /> </padding>
@@ -40,16 +39,13 @@
                    <JFXButton style="-fx-font-weight: bold; -fx-border-color: black; -fx-border-radius: 10px;" text="Login"
                               textAlignment="CENTER" onAction="#login"/>
                </HBox>
-
            </GridPane>
        </GridPane>
    </center>
-
     <bottom>
         <HBox fx:id="errorPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;" visible="false">
             <padding> <Insets bottom="5" left="5" right="5" top="5" /> </padding>
             <Text fx:id="errorMessage" style="-fx-fill: white; -fx-font-weight: bolder;" />
         </HBox>
     </bottom>
-
 </BorderPane>

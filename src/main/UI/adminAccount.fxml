@@ -8,7 +8,6 @@
     <center>
        <TilePane fx:id="tilePane" vgap="3" hgap="3" prefColumns="4"/>
     </center>
-
     <bottom>
         <HBox fx:id="notificationPane" alignment="CENTER" BorderPane.alignment="CENTER" style="-fx-background-color: red;"
               visible="false">

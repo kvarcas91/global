@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.Booking;
 import main.Interfaces.NotificationPane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,12 +48,10 @@ public class BookingController implements Initializable, NotificationPane {
             new Booking("4|256|256|45|28/3/2019")
     );*/
 
-
-
     @FXML
     private void handleButtonAction(ActionEvent event) {
         ObservableList<Booking> list = FXCollections.observableArrayList(
-                new Booking(1, 4,6, 100, "Todauy"));
+                new Booking(1, 4,6, 100, "Today"));
 
         System.out.println("Working");
         Bookings.setItems(list);

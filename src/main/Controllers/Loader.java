@@ -84,5 +84,4 @@ class Loader{
         Stage oldStage = (Stage) root.getScene().getWindow();
         oldStage.close();
     }
-
 }

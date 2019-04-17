@@ -1,17 +1,13 @@
 package main.Controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -29,7 +25,6 @@ public class MenuController implements Initializable{
     private HashMap <String, String> fxml = new HashMap<>();
     private ArrayList<JFXButton> buttons = new ArrayList<>();
     private Loader loader;
-
 
     public MenuController () {
         loader = new Loader(RootController.getInstance().getContent());
