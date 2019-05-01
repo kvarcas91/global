@@ -10,11 +10,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.User;
+import main.Networking.JDBC;
 import main.Utils.Loader;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,9 +59,13 @@ public class AccountController extends Controller implements Initializable {
                 LocalTime.now());
         return instance;
     }
-
+        //Save button
     private void commitChanges () {
-        user.setFirstName(firstName.getText());
+        List<String> textFiles = Arrays.asList(password.getText(), firstName.getText(), lastName.getText(), organisationName.getText(),
+                townField.getText(), postCodeField.getText(), userName.getText(), address1Field.getText(),
+                address2Field.getText(), emailField.getText(), phoneNumberField.getText(), webAddressField.getText());
+
+        JDBC.insert(user.getUpdateQuery(textFiles));
     }
 
 

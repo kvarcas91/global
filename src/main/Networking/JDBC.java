@@ -9,8 +9,7 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -106,19 +105,55 @@ public class JDBC {
         }
         return false;
     }
+/*
+    public boolean update (String table, HashMap<String,String> columnID, Integer id) {
 
-    public static boolean edit () {
+        if(isConnected()){
+        }
+        String columns = "";
+        String query = "";
+
+        // Get a set of the entries
+        Set set = columnID.entrySet();
+
+        // Get an iterator
+        Iterator i = set.iterator();
+
+        while(i.hasNext()) {
+            Map.Entry me = (Map.Entry)i.next();
+            columns += String.format("%s=%s,", me.getKey(), me.getValue() );
+
+            String replaceComma = columns.replaceAll(",$", "");
+        }
+
+        query = String.format("UPDATE %s SET %s WHERE id='%d'", table, columns, id);
+
+
+        if(connection!= null){
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute(query);
+                System.out.println("Update complete");
+                statement.close();
+                return true;
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+                return false;
+            }
+        }
         return false;
     }
 
+*/
 
     public static Entity get (String query, String className) {
         LOGGER.log(Level.INFO, "Getting data from db at: {0}; query: {1}; calling class: {2}\n", new Object[]{
                 LocalTime.now(), query, className});
 
 
-        if (isConnected()) {
 
+            if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
@@ -167,7 +202,7 @@ public class JDBC {
         return null;
     }
 
-
+    //Insert, being used for updating query's
     public static boolean insert (String query) {
 
         if (isConnected()) {

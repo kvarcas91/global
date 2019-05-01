@@ -1,8 +1,12 @@
 package main.Entities;
-
-
+import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.TextField;
+import main.Controllers.AccountController;
 import main.Interfaces.Dao;
+
+import java.security.AccessController;
 import java.util.HashMap;
+import java.util.List;
 
 public class User extends Entity<User>{
 
@@ -243,6 +247,27 @@ public class User extends Entity<User>{
                 getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(), getWebAddress());
     }
 
+    //Update for User only
+    /**
+     * You have to create method 'getUpdateQuery' in each of entities with differrent hard Coded data
+     * Pass it to the button or etc, so after the press it would be executed and updated.
+     * It is made with a string.format because using builder was miss understanding.
+     **/
+    public String getUpdateQuery(List text)
+    {
+        return String.format("UPDATE USERS SET User_Name='%s', User_Password='%s', " +
+                        "User_City='%s', User_Post_Code='%s', " +
+                        "User_Street='%s', User_Street2='%s', " +
+                        "User_Email='%s', User_Phone_No='%s', " +
+                        "User_First_Name='%s', User_Last_Name='%s', " +
+                        "Org_Name='%s', Org_WebAdress='%s' " +
+                        "where User_ID = '%d'",
+                text.get(6),text.get(0),text.get(4),text.get(5),
+                text.get(7),text.get(8),text.get(9),text.get(10),
+                text.get(1),text.get(2),text.get(3),text.get(11),
+                userID);
+    }
+
     @Override
     public void setObject(HashMap<String, String> object) {
         setUserID(Integer.parseInt(object.get("User_ID")));
@@ -250,7 +275,7 @@ public class User extends Entity<User>{
         setUserName(object.get("User_Name"));
         setUserPassword(object.get("User_Password"));
         setTown(object.get("User_City"));
-        setPostCode(object.get("Post_Code"));
+        setPostCode(object.get("User_Post_Code"));
         setAddress1(object.get("User_Street"));
         setAddress2(object.get("User_Street2"));
         setEmail(object.get("User_Email"));
@@ -265,7 +290,6 @@ public class User extends Entity<User>{
     public User getObject() {
         return this;
     }
-
 
     @Override
     public boolean contains (String s) {
