@@ -77,9 +77,14 @@ Also, you will need to override few methods:
         // getters and setters
         
         @Override
-        public String getQuery() {
+        public String getInsertQuery() {
             // return String value of insert query 
         }
+        
+        @Override
+                public String getUpdateQuery() {
+                    // return String value of update query 
+                }
     
         @Override
         public void setObject(HashMap<String, String> object) {

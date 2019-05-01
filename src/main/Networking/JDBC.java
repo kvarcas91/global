@@ -63,16 +63,14 @@ public class JDBC {
         return connection != null;
     }
 
-    public Thread checkNetworkConnection () {
-        return new Thread() {
-            @Override
-            public void run () {
-                // check internet connection
-            }
-        };
+    private Thread checkNetworkConnection () {
+        return new Thread(() -> {
+            // check connection
+        });
     }
 
     public static int getCount (String query) {
+        LOGGER.log(Level.INFO, "Getting count on query: {0} at: {1}\n", new Object[]{query, LocalTime.now()});
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -92,6 +90,7 @@ public class JDBC {
     public static boolean delete (String table, String columnID, int id) {
 
         String query = String.format("DELETE FROM %s WHERE %s = '%d'", table, columnID, id);
+        LOGGER.log(Level.INFO, "Deleting object. Query: {0}\n", query);
         if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();
@@ -107,7 +106,19 @@ public class JDBC {
         return false;
     }
 
-    public static boolean edit () {
+    public static boolean update (String query) {
+        LOGGER.log(Level.INFO, "Updating data at: {0}; query: {1}\n", new Object[]{LocalTime.now(), query});
+        if (isConnected()) {
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute(query);
+                return true;
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
         return false;
     }
 
@@ -126,7 +137,6 @@ public class JDBC {
 
                 if (resultSet.next()) {
                     return getData(className, resultSet, metaData);
-
                 }
 
                 resultSet.close();
@@ -140,10 +150,11 @@ public class JDBC {
     }
 
     public static ArrayList<Entity> getAll (String query, String className) {
+        LOGGER.log(Level.INFO, "Getting data from db at: {0}; query: {1}; calling class: {2}\n", new Object[]{
+                LocalTime.now(), query, className});
 
+        ArrayList<Entity> entities = new ArrayList<>();
         if (isConnected()) {
-
-            ArrayList<Entity> entities = new ArrayList<>();
 
             try {
                 Statement statement = connection.createStatement();
@@ -161,15 +172,15 @@ public class JDBC {
             }
             catch (SQLException e) {
                 e.printStackTrace();
-                return null;
+                return entities;
             }
         }
-        return null;
+        return entities;
     }
 
 
     public static boolean insert (String query) {
-
+        LOGGER.log(Level.INFO, "Inserting data at: {0}; query: {1}\n", new Object[]{LocalTime.now(), query});
         if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();

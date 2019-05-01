@@ -237,10 +237,18 @@ public class User extends Entity<User>{
 
 
     @Override
-    public String getQuery () {
+    public String getInsertQuery() {
         return String.format("INSERT INTO USERS VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                  getAccountType(), getUserName(), getUserPassword(), getTown(), getPostCode(), getAddress1(), getAddress2(),
                 getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(), getWebAddress());
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return String.format("UPDATE USERS SET User_Name = '%s', User_Password = '%s', User_City = '%s', User_Post_Code = '%s', User_Street = '%s', " +
+                "User_Street2 = '%s', User_Email = '%s', User_Phone_No = '%s', User_First_Name = '%s', User_Last_Name = '%s', Org_Name = '%s'," +
+                "Org_WebAdress = '%s' WHERE User_ID = '%s'", getUserName(), getUserPassword(), getTown(), getPostCode(), getAddress1(),
+                getAddress2(), getEmail(), getPhoneNumber(), getFirstName(), getLastName(), getOrganisationName(), getWebAddress(), getUserID());
     }
 
     @Override
@@ -250,7 +258,7 @@ public class User extends Entity<User>{
         setUserName(object.get("User_Name"));
         setUserPassword(object.get("User_Password"));
         setTown(object.get("User_City"));
-        setPostCode(object.get("Post_Code"));
+        setPostCode(object.get("User_Post_Code"));
         setAddress1(object.get("User_Street"));
         setAddress2(object.get("User_Street2"));
         setEmail(object.get("User_Email"));

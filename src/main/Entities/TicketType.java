@@ -72,9 +72,15 @@ public class TicketType extends Entity<TicketType>{
     }
 
     @Override
-    public String getQuery() {
+    public String getInsertQuery() {
         return String.format("INSERT INTO TICKET_TYPES VALUES (null, '%s', %d, '%f', '%d')",
                 getName(), getSlot(), getPrice(), isCorp());
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return String.format("UPDATE TICKET_TYPES SET Type_Name = '%s', Type_Slots = '%s', Type_Price = '%s', Type_Is_Corp = '%s' WHERE Type_ID = '%s'",
+                getName(), getSlot(), getPrice(), isCorp(), getID());
     }
 
     @Override

@@ -91,9 +91,15 @@ public class Event extends Entity<Event> {
     }
 
     @Override
-    public String getQuery() {
+    public String getInsertQuery() {
         return String.format("INSERT INTO EVENTS VALUES (null, '%s', '%s', '%s', '%s', '%d')",
                 getEventName(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return String.format("UPDATE EVENTS SET Event_Name = '%s', Event_Date = '%s', Event_Location = '%s', Event_Description = '%s' WHERE EVENT_ID = '%s'",
+                getEventName(), getEventDate(), getEventLocation(), getEventDescription(), getEventID());
     }
 
     @Override
@@ -113,8 +119,8 @@ public class Event extends Entity<Event> {
 
     @Override
     public String toString () {
-        return String.format("ID: %d\nEvent date: %s\nEvent location: %s\nEvent description: %s\nEvent organiser: %d",
-                getEventID(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
+        return String.format("ID: %d\nEvent name: %s\nEvent date: %s\nEvent location: %s\nEvent description: %s\nEvent organiser: %d",
+                getEventID(), getEventName(), getEventDate(), getEventLocation(), getEventDescription(), getEventOrganiser());
     }
 }
 

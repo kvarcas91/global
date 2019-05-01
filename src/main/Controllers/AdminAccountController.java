@@ -91,7 +91,6 @@ public class AdminAccountController extends Controller implements Initializable{
         tilePane.getChildren().clear();
 
         LOGGER.log(Level.INFO, "Setting tileView at: {0}\n", LocalTime.now());
-        LOGGER.log(Level.INFO, "mUsers: size: {0}; elements: {1}\n", new Object[]{mUsers.size(), mUsers});
 
         if (mUsers.size() > 0) {
             for (User user : mUsers) {

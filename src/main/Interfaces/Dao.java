@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 public interface Dao <T> {
 
-    String getQuery ();
+    String getInsertQuery();
+
+    String getUpdateQuery();
 
     void setObject(HashMap<String, String> object);
 

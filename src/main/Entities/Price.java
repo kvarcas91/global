@@ -51,8 +51,13 @@ public class Price extends Entity<Price> {
     }
 
     @Override
-    public String getQuery() {
+    public String getInsertQuery() {
         return String.format("SELECT * FROM BANDS ");
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return null;
     }
 
     @Override

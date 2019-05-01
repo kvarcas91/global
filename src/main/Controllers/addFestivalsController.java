@@ -58,14 +58,10 @@ public class addFestivalsController extends Controller implements Initializable 
 
     }
 
-    @FXML
-    private void back () {
-        Loader.getInstance().loadPage("../UI/festivals.fxml");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        btnBack.setOnMousePressed(e -> Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance()));
     }
 }
 

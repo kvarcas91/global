@@ -95,9 +95,15 @@ public class Booking extends Entity<Booking>{
     }
 
     @Override
-    public String getQuery() {
+    public String getInsertQuery() {
         return String.format("INSERT INTO BOOKING VALUES (null, '%d', '%d', '%d', '%d', now(), %d)",
                 getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getIsCOnfirmed());
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return String.format("UPDATE BOOKING SET Quantity = '%s', Book_Date = '%s', Confirmed = '%s' WHERE Booking_ID = '%s'",
+                getQuantity(), getBookingDate(),getIsCOnfirmed(), getBookingID());
     }
 
     @Override

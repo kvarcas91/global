@@ -7,6 +7,7 @@ public class Validators {
 
     private Validators () {}
 
+    @SafeVarargs
     public static  <T extends TextField> boolean validate (T... widget) {
         if (widget.length != 0) {
             for (T element : widget) {
@@ -15,7 +16,7 @@ public class Validators {
                     return false;
                 }
                 else if (element.getText().length() <4){
-                    NotificationPane.show("Too short");
+                    NotificationPane.show("Entry is too short");
                     return false;
                 }
             }

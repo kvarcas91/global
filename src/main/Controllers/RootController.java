@@ -10,13 +10,12 @@ import javafx.scene.text.Text;
 import main.Entities.*;
 import main.Interfaces.Notifications;
 import main.Networking.JDBC;
+import main.Utils.Test.Test;
 import main.Utils.Loader;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
-
 import java.net.URL;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -63,8 +62,7 @@ public class RootController extends Controller implements Initializable, Notific
                 user.getUserName(), user.getUserPassword());
         this.user = (User) JDBC.get(query, User.class.getName());
         userNameField.setText(user.getUserName());
-        System.out.println("MenuController instance is null: " + (MenuController.getInstance() == null));
-       MenuController.getInstance().setAccountType(user.getAccountType());
+        MenuController.getInstance().setAccountType(user.getAccountType());
     }
 
 
@@ -93,25 +91,12 @@ public class RootController extends Controller implements Initializable, Notific
         }
     }
 
-    public static void updateNotificationCount (int number) {
+    protected static void updateNotificationCount (int number) {
          if (number > 0) {
              getInstance().notificationCount.setVisible(true);
              if (number > 9) getInstance().notificationCount.setText("9+");
              else getInstance().notificationCount.setText(String.valueOf(number));
          }
-    }
-
-    private void test (String table, String className) {
-        System.out.println("-----------------------------------");
-        System.out.println(String.format("ALL %s", table));
-        String query = String.format("SELECT * FROM %s", table);
-        ArrayList<Entity> obj = JDBC.getAll(query, className);
-        for (Entity object : obj) {
-            System.out.println(object.toString());
-            System.out.println("***");
-        }
-        System.out.println("------------------------------------");
-
     }
 
     private void setActionListeners () {
@@ -143,8 +128,14 @@ public class RootController extends Controller implements Initializable, Notific
         Loader.createInstanceWithPane(content);
         initializeNotificationPane();
 
-        String notifQuery = "SELECT count(*) FROM BOOKING WHERE Confirmed = '0' ";
-        test("BOOKING", Booking.class.getName());
+        String notifQuery = "SELECT count(*) FROM BOOKING WHERE Confirmed = '0'";
+
+        Test.printTable("BOOKING", Booking.class.getName());
+        Test.printTable("EVENTS", Event.class.getName());
+        Test.printTable("USERS", User.class.getName());
+        Test.printTable("BANDS", Bands.class.getName());
+        Test.printTable("TICKET_TYPES", TicketType.class.getName());
+
         updateNotificationCount(JDBC.getCount(notifQuery));
 
         Loader.getInstance().loadPage("../UI/dashboard.fxml", DashboardController.getInstance());

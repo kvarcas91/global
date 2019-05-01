@@ -41,8 +41,13 @@ public class Bands extends Entity<Bands>{
     }
 
     @Override
-    public String getQuery() {
+    public String getInsertQuery() {
         return String.format("INSERT INTO BANDS VALUES (%d, '%s', '%s')", getID(), getName(), getAgent());
+    }
+
+    @Override
+    public String getUpdateQuery() {
+        return String.format("UPDATE BANDS SET Band_Name = '%s', Band_Agent = '%s' WHERE Band_ID = '%s'", getName(), getAgent(), getID());
     }
 
     @Override

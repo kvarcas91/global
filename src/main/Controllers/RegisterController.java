@@ -7,16 +7,12 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import main.Entities.User;
@@ -204,7 +200,7 @@ public class RegisterController extends Controller implements Initializable, Not
                 .organisationName(organisationName.getText())
                 .webAddress(webAddressField.getText()).build();
 
-        if (!JDBC.insert(user.getQuery())) {
+        if (!JDBC.insert(user.getInsertQuery())) {
             NotificationPane.show("Something went wrong");
         }
         else {

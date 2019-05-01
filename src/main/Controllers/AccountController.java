@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.Entities.User;
+import main.Networking.JDBC;
 import main.Utils.Loader;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
@@ -58,6 +59,8 @@ public class AccountController extends Controller implements Initializable {
 
     private void commitChanges () {
         user.setFirstName(firstName.getText());
+        user.setLastName(lastName.getText());
+        JDBC.update(user.getUpdateQuery());
     }
 
 

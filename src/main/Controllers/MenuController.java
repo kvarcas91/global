@@ -90,7 +90,7 @@ public class MenuController implements Initializable{
 
     @FXML
     private void logOut (MouseEvent event) {
-        RootController.getInstance().Destroy();
+        RootController.Destroy();
         Destroy();
         loader.loadLogin(root, LoginController.getInstance());
     }

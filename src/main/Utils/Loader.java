@@ -91,7 +91,6 @@ public class Loader{
         System.out.println("Free memory: " + runtime.freeMemory());
         try {
             Pane pane = loader.load();
-            System.out.println("BorderPane is null: " + (borderPane == null));
             borderPane.setCenter(pane);
         }
         catch (IOException e) {
