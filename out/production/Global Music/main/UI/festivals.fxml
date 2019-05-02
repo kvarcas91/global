@@ -8,21 +8,22 @@
 <?import javafx.scene.layout.HBox?>
 
 
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
 <BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <AnchorPane>
-            <JFXListView fx:id="listView" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0"
-                         AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
-      </AnchorPane>
+         <ScrollPane fitToWidth="true">
+            <VBox fx:id="container" spacing="10"/>
+         </ScrollPane>
    </center>
    <top>
-      <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+      <HBox fx:id="manageFestivals" alignment="CENTER_LEFT" BorderPane.alignment="CENTER" visible="false">
          <BorderPane.margin> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </BorderPane.margin>
-            <JFXButton fx:id="btnEdit" text="Edit festivals" />
+            <JFXButton fx:id="mEvents" text="My Events"/>
             <JFXButton fx:id="btnAdd" text="Add festivals"/>
       </HBox>
    </top>
+
 </BorderPane>

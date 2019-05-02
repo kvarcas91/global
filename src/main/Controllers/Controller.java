@@ -3,7 +3,7 @@ package main.Controllers;
 public abstract class Controller{
 
     public enum AccountTypes {
-        PUBLIC, ADMIN, ROOT, ORGANIZATION, AGENT, NONE
+        PUBLIC, ADMIN, ROOT, ORGANIZATION, AGENT, ORGANISER, NONE
     }
 
 
@@ -19,6 +19,8 @@ public abstract class Controller{
                 return AccountTypes.ORGANIZATION;
             case "AGENT":
                 return AccountTypes.AGENT;
+            case "ORGANISER":
+                return AccountTypes.ORGANISER;
             case "NONE":
                 return AccountTypes.NONE;
                 default: return null;
