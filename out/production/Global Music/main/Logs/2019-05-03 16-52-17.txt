@@ -1,0 +1,183 @@
+May 03, 2019 4:52:17 PM main.Main loadLogo
+INFO: Loading logo
+
+May 03, 2019 4:52:17 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 16:52:17.918504200
+
+May 03, 2019 4:52:18 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 16:52:18.338384100
+
+May 03, 2019 4:52:21 PM main.Main loadLogin
+INFO: Loading Login page... at: 16:52:21.817503500
+
+May 03, 2019 4:52:21 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 16:52:21.849350
+
+May 03, 2019 4:52:21 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:21.896827300
+
+May 03, 2019 4:52:21 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 16:52:21.900219
+
+May 03, 2019 4:52:22 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 16:52:22.244329500
+
+May 03, 2019 4:52:24 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 16:52:24.975430200
+
+May 03, 2019 4:52:25 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:25.039368300
+
+May 03, 2019 4:52:25 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 16:52:25.040359300
+
+May 03, 2019 4:52:25 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 16:52:25.087203300. Skipping and adding just pane
+
+May 03, 2019 4:52:25 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:25.294160900
+
+May 03, 2019 4:52:25 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:25.296157100
+
+May 03, 2019 4:52:25 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:25.297154400
+
+May 03, 2019 4:52:25 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 16:52:25.298153300
+
+May 03, 2019 4:52:25 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:25.306129700
+
+May 03, 2019 4:52:25 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 16:52:25.331522700
+
+May 03, 2019 4:52:26 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 16:52:26.421575100
+
+May 03, 2019 4:52:26 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:26.457952700
+
+May 03, 2019 4:52:27 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:27.673429400
+
+May 03, 2019 4:52:27 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 16:52:27.675423900
+
+May 03, 2019 4:52:27 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 16:52:27.732418100
+
+May 03, 2019 4:52:27 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 16:52:27.733415400; position: 0
+
+May 03, 2019 4:52:36 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:52:36.834056
+
+May 03, 2019 4:52:36 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:36.850010500
+
+May 03, 2019 4:52:40 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:40.630715400
+
+May 03, 2019 4:52:40 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 16:52:40.632670700
+
+May 03, 2019 4:52:40 PM main.View.Circles createInstance
+INFO: Tried to create Cirlces instance at 16:52:40.675508100
+
+May 03, 2019 4:52:40 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 16:52:40.677243200; position: 0
+
+May 03, 2019 4:52:44 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:52:44.023486600
+
+May 03, 2019 4:52:44 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:44.036894700
+
+May 03, 2019 4:52:44 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:44.834725500
+
+May 03, 2019 4:52:44 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 16:52:44.835999900
+
+May 03, 2019 4:52:44 PM main.View.Circles createInstance
+INFO: Tried to create Cirlces instance at 16:52:44.886687900
+
+May 03, 2019 4:52:44 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 16:52:44.887498; position: 0
+
+May 03, 2019 4:52:46 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:52:46.906982500
+
+May 03, 2019 4:52:46 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:46.914796200
+
+May 03, 2019 4:52:48 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:48.165647500
+
+May 03, 2019 4:52:48 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 16:52:48.167577200
+
+May 03, 2019 4:52:48 PM main.View.Circles createInstance
+INFO: Tried to create Cirlces instance at 16:52:48.215394700
+
+May 03, 2019 4:52:48 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 16:52:48.217389200; position: 0
+
+May 03, 2019 4:52:56 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:52:56.814269400
+
+May 03, 2019 4:52:56 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:56.821246300
+
+May 03, 2019 4:52:57 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 16:52:57.722586600
+
+May 03, 2019 4:52:57 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 16:52:57.723107700
+
+May 03, 2019 4:52:57 PM main.View.Circles createInstance
+INFO: Tried to create Cirlces instance at 16:52:57.747054
+
+May 03, 2019 4:52:57 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 16:52:57.748039800; position: 0
+
+May 03, 2019 4:52:58 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:52:58.472023700
+
+May 03, 2019 4:52:58 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:52:58.478015800
+
+May 03, 2019 4:52:59 PM main.Controllers.DashboardController getInstance
+INFO: Tried to create DashboardController instance at 16:52:59.152909
+
+May 03, 2019 4:53:00 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 16:53:00.055226600
+
+May 03, 2019 4:53:00 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 9; clonedUsers size: 9
+
+May 03, 2019 4:53:00 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 16:53:00.117963200
+
+May 03, 2019 4:53:01 PM main.Controllers.BookingController <init>
+INFO: Creating BookingController instance from constructor at: 16:53:01.660379600
+
+May 03, 2019 4:53:01 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 16:53:01.783102800
+
+May 03, 2019 4:53:02 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 16:53:02.376473500
+
+May 03, 2019 4:53:02 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 9; clonedUsers size: 9
+
+May 03, 2019 4:53:02 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 16:53:02.410753100
+
+May 03, 2019 4:53:11 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 16:53:11.258160400
+
+May 03, 2019 4:53:11 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 16:53:11.268122800
+

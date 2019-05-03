@@ -9,20 +9,119 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.layout.GridPane?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" >
-   <center>
-      <AnchorPane>
-            <JFXTextField fx:id="typeName" layoutX="48.0" layoutY="103.0" text="Type name" />
-            <JFXTextField fx:id="typeLocation" layoutX="48.0" layoutY="164.0" text="Type location" />
-            <DatePicker fx:id="datePicker" layoutX="48.0" layoutY="269.0" />
-      </AnchorPane>
-   </center>
-   <top>
-      <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
-         <BorderPane.margin><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </BorderPane.margin>
-            <ImageView fx:id="btnBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../Resources/Drawable/back.png" />
+
+    <center>
+
+        <AnchorPane>
+        <!-- Event info -->
+        <GridPane fx:id="eventInfo" alignment="TOP_CENTER" vgap="30" hgap="10" visible="false" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+        AnchorPane.topAnchor="60">
+            <DatePicker fx:id="eventDate" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" promptText="Event date"/>
+            <JFXTextField fx:id="eventName" labelFloat="true" promptText="Event name" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                          prefWidth="150" prefHeight="26.0"/>
+            <JFXTextField fx:id="eventLocation" labelFloat="true" promptText="Event location" prefWidth="150.0" prefHeight="26.0"
+                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <JFXTextArea fx:id="eventDescription" labelFloat="true" promptText="Event Description" prefWidth="300" prefHeight="60"
+                         GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+        </GridPane>
+
+        <!-- Ticket info -->
+        <BorderPane fx:id="ticketInfo" visible="false" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <top>
+                <VBox BorderPane.alignment="CENTER">
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+
+                            <JFXTextField fx:id="ticketName" labelFloat="true" prefWidth="100.0" promptText="Ticket name" />
+                            <JFXTextField fx:id="ticketSlots" labelFloat="true" prefWidth="100.0" promptText="Available space" />
+                            <JFXTextField fx:id="ticketPrice" labelFloat="true" prefWidth="50.0" promptText="Price" />
+                            <ImageView fx:id="addTicket" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@../Resources/Drawable/add.png" />
+                            </ImageView>
+                        <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+                    </HBox>
+                    <Separator prefWidth="200.0">
+                        <VBox.margin> <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" /> </VBox.margin>
+                    </Separator>
+                </VBox>
+            </top>
+            <center>
+                <ScrollPane fitToWidth="true">
+                    <TilePane fx:id="ticketTile" vgap="5" hgap="20" />
+                </ScrollPane>
+            </center>
+        </BorderPane>
+
+            <!-- Ticket info -->
+            <BorderPane fx:id="bandInfo" visible="false" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                <top>
+                    <VBox BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+
+                            <JFXTextField fx:id="bandName" labelFloat="true" prefWidth="100.0" promptText="Band name" />
+                            <JFXTextField fx:id="bandAgent" labelFloat="true" prefWidth="100.0" promptText="Agent name" />
+                            <ImageView fx:id="addBand" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../Resources/Drawable/add.png" />
+                            </ImageView>
+                            <padding> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </padding>
+                        </HBox>
+                        <Separator prefWidth="200.0">
+                            <VBox.margin> <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" /> </VBox.margin>
+                        </Separator>
+                    </VBox>
+                </top>
+                <center>
+                    <ScrollPane fitToWidth="true">
+                        <TilePane fx:id="bandTile" vgap="5" hgap="20" />
+                    </ScrollPane>
+                </center>
+
+                <bottom>
+                    <JFXButton fx:id="addEvent" text="Add"/>
+                </bottom>
+            </BorderPane>
+
+        </AnchorPane>
+    </center>
+
+    <top>
+        <HBox fx:id="manageFestivals" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+            <BorderPane.margin> <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /> </BorderPane.margin>
+            <JFXButton fx:id="mEvents" text="My Events"/>
+            <JFXButton fx:id="btnAdd" text="Add festivals"/>
+        </HBox>
+    </top>
+
+    <!-- BACK NAVIGATION ELEMENT -->
+    <left>
+        <VBox alignment="CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <ImageView fx:id="navBack" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Resources/Drawable/back.png" />
             </ImageView>
-      </HBox>
-   </top>
+        </VBox>
+    </left>
+
+    <!-- NEXT NAVIGATION ELEMENT -->
+    <right>
+        <VBox alignment="CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <ImageView fx:id="navNext" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Resources/Drawable/next.png" />
+            </ImageView>
+        </VBox>
+    </right>
+
+
+    <bottom>
+        <HBox fx:id="progressLayout" alignment="CENTER" spacing="10">
+            <padding> <Insets bottom="10.0" top="10.0" /> </padding>
+        </HBox>
+    </bottom>
 </BorderPane>

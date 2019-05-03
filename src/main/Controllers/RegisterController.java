@@ -62,7 +62,6 @@ public class RegisterController extends Controller implements Initializable, Not
     private Pattern pattern = Pattern.compile("^.+@.+\\..+$");
 
 
-
     private RegisterController() {
         instance = this;
         WriteLog.addHandler(LOGGER);

@@ -16,6 +16,7 @@ import main.Utils.WriteLog;
 import main.View.NotificationPane;
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -63,6 +64,13 @@ public class RootController extends Controller implements Initializable, Notific
         this.user = (User) JDBC.get(query, User.class.getName());
         userNameField.setText(user.getUserName());
         MenuController.getInstance().setAccountType(user.getAccountType());
+
+        AccountTypes type = getType(user.getAccountType());
+
+        if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT) {
+            String notifQuery = "SELECT count(*) FROM BOOKING WHERE Confirmed = '0'";
+            updateNotificationCount(JDBC.getCount(notifQuery));
+        }
     }
 
 
@@ -128,15 +136,11 @@ public class RootController extends Controller implements Initializable, Notific
         Loader.createInstanceWithPane(content);
         initializeNotificationPane();
 
-        String notifQuery = "SELECT count(*) FROM BOOKING WHERE Confirmed = '0'";
-
         Test.printTable("BOOKING", Booking.class.getName());
         Test.printTable("EVENTS", Event.class.getName());
         Test.printTable("USERS", User.class.getName());
         Test.printTable("BANDS", Bands.class.getName());
         Test.printTable("TICKET_TYPES", TicketType.class.getName());
-
-        updateNotificationCount(JDBC.getCount(notifQuery));
 
         Loader.getInstance().loadPage("../UI/dashboard.fxml", DashboardController.getInstance());
     }

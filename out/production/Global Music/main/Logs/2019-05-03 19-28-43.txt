@@ -1,0 +1,96 @@
+May 03, 2019 7:28:43 PM main.Main loadLogo
+INFO: Loading logo
+
+May 03, 2019 7:28:43 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 19:28:43.793345600
+
+May 03, 2019 7:28:44 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 19:28:44.191252700
+
+May 03, 2019 7:28:47 PM main.Main loadLogin
+INFO: Loading Login page... at: 19:28:47.950747200
+
+May 03, 2019 7:28:47 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 19:28:47.975071200
+
+May 03, 2019 7:28:47 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:28:47.998012800
+
+May 03, 2019 7:28:48 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 19:28:48.007606600
+
+May 03, 2019 7:28:48 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 19:28:48.235383800
+
+May 03, 2019 7:28:50 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 19:28:50.547876
+
+May 03, 2019 7:28:50 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:28:50.605719
+
+May 03, 2019 7:28:50 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 19:28:50.605719
+
+May 03, 2019 7:28:50 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 19:28:50.652597200. Skipping and adding just pane
+
+May 03, 2019 7:28:50 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:28:50.821907900
+
+May 03, 2019 7:28:50 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 19:28:50.824900300
+
+May 03, 2019 7:28:50 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 19:28:50.836876500
+
+May 03, 2019 7:28:50 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 19:28:50.862866200
+
+May 03, 2019 7:28:50 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 19:28:50.893522600
+
+May 03, 2019 7:28:50 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 19:28:50.895794100
+
+May 03, 2019 7:28:52 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 19:28:52.066261900
+
+May 03, 2019 7:28:52 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 19:28:52.099334900
+
+May 03, 2019 7:28:53 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:28:53.122111
+
+May 03, 2019 7:28:53 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 19:28:53.149236800
+
+May 03, 2019 7:28:53 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 19:28:53.193954400
+
+May 03, 2019 7:28:53 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:28:53.194919800; position: 0
+
+May 03, 2019 7:28:59 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:28:59.076160100; position: 1
+
+May 03, 2019 7:29:05 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:05.387685800; position: 2
+
+May 03, 2019 7:29:07 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:07.061164100; position: 1
+
+May 03, 2019 7:29:07 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:07.527829500; position: 0
+
+May 03, 2019 7:29:08 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:08.999054500; position: 1
+
+May 03, 2019 7:29:09 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:09.465706100; position: 2
+
+May 03, 2019 7:29:10 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:10.200741800; position: 1
+
+May 03, 2019 7:29:10 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 19:29:10.779756600; position: 0
+

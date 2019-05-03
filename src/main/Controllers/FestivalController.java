@@ -8,7 +8,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,7 +16,6 @@ import main.Entities.Event;
 import main.Entities.User;
 import main.Networking.JDBC;
 import main.Utils.Loader;
-import main.Utils.Test.Test;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
 
@@ -62,7 +60,7 @@ public class FestivalController extends Controller implements Initializable {
     }
 
     private void addFestivals() {
-        Loader.getInstance().loadPage("../UI/addFestivals.fxml", addFestivalsController.getInstance());
+        Loader.getInstance().loadPage("../UI/addFestivals.fxml", AddFestivalsController.getInstance());
     }
 
 

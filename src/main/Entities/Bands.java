@@ -16,6 +16,11 @@ public class Bands extends Entity<Bands>{
         this.agent = agent;
     }
 
+    public Bands (String name, String agent) {
+        this.name = name;
+        this.agent = agent;
+    }
+
     public int getID() {
         return ID;
     }
@@ -42,7 +47,7 @@ public class Bands extends Entity<Bands>{
 
     @Override
     public String getInsertQuery() {
-        return String.format("INSERT INTO BANDS VALUES (%d, '%s', '%s')", getID(), getName(), getAgent());
+        return String.format("INSERT INTO BANDS VALUES (null, '%s', '%s')", getName(), getAgent());
     }
 
     @Override

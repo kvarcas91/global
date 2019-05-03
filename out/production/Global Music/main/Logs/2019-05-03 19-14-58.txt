@@ -1,0 +1,44 @@
+May 03, 2019 7:14:58 PM main.Main loadLogo
+INFO: Loading logo
+
+May 03, 2019 7:14:58 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 19:14:58.480799400
+
+May 03, 2019 7:14:58 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 19:14:58.895451100
+
+May 03, 2019 7:15:01 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 19:15:01.727935300
+
+May 03, 2019 7:15:02 PM main.Main loadLogin
+INFO: Loading Login page... at: 19:15:02.435532800
+
+May 03, 2019 7:15:02 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 19:15:02.466456500
+
+May 03, 2019 7:15:02 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:15:02.518325600
+
+May 03, 2019 7:15:02 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 19:15:02.521312300
+
+May 03, 2019 7:15:02 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 19:15:02.831481200
+
+May 03, 2019 7:15:06 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 19:15:06.192437100
+
+May 03, 2019 7:15:06 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 19:15:06.263246300
+
+May 03, 2019 7:15:06 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 19:15:06.264243500
+
+May 03, 2019 7:15:06 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 19:15:06.304169900. Skipping and adding just pane
+
+May 03, 2019 7:15:06 PM main.Utils.Loader loader
+SEVERE: IOException at : 19:15:06.479764; message: 
+/C:/Users/eslut/Desktop/myProjects/Global%20Music/out/production/Global%20Music/main/UI/root.fxml
+
+

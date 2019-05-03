@@ -1,6 +1,8 @@
 package main.View;
 
+import javafx.scene.Node;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import main.Utils.WriteLog;
@@ -14,6 +16,7 @@ public class Circles {
     private static final String COLOUR = "#5375da";
     private static HBox layout = null;
     private static Circles instance = null;
+    private static int circleCount = 3;
     private static final Logger LOGGER = Logger.getLogger(Circles.class.getName());
 
 
@@ -47,7 +50,7 @@ public class Circles {
         layout.getChildren().clear();
 
         // draw Progress
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < circleCount; i++) {
             Circle progress;
             if (i <= position) {
                 size = 7;
@@ -83,5 +86,12 @@ public class Circles {
 
             layout.getChildren().add(progress);
         }
+    }
+
+    public static void injectLayout (HBox node) {
+        layout = node;
+    }
+    public static void injectCount (int count) {
+        circleCount = count;
     }
 }
