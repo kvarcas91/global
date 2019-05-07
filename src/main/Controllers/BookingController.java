@@ -1,24 +1,20 @@
 package main.Controllers;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 import main.Entities.Booking;
-import main.Interfaces.Notifications;
-import main.Utils.Loader;
+import main.Entities.Entity;
+import main.Entities.User;
+import main.Networking.JDBC;
 import main.Utils.WriteLog;
-
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +26,7 @@ public class BookingController extends Controller implements Initializable{
 
     @FXML private TableView<Booking> Bookings;
     @FXML private TableColumn<Booking, Integer> bookingID, concertID, bookingPrice, bookingDate;
-    @FXML private JFXButton handle1, handle2;
+    private User user = null;
 
     private BookingController () {
         instance = this;
@@ -50,33 +46,36 @@ public class BookingController extends Controller implements Initializable{
         return instance;
     }
 
-    private void handleButtonAction() {
-        ObservableList<Booking> list = FXCollections.observableArrayList(
-                new Booking(1, 4,6, 100));
-
-        System.out.println("Working");
-        Bookings.setItems(list);
-    }
-
-    private void handleButtonAction2() {
-        ObservableList<Booking> list1 = FXCollections.observableArrayList();
-        list1 = list.init();
-
-        System.out.println("Working");
-        Bookings.setItems(list1);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        user = RootController.getInstance().getUser();
+
+        // TODO does user need to know all these ID's? What about cancel booking only for root and admin types?
+
         bookingID.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("bookingID"));
         concertID.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("eventID"));
         bookingPrice.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("ticketTypeID"));
         bookingDate.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("quantity"));
 
-        handle1.setOnAction(e -> handleButtonAction());
-        handle2.setOnAction(e -> handleButtonAction2());
+        ObservableList<Booking> list = FXCollections.observableArrayList();
 
+        String query = "SELECT * FROM BOOKING WHERE User_ID = '" + user.getUserID() + "';";
+        Booking temp;
+
+        ArrayList<Entity> objects = JDBC.getAll(query, Booking.class.getName());
+        for(Entity obj : objects) {
+            temp = (Booking) obj;
+            list.add(temp);
+        }
+
+        Bookings.setItems(list);
     }
 
-    public static void Destroy () {}
+    public static void Destroy () {
+        if (instance != null) {
+            LOGGER.log(Level.INFO, "Destroying BookingController instance at: {0}\n", LocalTime.now());
+            getInstance().user = null;
+            instance = null;
+        }
+    }
 }

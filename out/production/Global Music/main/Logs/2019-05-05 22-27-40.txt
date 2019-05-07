@@ -1,0 +1,24 @@
+May 05, 2019 10:27:40 PM main.Main loadLogo
+INFO: Loading logo
+
+May 05, 2019 10:27:40 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 22:27:40.240054300
+
+May 05, 2019 10:27:40 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 22:27:40.638247
+
+May 05, 2019 10:27:44 PM main.Main loadLogin
+INFO: Loading Login page... at: 22:27:44.294565300
+
+May 05, 2019 10:27:44 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 22:27:44.301196300
+
+May 05, 2019 10:27:44 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 22:27:44.324924700
+
+May 05, 2019 10:27:44 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 22:27:44.327964300
+
+May 05, 2019 10:27:44 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 22:27:44.749228300
+

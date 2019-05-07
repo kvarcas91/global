@@ -4,6 +4,7 @@ import main.Entities.Entity;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
 
+import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.sql.DriverManager;
@@ -193,6 +194,27 @@ public class JDBC {
             }
         }
         return false;
+    }
+
+    public static int getID (String query, String column) {
+        LOGGER.log(Level.INFO, "getting ID with query: {0}\n", query);
+        if (isConnected()) {
+            try {
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                resultSet.next();
+                return resultSet.getInt(column);
+
+            }
+            catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "SQLException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        else {
+            return -1;
+        }
     }
 
     private static Entity getData (String className, ResultSet resultSet, ResultSetMetaData metaData) {

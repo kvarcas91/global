@@ -1,0 +1,72 @@
+May 06, 2019 10:19:01 PM main.Main loadLogo
+INFO: Loading logo
+
+May 06, 2019 10:19:01 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 22:19:01.090521700
+
+May 06, 2019 10:19:01 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 22:19:01.484406100
+
+May 06, 2019 10:19:04 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 22:19:04.278303100
+
+May 06, 2019 10:19:04 PM main.Main loadLogin
+INFO: Loading Login page... at: 22:19:04.985152500
+
+May 06, 2019 10:19:05 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 22:19:05.000114900
+
+May 06, 2019 10:19:05 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 22:19:05.047171700
+
+May 06, 2019 10:19:05 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 22:19:05.049157700
+
+May 06, 2019 10:19:05 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 22:19:05.278425400
+
+May 06, 2019 10:19:11 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 22:19:11.952756500
+
+May 06, 2019 10:19:12 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 22:19:12.012562200
+
+May 06, 2019 10:19:12 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 22:19:12.013559400
+
+May 06, 2019 10:19:12 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 22:19:12.068413500. Skipping and adding just pane
+
+May 06, 2019 10:19:12 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 22:19:12.272235300
+
+May 06, 2019 10:19:12 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 22:19:12.273232600
+
+May 06, 2019 10:19:12 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 22:19:12.283212
+
+May 06, 2019 10:19:12 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 22:19:12.312124700
+
+May 06, 2019 10:19:12 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 22:19:12.339051400
+
+May 06, 2019 10:19:12 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 22:19:12.341048200
+
+May 06, 2019 10:19:13 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 22:19:13.568302
+
+May 06, 2019 10:19:13 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 22:19:13.585218500
+
+May 06, 2019 10:19:35 PM main.Controllers.DashboardController getInstance
+INFO: Tried to create DashboardController instance at 22:19:35.332035800
+
+May 06, 2019 10:19:35 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 22:19:35.925716
+
+May 06, 2019 10:19:35 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 22:19:35.936673400
+

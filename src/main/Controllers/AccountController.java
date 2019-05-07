@@ -61,6 +61,7 @@ public class AccountController extends Controller implements Initializable {
         user.setFirstName(firstName.getText());
         user.setLastName(lastName.getText());
         JDBC.update(user.getUpdateQuery());
+        // TODO is it gonna work soon?
     }
 
 

@@ -1,0 +1,102 @@
+May 05, 2019 9:36:32 PM main.Main loadLogo
+INFO: Loading logo
+
+May 05, 2019 9:36:32 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 21:36:32.634978100
+
+May 05, 2019 9:36:33 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 21:36:33.098739300
+
+May 05, 2019 9:36:36 PM main.Main loadLogin
+INFO: Loading Login page... at: 21:36:36.594141500
+
+May 05, 2019 9:36:36 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 21:36:36.623004100
+
+May 05, 2019 9:36:36 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 21:36:36.669885200
+
+May 05, 2019 9:36:36 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 21:36:36.673877100
+
+May 05, 2019 9:36:36 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 21:36:36.938231600
+
+May 05, 2019 9:36:40 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 21:36:40.795564300
+
+May 05, 2019 9:36:40 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 21:36:40.857390100
+
+May 05, 2019 9:36:40 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 21:36:40.857390100
+
+May 05, 2019 9:36:40 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 21:36:40.894256400. Skipping and adding just pane
+
+May 05, 2019 9:36:41 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 21:36:41.080621900
+
+May 05, 2019 9:36:41 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 21:36:41.082615800
+
+May 05, 2019 9:36:41 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 21:36:41.091595200
+
+May 05, 2019 9:36:41 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 21:36:41.118828500
+
+May 05, 2019 9:36:41 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 21:36:41.167700700
+
+May 05, 2019 9:36:41 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 21:36:41.169778800
+
+May 05, 2019 9:36:42 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 21:36:42.066983300
+
+May 05, 2019 9:36:42 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 21:36:42.101880100
+
+May 05, 2019 9:36:42 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 21:36:42.970559300
+
+May 05, 2019 9:36:42 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 21:36:42.972555600
+
+May 05, 2019 9:36:43 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 21:36:43.084209800
+
+May 05, 2019 9:36:43 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:43.086205500; position: 0
+
+May 05, 2019 9:36:44 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:44.243253800; position: 1
+
+May 05, 2019 9:36:44 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:44.893182400; position: 2
+
+May 05, 2019 9:36:52 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:52.146233; position: 1
+
+May 05, 2019 9:36:53 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:53.944000700; position: 0
+
+May 05, 2019 9:36:56 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:56.413348400; position: 1
+
+May 05, 2019 9:36:56 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:56.599920900; position: 2
+
+May 05, 2019 9:36:57 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:57.593680200; position: 1
+
+May 05, 2019 9:36:57 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:57.700749700; position: 0
+
+May 05, 2019 9:36:59 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:36:59.708333600; position: 1
+
+May 05, 2019 9:37:00 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 21:37:00.654426800; position: 2
+

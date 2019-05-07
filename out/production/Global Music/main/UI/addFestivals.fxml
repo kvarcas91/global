@@ -54,9 +54,7 @@
                 </VBox>
             </top>
             <center>
-                <ScrollPane fitToWidth="true">
-                    <TilePane fx:id="ticketTile" vgap="5" hgap="20" />
-                </ScrollPane>
+                <TilePane fx:id="ticketTile" vgap="5" hgap="20" style="-fx-border-style: none; -fx-border-width: 0; -fx-border-insets: 0;"/>
             </center>
         </BorderPane>
 
@@ -79,14 +77,8 @@
                     </VBox>
                 </top>
                 <center>
-                    <ScrollPane fitToWidth="true">
-                        <TilePane fx:id="bandTile" vgap="5" hgap="20" />
-                    </ScrollPane>
+                    <TilePane fx:id="bandTile" vgap="5" hgap="20" />
                 </center>
-
-                <bottom>
-                    <JFXButton fx:id="addEvent" text="Add"/>
-                </bottom>
             </BorderPane>
 
         </AnchorPane>
@@ -120,8 +112,12 @@
 
 
     <bottom>
-        <HBox fx:id="progressLayout" alignment="CENTER" spacing="10">
-            <padding> <Insets bottom="10.0" top="10.0" /> </padding>
-        </HBox>
+        <VBox spacing="10" alignment="CENTER">
+            <JFXButton fx:id="addEvent" text="Add"/>
+            <HBox fx:id="progressLayout" alignment="CENTER" spacing="10">
+                <padding> <Insets bottom="10.0" top="10.0" /> </padding>
+            </HBox>
+        </VBox>
+
     </bottom>
 </BorderPane>

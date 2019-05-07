@@ -80,6 +80,7 @@ public class RootController extends Controller implements Initializable, Notific
 
     private void searchEvent () {
         String activeController = MenuController.getActiveController();
+        System.out.println(activeController);
         if (activeController != null) {
             switch (activeController) {
                 case "adminAcc":
@@ -93,7 +94,7 @@ public class RootController extends Controller implements Initializable, Notific
 
                     //break;
                 case "festivals":
-
+                    FestivalController.search(searchField.getText());
                     break;
             }
         }

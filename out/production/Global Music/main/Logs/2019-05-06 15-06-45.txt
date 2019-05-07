@@ -1,0 +1,87 @@
+May 06, 2019 3:06:45 PM main.Main loadLogo
+INFO: Loading logo
+
+May 06, 2019 3:06:45 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 15:06:45.229297200
+
+May 06, 2019 3:06:45 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 15:06:45.680092200
+
+May 06, 2019 3:06:48 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 15:06:48.479418100
+
+May 06, 2019 3:06:49 PM main.Main loadLogin
+INFO: Loading Login page... at: 15:06:49.184336100
+
+May 06, 2019 3:06:49 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 15:06:49.216243500
+
+May 06, 2019 3:06:49 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:06:49.268201300
+
+May 06, 2019 3:06:49 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 15:06:49.270136100
+
+May 06, 2019 3:06:49 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 15:06:49.485557500
+
+May 06, 2019 3:06:52 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 15:06:52.498238700
+
+May 06, 2019 3:06:52 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:06:52.569047800
+
+May 06, 2019 3:06:52 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 15:06:52.570030300
+
+May 06, 2019 3:06:52 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 15:06:52.607978600. Skipping and adding just pane
+
+May 06, 2019 3:06:52 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:06:52.864571800
+
+May 06, 2019 3:06:52 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 15:06:52.867567500
+
+May 06, 2019 3:06:52 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:06:52.884519900
+
+May 06, 2019 3:06:52 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 15:06:52.922418800
+
+May 06, 2019 3:06:52 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:06:52.959472200
+
+May 06, 2019 3:06:52 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:06:52.961519100
+
+May 06, 2019 3:06:54 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 15:06:54.031615400
+
+May 06, 2019 3:06:54 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 15:06:54.053596800
+
+May 06, 2019 3:06:55 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 15:06:55.209507800
+
+May 06, 2019 3:06:55 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 15:06:55.213488300
+
+May 06, 2019 3:06:55 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 15:06:55.316172900
+
+May 06, 2019 3:06:55 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 15:06:55.318167400; position: 0
+
+May 06, 2019 3:06:56 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 15:06:56.569239500; position: 1
+
+May 06, 2019 3:06:58 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: You need to fill all fields at: 15:06:58.236199500
+
+May 06, 2019 3:07:04 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: You need to fill all fields at: 15:07:04.264984200
+
+May 06, 2019 3:07:08 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Ticket Slots can be just a number at: 15:07:08.974640
+
