@@ -19,6 +19,10 @@ import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import main.Utils.Validators;
 
 public class AccountController extends Controller implements Initializable {
 
@@ -28,17 +32,24 @@ public class AccountController extends Controller implements Initializable {
     private String path = null;
     private static AccountController instance = null;
     private Controller parentController = null;
+    private Pattern pattern = Pattern.compile("^.+@.+\\..+$");
 
-    @FXML private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field,
+    @FXML
+    private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field,
             address2Field, emailField, phoneNumberField, webAddressField;
 
-    @FXML private JFXPasswordField password;
-    @FXML private JFXButton btnSave;
-    @FXML private ImageView btnBack;
-    @FXML private HBox notificationPane;
-    @FXML private Text notificationMessage;
+    @FXML
+    private JFXPasswordField password;
+    @FXML
+    private JFXButton btnSave;
+    @FXML
+    private ImageView btnBack;
+    @FXML
+    private HBox notificationPane;
+    @FXML
+    private Text notificationMessage;
 
-    private AccountController () {
+    private AccountController() {
         instance = this;
         WriteLog.addHandler(LOGGER);
         LOGGER.log(Level.INFO, "Creating AccountController instance from constructor at: {0}\n", LocalTime.now());
@@ -51,18 +62,53 @@ public class AccountController extends Controller implements Initializable {
                     return new AccountController();
                 }
             }
-        }
-        else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}. Skipping and adding just pane\n",
+        } else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}. Skipping and adding just pane\n",
                 LocalTime.now());
         return instance;
     }
 
-    private void commitChanges () {
+    private void commitChanges() {
+        if (!Validators.validate(userName, password, emailField)) {
+            return;
+        }
+
+        String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s'", userName.getText());
+
+        user.setUserPassword(password.getText());
         user.setFirstName(firstName.getText());
         user.setLastName(lastName.getText());
-        JDBC.update(user.getUpdateQuery());
-    }
+        user.setAddress1(address1Field.getText());
+        user.setAddress2(address2Field.getText());
+        user.setTown(townField.getText());
+        user.setPostCode(postCodeField.getText());
+        user.setWebAddress(webAddressField.getText());
+        user.setOrganisationName(organisationName.getText());
+        user.setPhoneNumber(phoneNumberField.getText());
 
+        if(userName.getText().contains(" ") || password.getText().contains(" ")){
+            NotificationPane.show("Fields cannot contain spaces");
+            return;
+        }
+
+        Matcher matcher = pattern.matcher(emailField.getText());
+        if (!matcher.matches()) {
+            NotificationPane.show("Invalid email address");
+            return;
+        }
+
+        if (!userName.getText().equals(user.getUserName())) {
+            if (JDBC.get(query, User.class.getName()) != null) {
+                NotificationPane.show("Username already exist");
+                return;
+            }
+            else user.setUserName(userName.getText());
+        }
+
+        if(JDBC.update(user.getUpdateQuery())) {
+            NotificationPane.show("Successful Update", "green");
+
+        }
+    }
 
     protected void setAccount (User user, String path, Controller parentController) {
         if (path != null && parentController != null) {

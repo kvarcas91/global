@@ -1,0 +1,99 @@
+May 07, 2019 11:39:23 AM main.Main loadLogo
+INFO: Loading logo
+
+May 07, 2019 11:39:23 AM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 11:39:23.974143
+
+May 07, 2019 11:39:24 AM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 11:39:24.612434800
+
+May 07, 2019 11:39:27 AM main.View.LogoView addTransition
+INFO: Adding logo transition at: 11:39:27.950498900
+
+May 07, 2019 11:39:28 AM main.Main loadLogin
+INFO: Loading Login page... at: 11:39:28.700794700
+
+May 07, 2019 11:39:28 AM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 11:39:28.723334100
+
+May 07, 2019 11:39:28 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:39:28.793150200
+
+May 07, 2019 11:39:28 AM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 11:39:28.799113300
+
+May 07, 2019 11:39:29 AM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 11:39:29.114239
+
+May 07, 2019 11:40:04 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 11:40:04.172863600
+
+May 07, 2019 11:40:08 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 11:40:08.700131600
+
+May 07, 2019 11:40:20 AM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 11:40:20.175804200
+
+May 07, 2019 11:40:20 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:40:20.295481300
+
+May 07, 2019 11:40:20 AM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 11:40:20.297476
+
+May 07, 2019 11:40:20 AM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 11:40:20.379254900. Skipping and adding just pane
+
+May 07, 2019 11:40:21 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:40:21.397933500
+
+May 07, 2019 11:40:21 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:40:21.399723300
+
+May 07, 2019 11:40:21 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:40:21.400905200
+
+May 07, 2019 11:40:21 AM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 11:40:21.403890600
+
+May 07, 2019 11:40:21 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:40:21.417851900
+
+May 07, 2019 11:40:21 AM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 11:40:21.602296
+
+May 07, 2019 11:40:24 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:40:24.558339600
+
+May 07, 2019 11:40:24 AM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 11:40:24.559423800
+
+May 07, 2019 11:40:24 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:40:24.602228100
+
+May 07, 2019 11:40:24 AM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 11:40:24.610211900
+
+May 07, 2019 11:40:35 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Successful Update at: 11:40:35.730816100
+
+May 07, 2019 11:40:39 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:39.931158600
+
+May 07, 2019 11:40:40 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:40.750620200
+
+May 07, 2019 11:40:41 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:41.160818
+
+May 07, 2019 11:40:41 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:41.262721100
+
+May 07, 2019 11:40:42 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:42.903193200
+
+May 07, 2019 11:40:43 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:43.821819100
+
+May 07, 2019 11:40:46 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:40:46.586564800
+

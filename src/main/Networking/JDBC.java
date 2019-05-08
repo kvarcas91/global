@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class JDBC {
 
     private static final int CONNECTION_TIMEOUT = 5;
@@ -106,7 +107,7 @@ public class JDBC {
         return false;
     }
 
-    public static boolean update (String query) {
+    public static boolean update(String query) {
         LOGGER.log(Level.INFO, "Updating data at: {0}; query: {1}\n", new Object[]{LocalTime.now(), query});
         if (isConnected()) {
             try {

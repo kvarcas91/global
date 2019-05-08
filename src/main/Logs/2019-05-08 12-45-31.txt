@@ -1,0 +1,126 @@
+May 08, 2019 12:45:31 PM main.Main loadLogo
+INFO: Loading logo
+
+May 08, 2019 12:45:31 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 12:45:31.267742500
+
+May 08, 2019 12:45:31 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 12:45:31.801170700
+
+May 08, 2019 12:45:35 PM main.Main loadLogin
+INFO: Loading Login page... at: 12:45:35.377398900
+
+May 08, 2019 12:45:35 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 12:45:35.390442100
+
+May 08, 2019 12:45:35 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:45:35.449207600
+
+May 08, 2019 12:45:35 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 12:45:35.452203200
+
+May 08, 2019 12:45:35 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 12:45:35.848138
+
+May 08, 2019 12:45:35 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 12:45:35.850133900
+
+May 08, 2019 12:45:35 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 12:45:35.872582100
+
+May 08, 2019 12:47:05 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:05.587108800
+
+May 08, 2019 12:47:11 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:11.234006500
+
+May 08, 2019 12:47:13 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:13.049043200
+
+May 08, 2019 12:47:13 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:13.873785300
+
+May 08, 2019 12:47:14 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:14.995022700
+
+May 08, 2019 12:47:15 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:15.812734200
+
+May 08, 2019 12:47:17 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:17.193879100
+
+May 08, 2019 12:47:17 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:17.545391200
+
+May 08, 2019 12:47:18 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:18.321377300
+
+May 08, 2019 12:47:25 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 12:47:25.148891900
+
+May 08, 2019 12:47:27 PM main.Controllers.RegisterController <init>
+INFO: Creating RegisterController instance from constructor at: 12:47:27.745204600
+
+May 08, 2019 12:47:27 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 12:47:27.887014
+
+May 08, 2019 12:47:27 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:47:27.894990100; position: 0
+
+May 08, 2019 12:47:28 PM main.Controllers.LoginController Destroy
+INFO: Destroying LoginController instance at: 12:47:28.206531
+
+May 08, 2019 12:47:30 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:47:30.398998900; position: 1
+
+May 08, 2019 12:47:49 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:47:49.708394; position: 2
+
+May 08, 2019 12:47:51 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:47:51.757800600
+
+May 08, 2019 12:47:51 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 12:47:51.792030700
+
+May 08, 2019 12:47:52 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:47:52.022585700
+
+May 08, 2019 12:47:52 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 12:47:52.024090500
+
+May 08, 2019 12:47:52 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 12:47:52.168702400. Skipping and adding just pane
+
+May 08, 2019 12:47:53 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:47:53.107272400
+
+May 08, 2019 12:47:53 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 12:47:53.109343800
+
+May 08, 2019 12:47:53 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:47:53.146854100
+
+May 08, 2019 12:47:53 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 12:47:53.290753400
+
+May 08, 2019 12:47:56 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:47:56.338013
+
+May 08, 2019 12:47:56 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 12:47:56.339970100
+
+May 08, 2019 12:47:56 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:47:56.395820200
+
+May 08, 2019 12:47:56 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 12:47:56.401867300
+
+May 08, 2019 12:47:59 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 12:47:59.127620500
+
+May 08, 2019 12:48:07 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Entry is too short at: 12:48:07.814109700
+
+May 08, 2019 12:48:17 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Successful Update at: 12:48:17.967234
+

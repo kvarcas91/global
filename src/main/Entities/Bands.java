@@ -47,7 +47,8 @@ public class Bands extends Entity<Bands>{
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE BANDS SET Band_Name = '%s', Band_Agent = '%s' WHERE Band_ID = '%s'", getName(), getAgent(), getID());
+        return String.format("UPDATE BANDS SET Band_Name = '%s', Band_Agent = '%s'" +
+                " WHERE Band_ID = '%s'", getName(), getAgent(), getID());
     }
 
     @Override

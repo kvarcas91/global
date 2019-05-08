@@ -1,0 +1,93 @@
+May 07, 2019 11:24:03 AM main.Main loadLogo
+INFO: Loading logo
+
+May 07, 2019 11:24:04 AM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 11:24:04.072394600
+
+May 07, 2019 11:24:04 AM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 11:24:04.504578500
+
+May 07, 2019 11:24:08 AM main.Main loadLogin
+INFO: Loading Login page... at: 11:24:08.053874800
+
+May 07, 2019 11:24:08 AM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 11:24:08.063710700
+
+May 07, 2019 11:24:08 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:24:08.137513100
+
+May 07, 2019 11:24:08 AM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 11:24:08.139555200
+
+May 07, 2019 11:24:08 AM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 11:24:08.578334
+
+May 07, 2019 11:24:08 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:08.581326200
+
+May 07, 2019 11:24:08 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:08.605638500
+
+May 07, 2019 11:24:27 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:27.338566400
+
+May 07, 2019 11:24:27 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:27.339563100
+
+May 07, 2019 11:24:28 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:28.411936600
+
+May 07, 2019 11:24:28 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 11:24:28.413913
+
+May 07, 2019 11:24:29 AM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 11:24:29.708235300
+
+May 07, 2019 11:24:29 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:24:29.885746400
+
+May 07, 2019 11:24:29 AM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 11:24:29.886723900
+
+May 07, 2019 11:24:29 AM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 11:24:29.989398400. Skipping and adding just pane
+
+May 07, 2019 11:24:30 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:24:30.605877800
+
+May 07, 2019 11:24:30 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:24:30.607128
+
+May 07, 2019 11:24:30 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:24:30.607743200
+
+May 07, 2019 11:24:30 AM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 11:24:30.608739900
+
+May 07, 2019 11:24:30 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:24:30.625120900
+
+May 07, 2019 11:24:30 AM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 11:24:30.694526100
+
+May 07, 2019 11:24:33 AM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 11:24:33.458025900
+
+May 07, 2019 11:24:33 AM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 11:24:33.459022600
+
+May 07, 2019 11:24:33 AM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 11:24:33.529860600
+
+May 07, 2019 11:24:33 AM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 11:24:33.548783200
+
+May 07, 2019 11:24:35 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 11:24:35.522058600
+
+May 07, 2019 11:24:42 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Successful Update at: 11:24:42.808701300
+
+May 07, 2019 11:24:46 AM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Entry is too short at: 11:24:46.793139600
+

@@ -1,0 +1,45 @@
+May 03, 2019 1:36:20 PM main.Main loadLogo
+INFO: Loading logo
+
+May 03, 2019 1:36:20 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 13:36:20.556530700
+
+May 03, 2019 1:36:21 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 13:36:21.307522900
+
+May 03, 2019 1:36:24 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 13:36:24.243671400
+
+May 03, 2019 1:36:24 PM main.Main loadLogin
+INFO: Loading Login page... at: 13:36:24.943798600
+
+May 03, 2019 1:36:24 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 13:36:24.963745700
+
+May 03, 2019 1:36:25 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:36:25.045525700
+
+May 03, 2019 1:36:25 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 13:36:25.047008400
+
+May 03, 2019 1:36:25 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 13:36:25.439473400
+
+May 03, 2019 1:36:27 PM main.Controllers.RegisterController <init>
+INFO: Creating RegisterController instance from constructor at: 13:36:27.780217100
+
+May 03, 2019 1:36:27 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 13:36:27.943776800
+
+May 03, 2019 1:36:27 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 13:36:27.949761200; position: 0
+
+May 03, 2019 1:36:28 PM main.Controllers.LoginController Destroy
+INFO: Destroying LoginController instance at: 13:36:28.316779
+
+May 03, 2019 1:36:31 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 13:36:31.104492800; position: 1
+
+May 03, 2019 1:36:44 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Entry is too short at: 13:36:44.229958400
+

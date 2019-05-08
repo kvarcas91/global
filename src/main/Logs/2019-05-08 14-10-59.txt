@@ -1,0 +1,145 @@
+May 08, 2019 2:10:59 PM main.Main loadLogo
+INFO: Loading logo
+
+May 08, 2019 2:10:59 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 14:10:59.846286600
+
+May 08, 2019 2:11:00 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 14:11:00.469617900
+
+May 08, 2019 2:11:03 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 14:11:03.402727300
+
+May 08, 2019 2:11:04 PM main.Main loadLogin
+INFO: Loading Login page... at: 14:11:04.115954600
+
+May 08, 2019 2:11:04 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 14:11:04.174796600
+
+May 08, 2019 2:11:04 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 14:11:04.300289
+
+May 08, 2019 2:11:04 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 14:11:04.303138300
+
+May 08, 2019 2:11:04 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 14:11:04.628529300
+
+May 08, 2019 2:11:04 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:04.630522300
+
+May 08, 2019 2:11:04 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:04.659478
+
+May 08, 2019 2:11:09 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:09.601794
+
+May 08, 2019 2:11:09 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:09.603971700
+
+May 08, 2019 2:11:12 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:12.157675800
+
+May 08, 2019 2:11:12 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:12.159021500
+
+May 08, 2019 2:11:15 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:15.452369900
+
+May 08, 2019 2:11:15 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:15.453335900
+
+May 08, 2019 2:11:17 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:17.975923200
+
+May 08, 2019 2:11:17 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:17.976987700
+
+May 08, 2019 2:11:20 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:20.319060200
+
+May 08, 2019 2:11:20 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 14:11:20.320052600
+
+May 08, 2019 2:11:29 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 14:11:29.458028800
+
+May 08, 2019 2:11:29 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 14:11:29.671363200
+
+May 08, 2019 2:11:29 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 14:11:29.674319200
+
+May 08, 2019 2:11:29 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 14:11:29.801976. Skipping and adding just pane
+
+May 08, 2019 2:11:30 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 14:11:30.531605300
+
+May 08, 2019 2:11:30 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 14:11:30.534498100
+
+May 08, 2019 2:11:30 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 14:11:30.551168800
+
+May 08, 2019 2:11:30 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 14:11:30.610436500
+
+May 08, 2019 2:11:32 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 14:11:32.253621900
+
+May 08, 2019 2:11:32 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 10; clonedUsers size: 10
+
+May 08, 2019 2:11:32 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 14:11:32.353662400
+
+May 08, 2019 2:11:36 PM main.Controllers.AdminAccountController editItem
+INFO: EditItem method with user: id: 21
+type: PUBLIC
+username:     
+password:     
+address1: testas
+address2: testas
+town: 
+post code: 
+email: arn@arn.com
+number: 
+first name: 
+last name: testas
+organisation name: 
+web address: null
+
+May 08, 2019 2:11:36 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 14:11:36.446300600
+
+May 08, 2019 2:11:36 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 14:11:36.448238100
+
+May 08, 2019 2:11:36 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 14:11:36.585952300
+
+May 08, 2019 2:11:36 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: true
+
+May 08, 2019 2:11:36 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 14:11:36.611882100. Skipping and adding just pane
+
+May 08, 2019 2:11:36 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 14:11:36.612879600
+
+May 08, 2019 2:11:36 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 14:11:36.614873500
+
+May 08, 2019 2:11:47 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Fields cannot contain spaces at: 14:11:47.735156200
+
+May 08, 2019 2:11:57 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Fields cannot contain spaces at: 14:11:57.838133400
+
+May 08, 2019 2:12:08 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Successful Update at: 14:12:08.804721200
+
+May 08, 2019 2:12:27 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 14:12:27.398654800
+

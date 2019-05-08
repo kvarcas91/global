@@ -1,0 +1,349 @@
+May 02, 2019 1:33:59 PM main.Main loadLogo
+INFO: Loading logo
+
+May 02, 2019 1:33:59 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 13:33:59.937031600
+
+May 02, 2019 1:34:00 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 13:34:00.623195700
+
+May 02, 2019 1:34:03 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 13:34:03.577162200
+
+May 02, 2019 1:34:04 PM main.Main loadLogin
+INFO: Loading Login page... at: 13:34:04.271634700
+
+May 02, 2019 1:34:04 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 13:34:04.289591800
+
+May 02, 2019 1:34:04 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:04.385333700
+
+May 02, 2019 1:34:04 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 13:34:04.390321400
+
+May 02, 2019 1:34:04 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 13:34:04.875704300
+
+May 02, 2019 1:34:17 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 13:34:17.481830400
+
+May 02, 2019 1:34:17 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:17.656861400
+
+May 02, 2019 1:34:17 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 13:34:17.657857200
+
+May 02, 2019 1:34:17 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 13:34:17.710716100. Skipping and adding just pane
+
+May 02, 2019 1:34:18 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:18.523474700
+
+May 02, 2019 1:34:18 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:18.524472300
+
+May 02, 2019 1:34:18 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:18.524472300
+
+May 02, 2019 1:34:18 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 13:34:18.525468500
+
+May 02, 2019 1:34:18 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:18.538436600
+
+May 02, 2019 1:34:18 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:34:18.663099700
+
+May 02, 2019 1:34:25 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:25.673133600
+
+May 02, 2019 1:34:25 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:34:25.674129400
+
+May 02, 2019 1:34:25 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:25.735997400
+
+May 02, 2019 1:34:25 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:34:25.750924300
+
+May 02, 2019 1:34:29 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:34:29.617192900
+
+May 02, 2019 1:34:29 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:34:29 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:34:29.838110200
+
+May 02, 2019 1:34:33 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:33.557260800
+
+May 02, 2019 1:34:33 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:34:33.558251. Skipping and adding just pane
+
+May 02, 2019 1:34:33 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:33.599141900
+
+May 02, 2019 1:34:33 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: true
+
+May 02, 2019 1:34:33 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:34:33.604129200
+
+May 02, 2019 1:34:52 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 13:34:52.576795300
+
+May 02, 2019 1:34:52 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:34:52 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:34:52.676200500
+
+May 02, 2019 1:34:59 PM main.Controllers.AdminAccountController editItem
+INFO: EditItem method with user: id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: thznzg
+post code: 
+email: nzgnzg@fhzh.fa
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null
+
+May 02, 2019 1:34:59 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:34:59.312269600
+
+May 02, 2019 1:34:59 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:34:59.313268400
+
+May 02, 2019 1:34:59 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:34:59.313268400
+
+May 02, 2019 1:34:59 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:34:59.315260500
+
+May 02, 2019 1:34:59 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:34:59.354156300
+
+May 02, 2019 1:34:59 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: true
+
+May 02, 2019 1:34:59 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:34:59.357147300. Skipping and adding just pane
+
+May 02, 2019 1:34:59 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:34:59.357147300. Skipping and adding just pane
+
+May 02, 2019 1:34:59 PM main.Controllers.AdminAccountController getInstance
+INFO: Tried to create AdminAccountController instance at 13:34:59.357147300
+
+May 02, 2019 1:34:59 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:34:59.358146100
+
+May 02, 2019 1:35:02 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:02.890009600
+
+May 02, 2019 1:35:03 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:35:03 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:35:03.039409900
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController editItem
+INFO: EditItem method with user: id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: thznzg
+post code: 
+email: nzgnzg@fhzh.fa
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:35:10.948274700
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:35:10.948274700
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:35:10.949271400
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:35:10.949271400
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:35:10.949271400
+
+May 02, 2019 1:35:10 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:10.950270200
+
+May 02, 2019 1:35:10 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:35:10.984492300
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: false
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:35:10.987483300. Skipping and adding just pane
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:35:10.987483300. Skipping and adding just pane
+
+May 02, 2019 1:35:10 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:35:10.987483300. Skipping and adding just pane
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:35:10.988481200
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:35:10.988481200
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:35:10.988481200
+
+May 02, 2019 1:35:10 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:35:10.988481200
+
+May 02, 2019 1:35:29 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:29.305882
+
+May 02, 2019 1:35:29 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:35:29 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:35:29 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:35:29.515150
+
+May 02, 2019 1:35:29 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:35:29.515150
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController editItem
+INFO: EditItem method with user: id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: thznzg
+post code: 
+email: nzgnzg@fhzh.fa
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController editItem
+INFO: EditItem method with user: id: 12
+type: PUBLIC
+username: test
+password: test
+address1: 
+address2: yeeeey
+town: thznzg
+post code: 
+email: nzgnzg@fhzh.fa
+number: 
+first name: 
+last name: 
+organisation name: 
+web address: null
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:36:23.192921600
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:36:23.192921600
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController Destroy
+INFO: Destroying AccountController instance at: 13:36:23.192921600
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:36:23.193919100
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:36:23.193919100
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:36:23.193919100
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController <init>
+INFO: Creating AccountController instance from constructor at: 13:36:23.193919100
+
+May 02, 2019 1:36:23 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:36:23.194912800
+
+May 02, 2019 1:36:23 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:36:23.224832800
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: false
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController hasInstance
+INFO: Checking AdminAccountController instance: false
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:36:23.227825900. Skipping and adding just pane
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:36:23.227825900. Skipping and adding just pane
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:36:23.227825900. Skipping and adding just pane
+
+May 02, 2019 1:36:23 PM main.Controllers.AccountController getInstance
+WARNING: Tried to create additional instance at: 13:36:23.227825900. Skipping and adding just pane
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:36:23.228822600
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:36:23.228822600
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController <init>
+INFO: Creating AdminAccountController instance from constructor at: 13:36:23.228822600
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:36:23.228822600
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:36:23.228822600
+
+May 02, 2019 1:36:23 PM main.Controllers.AdminAccountController Destroy
+INFO: Destroying AdminAccountController instance at: 13:36:23.228822600
+
+May 02, 2019 1:36:45 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:36:45.754195200
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController initialize
+INFO: init method. Users size: 8; clonedUsers size: 8
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:36:45.875173500
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:36:45.875173500
+
+May 02, 2019 1:36:45 PM main.Controllers.AdminAccountController setTile
+INFO: Setting tileView at: 13:36:45.875173500
+

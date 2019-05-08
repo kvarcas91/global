@@ -1,0 +1,42 @@
+May 03, 2019 1:39:26 PM main.Main loadLogo
+INFO: Loading logo
+
+May 03, 2019 1:39:26 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 13:39:26.795597600
+
+May 03, 2019 1:39:27 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 13:39:27.370060800
+
+May 03, 2019 1:39:31 PM main.Main loadLogin
+INFO: Loading Login page... at: 13:39:31.005546200
+
+May 03, 2019 1:39:31 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 13:39:31.059379600
+
+May 03, 2019 1:39:31 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:39:31.162484400
+
+May 03, 2019 1:39:31 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 13:39:31.167323700
+
+May 03, 2019 1:39:31 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 13:39:31.404388600
+
+May 03, 2019 1:39:32 PM main.Controllers.RegisterController <init>
+INFO: Creating RegisterController instance from constructor at: 13:39:32.776847300
+
+May 03, 2019 1:39:32 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 13:39:32.908369
+
+May 03, 2019 1:39:32 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 13:39:32.915350600; position: 0
+
+May 03, 2019 1:39:33 PM main.Controllers.LoginController Destroy
+INFO: Destroying LoginController instance at: 13:39:33.256997500
+
+May 03, 2019 1:39:35 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 13:39:35.166380800; position: 1
+
+May 03, 2019 1:39:50 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Username already exist at: 13:39:50.696652800
+
