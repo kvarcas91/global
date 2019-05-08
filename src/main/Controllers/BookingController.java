@@ -47,7 +47,7 @@ public class BookingController extends Controller implements Initializable {
 
     public static BookingController getInstance() {
         if (instance == null) {
-            synchronized (FestivalController.class) {
+            synchronized (BookingController.class) {
                 if (instance == null) {
                     return new BookingController();
                 }

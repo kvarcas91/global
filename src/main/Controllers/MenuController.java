@@ -95,6 +95,12 @@ public class MenuController implements Initializable{
         loader.loadLogin(root, LoginController.getInstance());
     }
 
+    @FXML
+    private void invoiceEvent (MouseEvent event) {
+        loader.loadPage(fxml.get("invoice"), InvoiceController.getInstance());
+        activeController.push("invoice");
+    }
+
 
     public void setAccountType (String accountType) {
         if (accountType.equals("ADMIN")) adminAccPane.setVisible(true);
@@ -108,6 +114,7 @@ public class MenuController implements Initializable{
         fxml.put("adminAcc", "../UI/adminAccount.fxml");
         fxml.put("dashboard", "../UI/dashboard.fxml");
         fxml.put("addFestival", "../UI/addFestivals.fxml");
+        fxml.put("invoice", "../UI/invoice.fxml");
         activeController.push("dashboard");
     }
 

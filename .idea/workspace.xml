@@ -2,152 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/BookingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/FestivalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/FestivalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/RootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/addFestivalsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/addFestivalsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Controllers/list.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/Event.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Entities/TicketType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Entities/TicketType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-11-03.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-11-03.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-11-38.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-12-27.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-14-56.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-16-49.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-18-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-18-53.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-21-55.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-23-33.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-24-14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-28-50.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-31-01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-32-59.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-34-53.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-34-53.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-36-32.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-37-21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-56-40.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 21-56-40.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-00-40.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-00-40.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-02-00.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-02-00.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-04-50.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-06-36.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-14-23.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-15-54.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-27-40.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-27-40.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-29-37.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-05 22-29-37.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 14-45-06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 14-55-02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 14-57-53.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 14-57-53.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-00-35.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-00-35.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-06-45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-06-45.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-08-04.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-08-04.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-12-16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-24-48.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-24-48.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-26-16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-26-37.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-26-55.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-26-55.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-30-32.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-30-32.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-32-52.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-34-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 15-54-50.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-53-17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-53-17.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-54-23.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-54-23.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-56-30.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-56-30.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 16-57-27.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-00-28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-02-06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-02-06.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-02-51.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-03-49.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-04-42.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-04-42.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-05-37.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-05-37.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-09-00.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-09-00.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-09-28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-09-28.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-14-41.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-14-41.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-16-45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-19-53.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-23-48.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-25-11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-26-28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-27-26.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-27-57.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-29-50.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-30-59.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-30-59.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-31-18.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-33-10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-33-10.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-33-20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-33-39.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-35-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-36-30.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-37-15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-37-15.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-37-31.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-39-17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 17-41-02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-00-00.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-00-00.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-00-25.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-01-31.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-02-35.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-03-38.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-04-53.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-06-03.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-06-03.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-06-29.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-08-18.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-10-15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-19-01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-20-29.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-21-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-22-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-28-48.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-34-02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Logs/2019-05-06 22-57-12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Networking/JDBC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/UI/bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/UI/bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Validators.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Global Music/main/Utils/Validators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/AddFestivalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/AddFestivalsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controllers/RootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Controllers/list.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Entities/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entities/TicketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Networking/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Networking/JDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI/bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Utils/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Utils/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Utils/Validators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Utils/Validators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI/menu.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,56 +67,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Controllers/FestivalController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="133" column="49" selection-start-line="133" selection-start-column="49" selection-end-line="133" selection-end-column="49" />
+            <state relative-caret-position="323">
+              <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/UI/bookings.fxml">
+        <entry file="file://$PROJECT_DIR$/src/main/UI/invoice.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Controllers/InvoiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
+              <folding>
+                <element signature="method#getActiveController#0;class#MenuController#0" />
+                <element signature="method#dashboardEvent#0;class#MenuController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/UI/menu.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Entities/Booking.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Entities/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="63" column="82" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -333,8 +192,8 @@
       <list>
         <option value="XSLT Stylesheet" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -365,8 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Interfaces/AccountTypes.java" />
-        <option value="$PROJECT_DIR$/src/main/UI/register.fxml" />
         <option value="$PROJECT_DIR$/src/main/Utils/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/MLogger.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/WriteLog.java" />
@@ -376,7 +233,6 @@
         <option value="$PROJECT_DIR$/src/main/View/NotificationPane.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/Controllers/DashboardController.java" />
-        <option value="$PROJECT_DIR$/src/main/UI/menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/Entities/Seat.java" />
         <option value="$PROJECT_DIR$/src/main/View/TileView.java" />
         <option value="$PROJECT_DIR$/src/main/UI/root.fxml" />
@@ -403,7 +259,6 @@
         <option value="$PROJECT_DIR$/src/main/UI/createBooking.fxml" />
         <option value="$PROJECT_DIR$/src/main/Controllers/CreateBookingController.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/Loader.java" />
-        <option value="$PROJECT_DIR$/src/main/Controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/TicketType.java" />
         <option value="$PROJECT_DIR$/src/main/Entities/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/Utils/Validators.java" />
@@ -415,7 +270,11 @@
         <option value="$PROJECT_DIR$/src/main/Controllers/FestivalController.java" />
         <option value="$PROJECT_DIR$/src/main/UI/bookings.fxml" />
         <option value="$PROJECT_DIR$/src/main/Entities/Booking.java" />
+        <option value="$PROJECT_DIR$/src/main/UI/invoice.fxml" />
         <option value="$PROJECT_DIR$/src/main/Controllers/BookingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/InvoiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/Controllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/main/UI/menu.fxml" />
       </list>
     </option>
   </component>
@@ -498,6 +357,14 @@
               <item name="Global Music" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Global Music" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Global Music" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="Global Music" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="Networking" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -507,23 +374,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Global Music" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Global Music" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="Global Music" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Global Music" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Global Music" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="Global Music" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -681,7 +531,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.36134455" visible="true" weight="0.25771812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.36134455" visible="true" weight="0.25771812" />
       <window_info id="Structure" order="1" weight="0.24966443" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -767,27 +617,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/image/Image.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/Node.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/image/ImageView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/View/TileView.java" />
     <entry file="file://$PROJECT_DIR$/src/main/UI/notifications.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -988,17 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="81" column="43" lean-forward="true" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="43" />
-          <folding>
-            <element signature="method#getActiveController#0;class#MenuController#0" />
-            <element signature="method#dashboardEvent#0;class#MenuController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/UI/addFestivals.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1158,13 +976,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/invoice.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Controllers/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+        <state relative-caret-position="323">
+          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/InvoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
+          <folding>
+            <element signature="method#getActiveController#0;class#MenuController#0" />
+            <element signature="method#dashboardEvent#0;class#MenuController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UI/menu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="63" column="82" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
         </state>
       </provider>
     </entry>
