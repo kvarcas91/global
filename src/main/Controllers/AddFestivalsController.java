@@ -38,7 +38,7 @@ public class AddFestivalsController extends Controller implements Initializable 
     @FXML private JFXTextField ticketName, ticketSlots, ticketPrice, bandName, bandAgent, eventName, eventLocation;
     @FXML private JFXTextArea eventDescription;
     @FXML private DatePicker eventDate;
-    @FXML private JFXButton addEvent;
+    @FXML private JFXButton addEvent, mEvents;
     @FXML private HBox progressLayout;
     @FXML private GridPane eventInfo;
     @FXML private BorderPane ticketInfo, bandInfo;
@@ -49,6 +49,7 @@ public class AddFestivalsController extends Controller implements Initializable 
     private HashMap<String, Pane> scenes = new HashMap<>();
     private ArrayList<TicketType> tickets = new ArrayList<>();
     private ArrayList<Bands> bands = new ArrayList<>();
+    private ArrayList<String> ID = new ArrayList<>();
     private Event event;
 
     private AddFestivalsController() {
@@ -130,34 +131,26 @@ public class AddFestivalsController extends Controller implements Initializable 
             return;
         }
 
-        if (!ticketPrice.getText().matches("([0-9]*)\\.([0-9]*)")) {
+        if (!(ticketPrice.getText().matches("([0-9]*)\\.([0-9]*)") || ticketPrice.getText().matches("^[0-9]+$"))) {
             NotificationPane.show("Ticket price can be just a number");
             return;
         }
 
-        if (tickets.isEmpty() || bands.isEmpty()) {
-            NotificationPane.show("You need to add tickets and bands first");
-            return;
-        }
+
 
         TicketType ticket = new TicketType(ticketName.getText(), Integer.parseInt(ticketSlots.getText()), Double.parseDouble(ticketPrice.getText()),
                 false);
 
-        if (JDBC.insert(ticket.getInsertQuery())) {
-            String query = String.format("SELECT * FROM TICKET_TYPES WHERE Type_Name = '%s' AND Type_Slots = '%d' AND Type_Price = '%f'",
-                    ticket.getName(), ticket.getSlot(), ticket.getPrice());
-            ticket.setID(JDBC.getID(query, "Type_ID"));
-            tickets.add(ticket);
-            setTicketView();
-        }
-        else NotificationPane.show("Cannot add ticket");
-
+        tickets.add(ticket);
+        setTicketView();
 
     }
 
     private void setTicketView () {
 
         System.out.println("Setting ticket view");
+        ticketTile.getChildren().clear();
+
         for (TicketType ticket : tickets) {
             HBox box = new HBox();
             box.setSpacing(5);
@@ -177,7 +170,7 @@ public class AddFestivalsController extends Controller implements Initializable 
                 cancelView.setFitHeight(18);
                 box.getChildren().add(cancelView);
             } catch (FileNotFoundException e) {
-
+                e.printStackTrace();
             }
             Label ticketName = new Label(ticket.getName());
             box.getChildren().add(ticketName);
@@ -185,7 +178,6 @@ public class AddFestivalsController extends Controller implements Initializable 
 
             box.setOnMousePressed(e -> {
                 ticketTile.getChildren().remove(box);
-                JDBC.delete("TICKET_TYPES", "Type_ID", ticket.getID());
                 tickets.remove(ticket);
             });
         }
@@ -193,6 +185,8 @@ public class AddFestivalsController extends Controller implements Initializable 
         ticketPrice.clear();
         this.ticketName.clear();
         ticketSlots.clear();
+
+        this.ticketName.requestFocus();
     }
 
     private void addBandEvent () {
@@ -204,18 +198,16 @@ public class AddFestivalsController extends Controller implements Initializable 
 
        Bands band = new Bands(bandName.getText(), bandAgent.getText());
 
-        if (JDBC.insert(band.getInsertQuery())) {
-            String query = String.format("SELECT * FROM BANDS WHERE Band_Name = '%s' AND Band_Agent = '%s'", band.getName(), band.getAgent());
-            band.setID(JDBC.getID(query, "Band_ID"));
-            bands.add(band);
-            setBandView();
-        }
-        else NotificationPane.show("Cannot add band");
+       bands.add(band);
+       setBandView();
+
     }
 
     private void setBandView () {
 
         System.out.println("Setting band view");
+        bandTile.getChildren().clear();
+
         for (Bands band : bands) {
             HBox box = new HBox();
             box.setSpacing(5);
@@ -235,7 +227,7 @@ public class AddFestivalsController extends Controller implements Initializable 
                 cancelView.setFitHeight(18);
                 box.getChildren().add(cancelView);
             } catch (FileNotFoundException e) {
-
+                e.printStackTrace();
             }
 
             Label bandLabel = new Label(band.getName());
@@ -268,27 +260,54 @@ public class AddFestivalsController extends Controller implements Initializable 
             return;
         }
 
+
         if (JDBC.insert(event.getInsertQuery())) {
-            String query = String.format("SELECT * FROM EVENTS WHERE Event_Name = '%s' AND Event_Date = '%s' AND Event_Location = '%s' AND Event_Description = '%s' AND Event_Organiser = '%s'",
+            String query = String.format("SELECT Event_ID FROM EVENTS WHERE Event_Name = '%s' AND Event_Date = '%s' AND Event_Location = '%s' AND Event_Description = '%s' AND Event_Organiser = '%s'",
                     event.getEventName(), event.getEventDate(), event.getEventLocation(), event.getEventDescription(), event.getEventOrganiser());
-            event.setEventID(JDBC.getID(query, "Event_ID"));
 
-            for (TicketType ticket : tickets) {
-                query = String.format("INSERT INTO EVENT_TICKETS VALUES ('%d', '%d');", event.getEventID(), ticket.getID());
-                JDBC.insert(query);
-            }
-
-
-            for (Bands band : bands) {
-                query = String.format("INSERT INTO EVENT_TICKETS VALUES ('%d', '%d');", event.getEventID(), band.getID());
-                JDBC.insert(query);
-            }
+            ID = JDBC.getValue(query, 1);
+            event.setEventID(Integer.valueOf(ID.get(ID.size()-1)));
+            ID.clear();
 
             NotificationPane.show("Event has been added", "green");
-            // TODO loader
-            //Loader.getInstance().loadPage("..UI/festivals.fxml", FestivalController.getInstance());
         }
         else NotificationPane.show("Cannot add event");
+
+        for (Bands band : bands) {
+
+            if (JDBC.insert(band.getInsertQuery())) {
+
+                String query = String.format("SELECT Band_ID FROM BANDS WHERE Band_Name = '%s' AND Band_Agent = '%s'", band.getName(), band.getAgent());
+
+                ID = JDBC.getValue(query, 1);
+                band.setID(Integer.valueOf(ID.get(ID.size()-1)));
+
+                ID.clear();
+
+                query = String.format("INSERT INTO EVENT_BANDS VALUES ('%d', '%d');", event.getEventID(), band.getID());
+                JDBC.insert(query);
+            }
+            else NotificationPane.show("Cannot add band");
+        }
+
+        for (TicketType ticket : tickets) {
+            ticket.setEventID(event.getEventID());
+
+            if (JDBC.insert(ticket.getInsertQuery())) {
+                String query = String.format("SELECT Type_ID FROM TICKET_TYPES WHERE Type_Name = '%s' AND Type_Slots = '%d' AND Type_Price = '%f'",
+                        ticket.getName(), ticket.getSlot(), ticket.getPrice());
+
+                ID = JDBC.getValue(query, 1);
+                ticket.setID(Integer.valueOf(ID.get(ID.size()-1)));
+                ID.clear();
+
+                System.out.println("Ticket: \n" + ticket);
+            }
+            else NotificationPane.show("Cannot add ticket");
+        }
+
+        Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance());
+
     }
 
     private void setVisibility (String scene) {
@@ -316,6 +335,7 @@ public class AddFestivalsController extends Controller implements Initializable 
         addTicket.setOnMousePressed(e -> addTicketEvent());
         addBand.setOnMousePressed(e -> addBandEvent());
         addEvent.setOnAction(e -> createEvent());
+        mEvents.setOnAction(e -> Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance()));
 
         setLayout("eventInfo");
     }

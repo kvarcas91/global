@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public class TicketType extends Entity<TicketType>{
 
-    private int ID = -1;
+    private int ID ;
+    private int eventID;
     private String name;
     private int slot;
     private double price;
@@ -27,12 +28,28 @@ public class TicketType extends Entity<TicketType>{
         this.isCorp = setCorpBool(isCorp);
     }
 
+    public TicketType (String name, int slot, double price, boolean isCorp, int eventID) {
+        this.name = name;
+        this.slot = slot;
+        this.price = price;
+        this.isCorp = setCorpBool(isCorp);
+        this.eventID = eventID;
+    }
+
     public int getID() {
         return ID;
     }
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
     public String getName() {
@@ -73,14 +90,15 @@ public class TicketType extends Entity<TicketType>{
 
     @Override
     public String getInsertQuery() {
-        return String.format("INSERT INTO TICKET_TYPES VALUES (null, '%s', %d, '%f', '%d')",
-                getName(), getSlot(), getPrice(), isCorp());
+        return String.format("INSERT INTO TICKET_TYPES VALUES (null, '%s', %d, '%f', '%d', '%d')",
+                getName(), getSlot(), getPrice(), isCorp(), getEventID());
     }
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE TICKET_TYPES SET Type_Name = '%s', Type_Slots = '%s', Type_Price = '%s', Type_Is_Corp = '%s' WHERE Type_ID = '%s'",
-                getName(), getSlot(), getPrice(), isCorp(), getID());
+        return String.format("UPDATE TICKET_TYPES SET Type_Name = '%s', Type_Slots = '%s', Type_Price = '%s', Type_Is_Corp = '%s', " +
+                        "Event_ID = '%s' WHERE Type_ID = '%s'",
+                getName(), getSlot(), getPrice(), isCorp(), getEventID(), getID());
     }
 
     @Override
@@ -90,6 +108,7 @@ public class TicketType extends Entity<TicketType>{
         setSlot(Integer.parseInt(object.get("Type_Slots")));
         setPrice(Double.valueOf(object.get("Type_Price")));
         setCorp(Integer.valueOf(object.get("Type_Is_Corp")));
+        setEventID(Integer.valueOf(object.get("Event_ID")));
     }
 
     @Override
@@ -99,7 +118,7 @@ public class TicketType extends Entity<TicketType>{
 
     @Override
     public String toString () {
-        return String.format("ID: %d;\nName: %s;\nSlot: %s;\nPrice: %f;\nIs Corp: %b;",
-                getID(), getName(), getSlot(), getPrice(), isCorp());
+        return String.format("ID: %d;\nName: %s;\nSlot: %s;\nPrice: %f;\nIs Corp: %b;\n event id: %d",
+                getID(), getName(), getSlot(), getPrice(), isCorp(), getEventID());
     }
 }

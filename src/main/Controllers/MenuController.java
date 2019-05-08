@@ -73,7 +73,7 @@ public class MenuController implements Initializable{
     @FXML
     private void bookingEvent (MouseEvent event) {
         loader.loadPage(fxml.get("bookings"), BookingController.getInstance());
-        getInstance().activeController.push("bookings");
+        activeController.push("bookings");
     }
 
     @FXML
@@ -107,6 +107,7 @@ public class MenuController implements Initializable{
         fxml.put("bookings", "../UI/bookings.fxml");
         fxml.put("adminAcc", "../UI/adminAccount.fxml");
         fxml.put("dashboard", "../UI/dashboard.fxml");
+        fxml.put("addFestival", "../UI/addFestivals.fxml");
         activeController.push("dashboard");
     }
 

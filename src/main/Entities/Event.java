@@ -90,6 +90,10 @@ public class Event extends Entity<Event> {
         }
     }
 
+    public Timestamp getTimeStamp () {
+        return this.eventDate;
+    }
+
     @Override
     public String getInsertQuery() {
         return String.format("INSERT INTO EVENTS VALUES (null, '%s', '%s', '%s', '%s', '%d')",
@@ -116,6 +120,15 @@ public class Event extends Entity<Event> {
     public Event getObject() {
         return this;
     }
+
+    @Override
+    public boolean contains (String s) {
+        String searchValue = s.toLowerCase();
+        return ((getEventName() != null && getEventName().toLowerCase().contains(searchValue)) ||
+                (getEventDescription() != null && getEventDescription().toLowerCase().contains(searchValue)) ||
+                (getEventLocation() != null && getEventLocation().toLowerCase().contains(searchValue)));
+    }
+
 
     @Override
     public String toString () {

@@ -153,6 +153,11 @@ public class RegisterController extends Controller implements Initializable, Not
     private void btnNext () {
         if (this.position < 2 && accType != AccountTypes.NONE) {
             if (this.position == 1) {
+                if (userName.getText().contains(" ") || passwordField.getText().contains(" ") || emailField.getText().contains(" ")) {
+                    NotificationPane.show("Space is not allowed");
+                    return;
+                }
+
                 if (!Validators.validate(userName, passwordField, verifyPasswordField, emailField)) {
                     return;
                 }

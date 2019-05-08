@@ -1,29 +1,38 @@
 package main.Entities;
 
-import main.Interfaces.Dao;
-
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Booking extends Entity<Booking>{
 
+    private final String timestampFormat = "yyyy-MM-dd";
     private int bookingID;
     private int userID;
     private int eventID;
     private int ticketTypeID;
     private int quantity;
     private String bookingDate;
-    private int isCOnfirmed = 0;
+    private int notify = 0;
+    private String message = "";
+    private String viewName;
+    private Timestamp viewDate;
+    private String viewLocation;
+    private String viewStatus;
 
    public Booking () {}
 
-   public Booking (int bookingID, int userID, int eventID, int ticketTypeID, int quantity, String bookingDate, boolean isCOnfirmed) {
+   public Booking (int bookingID, int userID, int eventID, int ticketTypeID, int quantity, String bookingDate, boolean notify) {
        this.bookingID = bookingID;
        this.userID = userID;
        this.eventID = eventID;
        this.ticketTypeID = ticketTypeID;
        this.quantity = quantity;
        this.bookingDate = bookingDate;
-       this.isCOnfirmed = setConfirmedBool(isCOnfirmed);
+       this.notify = setConfirmedBool(notify);
    }
 
     public Booking (int userID, int eventID, int ticketTypeID, int quantity) {
@@ -33,6 +42,55 @@ public class Booking extends Entity<Booking>{
         this.quantity = quantity;
     }
 
+    public Timestamp getViewDateTS() {
+        return viewDate;
+    }
+
+    public String getViewDate() {
+        return getDate(viewDate);
+    }
+
+    public void setViewDate(String eventdate) {
+        this.viewDate = setDate(eventdate);
+    }
+
+    public String getViewLocation() {
+        return viewLocation;
+    }
+
+    public String getViewName() {
+        return viewName;
+    }
+
+    public void setViewDate(Timestamp viewDate) {
+        this.viewDate = viewDate;
+    }
+
+    public void setViewLocation(String viewLocation) {
+        this.viewLocation = viewLocation;
+    }
+
+    public void setViewName(String viewName) {
+        this.viewName = viewName;
+    }
+
+    private String getDate (Timestamp timestamp) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(timestampFormat);
+        Date date = new Date();
+        date.setTime(timestamp.getTime());
+        return dateFormat.format(date);
+    }
+    private Timestamp setDate (String date) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat(timestampFormat);
+        try {
+            calendar.setTime(dateFormat.parse(date));
+            return new Timestamp(calendar.getTimeInMillis());
+        }
+        catch (ParseException e) {
+            return null;
+        }
+    }
 
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
@@ -82,12 +140,12 @@ public class Booking extends Entity<Booking>{
         this.bookingDate = bookingDate;
     }
 
-    public int getIsCOnfirmed() {
-        return isCOnfirmed;
+    public int getNotify() {
+        return notify;
     }
 
     public void setIsConfirmed(int isCOnfirmed) {
-        this.isCOnfirmed = isCOnfirmed;
+        this.notify = isCOnfirmed;
     }
 
     private int setConfirmedBool (boolean value) {
@@ -97,13 +155,13 @@ public class Booking extends Entity<Booking>{
     @Override
     public String getInsertQuery() {
         return String.format("INSERT INTO BOOKING VALUES (null, '%d', '%d', '%d', '%d', now(), %d)",
-                getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getIsCOnfirmed());
+                getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getNotify());
     }
 
     @Override
     public String getUpdateQuery() {
         return String.format("UPDATE BOOKING SET Quantity = '%s', Book_Date = '%s', Confirmed = '%s' WHERE Booking_ID = '%s'",
-                getQuantity(), getBookingDate(),getIsCOnfirmed(), getBookingID());
+                getQuantity(), getBookingDate(), getNotify(), getBookingID());
     }
 
     @Override
@@ -130,7 +188,7 @@ public class Booking extends Entity<Booking>{
                         "quantity: %d\n" +
                         "bookingDate: %s\n" +
                         "confirmed: %d\n",
-                getBookingID(), getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getBookingDate(), getIsCOnfirmed());
+                getBookingID(), getUserID(), getEventID(), getTicketTypeID(), getQuantity(), getBookingDate(), getNotify());
     }
 }
 

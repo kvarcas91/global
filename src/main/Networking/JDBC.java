@@ -196,24 +196,27 @@ public class JDBC {
         return false;
     }
 
-    public static int getID (String query, String column) {
-        LOGGER.log(Level.INFO, "getting ID with query: {0}\n", query);
+    public static ArrayList<String> getValue(String query, int column) {
+        LOGGER.log(Level.INFO, "getting value with query: {0}\n", query);
+        ArrayList<String> ID = new ArrayList<>();
         if (isConnected()) {
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
-                resultSet.next();
-                return resultSet.getInt(column);
+                while (resultSet.next()) {
+                    ID.add(resultSet.getString(column));
+                }
+                return ID;
 
             }
             catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "SQLException at: {0}; message: {1}\n", new Object[]{LocalTime.now(), e.getMessage()});
                 e.printStackTrace();
-                return -1;
+                return ID;
             }
         }
         else {
-            return -1;
+            return ID;
         }
     }
 

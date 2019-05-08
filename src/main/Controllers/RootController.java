@@ -68,7 +68,7 @@ public class RootController extends Controller implements Initializable, Notific
         AccountTypes type = getType(user.getAccountType());
 
         if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT) {
-            String notifQuery = "SELECT count(*) FROM BOOKING WHERE Confirmed = '0'";
+            String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
             updateNotificationCount(JDBC.getCount(notifQuery));
         }
     }

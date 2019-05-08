@@ -9,15 +9,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import main.Controllers.Controller;
-import main.Controllers.LoginController;
-import main.Controllers.RegisterController;
 import main.Controllers.RootController;
 import main.Entities.User;
-
-import javax.naming.ldap.Control;
 import java.io.IOException;
 import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

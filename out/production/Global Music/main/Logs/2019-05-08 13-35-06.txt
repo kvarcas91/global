@@ -1,0 +1,66 @@
+May 08, 2019 1:35:06 PM main.Main loadLogo
+INFO: Loading logo
+
+May 08, 2019 1:35:06 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 13:35:06.841899800
+
+May 08, 2019 1:35:07 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 13:35:07.223185600
+
+May 08, 2019 1:35:10 PM main.Main loadLogin
+INFO: Loading Login page... at: 13:35:10.699844100
+
+May 08, 2019 1:35:10 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 13:35:10.734450800
+
+May 08, 2019 1:35:10 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:10.785316300
+
+May 08, 2019 1:35:10 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 13:35:10.797284600
+
+May 08, 2019 1:35:11 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 13:35:11.195253100
+
+May 08, 2019 1:35:11 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 13:35:11.196464300
+
+May 08, 2019 1:35:11 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 13:35:11.212786300
+
+May 08, 2019 1:35:22 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 13:35:22.733068400
+
+May 08, 2019 1:35:22 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:22.829141300
+
+May 08, 2019 1:35:22 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 13:35:22.830138
+
+May 08, 2019 1:35:22 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 13:35:22.898002600. Skipping and adding just pane
+
+May 08, 2019 1:35:23 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 13:35:23.339036
+
+May 08, 2019 1:35:23 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 13:35:23.341037400
+
+May 08, 2019 1:35:23 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:35:23.355033200
+
+May 08, 2019 1:35:23 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 13:35:23.399612
+
+May 08, 2019 1:35:23 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:35:23.475913700
+
+May 08, 2019 1:35:23 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:35:23.482600500
+
+May 08, 2019 1:35:25 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 13:35:25.625569300
+
+May 08, 2019 1:35:25 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 13:35:25.655488900
+

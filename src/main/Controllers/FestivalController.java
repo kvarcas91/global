@@ -24,6 +24,8 @@ import main.View.NotificationPane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
@@ -44,6 +46,8 @@ public class FestivalController extends Controller implements Initializable {
     private User user = null;
     ContextMenu menu = null;
     AccountTypes type;
+    private static ArrayList<Event> events = new ArrayList<>();
+    private static ArrayList<Event> clonedEvents = new ArrayList<>();
     private ArrayList<String> templates = new ArrayList<>();
 
 
@@ -63,11 +67,21 @@ public class FestivalController extends Controller implements Initializable {
             }
         }
         else LOGGER.log(Level.WARNING, "Tried to create additional instance at: {0}\n", LocalTime.now());
+
         return instance;
     }
 
     protected static void search (String s) {
-        // TODO need query to get all tickets and bands
+        System.out.println("search for events: " + s);
+        clonedEvents.clear();
+        for (Event event : events) {
+            if (event.contains(s)) {
+                clonedEvents.add(event);
+            }
+        }
+
+        getInstance().createEventView();
+
     }
 
     private void addFestivals() {
@@ -75,30 +89,63 @@ public class FestivalController extends Controller implements Initializable {
     }
 
 
-    private ArrayList<Event> getEvents (String query) {
+    private ArrayList<Event> getEvents () {
 
-       if (query == null) {
-           query = "SELECT * FROM EVENTS";
-       }
+        String query = "SELECT * FROM EVENTS";
+
 
         ArrayList<Entity> mList = JDBC.getAll(query, Event.class.getName());
         Event temp;
         ArrayList<Event> mEvents = new ArrayList<>();
 
+        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+
         for (Entity e : mList) {
             temp = (Event) e;
-            System.out.println(temp);
-            mEvents.add(temp);
+            if (temp.getTimeStamp().after(currentDate)) {
+                System.out.println(temp);
+                mEvents.add(temp);
+            }
         }
 
         return mEvents;
     }
 
     private void deleteEventAction (Event event) {
-        //TODO check if it has any dependency
-        if (user.getUserID() == event.getEventOrganiser()) {
-            if (JDBC.delete("EVENTS", "Event_ID", event.getEventID()))
+
+        if (user.getUserID() == event.getEventOrganiser() || AccountTypes.ROOT == type) {
+            JDBC.delete("BOOKING", "Event_ID", event.getEventID());
+            ArrayList<String> ID = JDBC.getValue(String.format(
+                    "SELECT Type_ID FROM TICKET_TYPES WHERE Event_ID = '%s'", event.getEventID()), 1);
+
+            if (ID != null) {
+                for (String id : ID) {
+                    JDBC.delete("BOOKING", "Ticket_Type", Integer.valueOf(id));
+                }
+                ID.clear();
+            }
+
+            ID = JDBC.getValue(String.format("SELECT Band_ID FROM EVENT_BANDS WHERE Event_ID = '%s'", event.getEventID()), 1);
+
+            JDBC.delete("EVENT_BANDS", "Event_ID", event.getEventID());
+
+            if (ID != null) {
+                for (String id : ID) {
+                    JDBC.delete("BANDS", "Band_ID", Integer.valueOf(id));
+                }
+                ID.clear();
+            }
+            JDBC.delete("TICKET_TYPES", "Event_ID", event.getEventID());
+
+            if (JDBC.delete("EVENTS", "Event_ID", event.getEventID())) {
                 NotificationPane.show("Event has been deleted", "green");
+
+                events.remove(event);
+                clonedEvents.remove(event);
+
+                createEventView();
+            }
+
             else NotificationPane.show("Something went wrong");
         }
         else {
@@ -114,6 +161,11 @@ public class FestivalController extends Controller implements Initializable {
         MenuItem bookEvent = new MenuItem("Book");
         menu.getItems().add(bookEvent);
 
+        bookEvent.setOnAction(ev -> {
+            Loader.getInstance().loadPage("../UI/createBooking.fxml", CreateBookingController.getInstance());
+            CreateBookingController.setEvent(event);
+        });
+
         if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT || type == AccountTypes.ORGANISER) {
 
             MenuItem editEvent = new MenuItem("Edit");
@@ -127,33 +179,19 @@ public class FestivalController extends Controller implements Initializable {
             deleteEvent.setOnAction(ev -> deleteEventAction(event));
         }
 
-
         if (e.isPrimaryButtonDown()) menu.show(container, e.getScreenX()+20, e.getSceneY()+100);
 
     }
 
-    private void createEventView (String query) {
+    private void createEventView () {
 
-        ArrayList<Event> events = getEvents(query);
+
         Random random = new Random();
-
-       ArrayList<Entity> mBookings = null;
-       Booking temp;
 
         container.getChildren().clear();
 
-        if (!events.isEmpty()) {
-            for (Event event : events) {
-
-                int availableSlot = 0;
-                if (mBookings != null) mBookings.clear();
-
-                mBookings = JDBC.getAll(String.format("SELECT * FROM BOOKING WHERE Event_ID = '%s'", event.getEventID()), Booking.class.getName());
-
-                for (Entity entity : mBookings) {
-                    temp = (Booking) entity;
-                    // TODO how the fuck to get all tickets??
-                }
+        if (!clonedEvents.isEmpty()) {
+            for (Event event : clonedEvents) {
 
                 VBox mainBox = new VBox();
                 mainBox.setAlignment(Pos.CENTER_LEFT);
@@ -172,7 +210,6 @@ public class FestivalController extends Controller implements Initializable {
                 catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-
 
                 stack.getChildren().add(imageBox);
 
@@ -193,13 +230,35 @@ public class FestivalController extends Controller implements Initializable {
                 box.getChildren().add(eventDate);
                 box.getChildren().add(eventLocation);
 
-                Label slot = new Label("?? / ??");
+                String totalSlotQuery = String.format("SELECT SUM(Type_Slots) FROM TICKET_TYPES WHERE Event_ID = '%s'", event.getEventID());
+                String bookedTicketQuery = String.format("SELECT SUM(Quantity) FROM BOOKING WHERE Event_ID = '%s'", event.getEventID());
+
+                ArrayList<String> ID = JDBC.getValue(bookedTicketQuery, 1);
+
+                String bookedQuantity;
+                if (ID != null) {
+                    if (ID.get(0) != null) bookedQuantity = ID.get(0);
+                    else bookedQuantity = "0";
+                    ID.clear();
+                }
+                else bookedQuantity = "0";
+
+                ID = JDBC.getValue(totalSlotQuery, 1);
+
+                String totalQuantity;
+                if (ID != null) {
+                    if (ID.get(0) != null) totalQuantity = ID.get(0);
+                    else totalQuantity = "?";
+                    ID.clear();
+                }
+                else totalQuantity = "?";
+
+                Label slot = new Label(String.format("%s / %s",bookedQuantity, totalQuantity));
                 slot.setStyle("-fx-text-fill: #FFFFFF");
 
                 mainBox.getChildren().add(eventName);
                 mainBox.getChildren().add(box);
                 mainBox.getChildren().add(slot);
-
 
                 stack.getChildren().add(mainBox);
 
@@ -214,6 +273,7 @@ public class FestivalController extends Controller implements Initializable {
         }
     }
 
+
     private void setTemplates () {
 
         templates.add("src/main/Resources/drawable/festival_templates/template_1.png");
@@ -226,20 +286,21 @@ public class FestivalController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         user = RootController.getInstance().getUser();
         type = getType(user.getAccountType());
-        System.out.println("user tpe: " + user.getAccountType());
-        System.out.println("type: " + type.toString());
+
+        if (!events.isEmpty()) events.clear();
+        if (!clonedEvents.isEmpty()) clonedEvents.clear();
 
         if (AccountTypes.ORGANISER == type || AccountTypes.ROOT == type || AccountTypes.ADMIN == type) {
             manageFestivals.setVisible(true);
             btnAdd.setOnAction(e -> addFestivals());
-            String query = String.format(
-                    "SELECT * FROM EVENTS INNER JOIN USERS ON EVENTS.Event_Organiser = USERS.User_ID WHERE USERS.User_ID = '%s'",
-                    user.getUserID());
-            mEvents.setOnAction(e -> createEventView(query));
+
+            mEvents.setOnAction(e -> createEventView());
         }
 
-        createEventView(null);
+        events = getEvents();
+        clonedEvents.addAll(events);
 
+        createEventView();
     }
 
     public static void Destroy () {
@@ -248,5 +309,4 @@ public class FestivalController extends Controller implements Initializable {
             instance = null;
         }
     }
-
 }

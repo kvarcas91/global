@@ -3,6 +3,8 @@ package main.Utils;
 import javafx.scene.control.TextField;
 import main.View.NotificationPane;
 
+import java.util.ArrayList;
+
 public class Validators {
 
     private Validators () {}
@@ -24,4 +26,6 @@ public class Validators {
         }
         else return false;
     }
+
+
 }
