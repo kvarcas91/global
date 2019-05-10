@@ -120,7 +120,6 @@ public class AddFestivalsController extends Controller implements Initializable 
 
     private void addTicketEvent () {
         System.out.println("addTicketEvent");
-        // TODO isCorp??? ask Piotr
         if (ticketName.getText().isEmpty() || ticketSlots.getText().isEmpty() || ticketPrice.getText().isEmpty()) {
             NotificationPane.show("You need to fill all fields");
             return;
@@ -265,7 +264,7 @@ public class AddFestivalsController extends Controller implements Initializable 
             String query = String.format("SELECT Event_ID FROM EVENTS WHERE Event_Name = '%s' AND Event_Date = '%s' AND Event_Location = '%s' AND Event_Description = '%s' AND Event_Organiser = '%s'",
                     event.getEventName(), event.getEventDate(), event.getEventLocation(), event.getEventDescription(), event.getEventOrganiser());
 
-            ID = JDBC.getValue(query, 1);
+            ID = JDBC.getValues(query, 1);
             event.setEventID(Integer.valueOf(ID.get(ID.size()-1)));
             ID.clear();
 
@@ -279,7 +278,7 @@ public class AddFestivalsController extends Controller implements Initializable 
 
                 String query = String.format("SELECT Band_ID FROM BANDS WHERE Band_Name = '%s' AND Band_Agent = '%s'", band.getName(), band.getAgent());
 
-                ID = JDBC.getValue(query, 1);
+                ID = JDBC.getValues(query, 1);
                 band.setID(Integer.valueOf(ID.get(ID.size()-1)));
 
                 ID.clear();
@@ -297,7 +296,7 @@ public class AddFestivalsController extends Controller implements Initializable 
                 String query = String.format("SELECT Type_ID FROM TICKET_TYPES WHERE Type_Name = '%s' AND Type_Slots = '%d' AND Type_Price = '%f'",
                         ticket.getName(), ticket.getSlot(), ticket.getPrice());
 
-                ID = JDBC.getValue(query, 1);
+                ID = JDBC.getValues(query, 1);
                 ticket.setID(Integer.valueOf(ID.get(ID.size()-1)));
                 ID.clear();
 
@@ -305,6 +304,12 @@ public class AddFestivalsController extends Controller implements Initializable 
             }
             else NotificationPane.show("Cannot add ticket");
         }
+
+        tickets.clear();
+        bands.clear();
+        position = 0;
+
+        instance = null;
 
         Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance());
 

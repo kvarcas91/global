@@ -89,10 +89,10 @@ public class RootController extends Controller implements Initializable, Notific
                     break;
                 case "dashboard":
 
-                    //break;
+                    break;
                 case "bookings":
 
-                    //break;
+                    break;
                 case "festivals":
                     FestivalController.search(searchField.getText());
                     break;
@@ -106,6 +106,11 @@ public class RootController extends Controller implements Initializable, Notific
              if (number > 9) getInstance().notificationCount.setText("9+");
              else getInstance().notificationCount.setText(String.valueOf(number));
          }
+    }
+
+    protected static void refreshNotificationCount () {
+        String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
+        updateNotificationCount(JDBC.getCount(notifQuery));
     }
 
     private void setActionListeners () {
@@ -124,6 +129,11 @@ public class RootController extends Controller implements Initializable, Notific
 
         btnSearch.setOnMousePressed(e -> searchEvent());
         searchField.textProperty().addListener((observable, oldVal, newVal) -> searchEvent());
+
+        btnNotification.setOnMousePressed(e -> {
+            Loader.getInstance().loadPage("../UI/notifications.fxml", NotificationController.getInstance());
+            MenuController.pushController("notifications");
+        });
     }
 
     @Override

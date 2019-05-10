@@ -83,6 +83,7 @@ public class NotificationPane {
         textField.setText(message);
 
         if (colour != null) pane.setStyle(String.format("-fx-background-color: %s;", colour));
+        else pane.setStyle("-fx-background-color: red");
 
         Task task = hideNotificationPane();
         new Thread(task).start();

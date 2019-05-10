@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import main.Entities.Booking;
 import main.Entities.Entity;
 import main.Entities.Event;
 import main.Entities.User;
@@ -24,7 +23,6 @@ import main.View.NotificationPane;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -115,7 +113,7 @@ public class FestivalController extends Controller implements Initializable {
 
         if (user.getUserID() == event.getEventOrganiser() || AccountTypes.ROOT == type) {
             JDBC.delete("BOOKING", "Event_ID", event.getEventID());
-            ArrayList<String> ID = JDBC.getValue(String.format(
+            ArrayList<String> ID = JDBC.getValues(String.format(
                     "SELECT Type_ID FROM TICKET_TYPES WHERE Event_ID = '%s'", event.getEventID()), 1);
 
             if (ID != null) {
@@ -125,7 +123,7 @@ public class FestivalController extends Controller implements Initializable {
                 ID.clear();
             }
 
-            ID = JDBC.getValue(String.format("SELECT Band_ID FROM EVENT_BANDS WHERE Event_ID = '%s'", event.getEventID()), 1);
+            ID = JDBC.getValues(String.format("SELECT Band_ID FROM EVENT_BANDS WHERE Event_ID = '%s'", event.getEventID()), 1);
 
             JDBC.delete("EVENT_BANDS", "Event_ID", event.getEventID());
 
@@ -162,8 +160,8 @@ public class FestivalController extends Controller implements Initializable {
         menu.getItems().add(bookEvent);
 
         bookEvent.setOnAction(ev -> {
+            CreateBookingController.getInstance().setEvent(event);
             Loader.getInstance().loadPage("../UI/createBooking.fxml", CreateBookingController.getInstance());
-            CreateBookingController.setEvent(event);
         });
 
         if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT || type == AccountTypes.ORGANISER) {
@@ -233,7 +231,7 @@ public class FestivalController extends Controller implements Initializable {
                 String totalSlotQuery = String.format("SELECT SUM(Type_Slots) FROM TICKET_TYPES WHERE Event_ID = '%s'", event.getEventID());
                 String bookedTicketQuery = String.format("SELECT SUM(Quantity) FROM BOOKING WHERE Event_ID = '%s'", event.getEventID());
 
-                ArrayList<String> ID = JDBC.getValue(bookedTicketQuery, 1);
+                ArrayList<String> ID = JDBC.getValues(bookedTicketQuery, 1);
 
                 String bookedQuantity;
                 if (ID != null) {
@@ -243,15 +241,15 @@ public class FestivalController extends Controller implements Initializable {
                 }
                 else bookedQuantity = "0";
 
-                ID = JDBC.getValue(totalSlotQuery, 1);
+                ID = JDBC.getValues(totalSlotQuery, 1);
 
                 String totalQuantity;
                 if (ID != null) {
                     if (ID.get(0) != null) totalQuantity = ID.get(0);
-                    else totalQuantity = "?";
+                    else totalQuantity = "0";
                     ID.clear();
                 }
-                else totalQuantity = "?";
+                else totalQuantity = "0";
 
                 Label slot = new Label(String.format("%s / %s",bookedQuantity, totalQuantity));
                 slot.setStyle("-fx-text-fill: #FFFFFF");
@@ -269,7 +267,8 @@ public class FestivalController extends Controller implements Initializable {
 
         }
         else {
-            NotificationPane.show("No festivals", "green");
+            // TODO text in the middle
+            NotificationPane.show("No festivals", "#5375da");
         }
     }
 

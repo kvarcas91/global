@@ -42,6 +42,11 @@ public class Booking extends Entity<Booking>{
         this.quantity = quantity;
     }
 
+    public Booking (int userID, int eventID) {
+        this.userID = userID;
+        this.eventID = eventID;
+    }
+
     public Timestamp getViewDateTS() {
         return viewDate;
     }

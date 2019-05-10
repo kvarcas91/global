@@ -196,7 +196,7 @@ public class JDBC {
         return false;
     }
 
-    public static ArrayList<String> getValue(String query, int column) {
+    public static ArrayList<String> getValues(String query, int column) {
         LOGGER.log(Level.INFO, "getting value with query: {0}\n", query);
         ArrayList<String> ID = new ArrayList<>();
         if (isConnected()) {
@@ -219,6 +219,7 @@ public class JDBC {
             return ID;
         }
     }
+
 
     private static Entity getData (String className, ResultSet resultSet, ResultSetMetaData metaData) {
         HashMap<String, String> object = new HashMap<>();

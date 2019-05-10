@@ -115,6 +115,7 @@ public class MenuController implements Initializable{
         fxml.put("dashboard", "../UI/dashboard.fxml");
         fxml.put("addFestival", "../UI/addFestivals.fxml");
         fxml.put("invoice", "../UI/invoice.fxml");
+        fxml.put("notifications", "../UI/notifications.fxml");
         activeController.push("dashboard");
     }
 
