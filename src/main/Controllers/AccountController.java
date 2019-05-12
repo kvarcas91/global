@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import main.Entities.User;
 import main.Networking.JDBC;
 import main.Utils.Loader;
+import main.Utils.Validators;
 import main.Utils.WriteLog;
 import main.View.NotificationPane;
 import java.net.URL;
@@ -19,6 +20,8 @@ import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AccountController extends Controller implements Initializable {
 
@@ -28,6 +31,7 @@ public class AccountController extends Controller implements Initializable {
     private String path = null;
     private static AccountController instance = null;
     private Controller parentController = null;
+    private Pattern pattern = Pattern.compile("^.+@.+\\..+$");
 
     @FXML private JFXTextField firstName, lastName, organisationName, townField, postCodeField, userName, address1Field,
             address2Field, emailField, phoneNumberField, webAddressField;
@@ -58,9 +62,46 @@ public class AccountController extends Controller implements Initializable {
     }
 
     private void commitChanges () {
+        if (!Validators.validate(userName, password, emailField)) {
+            return;
+        }
+
+        String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s'", userName.getText());
+
+        user.setUserPassword(password.getText());
         user.setFirstName(firstName.getText());
         user.setLastName(lastName.getText());
-        JDBC.update(user.getUpdateQuery());
+        user.setAddress1(address1Field.getText());
+        user.setAddress2(address2Field.getText());
+        user.setTown(townField.getText());
+        user.setPostCode(postCodeField.getText());
+        user.setWebAddress(webAddressField.getText());
+        user.setOrganisationName(organisationName.getText());
+        user.setPhoneNumber(phoneNumberField.getText());
+
+        if(userName.getText().contains(" ") || password.getText().contains(" ")){
+            NotificationPane.show("Fields cannot contain spaces");
+            return;
+        }
+
+        Matcher matcher = pattern.matcher(emailField.getText());
+        if (!matcher.matches()) {
+            NotificationPane.show("Invalid email address");
+            return;
+        }
+
+        if (!userName.getText().equals(user.getUserName())) {
+            if (JDBC.get(query, User.class.getName()) != null) {
+                NotificationPane.show("Username already exist");
+                return;
+            }
+            else user.setUserName(userName.getText());
+        }
+
+        if(JDBC.update(user.getUpdateQuery())) {
+            NotificationPane.show("Successful Update", "green");
+
+        }
     }
 
 

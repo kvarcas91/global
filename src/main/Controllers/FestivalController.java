@@ -91,7 +91,6 @@ public class FestivalController extends Controller implements Initializable {
 
         String query = "SELECT * FROM EVENTS";
 
-
         ArrayList<Entity> mList = JDBC.getAll(query, Event.class.getName());
         Event temp;
         ArrayList<Event> mEvents = new ArrayList<>();
@@ -292,7 +291,6 @@ public class FestivalController extends Controller implements Initializable {
         if (AccountTypes.ORGANISER == type || AccountTypes.ROOT == type || AccountTypes.ADMIN == type) {
             manageFestivals.setVisible(true);
             btnAdd.setOnAction(e -> addFestivals());
-
             mEvents.setOnAction(e -> createEventView());
         }
 

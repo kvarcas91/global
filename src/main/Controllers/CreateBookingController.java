@@ -17,6 +17,7 @@ import main.Entities.Entity;
 import main.Entities.Event;
 import main.Entities.TicketType;
 import main.Networking.JDBC;
+import main.Utils.Loader;
 import main.View.NotificationPane;
 
 import java.io.FileInputStream;
@@ -81,7 +82,9 @@ public class CreateBookingController extends Controller implements Initializable
                 }
 
                 NotificationPane.show("Booking has been created", "green");
+                ticketQuantity.clear();
                 RootController.refreshNotificationCount();
+                Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance());
             }
             else NotificationPane.show("You must book at least one ticket");
         }

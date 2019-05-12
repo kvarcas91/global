@@ -165,7 +165,7 @@ public class Booking extends Entity<Booking>{
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE BOOKING SET Quantity = '%s', Book_Date = '%s', Confirmed = '%s' WHERE Booking_ID = '%s'",
+        return String.format("UPDATE BOOKING SET Quantity = '%s', Book_Date = '%s', Notify = '%s' WHERE Booking_ID = '%s'",
                 getQuantity(), getBookingDate(), getNotify(), getBookingID());
     }
 
@@ -177,6 +177,7 @@ public class Booking extends Entity<Booking>{
         setTicketTypeID(Integer.parseInt(object.get("Ticket_Type")));
         setQuantity(Integer.parseInt(object.get("Quantity")));
         setBookingDate(object.get("Book_Date"));
+        setIsConfirmed(Integer.valueOf(object.get("Notify")));
     }
 
     @Override

@@ -2,8 +2,17 @@
 
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
 
-
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox fx:id="container" spacing="10" />
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </ScrollPane>
+    </center>
 
 </BorderPane>

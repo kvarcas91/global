@@ -25,7 +25,8 @@ import java.util.logging.Logger;
 public class RootController extends Controller implements Initializable, Notifications {
 
     private static final Logger LOGGER = Logger.getLogger(RootController.class.getName());
-    private User user = null;
+    private User user;
+    private AccountTypes type;
     private static RootController instance = null;
 
     @FXML private BorderPane content;
@@ -62,6 +63,8 @@ public class RootController extends Controller implements Initializable, Notific
         String query = String.format("SELECT * FROM USERS WHERE User_Name = '%s' AND User_Password = '%s'",
                 user.getUserName(), user.getUserPassword());
         this.user = (User) JDBC.get(query, User.class.getName());
+        type = getType(this.user.getAccountType());
+
         userNameField.setText(user.getUserName());
         MenuController.getInstance().setAccountType(user.getAccountType());
 
@@ -69,6 +72,10 @@ public class RootController extends Controller implements Initializable, Notific
 
         if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT) {
             String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
+            updateNotificationCount(JDBC.getCount(notifQuery));
+        }
+        else {
+            String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '1'";
             updateNotificationCount(JDBC.getCount(notifQuery));
         }
     }
@@ -102,14 +109,24 @@ public class RootController extends Controller implements Initializable, Notific
 
     protected static void updateNotificationCount (int number) {
          if (number > 0) {
-             getInstance().notificationCount.setVisible(true);
+             instance.notificationCount.setVisible(true);
              if (number > 9) getInstance().notificationCount.setText("9+");
              else getInstance().notificationCount.setText(String.valueOf(number));
+         }
+         else {
+             instance.notificationCount.setVisible(false);
          }
     }
 
     protected static void refreshNotificationCount () {
-        String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
+         String notifQuery;
+         if (instance.type == AccountTypes.ROOT || instance.type == AccountTypes.ADMIN) {
+             notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
+         }
+         else {
+             notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '1'";
+         }
+
         updateNotificationCount(JDBC.getCount(notifQuery));
     }
 
