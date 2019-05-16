@@ -27,7 +27,6 @@ import java.util.logging.Logger;
 
 public class AdminAccountController extends Controller implements Initializable{
 
-    // TODO proper cloneable
 
     private static final Logger LOGGER = Logger.getLogger(AdminAccountController.class.getName());
 

@@ -1,0 +1,30 @@
+May 16, 2019 2:36:50 PM main.Main loadLogo
+INFO: Loading logo
+
+May 16, 2019 2:36:50 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 14:36:50.114173100
+
+May 16, 2019 2:36:50 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 14:36:50.503194300
+
+May 16, 2019 2:36:54 PM main.Main loadLogin
+INFO: Loading Login page... at: 14:36:54.071158400
+
+May 16, 2019 2:36:54 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 14:36:54.100088
+
+May 16, 2019 2:36:54 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 14:36:54.150951700
+
+May 16, 2019 2:36:54 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 14:36:54.154987400
+
+May 16, 2019 2:36:54 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 14:36:54.450151200
+
+May 16, 2019 2:36:58 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 14:36:58.209414500
+
+May 16, 2019 2:37:01 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Incorrect username or password at: 14:37:01.579496800
+

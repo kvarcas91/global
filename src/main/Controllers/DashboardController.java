@@ -16,12 +16,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DashboardController extends Controller implements Initializable {
+public class DashboardController extends Controller{
 
     private static final Logger LOGGER = Logger.getLogger(DashboardController.class.getName());
     private static DashboardController instance = null;
 
-    @FXML private JFXButton btnEaster;
 
     private DashboardController () {
         instance = this;
@@ -41,24 +40,6 @@ public class DashboardController extends Controller implements Initializable {
         return instance;
     }
 
-    private void easter () {
-
-        String url = "https://youtu.be/dQw4w9WgXcQ?t=43&autoplay=1";
-
-        if(Desktop.isDesktopSupported()){
-            Desktop desktop = Desktop.getDesktop();
-            try {
-                desktop.browse(new URI(url));
-            } catch (IOException | URISyntaxException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        btnEaster.setOnAction(e -> easter());
-    }
 
     public static void Destroy () {
         if (instance != null) {

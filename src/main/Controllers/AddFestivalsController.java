@@ -242,7 +242,7 @@ public class AddFestivalsController extends Controller implements Initializable 
             box.setOnMousePressed(e -> {
                 bandTile.getChildren().remove(box);
                 bands.remove(band);
-                JDBC.delete("BANDS", "Band_ID", band.getID());
+                //JDBC.delete("BANDS", "Band_ID", band.getID());
             });
 
         }

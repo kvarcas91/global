@@ -1,0 +1,51 @@
+May 16, 2019 5:59:04 PM main.Main loadLogo
+INFO: Loading logo
+
+May 16, 2019 5:59:04 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 17:59:04.808632200
+
+May 16, 2019 5:59:05 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 17:59:05.229505900
+
+May 16, 2019 5:59:08 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 17:59:08.167819800
+
+May 16, 2019 5:59:08 PM main.Main loadLogin
+INFO: Loading Login page... at: 17:59:08.878348200
+
+May 16, 2019 5:59:08 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 17:59:08.911207700
+
+May 16, 2019 5:59:08 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 17:59:08.959077900
+
+May 16, 2019 5:59:08 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 17:59:08.961073
+
+May 16, 2019 5:59:09 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 17:59:09.263263100
+
+May 16, 2019 5:59:12 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 17:59:12.782311500
+
+May 16, 2019 5:59:12 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 17:59:12.824229400
+
+May 16, 2019 5:59:12 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 17:59:12.825197100
+
+May 16, 2019 5:59:12 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 17:59:12.861225800. Skipping and adding just pane
+
+May 16, 2019 5:59:13 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 17:59:13.068835
+
+May 16, 2019 5:59:13 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 17:59:13.070543400
+
+May 16, 2019 5:59:13 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 17:59:13.074572300
+
+May 16, 2019 5:59:13 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 17:59:13.107481300
+
