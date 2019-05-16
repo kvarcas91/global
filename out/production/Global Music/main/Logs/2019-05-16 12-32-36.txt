@@ -1,0 +1,258 @@
+May 16, 2019 12:32:36 PM main.Main loadLogo
+INFO: Loading logo
+
+May 16, 2019 12:32:36 PM main.Utils.Loader <init>
+INFO: Creating Loader instance from constructor at: 12:32:36.220819
+
+May 16, 2019 12:32:36 PM main.View.LogoView <init>
+INFO: Creating LogoView instance from constructor at: 12:32:36.575868500
+
+May 16, 2019 12:32:39 PM main.View.LogoView addTransition
+INFO: Adding logo transition at: 12:32:39.360074700
+
+May 16, 2019 12:32:40 PM main.Main loadLogin
+INFO: Loading Login page... at: 12:32:40.054205500
+
+May 16, 2019 12:32:40 PM main.View.LogoView Destroy
+INFO: Destroying LogoView instance at: 12:32:40.064893200
+
+May 16, 2019 12:32:40 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:32:40.095813400
+
+May 16, 2019 12:32:40 PM main.Controllers.LoginController <init>
+INFO: Creating LoginController instance from constructor at: 12:32:40.097805100
+
+May 16, 2019 12:32:40 PM main.View.NotificationPane <init>
+INFO: Creating NotificationPane instance from constructor at: 12:32:40.309455700
+
+May 16, 2019 12:32:40 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 12:32:40.310876200
+
+May 16, 2019 12:32:40 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: No network connection at: 12:32:40.331397100
+
+May 16, 2019 12:32:44 PM main.Controllers.RootController <init>
+INFO: Creating RootController instance from constructor at: 12:32:44.055119200
+
+May 16, 2019 12:32:44 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:32:44.134188300
+
+May 16, 2019 12:32:44 PM main.Controllers.MenuController <init>
+INFO: Creating MenuController instance from constructor at: 12:32:44.134188300
+
+May 16, 2019 12:32:44 PM main.Utils.Loader createInstanceWithPane
+WARNING: Tried to create additional instance at: 12:32:44.184075100. Skipping and adding just pane
+
+May 16, 2019 12:32:44 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:32:44.575605700
+
+May 16, 2019 12:32:44 PM main.Controllers.DashboardController <init>
+INFO: Creating DashboardController instance from constructor at: 12:32:44.578800500
+
+May 16, 2019 12:32:44 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:32:44.595550900
+
+May 16, 2019 12:32:44 PM main.Controllers.MenuController getInstance
+INFO: Tried to create MenuController instance at 12:32:44.652406600
+
+May 16, 2019 12:32:48 PM main.Controllers.FestivalController <init>
+INFO: Creating FestivalController instance from constructor at: 12:32:48.929594200
+
+May 16, 2019 12:32:48 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:32:48.959514800
+
+May 16, 2019 12:32:59 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:32:59.998168400
+
+May 16, 2019 12:33:00 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:33:00.000162400
+
+May 16, 2019 12:33:00 PM main.View.Circles <init>
+INFO: Creating Circles instance from constructor at: 12:33:00.148725600
+
+May 16, 2019 12:33:00 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:33:00.154780900; position: 0
+
+May 16, 2019 12:33:00 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:33:00.197596500
+
+May 16, 2019 12:33:11 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Event has been updated at: 12:33:11.167874400
+
+May 16, 2019 12:33:11 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:33:11.337360200
+
+May 16, 2019 12:33:11 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 12:33:11.338356300
+
+May 16, 2019 12:33:11 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:33:11.353358400
+
+May 16, 2019 12:33:28 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:33:28.758134300
+
+May 16, 2019 12:33:28 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:33:28.759136100
+
+May 16, 2019 12:33:28 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:33:28.759136100
+
+May 16, 2019 12:33:28 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:33:28.795035200; position: 0
+
+May 16, 2019 12:33:37 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:33:37.711411; position: 1
+
+May 16, 2019 12:33:55 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:33:55.405858200; position: 2
+
+May 16, 2019 12:34:08 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:34:08.141116700
+
+May 16, 2019 12:34:08 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Event has been added at: 12:34:08.302739900
+
+May 16, 2019 12:34:09 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:34:09.237184200
+
+May 16, 2019 12:34:09 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 12:34:09.238734400
+
+May 16, 2019 12:34:09 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:34:09.254138700
+
+May 16, 2019 12:36:34 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:36:34.218154900
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:36:34.219423
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:36:34.219423
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:36:34.219423
+
+May 16, 2019 12:36:34 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:36:34.275968700; position: 0
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:36:34.281946500
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:36:34.281946500
+
+May 16, 2019 12:36:34 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:36:34.281946500
+
+May 16, 2019 12:36:39 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Event has been updated at: 12:36:39.263053800
+
+May 16, 2019 12:36:39 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:36:39.907378500
+
+May 16, 2019 12:36:39 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 12:36:39.908355900
+
+May 16, 2019 12:36:39 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:36:39.920317300
+
+May 16, 2019 12:37:31 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:37:31.520945800
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:37:31.521923200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:37:31.521923200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:37:31.521923200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:37:31.521923200
+
+May 16, 2019 12:37:31 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:37:31.585763700; position: 0
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:37:31.594191200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:37:31.594191200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:37:31.594191200
+
+May 16, 2019 12:37:31 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:37:31.594191200
+
+May 16, 2019 12:37:33 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:37:33.330732; position: 1
+
+May 16, 2019 12:37:37 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:37:37.959452800; position: 2
+
+May 16, 2019 12:37:40 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:37:40.591557800; position: 1
+
+May 16, 2019 12:37:48 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:37:48.507418800; position: 2
+
+May 16, 2019 12:37:53 PM main.View.NotificationPane showNotification
+INFO: Showing NotificationPane with message: Event has been updated at: 12:37:53.608480
+
+May 16, 2019 12:37:54 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:37:54.481007600
+
+May 16, 2019 12:37:54 PM main.Controllers.FestivalController getInstance
+WARNING: Tried to create additional instance at: 12:37:54.481847300
+
+May 16, 2019 12:37:54 PM main.Controllers.RootController getInstance
+INFO: Tried to create RootController instance at 12:37:54.496959200
+
+May 16, 2019 12:38:08 PM main.Utils.Loader getInstance
+WARNING: Tried to create additional instance at: 12:38:08.986616
+
+May 16, 2019 12:38:08 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:38:08.986616
+
+May 16, 2019 12:38:08 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:38:08.986616
+
+May 16, 2019 12:38:08 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:38:08.986616
+
+May 16, 2019 12:38:08 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:38:08.986616
+
+May 16, 2019 12:38:08 PM main.Controllers.AddFestivalsController <init>
+INFO: Creating addFestivalsController instance from constructor at: 12:38:08.986616
+
+May 16, 2019 12:38:09 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:38:09.054581600; position: 0
+
+May 16, 2019 12:38:09 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:38:09.063488600
+
+May 16, 2019 12:38:09 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:38:09.063488600
+
+May 16, 2019 12:38:09 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:38:09.063488600
+
+May 16, 2019 12:38:09 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:38:09.063488600
+
+May 16, 2019 12:38:09 PM main.Controllers.AddFestivalsController getInstance
+WARNING: Tried to create additional instance at: 12:38:09.063488600
+
+May 16, 2019 12:38:10 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:38:10.361888300; position: 1
+
+May 16, 2019 12:38:11 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:38:11.824976300; position: 2
+
+May 16, 2019 12:38:13 PM main.View.Circles draw
+INFO: Drawing progressLayout at: 12:38:13.611681700; position: 1
+

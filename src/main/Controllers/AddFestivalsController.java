@@ -22,6 +22,7 @@ import main.Utils.Loader;
 import main.Utils.WriteLog;
 import main.View.Circles;
 import main.View.NotificationPane;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -46,9 +47,14 @@ public class AddFestivalsController extends Controller implements Initializable 
     @FXML private TilePane ticketTile, bandTile;
 
     private byte position = 0;
+    private boolean editable = false;
     private HashMap<String, Pane> scenes = new HashMap<>();
     private ArrayList<TicketType> tickets = new ArrayList<>();
+    private ArrayList<TicketType> oldTickets = new ArrayList<>();
+
     private ArrayList<Bands> bands = new ArrayList<>();
+    private ArrayList<Bands> oldBands = new ArrayList<>();
+
     private ArrayList<String> ID = new ArrayList<>();
     private Event event;
 
@@ -252,63 +258,101 @@ public class AddFestivalsController extends Controller implements Initializable 
             return;
         }
         String date = eventDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        event = new Event(eventName.getText(), date, eventLocation.getText(), eventDescription.getText(), RootController.getInstance().getUser().getUserID());
+        if (!editable) {
+            event = new Event(eventName.getText(), date, eventLocation.getText(), eventDescription.getText(), RootController.getInstance().getUser().getUserID());
+        }
+        else {
+            event.setEventName(eventName.getText());
+            event.setEventLocation(eventLocation.getText());
+            event.setEventDescription(eventDescription.getText());
+            event.setEventDate(date);
+        }
 
         if (tickets.isEmpty() || bands.isEmpty()) {
             NotificationPane.show("You must add ticket types and bands");
             return;
         }
 
-
-        if (JDBC.insert(event.getInsertQuery())) {
-            String query = String.format("SELECT Event_ID FROM EVENTS WHERE Event_Name = '%s' AND Event_Date = '%s' AND Event_Location = '%s' AND Event_Description = '%s' AND Event_Organiser = '%s'",
-                    event.getEventName(), event.getEventDate(), event.getEventLocation(), event.getEventDescription(), event.getEventOrganiser());
-
-            ID = JDBC.getValues(query, 1);
-            event.setEventID(Integer.valueOf(ID.get(ID.size()-1)));
-            ID.clear();
-
-            NotificationPane.show("Event has been added", "green");
-        }
-        else NotificationPane.show("Cannot add event");
-
-        for (Bands band : bands) {
-
-            if (JDBC.insert(band.getInsertQuery())) {
-
-                String query = String.format("SELECT Band_ID FROM BANDS WHERE Band_Name = '%s' AND Band_Agent = '%s'", band.getName(), band.getAgent());
+        if (!editable) {
+            if (JDBC.insert(event.getInsertQuery())) {
+                String query = String.format("SELECT Event_ID FROM EVENTS WHERE Event_Name = '%s' AND Event_Date = '%s' AND Event_Location = '%s' AND Event_Description = '%s' AND Event_Organiser = '%s'",
+                        event.getEventName(), event.getEventDate(), event.getEventLocation(), event.getEventDescription(), event.getEventOrganiser());
 
                 ID = JDBC.getValues(query, 1);
-                band.setID(Integer.valueOf(ID.get(ID.size()-1)));
-
+                event.setEventID(Integer.valueOf(ID.get(ID.size() - 1)));
                 ID.clear();
 
-                query = String.format("INSERT INTO EVENT_BANDS VALUES ('%d', '%d');", event.getEventID(), band.getID());
-                JDBC.insert(query);
+                NotificationPane.show("Event has been added", "green");
+            } else NotificationPane.show("Cannot add event");
+
+        }
+        else {
+            if(JDBC.update(event.getUpdateQuery())) {
+                NotificationPane.show("Event has been updated", "green");
             }
-            else NotificationPane.show("Cannot add band");
+            else NotificationPane.show("Cannot update event");
+        }
+
+        for (Bands band : bands) {
+            if (!oldBands.contains(band)) {
+                if (JDBC.insert(band.getInsertQuery())) {
+
+                    String query = String.format("SELECT Band_ID FROM BANDS WHERE Band_Name = '%s' AND Band_Agent = '%s'", band.getName(), band.getAgent());
+
+                    ID = JDBC.getValues(query, 1);
+                    band.setID(Integer.valueOf(ID.get(ID.size() - 1)));
+
+                    ID.clear();
+
+                    query = String.format("INSERT INTO EVENT_BANDS VALUES ('%d', '%d');", event.getEventID(), band.getID());
+                    JDBC.insert(query);
+                }
+                else NotificationPane.show("Cannot add band");
+            }
+            else {
+                oldBands.remove(band);
+            }
+        }
+
+        if (!oldBands.isEmpty()) {
+            for (Bands band : oldBands) {
+                JDBC.delete("EVENT_BANDS", "Band_ID", band.getID());
+                JDBC.delete("BANDS", "Band_ID", band.getID());
+            }
+            oldBands.clear();
         }
 
         for (TicketType ticket : tickets) {
-            ticket.setEventID(event.getEventID());
+            if (!oldTickets.contains(ticket)) {
+                ticket.setEventID(event.getEventID());
 
-            if (JDBC.insert(ticket.getInsertQuery())) {
-                String query = String.format("SELECT Type_ID FROM TICKET_TYPES WHERE Type_Name = '%s' AND Type_Slots = '%d' AND Type_Price = '%f'",
-                        ticket.getName(), ticket.getSlot(), ticket.getPrice());
+                if (JDBC.insert(ticket.getInsertQuery())) {
+                    String query = String.format("SELECT Type_ID FROM TICKET_TYPES WHERE Type_Name = '%s' AND Type_Slots = '%d' AND Type_Price = '%f'",
+                            ticket.getName(), ticket.getSlot(), ticket.getPrice());
 
-                ID = JDBC.getValues(query, 1);
-                ticket.setID(Integer.valueOf(ID.get(ID.size()-1)));
-                ID.clear();
+                    ID = JDBC.getValues(query, 1);
+                    ticket.setID(Integer.valueOf(ID.get(ID.size() - 1)));
+                    ID.clear();
 
-                System.out.println("Ticket: \n" + ticket);
+                    System.out.println("Ticket: \n" + ticket);
+                } else NotificationPane.show("Cannot add ticket");
             }
-            else NotificationPane.show("Cannot add ticket");
+            else {
+                oldTickets.remove(ticket);
+            }
+        }
+
+        if (!oldTickets.isEmpty()) {
+            for (TicketType ticket : oldTickets) {
+                JDBC.delete("TICKET_TYPES", "Type_ID", ticket.getID());
+            }
+            oldTickets.clear();
         }
 
         tickets.clear();
         bands.clear();
         position = 0;
-
+        editable = false;
         instance = null;
 
         Loader.getInstance().loadPage("../UI/festivals.fxml", FestivalController.getInstance());
@@ -321,6 +365,30 @@ public class AddFestivalsController extends Controller implements Initializable 
             if (scene.equals(k)) v.setVisible(true);
             else v.setVisible(false);
         });
+    }
+
+    protected void editFestival (Event event, ArrayList<Bands> bands, ArrayList<TicketType> tickets) {
+        editable = true;
+
+        if (!this.tickets.isEmpty()) this.tickets.clear();
+        if (!this.bands.isEmpty()) this.bands.clear();
+
+        this.tickets.addAll(tickets);
+        this.oldTickets.addAll(tickets);
+
+        this.bands.addAll(bands);
+        this.oldBands.addAll(bands);
+        this.event = event;
+
+        setTicketView();
+        setBandView();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(event.getEventDate(), formatter);
+
+        eventDate.setValue(localDate);
+        eventDescription.setText(event.getEventDescription());
+        eventLocation.setText(event.getEventLocation());
+        eventName.setText(event.getEventName());
     }
 
 

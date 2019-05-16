@@ -1,9 +1,0 @@
-May 12, 2019 7:49:24 PM main.Main loadLogo
-INFO: Loading logo
-
-May 12, 2019 7:49:24 PM main.Utils.Loader <init>
-INFO: Creating Loader instance from constructor at: 19:49:24.489747400
-
-May 12, 2019 7:49:24 PM main.View.LogoView <init>
-INFO: Creating LogoView instance from constructor at: 19:49:24.883693300
-

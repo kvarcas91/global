@@ -42,7 +42,7 @@ public class RegisterController extends Controller implements Initializable, Not
     @FXML private BorderPane root;
     @FXML private HBox progressLayout, accTypeLayout, errorPane;
     @FXML private GridPane userNameLayout, optionalLayout;
-    @FXML private JFXRadioButton first;
+    @FXML private JFXRadioButton first, second;
     @FXML private JFXTextField firstName, lastName, organisationName, userName, address1Field, address2Field, townField,
             postCodeField, emailField, webAddressField, phoneNumberField;
 
@@ -222,12 +222,15 @@ public class RegisterController extends Controller implements Initializable, Not
     public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
         accType = getType((toggleGroup.getSelectedToggle() != null ?
                 toggleGroup.getSelectedToggle().getUserData().toString() : AccountTypes.NONE.toString()));
-
+        System.out.println("account type: " + accType.toString());
+        //accType = getType()
+        System.out.println("toggle: " + toggleGroup.getSelectedToggle().getUserData().toString());
         setUserInfoVisibility();
     }
 
     private void setActionListeners () {
         toggleGroup.selectedToggleProperty().addListener(this::changed);
+
         userName.focusedProperty().addListener(((observableValue, aBoolean, newValue) -> {
             if (!newValue) userName.validate();
         }));

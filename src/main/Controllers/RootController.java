@@ -75,7 +75,8 @@ public class RootController extends Controller implements Initializable, Notific
             updateNotificationCount(JDBC.getCount(notifQuery));
         }
         else {
-            String notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '1'";
+            String notifQuery = String.format("SELECT count(*) FROM BOOKING WHERE Notify = '1' AND User_ID = '%s'", user.getUserID());
+
             updateNotificationCount(JDBC.getCount(notifQuery));
         }
     }
@@ -124,7 +125,7 @@ public class RootController extends Controller implements Initializable, Notific
              notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '0'";
          }
          else {
-             notifQuery = "SELECT count(*) FROM BOOKING WHERE Notify = '1'";
+             notifQuery = String.format("SELECT count(*) FROM BOOKING WHERE Notify = '1' AND User_ID = '%s'", getInstance().getUser().getUserID());
          }
 
         updateNotificationCount(JDBC.getCount(notifQuery));

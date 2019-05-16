@@ -102,7 +102,7 @@ public class MenuController implements Initializable{
     }
 
 
-    public void setAccountType (String accountType) {
+    protected void setAccountType (String accountType) {
         if (accountType.equals("ADMIN")) adminAccPane.setVisible(true);
         else adminAccPane.setVisible(false);
     }

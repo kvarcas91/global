@@ -13,9 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import main.Entities.Entity;
-import main.Entities.Event;
-import main.Entities.User;
+import main.Entities.*;
 import main.Networking.JDBC;
 import main.Utils.Loader;
 import main.Utils.WriteLog;
@@ -42,8 +40,8 @@ public class FestivalController extends Controller implements Initializable {
     @FXML private VBox container;
 
     private User user = null;
-    ContextMenu menu = null;
-    AccountTypes type;
+    private ContextMenu menu = null;
+    private AccountTypes type;
     private static ArrayList<Event> events = new ArrayList<>();
     private static ArrayList<Event> clonedEvents = new ArrayList<>();
     private ArrayList<String> templates = new ArrayList<>();
@@ -150,6 +148,29 @@ public class FestivalController extends Controller implements Initializable {
         }
     }
 
+    private void editEvent (Event event) {
+        ArrayList<Bands> bands = new ArrayList<>();
+        ArrayList<TicketType> tickets = new ArrayList<>();
+        String bandQuery = String.format("SELECT * FROM BANDS, EVENT_BANDS WHERE EVENT_BANDS.Event_ID = '%s' AND EVENT_BANDS.Band_ID = BANDS.Band_ID",
+                event.getEventID());
+
+        String ticketQuery = String.format("SELECT * FROM TICKET_TYPES WHERE Event_ID = '%s'", event.getEventID());
+
+        ArrayList<Entity> entities = JDBC.getAll(bandQuery, Bands.class.getName());
+        for (Entity entity : entities) {
+            bands.add((Bands) entity);
+        }
+
+        entities = JDBC.getAll(ticketQuery, TicketType.class.getName());
+        for (Entity entity : entities) {
+            tickets.add((TicketType) entity);
+        }
+
+        Loader.getInstance().loadPage("../UI/addFestivals.fxml", AddFestivalsController.getInstance());
+
+        AddFestivalsController.getInstance().editFestival(event, bands, tickets);
+    }
+
     private void setMenu (MouseEvent e, Event event) {
 
         if (menu != null) menu.hide();
@@ -171,7 +192,7 @@ public class FestivalController extends Controller implements Initializable {
             menu.getItems().add(deleteEvent);
 
             // TODO prepare something for edit
-            editEvent.setOnAction(ev -> System.out.println("edit\n" + event));
+            editEvent.setOnAction(ev -> editEvent(event));
 
             deleteEvent.setOnAction(ev -> deleteEventAction(event));
         }
@@ -181,7 +202,6 @@ public class FestivalController extends Controller implements Initializable {
     }
 
     private void createEventView () {
-
 
         Random random = new Random();
 

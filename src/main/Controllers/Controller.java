@@ -15,7 +15,7 @@ public abstract class Controller{
                 return AccountTypes.ADMIN;
             case "ROOT":
                 return AccountTypes.ROOT;
-            case "ORGANIZATION":
+            case "ORGANISATION":
                 return AccountTypes.ORGANIZATION;
             case "AGENT":
                 return AccountTypes.AGENT;

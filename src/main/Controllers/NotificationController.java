@@ -3,13 +3,14 @@ package main.Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.Entities.Booking;
 import main.Entities.Entity;
 import main.Networking.JDBC;
-
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -99,33 +100,43 @@ public class NotificationController extends Controller implements Initializable 
                 System.out.println(message);
                 System.out.println();
 
-                HBox box = new HBox();
-                box.setSpacing(10);
+                HBox row = new HBox();
+                HBox textBox = new HBox();
+                row.setSpacing(10);
 
                 Text textContainer = new Text(message);
 
-                box.getChildren().add(textContainer);
+                textBox.getChildren().add(textContainer);
+
+                row.getChildren().add(textBox);
+
                 if (type == AccountTypes.ADMIN || type == AccountTypes.ROOT) {
-                    setAdminControl(box, booking);
+                    setAdminControl(row, booking);
                 }
                 else  {
-                    setUserControl(box, booking);
+                    setUserControl(row, booking);
                 }
 
-                container.getChildren().add(box);
+
+                container.getChildren().add(row);
             }
         }
     }
 
     private void setAdminControl (HBox box, Booking booking) {
+        HBox controlBox = new HBox();
+        controlBox.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(controlBox, Priority.ALWAYS);
+
         box.setStyle("-fx-background-color: white;");
 
         JFXButton confirm = new JFXButton("Confirm");
         JFXButton reject = new JFXButton("Reject");
 
         confirm.setOnAction(e -> confirm(booking));
+        controlBox.getChildren().addAll(reject, confirm);
 
-        box.getChildren().addAll(reject, confirm);
+        box.getChildren().addAll(controlBox);
     }
 
     private void setUserControl (HBox box, Booking booking) {
@@ -138,8 +149,6 @@ public class NotificationController extends Controller implements Initializable 
         }
 
         JFXButton remove = new JFXButton();
-        // TODO onclick event
-
         box.getChildren().add(remove);
     }
 

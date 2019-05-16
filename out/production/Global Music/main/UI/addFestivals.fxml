@@ -113,7 +113,7 @@
 
     <bottom>
         <VBox spacing="10" alignment="CENTER">
-            <JFXButton fx:id="addEvent" text="Add"/>
+            <JFXButton fx:id="addEvent" text="Confirm"/>
             <HBox fx:id="progressLayout" alignment="CENTER" spacing="10">
                 <padding> <Insets bottom="10.0" top="10.0" /> </padding>
             </HBox>

@@ -17,11 +17,9 @@ public class Booking extends Entity<Booking>{
     private int quantity;
     private String bookingDate;
     private int notify = 0;
-    private String message = "";
     private String viewName;
     private Timestamp viewDate;
     private String viewLocation;
-    private String viewStatus;
 
    public Booking () {}
 
@@ -42,14 +40,6 @@ public class Booking extends Entity<Booking>{
         this.quantity = quantity;
     }
 
-    public Booking (int userID, int eventID) {
-        this.userID = userID;
-        this.eventID = eventID;
-    }
-
-    public Timestamp getViewDateTS() {
-        return viewDate;
-    }
 
     public String getViewDate() {
         return getDate(viewDate);
@@ -59,16 +49,8 @@ public class Booking extends Entity<Booking>{
         this.viewDate = setDate(eventdate);
     }
 
-    public String getViewLocation() {
-        return viewLocation;
-    }
-
     public String getViewName() {
         return viewName;
-    }
-
-    public void setViewDate(Timestamp viewDate) {
-        this.viewDate = viewDate;
     }
 
     public void setViewLocation(String viewLocation) {
